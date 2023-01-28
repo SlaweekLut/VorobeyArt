@@ -185,7 +185,7 @@
 </template>
 
 <script>
-import TitlePage from '@/components/Title.vue';
+import TitlePage from './components/Title.vue';
 export default {
 	name: 'PolicyPage',
 	components: {

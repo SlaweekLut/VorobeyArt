@@ -46,7 +46,7 @@
 						<h2 class="contacts__description">Давайте вместе создадим крутой проект! Просто заполните форму ниже</h2>
 					</div>
 				</div>
-				<form action="POST" class="contacts-form" id="contacts" style="--border: url('../img/form-border.svg')" v-on:submit.prevent="onSubmit">
+				<form action="POST" class="contacts-form" id="contacts" style="--border: url('./img/form-border.svg')" v-on:submit.prevent="onSubmit">
 					<div class="contacts-form__header">
 						<h2 class="contacts-form__title">Связаться с нами</h2>
 						<img src="/img/mark.png" alt="Марка" class="contacts-form__mark" />
@@ -109,11 +109,11 @@
 		</div>
 		<div id="contacts-map" class="contacts-map"></div>
 	</div>
-	<!-- <div class="contacts-/map" style="background: url('../img/map.png')"></div> -->
+	<!-- <div class="contacts-/map" style="background: url('./img/map.png')"></div> -->
 </template>
 
 <script>
-import TitlePage from '@/components/Title.vue';
+import TitlePage from './components/Title.vue';
 import mapgl from '2gis-maps';
 // import { yandexMap, ymapMarker } from 'vue-yandex-maps';
 

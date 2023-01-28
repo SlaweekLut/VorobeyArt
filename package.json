@@ -2,48 +2,42 @@
 	"name": "vorobey",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"db:serve": "cd public; json-server --watch likes.json --port=3001",
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
-		"lint": "vue-cli-service lint",
+		"dev": "node server",
+		"build:client": "vite build --outDir dist/client --ssrManifest",
+		"build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
 		"surge": "vue-cli-service build; surge --project ./dist --domain VorobeyArt.surge.sh"
 	},
 	"dependencies": {
+		"@vitejs/plugin-vue": "^4.0.0",
 		"2gis-maps": "^3.7.3",
 		"axios": "^1.1.1",
-		"core-js": "^3.8.3",
+		"express": "^4.18.2",
+		"vite": "^4.0.4",
 		"vue": "^3.2.13",
 		"vue-meta": "^2.4.0",
+		"vue-router": "^4.1.6",
 		"vue-v3-yandex-metrika": "^0.0.2-development",
 		"vue-yandex-maps": "^0.11.13"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.16",
-		"@babel/eslint-parser": "^7.12.16",
 		"@types/node": "^18.11.9",
-		"@vue/cli-plugin-babel": "~5.0.0",
-		"@vue/cli-plugin-eslint": "~5.0.0",
-		"@vue/cli-service": "~5.0.0",
-		"eslint": "^7.32.0",
-		"eslint-plugin-vue": "^8.0.3",
+		"eslint": "8",
+		"eslint-plugin-vue": "8",
 		"json-server": "^0.17.1",
-		"sass": "^1.54.9",
-		"sass-loader": "^13.0.2",
-		"vue-router": "^4.1.5"
+		"sass": "^1.54.9"
 	},
 	"eslintConfig": {
 		"root": true,
 		"env": {
-			"node": true
+			"es2021": true
 		},
 		"extends": [
 			"plugin:vue/vue3-essential",
 			"eslint:recommended"
 		],
-		"parserOptions": {
-			"parser": "@babel/eslint-parser"
-		},
 		"rules": {}
 	},
 	"browserslist": [

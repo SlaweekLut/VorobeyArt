@@ -50,13 +50,13 @@
 </template>
 
 <script>
-import GalleryTemplate from '@/components/Cases/Gallery.vue';
-import GalleryCardTemplate from '@/components/Cases/GalleryCard.vue';
-import LikeTemplate from '@/components/Cases/Like.vue';
-import FooterTemplate from '@/components/Cases/Footer.vue';
-import IntroTemplate from '@/components/Cases/Intro.vue';
-import TaskTemplate from '@/components/Cases/Task.vue';
-import TitleTemplate from '@/components/Cases/Title.vue';
+import GalleryTemplate from './components/Cases/Gallery.vue';
+import GalleryCardTemplate from './components/Cases/GalleryCard.vue';
+import LikeTemplate from './components/Cases/Like.vue';
+import FooterTemplate from './components/Cases/Footer.vue';
+import IntroTemplate from './components/Cases/Intro.vue';
+import TaskTemplate from './components/Cases/Task.vue';
+import TitleTemplate from './components/Cases/Title.vue';
 
 export default {
 	name: 'EnergotekARPage',

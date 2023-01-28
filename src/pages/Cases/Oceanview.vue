@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import GalleryTemplate from '@/components/Cases/Gallery.vue';
-import TitleTemplate from '@/components/Cases/Title.vue';
-import FooterTemplate from '@/components/Cases/Footer.vue';
-import LikeTemplate from '@/components/Cases/Like.vue';
-import IntroTemplate from '@/components/Cases/Intro.vue';
-import TaskTemplate from '@/components/Cases/Task.vue';
+import GalleryTemplate from './components/Cases/Gallery.vue';
+import TitleTemplate from './components/Cases/Title.vue';
+import FooterTemplate from './components/Cases/Footer.vue';
+import LikeTemplate from './components/Cases/Like.vue';
+import IntroTemplate from './components/Cases/Intro.vue';
+import TaskTemplate from './components/Cases/Task.vue';
 
 export default {
 	name: 'MarusyaPage',

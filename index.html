@@ -22,12 +22,15 @@
 			name="description"
 			content="Vorobey Art – быстроразвивающаяся креативная студия веб-дизайна, специализирующаяся на разработке корпоративных стилей, веб-сайтов, брендинга и 3Д моделирования."
 		/>
+		<!--preload-links-->
 	</head>
 	<body>
 		<noscript>
-			<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+			<strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
-		<div id="app"></div>
-		<!-- built files will be auto injected -->
+		<div id="app">
+			<!--app-html-->
+		</div>
+		<script type="module" src="/src/entry-client.js"></script>
 	</body>
 </html>

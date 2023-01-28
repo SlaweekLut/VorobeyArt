@@ -61,10 +61,10 @@
 <script>
 import axios from 'axios';
 
-import AboutNumbers from '@/components/About/Numbers.vue';
-import AboutService from '@/components/About/Service.vue';
-import AboutCard from '@/components/About/Card.vue';
-import TitlePage from '@/components/Title.vue';
+import AboutNumbers from './components/About/Numbers.vue';
+import AboutService from './components/About/Service.vue';
+import AboutCard from './components/About/Card.vue';
+import TitlePage from './components/Title.vue';
 export default {
 	name: 'AboutPage',
 	props: {

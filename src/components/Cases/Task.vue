@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import TitleTemplate from '@/components/Cases/Title.vue';
-import TitlePage from '@/components/Title.vue';
+import TitleTemplate from './components/Cases/Title.vue';
+import TitlePage from './components/Title.vue';
 
 export default {
 	name: 'TaskTemplate',

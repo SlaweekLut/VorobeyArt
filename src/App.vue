@@ -1,13 +1,13 @@
 <template>
 	<HeaderPage
 		:curtains="curtains"
-		v-if="this.$route.matched[0]?.name !== 'NotFound'"
+		v-if="matched?.name !== 'NotFound'"
 		@setCurtains="setCurtains"
-		:pages="{ contacts: this.$route.path === '/contacts', works: this.$route.path === '/works', about: this.$route.path === '/about', policy: this.$route.path === '/policy' }"
-		:home="this.$route.path === '/'"
+		:pages="{ contacts: path === '/contacts', works: path === '/works', about: path === '/about', policy: path === '/policy' }"
+		:home="path === '/'"
 	/>
-	<PreloaderElement v-if="this.$route.matched[0]?.name !== 'NotFound'" />
-	<CurtainsElement v-if="this.$route.matched[0]?.name !== 'NotFound' && this.curtains !== 'Menu' && this.curtains !== 'Preloader'" @setCurtains="setCurtains" />
+	<PreloaderElement v-if="matched?.name !== 'NotFound'" />
+	<CurtainsElement v-if="matched?.name !== 'NotFound' && curtains !== 'Menu' && curtains !== 'Preloader'" @setCurtains="setCurtains" />
 	<router-view v-slot="{ Component }">
 		<Transition :name="curtains === 'Menu' ? 'menu' : 'page'">
 			<component :is="Component" :key="$router.path" :class="{ menu: curtains === 'Menu' }" :curtains="curtains"> </component>
@@ -39,6 +39,14 @@ export default {
 			this.curtains = curtains;
 		},
 	},
+	computed: {
+		matched() {
+			return this.$route.matched[0];
+		},
+		path() {
+			return this.$route.path;
+		},
+	},
 	mounted() {
 		if (this.curtains === 'Preloader') {
 			setTimeout(() => {
@@ -60,116 +68,116 @@ export default {
 // License: none (public domain)
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Black.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Black.woff") format("woff"), url("@/assets/fonts/Qanelas-Black.eot") format("eot"), url("@/assets/fonts/Qanelas-Black.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Black.woff2") format("woff2"), url("./assets/fonts/Qanelas-Black.woff") format("woff"), url("./assets/fonts/Qanelas-Black.eot") format("eot"), url("./assets/fonts/Qanelas-Black.ttf") format("ttf")
 // 	font-weight: 900
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-ExtraBold.woff2") format("woff2"), url("@/assets/fonts/Qanelas-ExtraBold.woff") format("woff"), url("@/assets/fonts/Qanelas-ExtraBold.eot") format("eot"), url("@/assets/fonts/Qanelas-ExtraBold.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-ExtraBold.woff2") format("woff2"), url("./assets/fonts/Qanelas-ExtraBold.woff") format("woff"), url("./assets/fonts/Qanelas-ExtraBold.eot") format("eot"), url("./assets/fonts/Qanelas-ExtraBold.ttf") format("ttf")
 // 	font-weight: 800
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Bold.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Bold.woff") format("woff"), url("@/assets/fonts/Qanelas-Bold.eot") format("eot"), url("@/assets/fonts/Qanelas-Bold.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Bold.woff2") format("woff2"), url("./assets/fonts/Qanelas-Bold.woff") format("woff"), url("./assets/fonts/Qanelas-Bold.eot") format("eot"), url("./assets/fonts/Qanelas-Bold.ttf") format("ttf")
 // 	font-weight: 700
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-SemiBold.woff2") format("woff2"), url("@/assets/fonts/Qanelas-SemiBold.woff") format("woff"), url("@/assets/fonts/Qanelas-SemiBold.eot") format("eot"), url("@/assets/fonts/Qanelas-SemiBold.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-SemiBold.woff2") format("woff2"), url("./assets/fonts/Qanelas-SemiBold.woff") format("woff"), url("./assets/fonts/Qanelas-SemiBold.eot") format("eot"), url("./assets/fonts/Qanelas-SemiBold.ttf") format("ttf")
 // 	font-weight: 600
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Medium.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Medium.woff") format("woff"), url("@/assets/fonts/Qanelas-Medium.eot") format("eot"), url("@/assets/fonts/Qanelas-Medium.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Medium.woff2") format("woff2"), url("./assets/fonts/Qanelas-Medium.woff") format("woff"), url("./assets/fonts/Qanelas-Medium.eot") format("eot"), url("./assets/fonts/Qanelas-Medium.ttf") format("ttf")
 // 	font-weight: 500
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Regular.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Regular.woff") format("woff"), url("@/assets/fonts/Qanelas-Regular.eot") format("eot"), url("@/assets/fonts/Qanelas-Regular.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Regular.woff2") format("woff2"), url("./assets/fonts/Qanelas-Regular.woff") format("woff"), url("./assets/fonts/Qanelas-Regular.eot") format("eot"), url("./assets/fonts/Qanelas-Regular.ttf") format("ttf")
 // 	font-weight: 400
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Light.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Light.woff") format("woff"), url("@/assets/fonts/Qanelas-Light.eot") format("eot"), url("@/assets/fonts/Qanelas-Light.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Light.woff2") format("woff2"), url("./assets/fonts/Qanelas-Light.woff") format("woff"), url("./assets/fonts/Qanelas-Light.eot") format("eot"), url("./assets/fonts/Qanelas-Light.ttf") format("ttf")
 // 	font-weight: 300
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-UltraLight.woff2") format("woff2"), url("@/assets/fonts/Qanelas-UltraLight.woff") format("woff"), url("@/assets/fonts/Qanelas-UltraLight.eot") format("eot"), url("@/assets/fonts/Qanelas-UltraLight.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-UltraLight.woff2") format("woff2"), url("./assets/fonts/Qanelas-UltraLight.woff") format("woff"), url("./assets/fonts/Qanelas-UltraLight.eot") format("eot"), url("./assets/fonts/Qanelas-UltraLight.ttf") format("ttf")
 // 	font-weight: 200
 // 	font-display: swap
 // @font-face
 // 	font-family: Qanelas
-// 	src: url("@/assets/fonts/Qanelas-Thin.woff2") format("woff2"), url("@/assets/fonts/Qanelas-Thin.woff") format("woff"), url("@/assets/fonts/Qanelas-Thin.eot") format("eot"), url("@/assets/fonts/Qanelas-Thin.ttf") format("ttf")
+// 	src: url("./assets/fonts/Qanelas-Thin.woff2") format("woff2"), url("./assets/fonts/Qanelas-Thin.woff") format("woff"), url("./assets/fonts/Qanelas-Thin.eot") format("eot"), url("./assets/fonts/Qanelas-Thin.ttf") format("ttf")
 // 	font-weight: 100
 // 	font-display: swap
 // @font-face
 // 	font-family: TTCommons
-// 	src: url("@/assets/fonts/TTCommons-Bold.woff") format("woff"), url("@/assets/fonts/TTCommons-Bold.eot") format("eot"), url("@/assets/fonts/TTCommons-Bold.ttf") format("ttf")
+// 	src: url("./assets/fonts/TTCommons-Bold.woff") format("woff"), url("./assets/fonts/TTCommons-Bold.eot") format("eot"), url("./assets/fonts/TTCommons-Bold.ttf") format("ttf")
 // 	font-weight: 700
 // 	font-display: swap
 
 
 @font-face
 	font-family: Gilroy
-	src: url('@/assets/fonts/Gilroy-Regular.eot')
-	src: local('Gilroy Regular'), local('Gilroy-Regular'), url('@/assets/fonts/Gilroy-Regular.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Regular.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Regular.woff') format('woff'), url('@/assets/fonts/Gilroy-Regular.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Regular.eot')
+	src: local('Gilroy Regular'), local('Gilroy-Regular'), url('./assets/fonts/Gilroy-Regular.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Regular.woff2') format('woff2'), url('./assets/fonts/Gilroy-Regular.woff') format('woff'), url('./assets/fonts/Gilroy-Regular.ttf') format('truetype')
 	font-weight: normal
 	font-style: normal
 	font-display: swap
 @font-face
 	font-family: Gilroy
-	src: url('@/assets/fonts/Gilroy-Bold.eot')
-	src: local('Gilroy Bold'), local('Gilroy-Bold'), url('@/assets/fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Bold.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Bold.woff') format('woff'), url('@/assets/fonts/Gilroy-Bold.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Bold.eot')
+	src: local('Gilroy Bold'), local('Gilroy-Bold'), url('./assets/fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Bold.woff2') format('woff2'), url('./assets/fonts/Gilroy-Bold.woff') format('woff'), url('./assets/fonts/Gilroy-Bold.ttf') format('truetype')
 	font-weight: bold
 	font-style: normal
 	font-display: swap
 @font-face
 	font-family: Gilroy
-	src: url('@/assets/fonts/Gilroy-Black.eot')
-	src: local('Gilroy Black'), local('Gilroy-Black'), url('@/assets/fonts/Gilroy-Black.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Black.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Black.woff') format('woff'), url('@/assets/fonts/Gilroy-Black.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Black.eot')
+	src: local('Gilroy Black'), local('Gilroy-Black'), url('./assets/fonts/Gilroy-Black.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Black.woff2') format('woff2'), url('./assets/fonts/Gilroy-Black.woff') format('woff'), url('./assets/fonts/Gilroy-Black.ttf') format('truetype')
 	font-weight: 900
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-Light.eot')
-	src: local('Gilroy Light'), local('Gilroy-Light'), url('@/assets/fonts/Gilroy-Light.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Light.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Light.woff') format('woff'), url('@/assets/fonts/Gilroy-Light.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Light.eot')
+	src: local('Gilroy Light'), local('Gilroy-Light'), url('./assets/fonts/Gilroy-Light.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Light.woff2') format('woff2'), url('./assets/fonts/Gilroy-Light.woff') format('woff'), url('./assets/fonts/Gilroy-Light.ttf') format('truetype')
 	font-weight: 300
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-Semibold.eot')
-	src: local('Gilroy Semibold'), local('Gilroy-Semibold'), url('@/assets/fonts/Gilroy-Semibold.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Semibold.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Semibold.woff') format('woff'), url('@/assets/fonts/Gilroy-Semibold.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Semibold.eot')
+	src: local('Gilroy Semibold'), local('Gilroy-Semibold'), url('./assets/fonts/Gilroy-Semibold.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Semibold.woff2') format('woff2'), url('./assets/fonts/Gilroy-Semibold.woff') format('woff'), url('./assets/fonts/Gilroy-Semibold.ttf') format('truetype')
 	font-weight: 600
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-Medium.eot')
-	src: local('Gilroy Medium'), local('Gilroy-Medium'), url('@/assets/fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Medium.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Medium.woff') format('woff'), url('@/assets/fonts/Gilroy-Medium.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Medium.eot')
+	src: local('Gilroy Medium'), local('Gilroy-Medium'), url('./assets/fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Medium.woff2') format('woff2'), url('./assets/fonts/Gilroy-Medium.woff') format('woff'), url('./assets/fonts/Gilroy-Medium.ttf') format('truetype')
 	font-weight: 500
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-UltraLight.eot')
-	src: local('Gilroy UltraLight'), local('Gilroy-UltraLight'), url('@/assets/fonts/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-UltraLight.woff2') format('woff2'), url('@/assets/fonts/Gilroy-UltraLight.woff') format('woff'), url('@/assets/fonts/Gilroy-UltraLight.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-UltraLight.eot')
+	src: local('Gilroy UltraLight'), local('Gilroy-UltraLight'), url('./assets/fonts/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-UltraLight.woff2') format('woff2'), url('./assets/fonts/Gilroy-UltraLight.woff') format('woff'), url('./assets/fonts/Gilroy-UltraLight.ttf') format('truetype')
 	font-weight: 200
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-Extrabold.eot')
-	src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'), url('@/assets/fonts/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Extrabold.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Extrabold.woff') format('woff'), url('@/assets/fonts/Gilroy-Extrabold.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Extrabold.eot')
+	src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'), url('./assets/fonts/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Extrabold.woff2') format('woff2'), url('./assets/fonts/Gilroy-Extrabold.woff') format('woff'), url('./assets/fonts/Gilroy-Extrabold.ttf') format('truetype')
 	font-weight: 800
 	font-style: normal
 	font-display: swap
 	font-family: Gilroy
 @font-face
-	src: url('@/assets/fonts/Gilroy-Thin.eot')
-	src: local('Gilroy Thin'), local('Gilroy-Thin'), url('@/assets/fonts/Gilroy-Thin.eot?#iefix') format('embedded-opentype'), url('@/assets/fonts/Gilroy-Thin.woff2') format('woff2'), url('@/assets/fonts/Gilroy-Thin.woff') format('woff'), url('@/assets/fonts/Gilroy-Thin.ttf') format('truetype')
+	src: url('./assets/fonts/Gilroy-Thin.eot')
+	src: local('Gilroy Thin'), local('Gilroy-Thin'), url('./assets/fonts/Gilroy-Thin.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/Gilroy-Thin.woff2') format('woff2'), url('./assets/fonts/Gilroy-Thin.woff') format('woff'), url('./assets/fonts/Gilroy-Thin.ttf') format('truetype')
 	font-weight: 100
 	font-style: normal
 	font-display: swap
