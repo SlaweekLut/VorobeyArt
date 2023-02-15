@@ -132,23 +132,26 @@ export default {
 					let data = response.data;
 					let number = Number(data[this.$props.title]);
 
-					if (this.isLike === 'false') {
-						this.isLike = 'true';
-						number += 1;
-						localStorage.setItem(`isLike${this.$props.title}`, 'true');
-					} else {
-						this.isLike = 'false';
-						number -= 1;
-						localStorage.setItem(`isLike${this.$props.title}`, 'false');
-					}
-
+					console.log('console log 1:', number, data, data[this.$props.title], this.likesCount);
 					if (number < 0 || isNaN(number)) {
 						number = 0;
 					}
 
+					if (this.isLike === 'false') {
+						this.isLike = 'true';
+						number = number + 1;
+						localStorage.setItem(`isLike${this.$props.title}`, 'true');
+					} else {
+						this.isLike = 'false';
+						number = number - 1;
+						localStorage.setItem(`isLike${this.$props.title}`, 'false');
+					}
+
 					let params = new URLSearchParams();
 
+					console.log('console log 2:', number, data, data[this.$props.title], this.likesCount);
 					this.likesCount = number;
+					console.log('console log 3:', number, data, data[this.$props.title], this.likesCount);
 					params.append('title', this.$props.title);
 					params.append('like', number);
 
@@ -159,6 +162,7 @@ export default {
 							},
 						})
 						.finally(() => {
+							console.log('console log 4:', number, data, data[this.$props.title], this.likesCount);
 							this.sending = false;
 							console.log('Sent!');
 						});
