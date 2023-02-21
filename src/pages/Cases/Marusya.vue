@@ -41,7 +41,7 @@ export default {
 			intro: {
 				icon: 'marusya/PC/marusya-page-icon.svg',
 				logo: 'marusya/PC/marusya-page-logo.svg',
-				img: ['marusya', 'marusya-page'],
+				img: ['marusya', 'marusya-page-intro'],
 				title: 'Marusya',
 				description:
 					' — это оазис высочайшего сервиса и хорошего вкуса в Великом Новгороде. Уникальные техники приготовления блюд и интересные сочетания ингредиентов, обширная барная карта, разнообразное меню и лëгкая атмосфера праздника не оставят равнодушными самых взыскательных гостей!',
@@ -108,9 +108,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Ukigassen',
+				next: 'ukigassen',
+				background: ['ukigassen', 'ukigassen-page-intro'],
 			},
 		};
 	},

@@ -45,7 +45,7 @@ export default {
 			intro: {
 				icon: 'genezisproject/PC/genezisproject-page-icon.svg',
 				logo: 'genezisproject/PC/genezisproject-page-logo.svg',
-				img: ['genezisproject', 'genezisproject-page'],
+				img: ['genezisproject', 'genezisproject-page-intro'],
 				title: 'ГЕНЕЗИС ПРОЕКТ',
 				description:
 					'— архитектурно-инженерная компания, проектирующая комплексы общественных зданий, промышленные и спортивные объекты, городские пространства, социально-деловую инфраструктуру. ',
@@ -135,9 +135,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Золото Алтая',
+				next: 'zolotoaltaya',
+				background: ['zolotoaltaya', 'zolotoaltaya-page-intro'],
 			},
 		};
 	},

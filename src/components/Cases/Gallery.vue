@@ -6,9 +6,12 @@
 			'gallery--one': settings.type === 'OneImage',
 			'gallery--two': settings.type === 'TwoImage',
 			'gallery--three': settings.type === 'ThreeImage',
+			'gallery--three gallery--col': settings.type === 'ThreeImageCol',
 			'gallery--four': settings.type === 'FourImage',
 			'gallery--fourCollage': settings.type === 'FourImageCollage',
 			'gallery--collage': settings.type === 'ThreeImageCollage',
+			'gallery--izenbot': settings.mod === 'izenbot',
+			'gallery--mobdebut': settings.mod === 'mobdebut',
 		}"
 	>
 		<!-- Колонка слева -->
@@ -95,8 +98,38 @@ export default {
 <style lang="sass" scoped>
 .gallery
 	display: flex
-	width: 100vw
+	width: 100%
 	height: auto
+	&--mobdebut
+		@media(max-width: 768px)
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+	&--izenbot
+		display: grid
+		grid-template-columns: calc(66% - clamp(20px,6vw,113px)/2) calc(33% - clamp(20px,6vw,113px)/2)
+		grid-template-areas: 'one second' 'one third'
+		padding: 60px clamp(30px, 6vw, 130px) 0
+		gap: clamp(32px, 3vw, 60px) clamp(20px,6vw,113px)
+		.gallery__image
+			&:nth-child(1)
+				grid-area: one
+				img
+					object-fit: contain
+					object-position: bottom
+			&:nth-child(2)
+				grid-area: second
+				img
+					border-radius: 10px
+					box-shadow: 11px 9px 12px 0px #0000000D
+			&:nth-child(3)
+				grid-area: third
+		@media(max-width: 768px)
+			grid-template-columns: 1fr
+			grid-template-areas: 'second' 'third' 'one'
+
+	&--col
+		@media(max-width: 425px)
+			flex-direction: column
 	&__img
 		width: 100%
 		height: 100%

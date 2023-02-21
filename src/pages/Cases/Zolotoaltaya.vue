@@ -43,7 +43,7 @@ export default {
 			intro: {
 				icon: 'zolotoaltaya/PC/zolotoaltaya-page-icon.svg',
 				logo: 'zolotoaltaya/PC/zolotoaltaya-page-logo.svg',
-				img: ['zolotoaltaya', 'zolotoaltaya-page'],
+				img: ['zolotoaltaya', 'zolotoaltaya-page-intro'],
 				title: 'Золото Алтая',
 				description: '— производитель органической косметики на основе алтайского мумиё. Бренд выпускает шампуни и бальзамы для волос, уходовые средства для лица и кремы для рук.',
 				tags: '3D моделирование / Текстурирование / Дизайн',
@@ -130,9 +130,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Marusya',
+				next: 'marusya',
+				background: ['marusya', 'marusya-page-intro'],
 			},
 		};
 	},

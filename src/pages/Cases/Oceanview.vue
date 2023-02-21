@@ -40,7 +40,7 @@ export default {
 			intro: {
 				icon: 'oceanview/PC/oceanview-page-icon.svg',
 				logo: 'oceanview/PC/oceanview-page-logo.svg',
-				img: ['oceanview', 'oceanview-page'],
+				img: ['oceanview', 'oceanview-page-intro'],
 				title: 'OCEANVIEW',
 				description:
 					' — первое российское приложение для путешественников. Глобальная туристическая экосистема с удобной средой для общения, обмена актуальной информацией и планирования путешествий.',
@@ -106,9 +106,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Химтех-Р',
+				next: 'ximtexp',
+				background: ['ximtexp', 'ximtexp-page-intro'],
 			},
 		};
 	},

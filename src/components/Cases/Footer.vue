@@ -94,6 +94,7 @@ export default {
 		font-size: 100px
 		font-weight: 700
 		transition: .3s ease
+		white-space: nowrap
 		text-transform: uppercase
 	&:hover
 		.footer

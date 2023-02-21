@@ -39,7 +39,7 @@ export default {
 			intro: {
 				icon: 'ukigassen/PC/ukigassen-page-icon.svg',
 				logo: 'ukigassen/PC/ukigassen-page-logo.svg',
-				img: ['ukigassen', 'ukigassen-page'],
+				img: ['ukigassen', 'ukigassen-page-intro'],
 				title: 'UKIGASSEN',
 				description:
 					' — командная игра в снежки, появившаяся в конце 1980-х в Японии. В настоящее время ежегодные соревнования проводятся в Японии, Швеции, Финляндии, Армении, России и Норвегии.',
@@ -100,9 +100,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Ocean view',
+				next: 'oceanview',
+				background: ['oceanview', 'oceanview-page-intro'],
 			},
 		};
 	},

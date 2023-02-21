@@ -7,10 +7,10 @@
 		<div class="moodboard">
 			<div class="moodboard__img">
 				<picture>
-					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-11.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-11.webp" type="image/webp" />
-					<source srcset="/img/spisynote/JPG/spisynote-page-img-11.jpg" type="image/jpeg" />
-					<img srcset="/img/spisynote/PC/spisynote-page-img-11.webp" alt="Moodboard" type="image/webp" />
+					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-01.webp" type="image/webp" />
+					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-01.webp" type="image/webp" />
+					<source srcset="/img/spisynote/JPG/spisynote-page-img-01.jpg" type="image/jpeg" />
+					<img srcset="/img/spisynote/PC/spisynote-page-img-01.webp" alt="Moodboard" type="image/webp" />
 				</picture>
 			</div>
 		</div>
@@ -20,10 +20,10 @@
 		<div class="sketch">
 			<div class="sketch__img">
 				<picture>
-					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-03.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-03.webp" type="image/webp" />
-					<source srcset="/img/spisynote/JPG/spisynote-page-img-03.jpg" type="image/jpeg" />
-					<img srcset="/img/spisynote/PC/spisynote-page-img-03.webp" alt="Sketch" type="image/webp" />
+					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-04.webp" type="image/webp" />
+					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-04.webp" type="image/webp" />
+					<source srcset="/img/spisynote/JPG/spisynote-page-img-04.jpg" type="image/jpeg" />
+					<img srcset="/img/spisynote/PC/spisynote-page-img-04.webp" alt="Sketch" type="image/webp" />
 				</picture>
 			</div>
 		</div>
@@ -31,10 +31,10 @@
 		<div class="finall">
 			<div class="finall__img">
 				<picture>
-					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-10.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-10.webp" type="image/webp" />
-					<source srcset="/img/spisynote/JPG/spisynote-page-img-10.jpg" type="image/jpeg" />
-					<img srcset="/img/spisynote/PC/spisynote-page-img-10.webp" alt="finall" type="image/webp" />
+					<source media="(max-width: 768px)" srcset="/img/spisynote/Mobile/spisynote-page-img-05.webp" type="image/webp" />
+					<source media="(min-width: 769px)" srcset="/img/spisynote/PC/spisynote-page-img-05.webp" type="image/webp" />
+					<source srcset="/img/spisynote/JPG/spisynote-page-img-05.jpg" type="image/jpeg" />
+					<img srcset="/img/spisynote/PC/spisynote-page-img-05.webp" alt="finall" type="image/webp" />
 				</picture>
 			</div>
 		</div>
@@ -73,7 +73,7 @@ export default {
 			intro: {
 				icon: 'spisynote/PC/spisynote-page-icon.svg',
 				logo: 'spisynote/PC/spisynote-page-logo.svg',
-				img: ['spisynote', 'spisynote-page'],
+				img: ['spisynote', 'spisynote-page-intro'],
 				title: 'SpicyNote',
 				description: '— новый производитель натуральной косметики. Бренд выпускает средства по уходу для лица, волос и тела. Натуральные составы и никаких испытаний на животных.',
 				tags: 'Логотип / Визуализация',
@@ -92,11 +92,7 @@ export default {
 			gallery: [
 				{
 					type: 'TwoImage',
-					images: [{ url: ['spisynote', '/spisynote-page-img-01'] }, { url: ['spisynote', '/spisynote-page-img-02'] }],
-				},
-				{
-					type: 'OneImage',
-					images: [{ url: ['spisynote', '/spisynote-page-img-07'] }],
+					images: [{ url: ['spisynote', '/spisynote-page-img-02'] }, { url: ['spisynote', '/spisynote-page-img-03'] }],
 				},
 				{
 					type: 'OneImage',
@@ -104,9 +100,14 @@ export default {
 					images: [{ url: ['spisynote', '/spisynote-page-img-06'] }],
 				},
 				{
+					type: 'OneImage',
+					border: 'simple',
+					images: [{ url: ['spisynote', '/spisynote-page-img-07'] }],
+				},
+				{
 					type: 'TwoImage',
 					border: 'simple',
-					images: [{ url: ['spisynote', '/spisynote-page-img-05'] }, { url: ['spisynote', '/spisynote-page-img-04'] }],
+					images: [{ url: ['spisynote', '/spisynote-page-img-08'] }, { url: ['spisynote', '/spisynote-page-img-09'] }],
 				},
 			],
 			titles: [
@@ -160,9 +161,9 @@ export default {
 				},
 			],
 			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
+				title: 'Генезис проект',
+				next: 'genezis',
+				background: ['genezisproject', 'genezisproject-page-intro'],
 			},
 		};
 	},

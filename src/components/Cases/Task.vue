@@ -49,3 +49,8 @@ export default {
 	z-index: 3
 	background: #F9F9F9
 </style>
+
+<style lang="sass">
+.task > .title-aside
+	top: 76px
+</style>

@@ -7,11 +7,13 @@
 			'gallery--three': settings.type === 'ThreeImage',
 			'gallery--four': settings.type === 'FourImage',
 		}"
+		:style="{ background: settings.background }"
 	>
 		<!-- Изображения -->
 		<div
 			class="gallery__wrapper"
-			:class="[`gallery__wrapper--${settings.type}`]"
+			:class="[`gallery__wrapper--${settings.type}`, `gallery__wrapper--${settings.mod}`]"
+			:style="{ gap: settings.gap }"
 			v-if="settings.type === 'OneImage' || settings.type === 'TwoImage' || settings.type === 'ThreeImage'"
 		>
 			<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`, `gallery__shadow--${settings.shadow}`]" v-for="image in settings.images" :key="image.url">
@@ -19,8 +21,95 @@
 					<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
 					<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
 					<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-					<img class="gallery__img" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" :alt="image.url" type="image/webp" />
+					<img
+						class="gallery__img"
+						:style="{ 'border-radius': settings.borderRadius }"
+						:srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+						:alt="image.url"
+						type="image/webp"
+					/>
 				</picture>
+			</div>
+		</div>
+
+		<div class="gallery__wrapper gallery__wrapper--SixThreeImage" v-if="settings.type === 'SixThreeImage'">
+			<div class="gallery__column">
+				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
+					<picture>
+						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
+						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
+						<source :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${settings.images[n - 1].url[1]}.jpg`" type="image/jpeg" />
+						<img
+							class="gallery__img"
+							:srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`"
+							:alt="settings.images[n - 1].url"
+							type="image/webp"
+						/>
+					</picture>
+				</div>
+			</div>
+			<div class="gallery__column">
+				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
+					<picture>
+						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 1].url[0]}/Mobile${settings.images[n + 1].url[1]}.webp`" type="image/webp" />
+						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 1].url[0]}/PC${settings.images[n + 1].url[1]}.webp`" type="image/webp" />
+						<source :srcset="`/img/${settings.images[n + 1].url[0]}/JPG${settings.images[n + 1].url[1]}.jpg`" type="image/jpeg" />
+						<img
+							class="gallery__img"
+							:srcset="`/img/${settings.images[n + 1].url[0]}/PC${settings.images[n + 1].url[1]}.webp`"
+							:alt="settings.images[n + 1].url"
+							type="image/webp"
+						/>
+					</picture>
+				</div>
+			</div>
+			<div class="gallery__column">
+				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
+					<picture>
+						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 3].url[0]}/Mobile${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
+						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
+						<source :srcset="`/img/${settings.images[n + 3].url[0]}/JPG${settings.images[n + 3].url[1]}.jpg`" type="image/jpeg" />
+						<img
+							class="gallery__img"
+							:srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`"
+							:alt="settings.images[n + 3].url"
+							type="image/webp"
+						/>
+					</picture>
+				</div>
+			</div>
+		</div>
+
+		<div class="gallery__wrapper gallery__wrapper--SixTwoImage" v-if="settings.type === 'SixTwoImage'">
+			<div class="gallery__row">
+				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 3" :key="n">
+					<picture>
+						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
+						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
+						<source :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${settings.images[n - 1].url[1]}.jpg`" type="image/jpeg" />
+						<img
+							class="gallery__img"
+							:srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`"
+							:alt="settings.images[n - 1].url"
+							type="image/webp"
+						/>
+					</picture>
+				</div>
+			</div>
+			<div class="gallery__row">
+				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 3" :key="n">
+					<picture>
+						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 2].url[0]}/Mobile${settings.images[n + 2].url[1]}.webp`" type="image/webp" />
+						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 2].url[0]}/PC${settings.images[n + 2].url[1]}.webp`" type="image/webp" />
+						<source :srcset="`/img/${settings.images[n + 2].url[0]}/JPG${settings.images[n + 2].url[1]}.jpg`" type="image/jpeg" />
+						<img
+							class="gallery__img"
+							:srcset="`/img/${settings.images[n + 2].url[0]}/PC${settings.images[n + 2].url[1]}.webp`"
+							:alt="settings.images[n + 2].url"
+							type="image/webp"
+						/>
+					</picture>
+				</div>
 			</div>
 		</div>
 
@@ -117,6 +206,7 @@ export default {
 			default: {
 				type: '',
 				images: [],
+				background: '#F9F9F9',
 			},
 		},
 	},
@@ -128,15 +218,36 @@ export default {
 	display: flex
 	width: 100vw
 	height: auto
-	background-color: #F9F9F9
 	padding: 70px 0
 	position: relative
 	z-index: 2
+	background: #f9f9f9
+	&:has(.gallery__wrapper--flipknife)
+		padding: 70px 30px
 	&__wrapper
 		max-width: 1442px
 		width: 100%
 		display: flex
 		margin: 0 auto
+		&--goup
+			display: grid
+			grid-template-columns: repeat(6, 1fr)
+			@media(max-width: 768px)
+				grid-template-columns: repeat(3, 1fr)
+		&--flipknife
+			@media(max-width: 768px)
+				display: grid
+				grid-template-columns: repeat(2, 1fr)
+		&--izenbot
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			@media(max-width: 768px)
+				grid-template-columns: repeat(1, 1fr)
+
+		&--ThreeImage
+			gap: clamp(32px, 8vw, 78px)
+			@media(max-width: 768px)
+				flex-direction: column
 		&--TwoImage
 			gap: clamp(32px, 8vw, 78px)
 			@media(max-width: 768px)
@@ -161,6 +272,48 @@ export default {
 				padding: 0
 				grid-template-columns: repeat(2, 1fr)
 				grid-template-areas: 'one one' 'two two' 'three four' 'five six'
+
+		&--SixThreeImage
+			display: flex
+			max-width: 1674px
+			padding: 0px 32px
+			gap: clamp(32px, 5vw, 53px)
+			@media(max-width: 768px)
+				flex-direction: column
+				padding: 0
+				gap: clamp(10px, 2vw, 53px)
+			.gallery__column
+				display: flex
+				flex-direction: column
+				gap: clamp(32px, 5vw, 53px)
+				@media(max-width: 768px)
+					flex-direction: row
+					gap: clamp(10px, 2vw, 53px)
+				&:first-child, &:last-child
+					margin-top: clamp(32px, 5vw, 100px)
+					@media(max-width: 768px)
+						margin-top: 0
+		&--SixTwoImage
+			display: flex
+			max-width: 1674px
+			padding: 0px 32px
+			flex-direction: column
+			gap: clamp(32px, 5vw, 100px)
+			.gallery
+				&__image
+					max-width: 414px
+					width: 100%
+				&__row
+					display: flex
+					gap: clamp(32px, 5vw, 100px)
+					&:last-child
+						margin-left: auto
+					@media(max-width: 768px)
+						flex-direction: column
+
+			@media(max-width: 768px)
+				padding: 0
+
 		&--EightImage
 			display: flex
 			padding: 0px clamp(38px, 8vw, 108px)
@@ -192,11 +345,13 @@ export default {
 		object-fit: contain
 		object-position: center center
 		display: block
+		border-radius: 5px
 	&__shadow
 		&--false
 			box-shadow: none !important
 	&__image
 		max-width: 100%
+		width: 100%
 		z-index: 2
 		box-shadow: 11px 9px 12px 0px #0000000D
 		border-radius: 15px
@@ -212,6 +367,7 @@ export default {
 	&--three > &__wrapper
 		justify-content: space-evenly
 		gap: 32px
+
 
 @media(max-width: 1024px)
 	.gallery

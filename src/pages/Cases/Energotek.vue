@@ -140,7 +140,7 @@ export default {
 			intro: {
 				icon: 'energotek/PC/energotek-page-icon.svg',
 				logo: 'energotek/PC/energotek-page-logo.svg',
-				img: ['energotek', 'energotek-page'],
+				img: ['energotek', 'energotek-page-intro'],
 				title: 'Энерготек',
 				description:
 					'— разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Решения компании повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации.',
@@ -166,7 +166,7 @@ export default {
 			footer: {
 				title: 'Энерготэк AR',
 				next: 'energotekAR',
-				background: ['energotekAR', 'energotekAR-page'],
+				background: ['energotekAR', 'energotekAR-page-intro'],
 			},
 			isDragging: false,
 			cursorPos: [0, 0],

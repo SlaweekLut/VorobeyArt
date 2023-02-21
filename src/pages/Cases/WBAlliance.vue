@@ -3,68 +3,13 @@
 		<IntroTemplate :intro="intro" />
 		<TaskTemplate :task="task" />
 		<TitleTemplate :settings="titles[0]" />
-		<div class="logo">
-			<div class="logo__wrapper">
-				<picture>
-					<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-02.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-02.webp" type="image/webp" />
-					<source srcset="/img/wballiance/JPG/WBAlliance-page-img-02.jpg" type="image/jpeg" />
-					<img class="logo__img" srcset="/img/wballiance/PC/WBAlliance-page-img-02.webp" alt="" type="image/webp" />
-				</picture>
-				<picture>
-					<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-01.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-01.webp" type="image/webp" />
-					<source srcset="/img/wballiance/JPG/WBAlliance-page-img-01.jpg" type="image/jpeg" />
-					<img class="logo__img" srcset="/img/wballiance/PC/WBAlliance-page-img-01.webp" alt="" type="image/webp" />
-				</picture>
-				<p class="logo__text">Знак используется отдельно от текстовой части в случаях, когда наличие надписи не обязательно, а так же в качестве фирменного индикатора.</p>
-			</div>
-		</div>
+		<GalleryCardTemplate :settings="gallery[0]" />
 		<TitleTemplate :settings="titles[1]" />
-		<div class="color">
-			<div class="color__wrapper">
-				<picture>
-					<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-08.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-08.webp" type="image/webp" />
-					<source srcset="/img/wballiance/JPG/WBAlliance-page-img-08.jpg" type="image/jpeg" />
-					<img srcset="/img/wballiance/PC/WBAlliance-page-img-08.webp" alt="" type="image/webp" />
-				</picture>
-				<div class="color__grid">
-					<picture>
-						<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-07.webp" type="image/webp" />
-						<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-07.webp" type="image/webp" />
-						<source srcset="/img/wballiance/JPG/WBAlliance-page-img-07.jpg" type="image/jpeg" />
-						<img srcset="/img/wballiance/PC/WBAlliance-page-img-07.webp" alt="" type="image/webp" />
-					</picture>
-					<picture>
-						<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-06.webp" type="image/webp" />
-						<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-06.webp" type="image/webp" />
-						<source srcset="/img/wballiance/JPG/WBAlliance-page-img-06.jpg" type="image/jpeg" />
-						<img srcset="/img/wballiance/PC/WBAlliance-page-img-06.webp" alt="" type="image/webp" />
-					</picture>
-					<picture>
-						<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-05.webp" type="image/webp" />
-						<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-05.webp" type="image/webp" />
-						<source srcset="/img/wballiance/JPG/WBAlliance-page-img-05.jpg" type="image/jpeg" />
-						<img srcset="/img/wballiance/PC/WBAlliance-page-img-05.webp" alt="" type="image/webp" />
-					</picture>
-					<picture>
-						<source media="(max-width: 768px)" srcset="/img/wballiance/Mobile/WBAlliance-page-img-04.webp" type="image/webp" />
-						<source media="(min-width: 769px)" srcset="/img/wballiance/PC/WBAlliance-page-img-04.webp" type="image/webp" />
-						<source srcset="/img/wballiance/JPG/WBAlliance-page-img-04.jpg" type="image/jpeg" />
-						<img srcset="/img/wballiance/PC/WBAlliance-page-img-04.webp" alt="" type="image/webp" />
-					</picture>
-				</div>
-			</div>
-		</div>
-		<div class="gallery-title">
-			<TitleTemplate :settings="titles[2]" />
-			<GalleryTemplate :settings="gallery[0]" />
-		</div>
-		<GalleryTemplate :settings="gallery[1]" />
-		<GalleryTemplate :settings="gallery[2]" />
-		<GalleryTemplate :settings="gallery[3]" />
+		<GalleryCardTemplate :settings="gallery[1]" />
+		<TitleTemplate :settings="titles[2]" />
+		<GalleryCardTemplate :settings="gallery[2]" />
 		<TitleTemplate :settings="titles[3]" />
+		<GalleryTemplate :settings="gallery[3]" />
 		<GalleryTemplate :settings="gallery[4]" />
 		<GalleryTemplate :settings="gallery[5]" />
 		<LikeTemplate :title="intro.img[0]" />
@@ -74,6 +19,7 @@
 
 <script>
 import GalleryTemplate from '@/components/Cases/Gallery.vue';
+import GalleryCardTemplate from '@/components/Cases/GalleryCard.vue';
 import TitleTemplate from '@/components/Cases/Title.vue';
 import FooterTemplate from '@/components/Cases/Footer.vue';
 import IntroTemplate from '@/components/Cases/Intro.vue';
@@ -84,6 +30,7 @@ export default {
 	name: 'WBAlliancePage',
 	components: {
 		GalleryTemplate,
+		GalleryCardTemplate,
 		TitleTemplate,
 		FooterTemplate,
 		IntroTemplate,
@@ -95,11 +42,11 @@ export default {
 			intro: {
 				icon: 'wballiance/PC/wballiance-page-icon.svg',
 				logo: 'wballiance/PC/wballiance-page-logo.svg',
-				img: ['wballiance', 'wballiance-page'],
+				img: ['wballiance', 'wballiance-page-intro'],
 				title: 'WBAlliance',
 				description:
-					'— помогла множеству партнеров открыть свой бизнес и успешно зарабатывать на маркетплейсах! Компания существует на рынке более 7 лет и знает все о том, как устроен бизнес торговли на площадках WB или Ozon.',
-				tags: 'Логотип / Логобук / Презентация / Брендинг',
+					'— компания, помогающая партнерам открывать свой бизнес и успешно зарабатывать на маркетплейсах. WB Alliance на рынке более 7 лет и знает все о торговле на площадках WB или Ozon.',
+				tags: 'Фирменный стиль / Брендбук',
 			},
 			task: {
 				titles: {
@@ -107,7 +54,7 @@ export default {
 						title: 'Задача',
 						fontSize: 'simple',
 					},
-					text: 'Заказчик обратился к нам с задачей разработать фирменный стиль и оформить брендбук, который впоследствии менеджеры смогут использовать для ведения компании.<br/><br/>Из пожеланий: придерживаться трендов текущего года, минимализм. Сделать упор на применение логотипа, как можно делать и как нельзя.',
+					text: 'Заказчик обратился к нам с задачей разработать фирменный стиль и оформить брендбук, который впоследствии менеджеры смогут использовать для ведения компании.<br><br>Из пожеланий: использовать в оформлении брендбука несколько корпоративных цветов.',
 					padding: 'task',
 				},
 				title: 'WB Alliance',
@@ -115,29 +62,37 @@ export default {
 			gallery: [
 				{
 					type: 'OneImage',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-11'] }],
-				},
-				{
-					type: 'OneImage',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-12'] }],
+					images: [{ url: ['wballiance', '/wballiance-page-img-01'] }],
+					shadow: 'false',
 				},
 				{
 					type: 'TwoImage',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-09'] }, { url: ['wballiance', '/WBAlliance-page-img-10'] }],
+					background: 'linear-gradient(130.46deg, #0066B1 10.72%, #003D78 83.52%)',
+					images: [{ url: ['wballiance', '/wballiance-page-img-02'] }, { url: ['wballiance', '/wballiance-page-img-03'] }],
 				},
 				{
-					type: 'OneImage',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-16'] }],
+					type: 'FourImage',
+					images: [
+						{ url: ['wballiance', '/wballiance-page-img-04'] },
+						{ url: ['wballiance', '/wballiance-page-img-06'] },
+						{ url: ['wballiance', '/wballiance-page-img-05'] },
+						{ url: ['wballiance', '/wballiance-page-img-07'] },
+					],
 				},
 				{
 					type: 'OneImage',
 					border: 'simple',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-13'] }],
+					images: [{ url: ['wballiance', '/wballiance-page-img-08'] }],
+				},
+				{
+					type: 'OneImage',
+					border: 'simple',
+					images: [{ url: ['wballiance', '/wballiance-page-img-09'] }],
 				},
 				{
 					type: 'TwoImage',
 					border: 'simple',
-					images: [{ url: ['wballiance', '/WBAlliance-page-img-14'] }, { url: ['wballiance', '/WBAlliance-page-img-15'] }],
+					images: [{ url: ['wballiance', '/wballiance-page-img-10'] }, { url: ['wballiance', '/wballiance-page-img-11'] }],
 				},
 			],
 			titles: [
@@ -146,7 +101,7 @@ export default {
 						title: 'Этап 1 <span class="title__title-defis">-</span> Определение направления',
 						fontSize: 'simple',
 					},
-					text: 'Компания занимается продажами товаров на маркетплейсах и имеет быстрорастущие результаты. Логотип напомнил нам марку “BMW”. Все это сформировало динамические и не стандартные элементы, движение вверх, на скорости.',
+					text: 'Компания занимается продажами товаров на маркетплейсах, инвестициями и имеет быстрорастущие результаты - это символизирует движение вверх. На основе данной ассоциации мы решили отразить в фирменном стиле WB Alliance нестандартные, динамичные элементы.',
 					padding: 'simple',
 				},
 				{
@@ -154,7 +109,7 @@ export default {
 						title: 'Этап 2 <span class="title__title-defis">-</span> Разработка стиля',
 						fontSize: 'simple',
 					},
-					text: 'На основе имеющегося логотипа и заданного направления проработали главные элементы стиля. Подобрали пару шрифтов, для написания текста и заголовков. Цвета, которые являются основными.',
+					text: 'На основе имеющегося логотипа и заданного направления проработали главные элементы стиля. Подобрали шрифты для написания текста и выделения заголовков. Определили цвета, которые будут основными.',
 					padding: 'simple',
 				},
 				{
@@ -162,7 +117,7 @@ export default {
 						title: 'Этап 3 <span class="title__title-defis">-</span> Верстка',
 						fontSize: 'simple',
 					},
-					text: 'Собрали брендбук по стандартам с применением элементов фирменного стиля.<br/><br/>Также для каждого направления создали уникальное изображение, которое символизирует определенный вид работ и отражает его специфику.<br/><br/>В поддержку логотипа, для решения дополнительных оформительских задач сделали пиктограммы. Выбрали плоский контурный стиль, напоминающий чертежи.',
+					text: 'Собрали брендбук по стандартам с применением элементов фирменного стиля.<br><br>Оформили разделы об использовании логотипа, применении шрифтов, цветов, паттернов.<br><br>В поддержку логотипа для решения дополнительных оформительских задач сделали пиктограммы. Выбрали плоский контурный стиль.',
 					padding: 'simple',
 				},
 				{
@@ -170,14 +125,14 @@ export default {
 						title: 'Результат',
 						fontSize: 'simple',
 					},
-					text: 'Разработали фирменный стиль компании и на его основе оформили брендбук. Нашли удачное решение, которое разделило направления деятельности, но сохранило общие черты, связывающие их между собой.',
+					text: 'Разработали фирменный стиль, на его основе оформили брендбук. Нашли удачное решение, которое соответствовало всем пожеланиям заказчика и отразило специфику деятельности компании.',
 					padding: 'simple',
 				},
 			],
 			footer: {
 				title: 'Motorika',
 				next: 'motorika',
-				background: ['motorika', 'motorika-page'],
+				background: ['motorika', 'motorika-page-intro'],
 			},
 		};
 	},

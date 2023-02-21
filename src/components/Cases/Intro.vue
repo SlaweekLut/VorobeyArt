@@ -171,6 +171,7 @@ export default {
 
 		&__logo
 			height: 52px
+			max-width: 80%
 		&__column
 			max-width: 500px
 			margin: 0 auto

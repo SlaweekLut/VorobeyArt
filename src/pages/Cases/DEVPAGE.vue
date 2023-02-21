@@ -73,7 +73,7 @@ export default {
 			intro: {
 				icon: 'spisynote/PC/spisynote-page-icon.svg',
 				logo: 'spisynote/PC/spisynote-page-logo.svg',
-				img: ['spisynote', 'spisynote-page'],
+				img: ['spisynote', 'spisynote-page-intro'],
 				title: 'SpicyNote',
 				description: '— новый производитель натуральной косметики. Бренд выпускает средства по уходу для лица, волос и тела. Натуральные составы и никаких испытаний на животных.',
 				tags: 'Логотип / Визуализация',
@@ -159,11 +159,6 @@ export default {
 					padding: 'clamp(30px, 8vw, 60px) 0px',
 				},
 			],
-			footer: {
-				title: 'ENERGOTEK',
-				next: 'energotek',
-				background: ['energotek', 'energotek-page'],
-			},
 		};
 	},
 };

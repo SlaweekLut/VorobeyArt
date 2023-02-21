@@ -14,12 +14,23 @@ import ZolotoaltayaPage from './pages/Cases/Zolotoaltaya.vue';
 import UkigassenPage from './pages/Cases/Ukigassen.vue';
 import MarusyaPage from './pages/Cases/Marusya.vue';
 import Oceanview from './pages/Cases/Oceanview.vue';
+import XimtexpPage from './pages/Cases/Ximtexp.vue';
+import MobdebutPage from './pages/Cases/Mobdebut.vue';
+import PrimetravelPage from './pages/Cases/Primetravel.vue';
+import TomiaiPage from './pages/Cases/Tomiai.vue';
+import ProzapchastPage from './pages/Cases/Prozapchast.vue';
+import OwnwifiPage from './pages/Cases/Ownwifi.vue';
+import KvanttelekomBrendPage from './pages/Cases/KvanttelekomBrend.vue';
+import HonePage from './pages/Cases/Hone.vue';
+import AladdinPage from './pages/Cases/Aladdin.vue';
+import UnidancePage from './pages/Cases/Unidance.vue';
+import FlipknifePage from './pages/Cases/Flipknife.vue';
+import GoupPage from './pages/Cases/Goup.vue';
+import PawpawPage from './pages/Cases/Pawpaw.vue';
+import XplanePage from './pages/Cases/Xplane.vue';
+import IzenbotPage from './pages/Cases/Izenbot.vue';
 import DEV from './pages/Cases/DEVPAGE.vue';
-// import ProzapchastPage from './pages/Cases/Prozapchast.vue'
-// import OwnPage from './pages/Cases/Own.vue'
-// import TemplatesPage from './pages/Templates.vue'
 import PolicyPage from './pages/Policy.vue';
-// import AgreementPage from './pages/Agreement.vue'
 
 export default createRouter({
 	history: createWebHistory(),
@@ -37,16 +48,7 @@ export default createRouter({
 		{ path: '/contacts', component: ContactsPage },
 		{ path: '/policy', component: PolicyPage },
 		{ path: '/DEVPAGES', component: DEV },
-		// { path: '/agreement', component: AgreementPage },
-		// { path: '/templates', component: TemplatesPage },
-		{
-			path: '/energotek',
-			component: EnergotekPage,
-			// , meta: {
-			// 	title: 'Vorobey Art | Energotek',
-			// 	description: 'Energotek — разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Наши решения повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации.'
-			// }
-		},
+		{ path: '/energotek', component: EnergotekPage },
 		{ path: '/motorika', component: MotorikaPage },
 		{ path: '/spicynote', component: SpicynotePage },
 		{ path: '/genezis', component: GenezisPage },
@@ -54,11 +56,23 @@ export default createRouter({
 		{ path: '/ukigassen', component: UkigassenPage },
 		{ path: '/marusya', component: MarusyaPage },
 		{ path: '/oceanview', component: Oceanview },
-		// { path: '/prozapchast', component: ProzapchastPage },
-		// { path: '/own', component: OwnPage },
 		{ path: '/wballiance', component: WBAlliancePage },
 		{ path: '/energotekAR', component: EnergotekARPage },
-		// { path: '/404', component: ErrorPage },
+		{ path: '/ximtexp', component: XimtexpPage },
+		{ path: '/mobdebut', component: MobdebutPage },
+		{ path: '/primetravel', component: PrimetravelPage },
+		{ path: '/tomiai', component: TomiaiPage },
+		{ path: '/prozapchast', component: ProzapchastPage },
+		{ path: '/ownwifi', component: OwnwifiPage },
+		{ path: '/hone', component: HonePage },
+		{ path: '/aladdin', component: AladdinPage },
+		{ path: '/unidance', component: UnidancePage },
+		{ path: '/flipknife', component: FlipknifePage },
+		{ path: '/goup', component: GoupPage },
+		{ path: '/pawpaw', component: PawpawPage },
+		{ path: '/xplane', component: XplanePage },
+		{ path: '/izenbot', component: IzenbotPage },
+		{ path: '/kvanttelekomBrend', component: KvanttelekomBrendPage },
 		{ path: '/:pathMatch(.*)*', name: 'NotFound', component: ErrorPage },
 	],
 });
