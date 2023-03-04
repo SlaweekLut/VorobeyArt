@@ -168,48 +168,7 @@ export default {
 				next: 'energotekAR',
 				background: ['energotekAR', 'energotekAR-page-intro'],
 			},
-			isDragging: false,
-			cursorPos: [0, 0],
-			el: null,
 		};
-	},
-	mounted() {
-		window.addEventListener('mouseup', this.onMouseUp);
-	},
-	// destroyed() {
-	// 	window.removeEventListener('mouseup', this.onMouseUp);
-	// },
-	methods: {
-		/** @param {MouseEvent} ev */
-		onMouseDown(ev) {
-			this.cursorPos = [ev.pageX, ev.pageY];
-			this.isDragging = true;
-
-			window.addEventListener('mousemove', this.onMouseHold);
-		},
-
-		/** @param {MouseEvent} ev */
-		onMouseUp() {
-			window.removeEventListener('mousemove', this.onMouseHold);
-			this.isDragging = false;
-		},
-
-		/** @param {MouseEvent} ev */
-		onMouseHold(ev) {
-			ev.preventDefault();
-
-			requestAnimationFrame(() => {
-				const delta = [ev.pageX - this.cursorPos[0], ev.pageY - this.cursorPos[1]];
-
-				this.cursorPos = [ev.pageX, ev.pageY];
-
-				if (!this.$refs.el) return;
-				this.$refs.el.scrollBy({
-					left: -delta[0],
-					top: -delta[1],
-				});
-			});
-		},
 	},
 };
 </script>
@@ -418,16 +377,4 @@ export default {
 		&__title
 			span:last-child
 				font-size: 16px
-</style>
-
-<style lang="sass">
-
-.title--energotek
-	position: relative
-	z-index: 1
-	background-color: #F9F9F9
-	padding: 30px !important
-	.title
-		&__wrapper
-			margin: 0 auto
 </style>

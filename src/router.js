@@ -29,7 +29,6 @@ import GoupPage from './pages/Cases/Goup.vue';
 import PawpawPage from './pages/Cases/Pawpaw.vue';
 import XplanePage from './pages/Cases/Xplane.vue';
 import IzenbotPage from './pages/Cases/Izenbot.vue';
-import DEV from './pages/Cases/DEVPAGE.vue';
 import PolicyPage from './pages/Policy.vue';
 
 export default createRouter({
@@ -47,7 +46,6 @@ export default createRouter({
 		{ path: '/about', component: AboutPage },
 		{ path: '/contacts', component: ContactsPage },
 		{ path: '/policy', component: PolicyPage },
-		{ path: '/DEVPAGES', component: DEV },
 		{ path: '/energotek', component: EnergotekPage },
 		{ path: '/motorika', component: MotorikaPage },
 		{ path: '/spicynote', component: SpicynotePage },

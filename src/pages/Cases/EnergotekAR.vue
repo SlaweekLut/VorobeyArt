@@ -162,48 +162,7 @@ export default {
 				next: 'wballiance',
 				background: ['wballiance', 'wballiance-page-intro'],
 			},
-			isDragging: false,
-			cursorPos: [0, 0],
-			el: null,
 		};
-	},
-	mounted() {
-		window.addEventListener('mouseup', this.onMouseUp);
-	},
-	// destroyed() {
-	// 	window.removeEventListener('mouseup', this.onMouseUp);
-	// },
-	methods: {
-		/** @param {MouseEvent} ev */
-		onMouseDown(ev) {
-			this.cursorPos = [ev.pageX, ev.pageY];
-			this.isDragging = true;
-
-			window.addEventListener('mousemove', this.onMouseHold);
-		},
-
-		/** @param {MouseEvent} ev */
-		onMouseUp() {
-			window.removeEventListener('mousemove', this.onMouseHold);
-			this.isDragging = false;
-		},
-
-		/** @param {MouseEvent} ev */
-		onMouseHold(ev) {
-			ev.preventDefault();
-
-			requestAnimationFrame(() => {
-				const delta = [ev.pageX - this.cursorPos[0], ev.pageY - this.cursorPos[1]];
-
-				this.cursorPos = [ev.pageX, ev.pageY];
-
-				if (!this.$refs.el) return;
-				this.$refs.el.scrollBy({
-					left: -delta[0],
-					top: -delta[1],
-				});
-			});
-		},
 	},
 };
 </script>
@@ -278,27 +237,7 @@ export default {
 		strong
 			font-weight: 700
 
-.material
-	&__wrapper
-		max-width: 1370px
-		width: 100%
-		padding: 0px 50px
-	&__text
-		margin: 100px 0
-		max-width: 800px
-		font-size: 20px
-		font-weight: 500
-	&__row
-		display: flex
-		align-items: center
-		justify-content: center
-		width: 100%
-	&__img
-		img
-			width: 100%
-			display: block
-			height: auto
-			object-fit: contain
+
 
 .wrapper
 	max-width: 1370px

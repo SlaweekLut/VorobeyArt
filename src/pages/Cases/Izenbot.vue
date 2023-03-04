@@ -12,7 +12,9 @@
 		<div class="video">
 			<div class="video__container">
 				<div class="video__wrapper">
-					<video class="video__player" src="/img/izenbot/Video/video-01.mp4"></video>
+					<video class="video__player" playsinline preload="auto">
+						<source src="https://vorobeyart.ru/img/izenbot/Video/video-01.mp4" type="video/mp4" />
+					</video>
 					<div class="video__play">
 						<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="100" height="100" rx="50" fill="#0181C8" />
@@ -30,7 +32,9 @@
 		<div class="video video--result">
 			<div class="video__container">
 				<div class="video__wrapper">
-					<video class="video__player" src="/img/izenbot/Video/video-02.mp4"></video>
+					<video class="video__player" playsinline preload="auto">
+						<source src="https://vorobeyart.ru/img/izenbot/Video/video-02.mp4" type="video/mp4" />
+					</video>
 					<div class="video__play">
 						<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="100" height="100" rx="50" fill="#0181C8" />
@@ -230,14 +234,12 @@ export default {
 		margin: 0 auto
 		max-width: 1200px
 	&__player
-		height: 100%
-		width: 100%
+		max-width: 100%
 		max-height: calc(100vh - 230px)
 		&::-internal-media-controls-overflow-menu-list-item
 			display: none !important
 	&__wrapper
 		position: relative
-		height: 100%
 		&::after
 			content: ''
 			position: absolute
@@ -245,6 +247,7 @@ export default {
 			top: 0
 			width: 100%
 			height: 100%
+			max-height: calc(100vh - 230px)
 			background: rgba(0, 0, 0, 0.5)
 			z-index: 1
 			transition: .3s ease
@@ -276,203 +279,6 @@ export default {
 
 	&--result
 		padding-bottom: 130px
-.moodboard, .sketch, .finall
-	margin: 0 auto
-	max-width: 1580px
-	padding: 0px 30px
-	&__img
-		width: 100%
-		img
-			width: 100%
-.finall
-	max-width: 1260px
-	padding: 90px 30px
-	@media (max-width: 425px)
-		padding: 50px 30px
-.models
-	max-width: 1370px
-	width: 100%
-	margin: 24px auto 124px
-	&__title
-		max-width: 1370px
-		padding: 0px 50px
-		display: flex
-		flex-direction: column
-		span:last-child
-			font-size: 20px
-			font-weight: 500
-	&__number
-		font-size: 100px
-		font-weight: 500
-	&__underline
-		margin: 18px 0
-	&__subtitle
-		max-width: 1370px
-		padding: 0px 50px
-		font-size: 30px
-		strong
-			font-weight: 700
-
-.material
-	&__wrapper
-		max-width: 1370px
-		width: 100%
-		padding: 0px 50px
-	&__text
-		margin: 100px 0
-		max-width: 800px
-		font-size: 20px
-		font-weight: 500
-	&__row
-		display: flex
-		align-items: center
-		justify-content: center
-		width: 100%
-	&__img
-		img
-			width: 100%
-			display: block
-			height: auto
-			object-fit: contain
-.task
-	position: relative
-	z-index: 3
-	background: #F9F9F9
-	&__img
-		padding: 0px 50px
-		display: block
-
-.intro
-	padding: 100px 0 270px
-	height: 860px
-	&__icon
-		position: absolute
-		top: 0
-		left: 0
-		max-width: 100%
-	&__img
-		position: absolute
-		bottom: 0
-		left: 0
-		z-index: 1
-		max-width: 55%
-		margin-left: 50px
-	&__column
-		max-width: 440px
-		display: flex
-		flex-direction: column
-		margin-left: auto
-		padding-top: 100px
-
-	&__logo
-		margin-bottom: 45px
-		max-height: 74px
-		width: auto
-		object-fit: contain
-		object-position: left
-	&__text
-		font-size: 20px
-		margin-bottom: 162px
-		strong
-			font-weight: 700
-	&__title
-		margin-bottom: 10px
-		font-size: 30px
-		font-weight: 700
-	&__wrapper
-		position: relative
-		width: 100%
-
-.wrapper
-	max-width: 1370px
-	width: 100%
-	padding: 0px 50px
-	margin: 0 auto
-
-@media (max-width: 1200px)
-	.intro
-		height: auto
-		&__column
-			margin-right: auto
-			margin-left: 0
-			position: relative
-			z-index: 1
-			max-width: 100%
-			padding-top: 100px
-
-		&__text
-			margin-bottom: 50px
-		&__logo
-			width: 100%
-			margin-bottom: 30px
-		&__wrapper
-			display: flex
-			flex-direction: column-reverse
-			height: auto
-		&__img
-			position: relative
-			top: auto
-			left: -50%
-			transform: translate(50%)
-			margin-bottom: -10px
-			margin-top: 32px
-			max-width: 100%
-@media (max-width: 768px)
-	.models
-		padding: 0px 36px
-		&__title
-			max-width: 1370px
-			padding: 0px
-			font-size: 50px
-			span:last-child
-				font-size: 16px
-		&__number
-			font-size: 50px
-		&__underline
-			margin: 24px auto 16px
-		&__subtitle
-			padding: 0px
-			font-size: 16px
-	.models-img
-		img
-			height: 454px
-	.wrapper
-		padding: 0px 36px
-	.intro
-		&__logo
-			height: 54px
-@media (max-width: 570px)
-	.logo
-		&__text
-			text-align: center
-		&__img
-			width: 100%
-			margin-left: 0
-</style>
-
-<style lang="sass">
-.gallery-title
-	position: relative
-	.title
-		max-width: 1370px
-		margin: 0 auto
-		padding: 0px 50px
-		width: 100%
-		position: absolute
-		display: flex
-		justify-content: flex-end
-		&__wrapper
-			max-width: 450px
-			width: 100%
-			margin: 0
-
-@media (max-width: 768px)
-	.gallery-title
-		.title
-			position: relative
-	.title--motorika
-		padding: 50px 0 !important
-		.title
-			&__subtitle
-				margin-top: 32px !important
+		@media (max-width: 768px)
+			padding-bottom: 0px
 </style>

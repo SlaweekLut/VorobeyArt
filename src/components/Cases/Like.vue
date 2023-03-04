@@ -70,33 +70,21 @@ export default {
 	data() {
 		return {
 			likesCount: 0,
-			isLiked: 'false',
 			sending: false,
 			pressed: false,
 		};
 	},
 	mounted() {
-		const hasLike = localStorage.getItem(`isLike${this.$props.title}`) !== null;
-		console.log('Были ли вы на странице:', hasLike ? 'Были' : 'Не были', hasLike);
-		if (hasLike) {
-			console.log(
-				'Ставили ли вы лайк:',
-				localStorage.getItem(`isLike${this.$props.title}`) === 'true' ? 'Ставили' : 'Не ставили',
-				localStorage.getItem(`isLike${this.$props.title}`),
-			);
-			if (localStorage.getItem(`isLike${this.$props.title}`) === 'true') this.isLike = 'true';
-			else this.isLike = 'false';
-		} else {
-			localStorage.setItem(`isLike${this.$props.title}`, 'false');
-		}
+		const BEEN_THIS_PAGE = localStorage.getItem(`hasLike-${this.$props.title}`) !== null;
+		if (!BEEN_THIS_PAGE) localStorage.setItem(`hasLike-${this.$props.title}`, 'false');
 
-		axios.get('api/likes.json').then((response) => {
+		axios.get('api/likesv2.json').then((response) => {
 			let data = response.data;
+			// IF IN DATA HAVE NOT LIKE THIS PAGE
 			if (data[this.$props.title] === undefined) {
 				let params = new URLSearchParams();
 				params.append('title', this.$props.title);
 				params.append('like', 0);
-
 				axios
 					.post('like.php', params, {
 						headers: {
@@ -104,9 +92,8 @@ export default {
 						},
 					})
 					.then((e) => {
-						console.log('New counter been created', e.data);
+						console.log('New like counter been created', e.data);
 					});
-
 				this.likesCount = 0;
 			} else {
 				this.likesCount = data[this.$props.title];
@@ -115,6 +102,8 @@ export default {
 	},
 	methods: {
 		async toggleLike(e) {
+			const BEEN_THIS_PAGE = localStorage.getItem(`hasLike-${this.$props.title}`);
+
 			if (!this.pressed) {
 				this.pressed = true;
 				setTimeout(() => {
@@ -128,33 +117,26 @@ export default {
 			if (!this.sending) {
 				this.sending = true;
 				console.log('Sending...');
-				await axios.get('api/likes.json').then((response) => {
+				await axios.get('api/likesv2.json').then((response) => {
 					let data = response.data;
 					let number = Number(data[this.$props.title]);
 
-					console.log('console log 1:', number, data, data[this.$props.title], this.likesCount);
 					if (number < 0 || isNaN(number)) {
 						number = 0;
 					}
 
-					if (this.isLike === 'false') {
-						this.isLike = 'true';
+					if (BEEN_THIS_PAGE === 'false') {
+						localStorage.setItem(`hasLike-${this.$props.title}`, 'true');
 						number = number + 1;
-						localStorage.setItem(`isLike${this.$props.title}`, 'true');
-					} else {
-						this.isLike = 'false';
+					} else if (BEEN_THIS_PAGE === 'true') {
+						localStorage.setItem(`hasLike-${this.$props.title}`, 'false');
 						number = number - 1;
-						localStorage.setItem(`isLike${this.$props.title}`, 'false');
 					}
 
 					let params = new URLSearchParams();
-
-					console.log('console log 2:', number, data, data[this.$props.title], this.likesCount);
 					this.likesCount = number;
-					console.log('console log 3:', number, data, data[this.$props.title], this.likesCount);
 					params.append('title', this.$props.title);
 					params.append('like', number);
-
 					axios
 						.post('like.php', params, {
 							headers: {
@@ -162,7 +144,6 @@ export default {
 							},
 						})
 						.finally(() => {
-							console.log('console log 4:', number, data, data[this.$props.title], this.likesCount);
 							this.sending = false;
 							console.log('Sent!');
 						});

@@ -217,31 +217,6 @@ export default {
 		max-width: 330px
 		img
 			width: 100%
-.competition
-	display: flex
-	gap: 30px
-	justify-content: space-around
-	padding: 90px 50px
-	max-width: 1370px
-	margin: 0 auto
-	flex-wrap: wrap
-	&__title
-		font-size: 50px
-		font-weight: 700
-		margin-bottom: 30px
-	&__subtitle
-		font-size: 30px
-		font-weight: 700
-		margin: 75px 0px 30px
-	&__img
-		max-width: 620px
-		width: 100%
-	&__column
-		max-width: 620px
-		width: 100%
-	&__text
-		font-size: 20px
-		font-weight: 500
 
 
 @media (max-width: 768px)
@@ -250,53 +225,4 @@ export default {
 			display: grid
 			grid-template-columns: repeat(2, 1fr)
 			gap: 18px
-	.competition
-		padding: 50px
-	.color
-		&__wrapper
-			gap: 25px
-			width: 100%
-			img
-				width: 100%
-		&__grid
-			gap: 25px
-	.material
-		&__text
-			font-size: 16px
-			margin: 60px 0
-@media (max-width: 570px)
-	.color
-		margin-bottom: 50px
-	.logo
-		&__text
-			text-align: center
-		&__img
-			width: 100%
-</style>
-
-<style lang="sass">
-.gallery-title
-	position: relative
-	.title
-		max-width: 1370px
-		margin: 0 auto
-		padding: 0px 50px
-		width: 100%
-		position: absolute
-		display: flex
-		justify-content: flex-end
-		&__wrapper
-			max-width: 450px
-			width: 100%
-			margin: 0
-
-@media (max-width: 768px)
-	.gallery-title
-		.title
-			position: relative
-	.title--motorika
-		padding: 50px 0 !important
-		.title
-			&__subtitle
-				margin-top: 32px !important
 </style>

@@ -231,7 +231,7 @@ export default {
 <style lang="sass" scoped>
 .preloader
 	width: 100vw
-	height: 100vh
+	height: 100%
 	background-color: white
 	animation: animationBackground .5s ease 2.4s forwards
 	pointer-events: none

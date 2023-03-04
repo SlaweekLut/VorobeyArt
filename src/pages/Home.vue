@@ -202,34 +202,32 @@ export default {
 			autoSlider;
 		}, 1900);
 
-		window.addEventListener('touchmove', (event) => {
-			const { clientX } = event.touches[0];
-			if (!this.isChanged) {
-				this.isChanged = true;
-				this.isWait = true;
-
-				if (posX < clientX) {
-					this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-					this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-				}
-				if (posX > clientX) {
-					this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-					this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-				}
-				clearTimeout(wait);
-				clearInterval(autoSlider);
-
-				wait = setTimeout(() => {
-					this.isWait = false;
-				}, 1200);
-				clearInterval(autoSlider);
-			}
-			this.scroll = true;
+		window.addEventListener('touchstart', (event) => {
+			const { clientX } = event.changedTouches[0];
 			posX = clientX;
 		});
 
-		window.addEventListener('touchend', () => {
-			this.isChanged = false;
+		window.addEventListener('touchend', (event) => {
+			const { clientX } = event.changedTouches[0];
+			if (posX - clientX > 10) {
+				this.scroll = true;
+				this.isWait = true;
+				this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+				this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+			}
+			if (posX - clientX < -10) {
+				this.scroll = true;
+				this.isWait = true;
+				this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+				this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+			}
+			clearTimeout(wait);
+			clearInterval(autoSlider);
+
+			wait = setTimeout(() => {
+				this.isWait = false;
+			}, 1200);
+			clearInterval(autoSlider);
 			autoSlider = setInterval(autoSliderFn, 5000);
 			autoSlider;
 		});
@@ -272,9 +270,6 @@ export default {
 	},
 };
 </script>
-
-<!-- Извинение перед самим собой что начал использовать сначала sass, а потом только здесь переписал на scss-->
-<!-- Не думал что получиться столь большая вложенность которую нельзя будет скрывать 😅😅 -->
 
 <style lang="scss" scoped>
 .background-text {
@@ -938,9 +933,9 @@ export default {
 @media (max-width: 768px) {
 	.home {
 		padding: 0px 20px;
-		min-height: calc(100vh - 80px);
-		height: calc(100vh - 80px);
-		max-height: 100vh;
+		min-height: 100%;
+		height: 100%;
+		max-height: 100%;
 	}
 	.background-text {
 		top: 44%;
@@ -983,7 +978,7 @@ export default {
 		left: 50%;
 		transform: translate(-50%, 0);
 		bottom: 0;
-		top: calc(100% - 130px);
+		top: calc(100% - 160px);
 		width: 100%;
 		position: relative;
 		&__pagination {
