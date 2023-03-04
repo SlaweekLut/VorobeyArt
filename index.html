@@ -17,7 +17,7 @@
 		<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
 		<meta name="msapplication-TileColor" content="#ffffff" />
 		<meta name="theme-color" content="#ffffff" />
-		<title>Vorobey Art</title>
+		<title><%- title %></title>
 		<meta
 			name="description"
 			content="Vorobey Art – быстроразвивающаяся креативная студия веб-дизайна, специализирующаяся на разработке корпоративных стилей, веб-сайтов, брендинга и 3Д моделирования."
@@ -25,9 +25,9 @@
 	</head>
 	<body>
 		<noscript>
-			<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+			<strong>We're sorry but <%- title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
 		<div id="app"></div>
-		<!-- built files will be auto injected -->
+		<script type="module" src="/src/main.js"></script>
 	</body>
 </html>

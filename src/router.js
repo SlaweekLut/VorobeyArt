@@ -32,45 +32,45 @@ import IzenbotPage from './pages/Cases/Izenbot.vue';
 import PolicyPage from './pages/Policy.vue';
 
 export default createRouter({
-	history: createWebHistory(),
-	scrollBehavior() {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				resolve({ top: 0 });
-			}, 500);
-		});
-	},
-	routes: [
-		{ path: '/', component: HomePage },
-		{ path: '/works', component: WorksPage },
-		{ path: '/about', component: AboutPage },
-		{ path: '/contacts', component: ContactsPage },
-		{ path: '/policy', component: PolicyPage },
-		{ path: '/energotek', component: EnergotekPage },
-		{ path: '/motorika', component: MotorikaPage },
-		{ path: '/spicynote', component: SpicynotePage },
-		{ path: '/genezis', component: GenezisPage },
-		{ path: '/zolotoaltaya', component: ZolotoaltayaPage },
-		{ path: '/ukigassen', component: UkigassenPage },
-		{ path: '/marusya', component: MarusyaPage },
-		{ path: '/oceanview', component: Oceanview },
-		{ path: '/wballiance', component: WBAlliancePage },
-		{ path: '/energotekAR', component: EnergotekARPage },
-		{ path: '/ximtexp', component: XimtexpPage },
-		{ path: '/mobdebut', component: MobdebutPage },
-		{ path: '/primetravel', component: PrimetravelPage },
-		{ path: '/tomiai', component: TomiaiPage },
-		{ path: '/prozapchast', component: ProzapchastPage },
-		{ path: '/ownwifi', component: OwnwifiPage },
-		{ path: '/hone', component: HonePage },
-		{ path: '/aladdin', component: AladdinPage },
-		{ path: '/unidance', component: UnidancePage },
-		{ path: '/flipknife', component: FlipknifePage },
-		{ path: '/goup', component: GoupPage },
-		{ path: '/pawpaw', component: PawpawPage },
-		{ path: '/xplane', component: XplanePage },
-		{ path: '/izenbot', component: IzenbotPage },
-		{ path: '/kvanttelekomBrend', component: KvanttelekomBrendPage },
-		{ path: '/:pathMatch(.*)*', name: 'NotFound', component: ErrorPage },
-	],
+  history: createWebHistory(),
+  scrollBehavior() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ top: 0 });
+      }, 500);
+    });
+  },
+  routes: [
+    { path: '/', component: HomePage },
+    { path: '/works', component: WorksPage },
+    { path: '/about', component: AboutPage },
+    { path: '/contacts', component: ContactsPage },
+    { path: '/policy', component: PolicyPage },
+    { path: '/energotek', component: EnergotekPage },
+    { path: '/motorika', component: MotorikaPage },
+    { path: '/spicynote', component: SpicynotePage },
+    { path: '/genezis', component: GenezisPage },
+    { path: '/zolotoaltaya', component: ZolotoaltayaPage },
+    { path: '/ukigassen', component: UkigassenPage },
+    { path: '/marusya', component: MarusyaPage },
+    { path: '/oceanview', component: Oceanview },
+    { path: '/wballiance', component: WBAlliancePage },
+    { path: '/energotekAR', component: EnergotekARPage },
+    { path: '/ximtexp', component: XimtexpPage },
+    { path: '/mobdebut', component: MobdebutPage },
+    { path: '/primetravel', component: PrimetravelPage },
+    { path: '/tomiai', component: TomiaiPage },
+    { path: '/prozapchast', component: ProzapchastPage },
+    { path: '/ownwifi', component: OwnwifiPage },
+    { path: '/hone', component: HonePage },
+    { path: '/aladdin', component: AladdinPage },
+    { path: '/unidance', component: UnidancePage },
+    { path: '/flipknife', component: FlipknifePage },
+    { path: '/goup', component: GoupPage },
+    { path: '/pawpaw', component: PawpawPage },
+    { path: '/xplane', component: XplanePage },
+    { path: '/izenbot', component: IzenbotPage },
+    { path: '/kvanttelekomBrend', component: KvanttelekomBrendPage },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: ErrorPage },
+  ],
 });

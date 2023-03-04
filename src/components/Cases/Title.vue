@@ -1,49 +1,65 @@
 <template>
-	<div class="title" :class="[`title--${settings.type}`, `title--${settings.modifer}`, `title--${settings.padding}`]">
-		<div class="title__wrapper">
-			<div class="title__row">
-				<h2 class="title__title" v-if="!settings.title.separator" :class="`title__title--${settings.title.fontSize}`">
-					<span class="title__number" v-if="settings.number" :style="`font-size: ${settings.number.fontSize}`">{{ settings.number.number }}</span>
-					<span v-html="settings.title.title"></span>
-				</h2>
-				<p class="title__text" v-if="settings.text" v-html="settings.text"></p>
-			</div>
-			<hr class="title__underline" v-if="settings.underTitleLine" />
-			<p class="title__subtitle">
-				<span class="title__subtitle-wrapper">
-					{{ settings.subtitle }}
-				</span>
-			</p>
-		</div>
-	</div>
+  <div
+    class="title"
+    :class="[
+      `title--${settings.type}`,
+      `title--${settings.modifer}`,
+      `title--${settings.padding}`,
+    ]"
+  >
+    <div class="title__wrapper">
+      <div class="title__row">
+        <h2
+          v-if="!settings.title.separator"
+          class="title__title"
+          :class="`title__title--${settings.title.fontSize}`"
+        >
+          <span
+            v-if="settings.number"
+            class="title__number"
+            :style="`font-size: ${settings.number.fontSize}`"
+            >{{ settings.number.number }}</span
+          >
+          <span v-html="settings.title.title"></span>
+        </h2>
+        <p v-if="settings.text" class="title__text" v-html="settings.text"></p>
+      </div>
+      <hr v-if="settings.underTitleLine" class="title__underline" />
+      <p class="title__subtitle">
+        <span class="title__subtitle-wrapper">
+          {{ settings.subtitle }}
+        </span>
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'TitleTemplate',
-	props: {
-		settings: {
-			default: {
-				modifer: '',
-				type: '',
-				title: {
-					title: '',
-					fontSize: '',
-					// separator: '',
-					// titleFirst: '',
-					// titleSecond: '',
-				},
-				text: '',
-				underTitleLine: false,
-				subtitle: '',
-				number: {
-					number: '',
-					fontSize: '',
-				},
-				padding: '0',
-			},
-		},
-	},
+  name: 'TitleTemplate',
+  props: {
+    settings: {
+      default: {
+        modifer: '',
+        type: '',
+        title: {
+          title: '',
+          fontSize: '',
+          // separator: '',
+          // titleFirst: '',
+          // titleSecond: '',
+        },
+        text: '',
+        underTitleLine: false,
+        subtitle: '',
+        number: {
+          number: '',
+          fontSize: '',
+        },
+        padding: '0',
+      },
+    },
+  },
 };
 </script>
 

@@ -1,18 +1,21 @@
 <template>
-	<div class="error">
-		<img src="/img/Logo-404.svg" alt="ERROR" class="error__img" />
-		<div class="error__column">
-			<h1 class="error__title">404</h1>
-			<h2 class="error__subtitle">Упс! Страница не найдена!</h2>
-			<hr />
-			<p class="error__text">Страница, которую вы запрашиваете, не существует или она была перемещена. Начните с главной страницы</p>
-		</div>
-	</div>
+  <div class="error">
+    <img src="/img/Logo-404.svg" alt="ERROR" class="error__img" />
+    <div class="error__column">
+      <h1 class="error__title">404</h1>
+      <h2 class="error__subtitle">Упс! Страница не найдена!</h2>
+      <hr />
+      <p class="error__text">
+        Страница, которую вы запрашиваете, не существует или она была
+        перемещена. Начните с главной страницы
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'ErrorPage',
+  name: 'ErrorPage',
 };
 </script>
 

@@ -1,97 +1,157 @@
 <template>
-	<div
-		class="gallery"
-		:style="`gap: ${settings.gap}px; padding: ${settings.padding}`"
-		:class="{
-			'gallery--one': settings.type === 'OneImage',
-			'gallery--two': settings.type === 'TwoImage',
-			'gallery--three': settings.type === 'ThreeImage',
-			'gallery--three gallery--col': settings.type === 'ThreeImageCol',
-			'gallery--four': settings.type === 'FourImage',
-			'gallery--fourCollage': settings.type === 'FourImageCollage',
-			'gallery--collage': settings.type === 'ThreeImageCollage',
-			'gallery--izenbot': settings.mod === 'izenbot',
-			'gallery--mobdebut': settings.mod === 'mobdebut',
-		}"
-	>
-		<!-- Колонка слева -->
-		<div
-			class="gallery__column"
-			:style="`width: ${settings.column.width}%; gap: ${settings.gap}px`"
-			v-if="settings.type === 'ThreeImageCollage' && settings.column.position === 'Left'"
-		>
-			<div
-				class="gallery__image gallery__image--column"
-				:class="[`gallery__image--border-${settings.border}`]"
-				:style="`height: ${image.height}%`"
-				v-for="image in settings.columnImages"
-				:key="image.url"
-			>
-				<picture>
-					<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
-					<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
-					<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-					<img class="gallery__img" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" :alt="image.url" type="image/webp" />
-				</picture>
-			</div>
-		</div>
+  <div
+    class="gallery"
+    :style="`gap: ${settings.gap}px; padding: ${settings.padding}`"
+    :class="{
+      'gallery--one': settings.type === 'OneImage',
+      'gallery--two': settings.type === 'TwoImage',
+      'gallery--three': settings.type === 'ThreeImage',
+      'gallery--three gallery--col': settings.type === 'ThreeImageCol',
+      'gallery--four': settings.type === 'FourImage',
+      'gallery--fourCollage': settings.type === 'FourImageCollage',
+      'gallery--collage': settings.type === 'ThreeImageCollage',
+      'gallery--izenbot': settings.mod === 'izenbot',
+      'gallery--mobdebut': settings.mod === 'mobdebut',
+    }"
+  >
+    <!-- Колонка слева -->
+    <div
+      v-if="
+        settings.type === 'ThreeImageCollage' &&
+        settings.column.position === 'Left'
+      "
+      class="gallery__column"
+      :style="`width: ${settings.column.width}%; gap: ${settings.gap}px`"
+    >
+      <div
+        v-for="image in settings.columnImages"
+        :key="image.url"
+        class="gallery__image gallery__image--column"
+        :class="[`gallery__image--border-${settings.border}`]"
+        :style="`height: ${image.height}%`"
+      >
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 769px)"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`"
+            type="image/jpeg"
+          />
+          <img
+            class="gallery__img"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            :alt="image.url"
+            type="image/webp"
+          />
+        </picture>
+      </div>
+    </div>
 
-		<!-- Изображения -->
-		<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="image in settings.images" :key="image.url" :style="`width: ${image.width}%`">
-			<picture>
-				<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
-				<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
-				<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-				<img class="gallery__img" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" :alt="image.url" type="image/webp" />
-			</picture>
-		</div>
+    <!-- Изображения -->
+    <div
+      v-for="image in settings.images"
+      :key="image.url"
+      class="gallery__image"
+      :class="[`gallery__image--border-${settings.border}`]"
+      :style="`width: ${image.width}%`"
+    >
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`"
+          type="image/webp"
+        />
+        <source
+          media="(min-width: 769px)"
+          :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+          type="image/webp"
+        />
+        <source
+          :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`"
+          type="image/jpeg"
+        />
+        <img
+          class="gallery__img"
+          :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+          :alt="image.url"
+          type="image/webp"
+        />
+      </picture>
+    </div>
 
-		<!-- Колонка справа -->
-		<div
-			class="gallery__column"
-			:style="`width: ${settings.column.width}%; gap: ${settings.gap}px`"
-			v-if="settings.type === 'ThreeImageCollage' && settings.column.position === 'Right'"
-		>
-			<div
-				class="gallery__image gallery__image--column"
-				:class="[`gallery__image--border-${settings.border}`]"
-				:style="`height: ${image.height}%`"
-				v-for="image in settings.columnImages"
-				:key="image.url"
-			>
-				<picture>
-					<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
-					<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
-					<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-					<img class="gallery__img" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" :alt="image.url" type="image/webp" />
-				</picture>
-			</div>
-		</div>
-	</div>
+    <!-- Колонка справа -->
+    <div
+      v-if="
+        settings.type === 'ThreeImageCollage' &&
+        settings.column.position === 'Right'
+      "
+      class="gallery__column"
+      :style="`width: ${settings.column.width}%; gap: ${settings.gap}px`"
+    >
+      <div
+        v-for="image in settings.columnImages"
+        :key="image.url"
+        class="gallery__image gallery__image--column"
+        :class="[`gallery__image--border-${settings.border}`]"
+        :style="`height: ${image.height}%`"
+      >
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 769px)"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`"
+            type="image/jpeg"
+          />
+          <img
+            class="gallery__img"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            :alt="image.url"
+            type="image/webp"
+          />
+        </picture>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'GalleryTemplate',
-	props: {
-		settings: {
-			default: {
-				type: '',
-				images: [],
-				border: '',
-				column: {
-					position: 'Left',
-					width: '50',
-				},
-				// column: {
-				// 	position: 'Left',
-				// },
-				columnImages: [{ url: '', height: '' }],
-				gap: '',
-				padding: '',
-			},
-		},
-	},
+  name: 'GalleryTemplate',
+  props: {
+    settings: {
+      default: {
+        type: '',
+        images: [],
+        border: '',
+        column: {
+          position: 'Left',
+          width: '50',
+        },
+        // column: {
+        // 	position: 'Left',
+        // },
+        columnImages: [{ url: '', height: '' }],
+        gap: '',
+        padding: '',
+      },
+    },
+  },
 };
 </script>
 

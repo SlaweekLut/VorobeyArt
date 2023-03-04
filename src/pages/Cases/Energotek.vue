@@ -1,122 +1,273 @@
 <template>
-	<div>
-		<IntroTemplate :intro="intro" />
-		<TaskTemplate :task="task" />
-		<div class="energotek__img">
-			<picture>
-				<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-02.webp" type="image/webp" />
-				<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-02.webp" type="image/webp" />
-				<source srcset="/img/energotek/JPG/energotek-page-img-02.jpg" type="image/jpeg" />
-				<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-02.webp" alt="" type="image/webp" />
-			</picture>
-		</div>
-		<GalleryTemplate :settings="gallery[1]" />
-		<div class="material">
-			<div class="material__wrapper wrapper">
-				<p class="material__text">Для точного построения 3D моделей, компания "Энерготэк" предоставила нам инженерные чертежи с указанием размеров и параметров объектов.</p>
-			</div>
-			<div class="material__row">
-				<div class="material__img">
-					<picture>
-						<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-03.webp" type="image/webp" />
-						<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-03.webp" type="image/webp" />
-						<source srcset="/img/energotek/JPG/energotek-page-img-03.jpg" type="image/jpeg" />
-						<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-03.webp" alt="" type="image/webp" />
-					</picture>
-				</div>
-			</div>
-		</div>
-		<div class="models">
-			<h2 class="models__title">
-				<span class="models__number">60+</span>
-				<span>моделей было подготовлено нашими специалистами для каталога</span>
-			</h2>
-			<p class="models__subtitle">
-				<span class="models__subtitle-wrapper"> <strong>3D</strong> моделирование / текстурирование / обработка </span>
-			</p>
-		</div>
-		<div
-			class="models-img"
-			ref="el"
-			:style="{
-				cursor: isDragging ? 'grabbing' : 'grab',
-				scrollSnapType: isDragging ? '' : '',
-			}"
-			@mousedown="onMouseDown"
-			@mouseup="onMouseUp"
-		>
-			<picture>
-				<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-11.webp" type="image/webp" />
-				<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-11.webp" type="image/webp" />
-				<source srcset="/img/energotek/JPG/energotek-page-img-11.jpg" type="image/jpeg" />
-				<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-11.webp" alt="" type="image/webp" />
-			</picture>
-		</div>
-		<div class="additional-material">
-			<h2 class="additional-material__title wrapper">Дополнительные материалы</h2>
-		</div>
-		<div class="additional-material__gallery">
-			<div class="additional-material__gallery--column">
-				<div class="additional-material__gallery--row">
-					<div class="additional-material__gallery--column">
-						<div class="additional-material__img">
-							<picture>
-								<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-10.webp" type="image/webp" />
-								<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-10.webp" type="image/webp" />
-								<source srcset="/img/energotek/JPG/energotek-page-img-10.jpg" type="image/jpeg" />
-								<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-10.webp" alt="" type="image/webp" />
-							</picture>
-						</div>
-						<div class="additional-material__img">
-							<picture>
-								<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-08.webp" type="image/webp" />
-								<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-08.webp" type="image/webp" />
-								<source srcset="/img/energotek/JPG/energotek-page-img-08.jpg" type="image/jpeg" />
-								<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-08.webp" alt="" type="image/webp" />
-							</picture>
-						</div>
-					</div>
-					<div class="additional-material__img">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-09.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-09.webp" type="image/webp" />
-							<source srcset="/img/energotek/JPG/energotek-page-img-09.jpg" type="image/jpeg" />
-							<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-09.webp" alt="" type="image/webp" />
-						</picture>
-					</div>
-				</div>
-				<div class="additional-material__gallery--row">
-					<div class="additional-material__img">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-07.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-07.webp" type="image/webp" />
-							<source srcset="/img/energotek/JPG/energotek-page-img-07.jpg" type="image/jpeg" />
-							<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-07.webp" alt="" type="image/webp" />
-						</picture>
-					</div>
-					<div class="additional-material__img">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-06.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-06.webp" type="image/webp" />
-							<source srcset="/img/energotek/JPG/energotek-page-img-06.jpg" type="image/jpeg" />
-							<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-06.webp" alt="" type="image/webp" />
-						</picture>
-					</div>
-					<div class="additional-material__img">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotek/Mobile/energotek-page-img-05.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotek/PC/energotek-page-img-05.webp" type="image/webp" />
-							<source srcset="/img/energotek/JPG/energotek-page-img-05.jpg" type="image/jpeg" />
-							<img class="gallery__img" srcset="/img/energotek/PC/energotek-page-img-05.webp" alt="" type="image/webp" />
-						</picture>
-					</div>
-				</div>
-			</div>
-		</div>
-		<GalleryTemplate :settings="gallery[0]" />
-		<LikeTemplate :title="intro.img[0]" />
-		<FooterTemplate :settings="footer" />
-	</div>
+  <div>
+    <IntroTemplate :intro="intro" />
+    <TaskTemplate :task="task" />
+    <div class="energotek__img">
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="/img/energotek/Mobile/energotek-page-img-02.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width: 769px)"
+          srcset="/img/energotek/PC/energotek-page-img-02.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="/img/energotek/JPG/energotek-page-img-02.jpg"
+          type="image/jpeg"
+        />
+        <img
+          class="gallery__img"
+          srcset="/img/energotek/PC/energotek-page-img-02.webp"
+          alt=""
+          type="image/webp"
+        />
+      </picture>
+    </div>
+    <GalleryTemplate :settings="gallery[1]" />
+    <div class="material">
+      <div class="material__wrapper wrapper">
+        <p class="material__text">
+          Для точного построения 3D моделей, компания "Энерготэк" предоставила
+          нам инженерные чертежи с указанием размеров и параметров объектов.
+        </p>
+      </div>
+      <div class="material__row">
+        <div class="material__img">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="/img/energotek/Mobile/energotek-page-img-03.webp"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcset="/img/energotek/PC/energotek-page-img-03.webp"
+              type="image/webp"
+            />
+            <source
+              srcset="/img/energotek/JPG/energotek-page-img-03.jpg"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              srcset="/img/energotek/PC/energotek-page-img-03.webp"
+              alt=""
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+    <div class="models">
+      <h2 class="models__title">
+        <span class="models__number">60+</span>
+        <span>моделей было подготовлено нашими специалистами для каталога</span>
+      </h2>
+      <p class="models__subtitle">
+        <span class="models__subtitle-wrapper">
+          <strong>3D</strong> моделирование / текстурирование / обработка
+        </span>
+      </p>
+    </div>
+    <div
+      ref="el"
+      class="models-img"
+      :style="{
+        cursor: isDragging ? 'grabbing' : 'grab',
+        scrollSnapType: isDragging ? '' : '',
+      }"
+      @mousedown="onMouseDown"
+      @mouseup="onMouseUp"
+    >
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="/img/energotek/Mobile/energotek-page-img-11.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width: 769px)"
+          srcset="/img/energotek/PC/energotek-page-img-11.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="/img/energotek/JPG/energotek-page-img-11.jpg"
+          type="image/jpeg"
+        />
+        <img
+          class="gallery__img"
+          srcset="/img/energotek/PC/energotek-page-img-11.webp"
+          alt=""
+          type="image/webp"
+        />
+      </picture>
+    </div>
+    <div class="additional-material">
+      <h2 class="additional-material__title wrapper">
+        Дополнительные материалы
+      </h2>
+    </div>
+    <div class="additional-material__gallery">
+      <div class="additional-material__gallery--column">
+        <div class="additional-material__gallery--row">
+          <div class="additional-material__gallery--column">
+            <div class="additional-material__img">
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="/img/energotek/Mobile/energotek-page-img-10.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcset="/img/energotek/PC/energotek-page-img-10.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcset="/img/energotek/JPG/energotek-page-img-10.jpg"
+                  type="image/jpeg"
+                />
+                <img
+                  class="gallery__img"
+                  srcset="/img/energotek/PC/energotek-page-img-10.webp"
+                  alt=""
+                  type="image/webp"
+                />
+              </picture>
+            </div>
+            <div class="additional-material__img">
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="/img/energotek/Mobile/energotek-page-img-08.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcset="/img/energotek/PC/energotek-page-img-08.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcset="/img/energotek/JPG/energotek-page-img-08.jpg"
+                  type="image/jpeg"
+                />
+                <img
+                  class="gallery__img"
+                  srcset="/img/energotek/PC/energotek-page-img-08.webp"
+                  alt=""
+                  type="image/webp"
+                />
+              </picture>
+            </div>
+          </div>
+          <div class="additional-material__img">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotek/Mobile/energotek-page-img-09.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotek/PC/energotek-page-img-09.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotek/JPG/energotek-page-img-09.jpg"
+                type="image/jpeg"
+              />
+              <img
+                class="gallery__img"
+                srcset="/img/energotek/PC/energotek-page-img-09.webp"
+                alt=""
+                type="image/webp"
+              />
+            </picture>
+          </div>
+        </div>
+        <div class="additional-material__gallery--row">
+          <div class="additional-material__img">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotek/Mobile/energotek-page-img-07.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotek/PC/energotek-page-img-07.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotek/JPG/energotek-page-img-07.jpg"
+                type="image/jpeg"
+              />
+              <img
+                class="gallery__img"
+                srcset="/img/energotek/PC/energotek-page-img-07.webp"
+                alt=""
+                type="image/webp"
+              />
+            </picture>
+          </div>
+          <div class="additional-material__img">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotek/Mobile/energotek-page-img-06.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotek/PC/energotek-page-img-06.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotek/JPG/energotek-page-img-06.jpg"
+                type="image/jpeg"
+              />
+              <img
+                class="gallery__img"
+                srcset="/img/energotek/PC/energotek-page-img-06.webp"
+                alt=""
+                type="image/webp"
+              />
+            </picture>
+          </div>
+          <div class="additional-material__img">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotek/Mobile/energotek-page-img-05.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotek/PC/energotek-page-img-05.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotek/JPG/energotek-page-img-05.jpg"
+                type="image/jpeg"
+              />
+              <img
+                class="gallery__img"
+                srcset="/img/energotek/PC/energotek-page-img-05.webp"
+                alt=""
+                type="image/webp"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+    <GalleryTemplate :settings="gallery[0]" />
+    <LikeTemplate :title="intro.img[0]" />
+    <FooterTemplate :settings="footer" />
+  </div>
 </template>
 
 <script>
@@ -127,49 +278,49 @@ import IntroTemplate from '@/components/Cases/Intro.vue';
 import TaskTemplate from '@/components/Cases/Task.vue';
 
 export default {
-	name: 'EnergotekPage',
-	components: {
-		GalleryTemplate,
-		LikeTemplate,
-		FooterTemplate,
-		IntroTemplate,
-		TaskTemplate,
-	},
-	data() {
-		return {
-			intro: {
-				icon: 'energotek/PC/energotek-page-icon.svg',
-				logo: 'energotek/PC/energotek-page-logo.svg',
-				img: ['energotek', 'energotek-page-intro'],
-				title: 'Энерготек',
-				description:
-					'— разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Решения компании повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации.',
-				tags: '3D моделирование / Текстурирование / Визуализация',
-			},
-			task: {
-				titles: {
-					title: {
-						title: 'Задача',
-						fontSize: 'simple',
-					},
-					text: 'Заказчику было необходимо презентовать проект потенциальным инвесторам, чтобы привлечь их средства. RUS + ENG.<br/><br/>Из пожеланий: соответствие стилистике и цветовой палитре приложения, лаконичность и не перегруженность информацией.',
-					padding: 'task',
-				},
-				title: 'ЭНЕРГОТЕК',
-			},
-			gallery: [
-				{
-					type: 'OneImage',
-					images: [{ url: ['energotek', '/energotek-page-img-01'] }],
-				},
-			],
-			footer: {
-				title: 'Энерготэк AR',
-				next: 'energotekAR',
-				background: ['energotekAR', 'energotekAR-page-intro'],
-			},
-		};
-	},
+  name: 'EnergotekPage',
+  components: {
+    GalleryTemplate,
+    LikeTemplate,
+    FooterTemplate,
+    IntroTemplate,
+    TaskTemplate,
+  },
+  data() {
+    return {
+      intro: {
+        icon: 'energotek/PC/energotek-page-icon.svg',
+        logo: 'energotek/PC/energotek-page-logo.svg',
+        img: ['energotek', 'energotek-page-intro'],
+        title: 'Энерготек',
+        description:
+          '— разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Решения компании повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации.',
+        tags: '3D моделирование / Текстурирование / Визуализация',
+      },
+      task: {
+        titles: {
+          title: {
+            title: 'Задача',
+            fontSize: 'simple',
+          },
+          text: 'Заказчику было необходимо презентовать проект потенциальным инвесторам, чтобы привлечь их средства. RUS + ENG.<br/><br/>Из пожеланий: соответствие стилистике и цветовой палитре приложения, лаконичность и не перегруженность информацией.',
+          padding: 'task',
+        },
+        title: 'ЭНЕРГОТЕК',
+      },
+      gallery: [
+        {
+          type: 'OneImage',
+          images: [{ url: ['energotek', '/energotek-page-img-01'] }],
+        },
+      ],
+      footer: {
+        title: 'Энерготэк AR',
+        next: 'energotekAR',
+        background: ['energotekAR', 'energotekAR-page-intro'],
+      },
+    };
+  },
 };
 </script>
 

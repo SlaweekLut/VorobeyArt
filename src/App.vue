@@ -1,18 +1,36 @@
 <template>
-	<HeaderPage
-		:curtains="curtains"
-		v-if="this.$route.matched[0]?.name !== 'NotFound'"
-		@setCurtains="setCurtains"
-		:pages="{ contacts: this.$route.path === '/contacts', works: this.$route.path === '/works', about: this.$route.path === '/about', policy: this.$route.path === '/policy' }"
-		:home="this.$route.path === '/'"
-	/>
-	<PreloaderElement v-if="this.$route.matched[0]?.name !== 'NotFound'" />
-	<CurtainsElement v-if="this.$route.matched[0]?.name !== 'NotFound' && this.curtains !== 'Menu' && this.curtains !== 'Preloader'" @setCurtains="setCurtains" />
-	<router-view v-slot="{ Component }">
-		<Transition :name="curtains === 'Menu' ? 'menu' : 'page'">
-			<component :is="Component" :key="$router.path" :class="{ menu: curtains === 'Menu' }" :curtains="curtains"> </component>
-		</Transition>
-	</router-view>
+  <HeaderPage
+    v-if="$route.matched[0]?.name !== 'NotFound'"
+    :curtains="curtains"
+    :pages="{
+      contacts: $route.path === '/contacts',
+      works: $route.path === '/works',
+      about: $route.path === '/about',
+      policy: $route.path === '/policy',
+    }"
+    :home="$route.path === '/'"
+    @set-curtains="setCurtains"
+  />
+  <PreloaderElement v-if="$route.matched[0]?.name !== 'NotFound'" />
+  <CurtainsElement
+    v-if="
+      $route.matched[0]?.name !== 'NotFound' &&
+      curtains !== 'Menu' &&
+      curtains !== 'Preloader'
+    "
+    @set-curtains="setCurtains"
+  />
+  <router-view v-slot="{ Component }">
+    <Transition :name="curtains === 'Menu' ? 'menu' : 'page'">
+      <component
+        :is="Component"
+        :key="$router.path"
+        :class="{ menu: curtains === 'Menu' }"
+        :curtains="curtains"
+      >
+      </component>
+    </Transition>
+  </router-view>
 </template>
 
 <script>
@@ -20,37 +38,37 @@ import HeaderPage from './components/Header.vue';
 import PreloaderElement from './components/Preloader.vue';
 import CurtainsElement from './components/Curtains.vue';
 export default {
-	name: 'App',
-	components: {
-		PreloaderElement,
-		HeaderPage,
-		CurtainsElement,
-	},
-	data() {
-		return {
-			curtains: 'Preloader',
-		};
-	},
-	methods: {
-		setCurtains(curtains) {
-			// if (curtains === 'Menu') {
-			// 	window.scrollTo(0, 0);
-			// }
-			this.curtains = curtains;
-		},
-	},
-	mounted() {
-		if (this.curtains === 'Preloader') {
-			setTimeout(() => {
-				this.curtains = 'Nothing';
-			}, 3900);
-		}
-	},
-	watch: {
-		curtains() {
-			console.log(this.curtains);
-		},
-	},
+  name: 'App',
+  components: {
+    PreloaderElement,
+    HeaderPage,
+    CurtainsElement,
+  },
+  data() {
+    return {
+      curtains: 'Preloader',
+    };
+  },
+  watch: {
+    curtains() {
+      console.log(this.curtains);
+    },
+  },
+  mounted() {
+    if (this.curtains === 'Preloader') {
+      setTimeout(() => {
+        this.curtains = 'Nothing';
+      }, 3900);
+    }
+  },
+  methods: {
+    setCurtains(curtains) {
+      // if (curtains === 'Menu') {
+      // 	window.scrollTo(0, 0);
+      // }
+      this.curtains = curtains;
+    },
+  },
 };
 </script>
 

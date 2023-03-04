@@ -1,34 +1,34 @@
 <template>
-	<div class="numbers">
-		<h1 class="numbers__title">{{ num }}<span>+</span></h1>
-		<p class="numbers__subtitle">{{ title }}</p>
-	</div>
+  <div class="numbers">
+    <h1 class="numbers__title">{{ num }}<span>+</span></h1>
+    <p class="numbers__subtitle">{{ title }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'AboutNumbers',
-	props: {
-		number: String,
-		title: String,
-		curtains: String,
-	},
-	data() {
-		return {
-			num: 0,
-		};
-	},
-	mounted() {
-		let timeout = 1000;
-		if (this.$props.curtains === 'Preloader') timeout = 2600;
-		if (this.$props.curtains === 'Curtains') timeout = 700;
-		setTimeout(() => {
-			let addNum = setInterval(() => {
-				this.num += 1;
-				if (this.$props.number < this.num + 1) clearInterval(addNum);
-			}, 30);
-		}, timeout);
-	},
+  name: 'AboutNumbers',
+  props: {
+    number: String,
+    title: String,
+    curtains: String,
+  },
+  data() {
+    return {
+      num: 0,
+    };
+  },
+  mounted() {
+    let timeout = 1000;
+    if (this.$props.curtains === 'Preloader') timeout = 2600;
+    if (this.$props.curtains === 'Curtains') timeout = 700;
+    setTimeout(() => {
+      let addNum = setInterval(() => {
+        this.num += 1;
+        if (this.$props.number < this.num + 1) clearInterval(addNum);
+      }, 30);
+    }, timeout);
+  },
 };
 </script>
 

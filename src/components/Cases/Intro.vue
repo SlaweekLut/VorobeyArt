@@ -1,24 +1,44 @@
 <template>
-	<img :src="`/img/${intro.icon}`" :alt="intro.title" class="intro__icon" />
-	<div class="intro__wrapper">
-		<picture>
-			<source media="(max-width: 768px)" :srcset="`/img/${intro.img[0]}/Mobile/${intro.img[1]}.webp`" type="image/webp" />
-			<source media="(min-width: 769px)" :srcset="`/img/${intro.img[0]}/PC/${intro.img[1]}.webp`" type="image/webp" />
-			<source :srcset="`/img/${intro.img[0]}/JPG/${intro.img[1]}.png`" type="image/png" />
-			<img :srcset="`/img/${intro.img[0]}/PC/${intro.img[1]}.webp`" :alt="intro.title" type="image/webp" class="intro__img" />
-		</picture>
-		<div class="intro">
-			<div class="intro__column">
-				<img :src="`/img/${intro.logo}`" :alt="intro.title" class="intro__logo" />
-				<p class="intro__text">
-					<strong>{{ intro.title }}&nbsp;</strong>
-					<span v-html="intro.description"></span>
-				</p>
-				<h4 class="intro__title">Проект</h4>
-				<p class="intro__list">{{ intro.tags }}</p>
-			</div>
-		</div>
-	</div>
+  <img :src="`/img/${intro.icon}`" :alt="intro.title" class="intro__icon" />
+  <div class="intro__wrapper">
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        :srcset="`/img/${intro.img[0]}/Mobile/${intro.img[1]}.webp`"
+        type="image/webp"
+      />
+      <source
+        media="(min-width: 769px)"
+        :srcset="`/img/${intro.img[0]}/PC/${intro.img[1]}.webp`"
+        type="image/webp"
+      />
+      <source
+        :srcset="`/img/${intro.img[0]}/JPG/${intro.img[1]}.png`"
+        type="image/png"
+      />
+      <img
+        :srcset="`/img/${intro.img[0]}/PC/${intro.img[1]}.webp`"
+        :alt="intro.title"
+        type="image/webp"
+        class="intro__img"
+      />
+    </picture>
+    <div class="intro">
+      <div class="intro__column">
+        <img
+          :src="`/img/${intro.logo}`"
+          :alt="intro.title"
+          class="intro__logo"
+        />
+        <p class="intro__text">
+          <strong>{{ intro.title }}&nbsp;</strong>
+          <span v-html="intro.description"></span>
+        </p>
+        <h4 class="intro__title">Проект</h4>
+        <p class="intro__list">{{ intro.tags }}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,52 +47,52 @@
 // import { VueScrollmagic, TweenMax } from 'vue-scrollmagic';
 
 export default {
-	name: 'IntroTemplate',
-	props: {
-		intro: {
-			icon: '',
-			img: [],
-			logo: '',
-			title: '',
-			description: '',
-			tags: '',
-		},
-	},
-	mounted() {
-		// let controller = new VueScrollmagic.Controller();
-		// build tween
-		// let tween = TweenMax.to('#animate', 0.5, { scale: 1.3, repeat: 5, yoyo: true });
-		// build scene and set duration to window height
-		// eslint-disable-next-line
+  name: 'IntroTemplate',
+  props: {
+    intro: {
+      icon: '',
+      img: [],
+      logo: '',
+      title: '',
+      description: '',
+      tags: '',
+    },
+  },
+  mounted() {
+    // let controller = new VueScrollmagic.Controller();
+    // build tween
+    // let tween = TweenMax.to('#animate', 0.5, { scale: 1.3, repeat: 5, yoyo: true });
+    // build scene and set duration to window height
+    // eslint-disable-next-line
 		// let scene = new VueScrollmagic.Scene({ triggerElement: '#trigger', duration: '100%' })
-		// 	.setTween(tween)
-		// 	.addIndicators() // add indicators (requires plugin)
-		// 	.addTo(controller);
-		// gsap.registerPlugin(ScrollTrigger);
-		// gsap.to('.intro__img', {
-		// 	scrollTrigger: {
-		// 		trigger: '.intro__img',
-		// 		start: '-200 top',
-		// 		end: '+=1000',
-		// 		scrub: 1,
-		// 	},
-		// 	scale: 1.2,
-		// 	ease: 'none',
-		// 	duration: 3,
-		// });
-		let images = document.querySelectorAll('.intro__img');
-		window.addEventListener('scroll', () => {
-			let h = document.documentElement,
-				b = document.body,
-				st = 'scrollTop';
-			let percent = (h[st] || b[st]) / (8000 - h.clientHeight);
-			let scale = 1 + percent;
-			// console.log(scale, b[sh]);
-			images.forEach((image) => {
-				image.style.scale = scale;
-			});
-		});
-	},
+    // 	.setTween(tween)
+    // 	.addIndicators() // add indicators (requires plugin)
+    // 	.addTo(controller);
+    // gsap.registerPlugin(ScrollTrigger);
+    // gsap.to('.intro__img', {
+    // 	scrollTrigger: {
+    // 		trigger: '.intro__img',
+    // 		start: '-200 top',
+    // 		end: '+=1000',
+    // 		scrub: 1,
+    // 	},
+    // 	scale: 1.2,
+    // 	ease: 'none',
+    // 	duration: 3,
+    // });
+    let images = document.querySelectorAll('.intro__img');
+    window.addEventListener('scroll', () => {
+      let h = document.documentElement,
+        b = document.body,
+        st = 'scrollTop';
+      let percent = (h[st] || b[st]) / (8000 - h.clientHeight);
+      let scale = 1 + percent;
+      // console.log(scale, b[sh]);
+      images.forEach((image) => {
+        image.style.scale = scale;
+      });
+    });
+  },
 };
 </script>
 

@@ -1,52 +1,99 @@
 <template>
-	<div>
-		<IntroTemplate :intro="intro" />
-		<TaskTemplate :task="task" />
-		<TitleTemplate :settings="titles[0]" />
-		<div class="energotekar__img">
-			<GalleryTemplate :settings="gallery[0]" />
-		</div>
-		<TitleTemplate :settings="titles[1]" />
-		<GalleryCardTemplate :settings="gallery[1]" />
-		<GalleryTemplate :settings="gallery[2]" />
-		<TitleTemplate :settings="titles[2]" />
-		<GalleryCardTemplate :settings="gallery[3]" />
-		<TitleTemplate :settings="titles[3]" />
-		<div class="apps">
-			<div class="apps__wrapper">
-				<picture>
-					<source media="(max-width: 768px)" srcset="/img/energotekAR/Mobile/energotekAR-page-img-06.webp" type="image/webp" />
-					<source media="(min-width: 769px)" srcset="/img/energotekAR/PC/energotekAR-page-img-06.webp" type="image/webp" />
-					<source srcset="/img/energotekAR/JPG/energotekAR-page-img-06.png" type="image/png" />
-					<img srcset="/img/energotekAR/PC/energotekAR-page-img-06.webp" alt="" type="image/webp" />
-				</picture>
-				<div class="apps__row">
-					<a href="https://play.google.com/store/apps/details?id=com.CYBERTi.EnergotekAR&hl=ru&gl=US">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotekAR/Mobile/energotekAR-page-img-07.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotekAR/PC/energotekAR-page-img-07.webp" type="image/webp" />
-							<source srcset="/img/energotekAR/JPG/energotekAR-page-img-07.png" type="image/png" />
-							<img srcset="/img/energotekAR/PC/energotekAR-page-img-07.webp" alt="GooglePlay" type="image/webp" />
-						</picture>
-					</a>
-					<a href="https://apps.apple.com/ru/app/energotear/id1614880039">
-						<picture>
-							<source media="(max-width: 768px)" srcset="/img/energotekAR/Mobile/energotekAR-page-img-08.webp" type="image/webp" />
-							<source media="(min-width: 769px)" srcset="/img/energotekAR/PC/energotekAR-page-img-08.webp" type="image/webp" />
-							<source srcset="/img/energotekAR/JPG/energotekAR-page-img-08.png" type="image/png" />
-							<img srcset="/img/energotekAR/PC/energotekAR-page-img-08.webp" alt="GooglePlay" type="image/webp" />
-						</picture>
-					</a>
-				</div>
-			</div>
-		</div>
-		<GalleryTemplate :settings="gallery[4]" />
-		<GalleryTemplate :settings="gallery[5]" />
-		<!-- <GalleryTemplate :settings="gallery[1]" />
+  <div>
+    <IntroTemplate :intro="intro" />
+    <TaskTemplate :task="task" />
+    <TitleTemplate :settings="titles[0]" />
+    <div class="energotekar__img">
+      <GalleryTemplate :settings="gallery[0]" />
+    </div>
+    <TitleTemplate :settings="titles[1]" />
+    <GalleryCardTemplate :settings="gallery[1]" />
+    <GalleryTemplate :settings="gallery[2]" />
+    <TitleTemplate :settings="titles[2]" />
+    <GalleryCardTemplate :settings="gallery[3]" />
+    <TitleTemplate :settings="titles[3]" />
+    <div class="apps">
+      <div class="apps__wrapper">
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="/img/energotekAR/Mobile/energotekAR-page-img-06.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 769px)"
+            srcset="/img/energotekAR/PC/energotekAR-page-img-06.webp"
+            type="image/webp"
+          />
+          <source
+            srcset="/img/energotekAR/JPG/energotekAR-page-img-06.png"
+            type="image/png"
+          />
+          <img
+            srcset="/img/energotekAR/PC/energotekAR-page-img-06.webp"
+            alt=""
+            type="image/webp"
+          />
+        </picture>
+        <div class="apps__row">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.CYBERTi.EnergotekAR&hl=ru&gl=US"
+          >
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotekAR/Mobile/energotekAR-page-img-07.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotekAR/PC/energotekAR-page-img-07.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotekAR/JPG/energotekAR-page-img-07.png"
+                type="image/png"
+              />
+              <img
+                srcset="/img/energotekAR/PC/energotekAR-page-img-07.webp"
+                alt="GooglePlay"
+                type="image/webp"
+              />
+            </picture>
+          </a>
+          <a href="https://apps.apple.com/ru/app/energotear/id1614880039">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="/img/energotekAR/Mobile/energotekAR-page-img-08.webp"
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 769px)"
+                srcset="/img/energotekAR/PC/energotekAR-page-img-08.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="/img/energotekAR/JPG/energotekAR-page-img-08.png"
+                type="image/png"
+              />
+              <img
+                srcset="/img/energotekAR/PC/energotekAR-page-img-08.webp"
+                alt="GooglePlay"
+                type="image/webp"
+              />
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+    <GalleryTemplate :settings="gallery[4]" />
+    <GalleryTemplate :settings="gallery[5]" />
+    <!-- <GalleryTemplate :settings="gallery[1]" />
 		<GalleryTemplate :settings="gallery[0]" /> -->
-		<LikeTemplate :title="intro.img[0]" />
-		<FooterTemplate :settings="footer" />
-	</div>
+    <LikeTemplate :title="intro.img[0]" />
+    <FooterTemplate :settings="footer" />
+  </div>
 </template>
 
 <script>
@@ -59,111 +106,119 @@ import TaskTemplate from '@/components/Cases/Task.vue';
 import TitleTemplate from '@/components/Cases/Title.vue';
 
 export default {
-	name: 'EnergotekARPage',
-	components: {
-		GalleryCardTemplate,
-		GalleryTemplate,
-		LikeTemplate,
-		FooterTemplate,
-		IntroTemplate,
-		TaskTemplate,
-		TitleTemplate,
-	},
-	data() {
-		return {
-			task: {
-				titles: {
-					title: {
-						title: 'Задача',
-						fontSize: 'simple',
-					},
-					text: 'Наш клиент преследовал две главные цели:<br/><br/><span class="title__text--defis">- систематизировать каталог продукции в мобильном приложении</span><br/><span class="title__text--defis">- внести элемент «функционального развлечения» в этот самый каталог</span><br/><br/>С первой целью все понятно – вместо того, чтобы 100500 раз посещать сайт компании, заказчики один раз скачают приложение и будут смотреть все там. А у потенциальных покупателей, которые посетят выставку и уйдут оттуда с приложением, будет возможность в любой момент посмотреть продукцию нашего клиента. Информация не потеряется и не отправится в макулатуру – в отличие от каталогов конкурентов.<br/><br/>А что касается второй цели – это как раз про то, как отличиться от конкурентов. Про собственную фишку, которая вызовет интерес и привлечет внимание. Ну и заодно будет полезна для покупателей.',
-					padding: 'task',
-				},
-				title: 'Энерготэк',
-			},
-			intro: {
-				icon: 'energotekAR/PC/energotekAR-page-icon.svg',
-				logo: 'energotekAR/PC/energotekAR-page-logo.svg',
-				img: ['energotekAR', 'energotekAR-page-intro'],
-				title: 'Энерготек',
-				description:
-					'— разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Наши решения повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации. ',
-				tags: 'Приложение/ 3D моделирование / Публикация',
-			},
-			titles: [
-				{
-					title: {
-						title: 'Этап 1 <span class="title__title-defis">-</span> Скелет',
-						fontSize: 'simple',
-					},
-					text: 'Первым этапом наша команда составила слекет приложения, который в дальнейшем будет реализовываться и обсуждаться.<br><br>Необходимо было продумать, как открывать модели с камеры (трекинг) и отдельно в приложении для стандартного просмотра. ',
-					padding: 'simple',
-				},
-				{
-					title: {
-						title: 'Этап 2 <span class="title__title-defis">-</span> Создание 3D моделей',
-						fontSize: 'simple',
-					},
-					text: 'Для приложения было подготовлено 44 модели, поработали с сеткой моделей и текстурами. Для максимальной производительности все модели выдерживали в значениях до 100.000 трисов. Покажем некоторые из них:',
-					padding: 'simple',
-				},
-				{
-					title: {
-						title: 'Этап 3 <span class="title__title-defis">-</span> Визуальная часть',
-						fontSize: 'simple',
-					},
-					text: 'Трекинг по картинке переводит цветное изображение в черно-белое. А некоторые наши объекты отличались друг от друга только цветом или полосками. Как итог, на выходе мы получали одинаковые муфты или уплотнители, которые на самом деле не одинаковые.<br><br>Так мы поняли, что трекинг по картинке нам не подойдет.<br>Поэтому решили – будем использовать марки.',
-					padding: 'simple',
-				},
-				{
-					title: {
-						title: 'Результат',
-						fontSize: 'simple',
-					},
-					text: 'Все поставленные цели достигнуты, и вместе с крутым приложением наш клиент получил:<br><br>· Возможность добавить в свою маркетинговую стратегию продвижения и популяризации своей продукции игровые механики дополненной реальности<br>· Возможность выделяться на фоне конкурентов на выставках<br>· Возможность презентовать заказчикам свою продукцию в наиболее удобной форме.<br><br>В перспективе все эти возможности превращаются в повышение лояльности покупателей и увеличение продаж.',
-					padding: 'simple',
-				},
-			],
-			gallery: [
-				{
-					type: 'OneImage',
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-01'] }],
-				},
-				{
-					type: 'OneImage',
-					shadow: false,
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-02'] }],
-				},
-				{
-					type: 'TwoImage',
-					padding: '24px 36px',
-					gap: '24px 73',
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-03'] }, { url: ['energotekAR', '/energotekAR-page-img-04'] }],
-				},
-				{
-					type: 'OneImage',
-					shadow: false,
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-05'] }],
-				},
-				{
-					type: 'OneImage',
-					border: 'simple',
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-09'] }],
-				},
-				{
-					type: 'TwoImage',
-					border: 'simple',
-					images: [{ url: ['energotekAR', '/energotekAR-page-img-10'] }, { url: ['energotekAR', '/energotekAR-page-img-11'] }],
-				},
-			],
-			footer: {
-				title: 'WB Alliance',
-				next: 'wballiance',
-				background: ['wballiance', 'wballiance-page-intro'],
-			},
-		};
-	},
+  name: 'EnergotekARPage',
+  components: {
+    GalleryCardTemplate,
+    GalleryTemplate,
+    LikeTemplate,
+    FooterTemplate,
+    IntroTemplate,
+    TaskTemplate,
+    TitleTemplate,
+  },
+  data() {
+    return {
+      task: {
+        titles: {
+          title: {
+            title: 'Задача',
+            fontSize: 'simple',
+          },
+          text: 'Наш клиент преследовал две главные цели:<br/><br/><span class="title__text--defis">- систематизировать каталог продукции в мобильном приложении</span><br/><span class="title__text--defis">- внести элемент «функционального развлечения» в этот самый каталог</span><br/><br/>С первой целью все понятно – вместо того, чтобы 100500 раз посещать сайт компании, заказчики один раз скачают приложение и будут смотреть все там. А у потенциальных покупателей, которые посетят выставку и уйдут оттуда с приложением, будет возможность в любой момент посмотреть продукцию нашего клиента. Информация не потеряется и не отправится в макулатуру – в отличие от каталогов конкурентов.<br/><br/>А что касается второй цели – это как раз про то, как отличиться от конкурентов. Про собственную фишку, которая вызовет интерес и привлечет внимание. Ну и заодно будет полезна для покупателей.',
+          padding: 'task',
+        },
+        title: 'Энерготэк',
+      },
+      intro: {
+        icon: 'energotekAR/PC/energotekAR-page-icon.svg',
+        logo: 'energotekAR/PC/energotekAR-page-logo.svg',
+        img: ['energotekAR', 'energotekAR-page-intro'],
+        title: 'Энерготек',
+        description:
+          '— разработчик и производитель полимерных систем для прокладки и защиты кабельных линий. Наши решения повышают надежность работы линий электропередачи и безопасность обслуживающего персонала, сокращают расходы в процессе эксплуатации. ',
+        tags: 'Приложение/ 3D моделирование / Публикация',
+      },
+      titles: [
+        {
+          title: {
+            title: 'Этап 1 <span class="title__title-defis">-</span> Скелет',
+            fontSize: 'simple',
+          },
+          text: 'Первым этапом наша команда составила слекет приложения, который в дальнейшем будет реализовываться и обсуждаться.<br><br>Необходимо было продумать, как открывать модели с камеры (трекинг) и отдельно в приложении для стандартного просмотра. ',
+          padding: 'simple',
+        },
+        {
+          title: {
+            title:
+              'Этап 2 <span class="title__title-defis">-</span> Создание 3D моделей',
+            fontSize: 'simple',
+          },
+          text: 'Для приложения было подготовлено 44 модели, поработали с сеткой моделей и текстурами. Для максимальной производительности все модели выдерживали в значениях до 100.000 трисов. Покажем некоторые из них:',
+          padding: 'simple',
+        },
+        {
+          title: {
+            title:
+              'Этап 3 <span class="title__title-defis">-</span> Визуальная часть',
+            fontSize: 'simple',
+          },
+          text: 'Трекинг по картинке переводит цветное изображение в черно-белое. А некоторые наши объекты отличались друг от друга только цветом или полосками. Как итог, на выходе мы получали одинаковые муфты или уплотнители, которые на самом деле не одинаковые.<br><br>Так мы поняли, что трекинг по картинке нам не подойдет.<br>Поэтому решили – будем использовать марки.',
+          padding: 'simple',
+        },
+        {
+          title: {
+            title: 'Результат',
+            fontSize: 'simple',
+          },
+          text: 'Все поставленные цели достигнуты, и вместе с крутым приложением наш клиент получил:<br><br>· Возможность добавить в свою маркетинговую стратегию продвижения и популяризации своей продукции игровые механики дополненной реальности<br>· Возможность выделяться на фоне конкурентов на выставках<br>· Возможность презентовать заказчикам свою продукцию в наиболее удобной форме.<br><br>В перспективе все эти возможности превращаются в повышение лояльности покупателей и увеличение продаж.',
+          padding: 'simple',
+        },
+      ],
+      gallery: [
+        {
+          type: 'OneImage',
+          images: [{ url: ['energotekAR', '/energotekAR-page-img-01'] }],
+        },
+        {
+          type: 'OneImage',
+          shadow: false,
+          images: [{ url: ['energotekAR', '/energotekAR-page-img-02'] }],
+        },
+        {
+          type: 'TwoImage',
+          padding: '24px 36px',
+          gap: '24px 73',
+          images: [
+            { url: ['energotekAR', '/energotekAR-page-img-03'] },
+            { url: ['energotekAR', '/energotekAR-page-img-04'] },
+          ],
+        },
+        {
+          type: 'OneImage',
+          shadow: false,
+          images: [{ url: ['energotekAR', '/energotekAR-page-img-05'] }],
+        },
+        {
+          type: 'OneImage',
+          border: 'simple',
+          images: [{ url: ['energotekAR', '/energotekAR-page-img-09'] }],
+        },
+        {
+          type: 'TwoImage',
+          border: 'simple',
+          images: [
+            { url: ['energotekAR', '/energotekAR-page-img-10'] },
+            { url: ['energotekAR', '/energotekAR-page-img-11'] },
+          ],
+        },
+      ],
+      footer: {
+        title: 'WB Alliance',
+        next: 'wballiance',
+        background: ['wballiance', 'wballiance-page-intro'],
+      },
+    };
+  },
 };
 </script>
 

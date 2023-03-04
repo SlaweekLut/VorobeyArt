@@ -1,58 +1,67 @@
 <template>
-	<div class="service" @click="open">
-		<div class="service__header">
-			<p class="service__title">{{ title }}</p>
-			<div class="service__icon" :class="{ 'service__icon--open': visible }">
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-		<div class="service__text-wrapper" :class="{ 'service__text-wrapper--open': visible }">
-			<transition name="accordion" @enter="start" @after-enter="end" @before-leave="start" @after-leave="end">
-				<div class="service__text-content" v-show="visible">
-					<p class="service__text" v-html="text"></p>
-				</div>
-			</transition>
-		</div>
-	</div>
+  <div class="service" @click="open">
+    <div class="service__header">
+      <p class="service__title">{{ title }}</p>
+      <div class="service__icon" :class="{ 'service__icon--open': visible }">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div
+      class="service__text-wrapper"
+      :class="{ 'service__text-wrapper--open': visible }"
+    >
+      <transition
+        name="accordion"
+        @enter="start"
+        @after-enter="end"
+        @before-leave="start"
+        @after-leave="end"
+      >
+        <div v-show="visible" class="service__text-content">
+          <p class="service__text" v-html="text"></p>
+        </div>
+      </transition>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'AboutService',
-	props: {
-		title: String,
-		text: String,
-	},
-	data() {
-		return {
-			index: null,
-		};
-	},
-	inject: ['Accordion'],
-	computed: {
-		visible() {
-			return this.index == this.Accordion.active;
-		},
-	},
-	methods: {
-		open() {
-			if (this.visible) {
-				this.Accordion.active = null;
-			} else {
-				this.Accordion.active = this.index;
-			}
-		},
-		start(el) {
-			el.style.maxHeight = el.scrollHeight + 'px';
-		},
-		end(el) {
-			el.style.maxHeight = el.scrollHeight + 'px';
-		},
-	},
-	created() {
-		this.index = this.Accordion.count++;
-	},
+  name: 'AboutService',
+  inject: ['Accordion'],
+  props: {
+    title: String,
+    text: String,
+  },
+  data() {
+    return {
+      index: null,
+    };
+  },
+  computed: {
+    visible() {
+      return this.index == this.Accordion.active;
+    },
+  },
+  created() {
+    this.index = this.Accordion.count++;
+  },
+  methods: {
+    open() {
+      if (this.visible) {
+        this.Accordion.active = null;
+      } else {
+        this.Accordion.active = this.index;
+      }
+    },
+    start(el) {
+      el.style.maxHeight = el.scrollHeight + 'px';
+    },
+    end(el) {
+      el.style.maxHeight = el.scrollHeight + 'px';
+    },
+  },
 };
 </script>
 

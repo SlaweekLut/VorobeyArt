@@ -1,46 +1,60 @@
 <template>
-	<div class="presentation">
-		<div class="presentation__row">
-			<div class="presentation__column">
-				<h2 class="presentation__title">
-					<span>{{ settings.number }}</span> {{ settings.title }}
-				</h2>
-				<p class="presentation__subtitle">{{ settings.subtitle }}</p>
-			</div>
-			<div class="presentation__column presentation__column--color">
-				<h3 class="presentation__color-title">Цвета презентации</h3>
-				<div class="presentation__color-row">
-					<div class="presentation__color" :style="`background: ${color}`" v-for="color in settings.colors" :key="color"></div>
-				</div>
-			</div>
-		</div>
-		<h3 class="presentation__icon-title">Иконки разработанные для презентации</h3>
-		<div class="presentation__icons-wrapper" :style="`max-width: ${settings.widthIconsWrapper}`">
-			<div class="presentation__icons" :style="`gap: ${settings.gapIcons}`">
-				<div class="presentation__icon" v-for="icon in settings.icons" :key="icon">
-					<img :src="`/img/${icon}`" alt="Иконка" />
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="presentation">
+    <div class="presentation__row">
+      <div class="presentation__column">
+        <h2 class="presentation__title">
+          <span>{{ settings.number }}</span> {{ settings.title }}
+        </h2>
+        <p class="presentation__subtitle">{{ settings.subtitle }}</p>
+      </div>
+      <div class="presentation__column presentation__column--color">
+        <h3 class="presentation__color-title">Цвета презентации</h3>
+        <div class="presentation__color-row">
+          <div
+            v-for="color in settings.colors"
+            :key="color"
+            class="presentation__color"
+            :style="`background: ${color}`"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <h3 class="presentation__icon-title">
+      Иконки разработанные для презентации
+    </h3>
+    <div
+      class="presentation__icons-wrapper"
+      :style="`max-width: ${settings.widthIconsWrapper}`"
+    >
+      <div class="presentation__icons" :style="`gap: ${settings.gapIcons}`">
+        <div
+          v-for="icon in settings.icons"
+          :key="icon"
+          class="presentation__icon"
+        >
+          <img :src="`/img/${icon}`" alt="Иконка" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'PresentationTemplate',
-	props: {
-		settings: {
-			default: {
-				number: '',
-				title: '',
-				subtitle: '',
-				colors: [],
-				icons: [],
-				widthIconsWrapper: '',
-				gapIcons: '',
-			},
-		},
-	},
+  name: 'PresentationTemplate',
+  props: {
+    settings: {
+      default: {
+        number: '',
+        title: '',
+        subtitle: '',
+        colors: [],
+        icons: [],
+        widthIconsWrapper: '',
+        gapIcons: '',
+      },
+    },
+  },
 };
 </script>
 

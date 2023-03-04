@@ -1,215 +1,521 @@
 <template>
-	<div
-		class="gallery"
-		:class="{
-			'gallery--one': settings.type === 'OneImage',
-			'gallery--two': settings.type === 'TwoImage',
-			'gallery--three': settings.type === 'ThreeImage',
-			'gallery--four': settings.type === 'FourImage',
-		}"
-		:style="{ background: settings.background }"
-	>
-		<!-- Изображения -->
-		<div
-			class="gallery__wrapper"
-			:class="[`gallery__wrapper--${settings.type}`, `gallery__wrapper--${settings.mod}`]"
-			:style="{ gap: settings.gap }"
-			v-if="settings.type === 'OneImage' || settings.type === 'TwoImage' || settings.type === 'ThreeImage'"
-		>
-			<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`, `gallery__shadow--${settings.shadow}`]" v-for="image in settings.images" :key="image.url">
-				<picture>
-					<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
-					<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
-					<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-					<img
-						class="gallery__img"
-						:style="{ 'border-radius': settings.borderRadius }"
-						:srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
-						:alt="image.url"
-						type="image/webp"
-					/>
-				</picture>
-			</div>
-		</div>
+  <div
+    class="gallery"
+    :class="{
+      'gallery--one': settings.type === 'OneImage',
+      'gallery--two': settings.type === 'TwoImage',
+      'gallery--three': settings.type === 'ThreeImage',
+      'gallery--four': settings.type === 'FourImage',
+    }"
+    :style="{ background: settings.background }"
+  >
+    <!-- Изображения -->
+    <div
+      v-if="
+        settings.type === 'OneImage' ||
+        settings.type === 'TwoImage' ||
+        settings.type === 'ThreeImage'
+      "
+      class="gallery__wrapper"
+      :class="[
+        `gallery__wrapper--${settings.type}`,
+        `gallery__wrapper--${settings.mod}`,
+      ]"
+      :style="{ gap: settings.gap }"
+    >
+      <div
+        v-for="image in settings.images"
+        :key="image.url"
+        class="gallery__image"
+        :class="[
+          `gallery__image--border-${settings.border}`,
+          `gallery__shadow--${settings.shadow}`,
+        ]"
+      >
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 769px)"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`"
+            type="image/jpeg"
+          />
+          <img
+            class="gallery__img"
+            :style="{ 'border-radius': settings.borderRadius }"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            :alt="image.url"
+            type="image/webp"
+          />
+        </picture>
+      </div>
+    </div>
 
-		<div class="gallery__wrapper gallery__wrapper--SixThreeImage" v-if="settings.type === 'SixThreeImage'">
-			<div class="gallery__column">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${settings.images[n - 1].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`"
-							:alt="settings.images[n - 1].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-			<div class="gallery__column">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 1].url[0]}/Mobile${settings.images[n + 1].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 1].url[0]}/PC${settings.images[n + 1].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n + 1].url[0]}/JPG${settings.images[n + 1].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n + 1].url[0]}/PC${settings.images[n + 1].url[1]}.webp`"
-							:alt="settings.images[n + 1].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-			<div class="gallery__column">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 2" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 3].url[0]}/Mobile${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n + 3].url[0]}/JPG${settings.images[n + 3].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`"
-							:alt="settings.images[n + 3].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-		</div>
+    <div
+      v-if="settings.type === 'SixThreeImage'"
+      class="gallery__wrapper gallery__wrapper--SixThreeImage"
+    >
+      <div class="gallery__column">
+        <div
+          v-for="n in 2"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${
+                settings.images[n - 1].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              :alt="settings.images[n - 1].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+      <div class="gallery__column">
+        <div
+          v-for="n in 2"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n + 1].url[0]}/Mobile${
+                settings.images[n + 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n + 1].url[0]}/PC${
+                settings.images[n + 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n + 1].url[0]}/JPG${
+                settings.images[n + 1].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n + 1].url[0]}/PC${
+                settings.images[n + 1].url[1]
+              }.webp`"
+              :alt="settings.images[n + 1].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+      <div class="gallery__column">
+        <div
+          v-for="n in 2"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/Mobile${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/PC${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n + 3].url[0]}/JPG${
+                settings.images[n + 3].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/PC${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              :alt="settings.images[n + 3].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
 
-		<div class="gallery__wrapper gallery__wrapper--SixTwoImage" v-if="settings.type === 'SixTwoImage'">
-			<div class="gallery__row">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 3" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${settings.images[n - 1].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`"
-							:alt="settings.images[n - 1].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-			<div class="gallery__row">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 3" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 2].url[0]}/Mobile${settings.images[n + 2].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 2].url[0]}/PC${settings.images[n + 2].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n + 2].url[0]}/JPG${settings.images[n + 2].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n + 2].url[0]}/PC${settings.images[n + 2].url[1]}.webp`"
-							:alt="settings.images[n + 2].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-		</div>
+    <div
+      v-if="settings.type === 'SixTwoImage'"
+      class="gallery__wrapper gallery__wrapper--SixTwoImage"
+    >
+      <div class="gallery__row">
+        <div
+          v-for="n in 3"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${
+                settings.images[n - 1].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              :alt="settings.images[n - 1].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+      <div class="gallery__row">
+        <div
+          v-for="n in 3"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n + 2].url[0]}/Mobile${
+                settings.images[n + 2].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n + 2].url[0]}/PC${
+                settings.images[n + 2].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n + 2].url[0]}/JPG${
+                settings.images[n + 2].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n + 2].url[0]}/PC${
+                settings.images[n + 2].url[1]
+              }.webp`"
+              :alt="settings.images[n + 2].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
 
-		<div class="gallery__wrapper gallery__wrapper--SixImage" v-if="settings.type === 'SixImage'">
-			<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="image in settings.images" :key="image.url">
-				<picture>
-					<source media="(max-width: 768px)" :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`" type="image/webp" />
-					<source media="(min-width: 769px)" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" type="image/webp" />
-					<source :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`" type="image/jpeg" />
-					<img class="gallery__img" :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`" :alt="image.url" type="image/webp" />
-				</picture>
-			</div>
-		</div>
+    <div
+      v-if="settings.type === 'SixImage'"
+      class="gallery__wrapper gallery__wrapper--SixImage"
+    >
+      <div
+        v-for="image in settings.images"
+        :key="image.url"
+        class="gallery__image"
+        :class="[`gallery__image--border-${settings.border}`]"
+      >
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            :srcset="`/img/${image.url[0]}/Mobile${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 769px)"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            type="image/webp"
+          />
+          <source
+            :srcset="`/img/${image.url[0]}/JPG${image.url[1]}.jpg`"
+            type="image/jpeg"
+          />
+          <img
+            class="gallery__img"
+            :srcset="`/img/${image.url[0]}/PC${image.url[1]}.webp`"
+            :alt="image.url"
+            type="image/webp"
+          />
+        </picture>
+      </div>
+    </div>
 
-		<div class="gallery__wrapper gallery__wrapper--FourImage" v-if="settings.type === 'FourImage'">
-			<div class="gallery__col">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[0].url[0]}/Mobile${settings.images[0].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[0].url[0]}/PC${settings.images[0].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[0].url[0]}/JPG${settings.images[0].url[1]}.jpg`" type="image/jpeg" />
-						<img class="gallery__img" :srcset="`/img/${settings.images[0].url[0]}/PC${settings.images[0].url[1]}.webp`" :alt="settings.images[0].url" type="image/webp" />
-					</picture>
-				</div>
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[1].url[0]}/Mobile${settings.images[1].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[1].url[0]}/PC${settings.images[1].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[1].url[0]}/JPG${settings.images[1].url[1]}.jpg`" type="image/jpeg" />
-						<img class="gallery__img" :srcset="`/img/${settings.images[1].url[0]}/PC${settings.images[1].url[1]}.webp`" :alt="settings.images[1].url" type="image/webp" />
-					</picture>
-				</div>
-			</div>
-			<div class="gallery__col">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[2].url[0]}/Mobile${settings.images[2].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[2].url[0]}/PC${settings.images[2].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[2].url[0]}/JPG${settings.images[2].url[1]}.jpg`" type="image/jpeg" />
-						<img class="gallery__img" :srcset="`/img/${settings.images[2].url[0]}/PC${settings.images[2].url[1]}.webp`" :alt="settings.images[2].url" type="image/webp" />
-					</picture>
-				</div>
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[3].url[0]}/Mobile${settings.images[3].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[3].url[0]}/PC${settings.images[3].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[3].url[0]}/JPG${settings.images[3].url[1]}.jpg`" type="image/jpeg" />
-						<img class="gallery__img" :srcset="`/img/${settings.images[3].url[0]}/PC${settings.images[3].url[1]}.webp`" :alt="settings.images[3].url" type="image/webp" />
-					</picture>
-				</div>
-			</div>
-		</div>
+    <div
+      v-if="settings.type === 'FourImage'"
+      class="gallery__wrapper gallery__wrapper--FourImage"
+    >
+      <div class="gallery__col">
+        <div
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[0].url[0]}/Mobile${settings.images[0].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[0].url[0]}/PC${settings.images[0].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[0].url[0]}/JPG${settings.images[0].url[1]}.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[0].url[0]}/PC${settings.images[0].url[1]}.webp`"
+              :alt="settings.images[0].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+        <div
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[1].url[0]}/Mobile${settings.images[1].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[1].url[0]}/PC${settings.images[1].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[1].url[0]}/JPG${settings.images[1].url[1]}.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[1].url[0]}/PC${settings.images[1].url[1]}.webp`"
+              :alt="settings.images[1].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+      <div class="gallery__col">
+        <div
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[2].url[0]}/Mobile${settings.images[2].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[2].url[0]}/PC${settings.images[2].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[2].url[0]}/JPG${settings.images[2].url[1]}.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[2].url[0]}/PC${settings.images[2].url[1]}.webp`"
+              :alt="settings.images[2].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+        <div
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[3].url[0]}/Mobile${settings.images[3].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[3].url[0]}/PC${settings.images[3].url[1]}.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[3].url[0]}/JPG${settings.images[3].url[1]}.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[3].url[0]}/PC${settings.images[3].url[1]}.webp`"
+              :alt="settings.images[3].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
 
-		<div class="gallery__wrapper gallery__wrapper--EightImage" v-if="settings.type === 'EightImage'">
-			<div class="gallery__grid">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 4" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${settings.images[n - 1].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n - 1].url[0]}/PC${settings.images[n - 1].url[1]}.webp`"
-							:alt="settings.images[n - 1].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-			<div class="gallery__grid">
-				<div class="gallery__image" :class="[`gallery__image--border-${settings.border}`]" v-for="n in 4" :key="n">
-					<picture>
-						<source media="(max-width: 768px)" :srcset="`/img/${settings.images[n + 3].url[0]}/Mobile${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
-						<source media="(min-width: 769px)" :srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`" type="image/webp" />
-						<source :srcset="`/img/${settings.images[n + 3].url[0]}/JPG${settings.images[n + 3].url[1]}.jpg`" type="image/jpeg" />
-						<img
-							class="gallery__img"
-							:srcset="`/img/${settings.images[n + 3].url[0]}/PC${settings.images[n + 3].url[1]}.webp`"
-							:alt="settings.images[n + 3].url"
-							type="image/webp"
-						/>
-					</picture>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div
+      v-if="settings.type === 'EightImage'"
+      class="gallery__wrapper gallery__wrapper--EightImage"
+    >
+      <div class="gallery__grid">
+        <div
+          v-for="n in 4"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/Mobile${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n - 1].url[0]}/JPG${
+                settings.images[n - 1].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n - 1].url[0]}/PC${
+                settings.images[n - 1].url[1]
+              }.webp`"
+              :alt="settings.images[n - 1].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+      <div class="gallery__grid">
+        <div
+          v-for="n in 4"
+          :key="n"
+          class="gallery__image"
+          :class="[`gallery__image--border-${settings.border}`]"
+        >
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/Mobile${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/PC${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`/img/${settings.images[n + 3].url[0]}/JPG${
+                settings.images[n + 3].url[1]
+              }.jpg`"
+              type="image/jpeg"
+            />
+            <img
+              class="gallery__img"
+              :srcset="`/img/${settings.images[n + 3].url[0]}/PC${
+                settings.images[n + 3].url[1]
+              }.webp`"
+              :alt="settings.images[n + 3].url"
+              type="image/webp"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'GalleryCardTemplate',
-	props: {
-		settings: {
-			default: {
-				type: '',
-				images: [],
-				background: '#F9F9F9',
-			},
-		},
-	},
+  name: 'GalleryCardTemplate',
+  props: {
+    settings: {
+      default: {
+        type: '',
+        images: [],
+        background: '#F9F9F9',
+      },
+    },
+  },
 };
 </script>
 

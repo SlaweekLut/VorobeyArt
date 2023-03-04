@@ -1,13 +1,16 @@
 <template>
-	<h1 class="title-aside">{{ title }}</h1>
+  <h1 class="title-aside">{{ title }}</h1>
 </template>
 
 <script>
 export default {
-	name: 'TitlePage',
-	props: {
-		title: String,
-	},
+  name: 'TitlePage',
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+  },
 };
 </script>
 
