@@ -12,11 +12,13 @@
     <div class="video">
       <div class="video__container">
         <div class="video__wrapper">
-          <video class="video__player" playsinline preload="auto">
-            <source
-              src="https://vorobeyart.ru/img/izenbot/Video/video-01.mp4"
-              type="video/mp4"
-            />
+          <video
+            class="video__player"
+            playsinline
+            poster="/img/izenbot/Video/previews/izenbot-video-1.png"
+            preload="auto"
+          >
+            <source src="/img/izenbot/Video/video-01.mp4" type="video/mp4" />
           </video>
           <div class="video__play">
             <svg
@@ -41,11 +43,13 @@
     <div class="video video--result">
       <div class="video__container">
         <div class="video__wrapper">
-          <video class="video__player" playsinline preload="auto">
-            <source
-              src="https://vorobeyart.ru/img/izenbot/Video/video-02.mp4"
-              type="video/mp4"
-            />
+          <video
+            class="video__player"
+            poster="/img/izenbot/Video/previews/izenbot-video-2.png"
+            playsinline
+            preload="auto"
+          >
+            <source src="/img/izenbot/Video/video-02.mp4" type="video/mp4" />
           </video>
           <div class="video__play">
             <svg
