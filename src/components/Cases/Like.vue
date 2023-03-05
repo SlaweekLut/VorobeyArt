@@ -12,7 +12,7 @@
       <button
         class="like-button__button"
         :class="{ 'like-button__button--pressed': pressed }"
-        @click="toggleLike"
+        @click.stop.prevent="toggleLike"
       >
         <div class="like-button__img-wrapper">
           <picture>
@@ -82,97 +82,72 @@
 
 <script>
 import axios from 'axios';
+import { nanoid } from 'nanoid';
 
 export default {
   name: 'LikeTemplate',
   props: {
-    title: String,
+    title: {
+      type: String,
+      default: 'like',
+    },
   },
   data() {
     return {
       likesCount: 0,
+      isLiked: false,
       sending: false,
       pressed: false,
+      clientId: '',
     };
   },
-  mounted() {
-    const BEEN_THIS_PAGE =
-      localStorage.getItem(`hasLike-${this.$props.title}`) !== null;
-    if (!BEEN_THIS_PAGE)
-      localStorage.setItem(`hasLike-${this.$props.title}`, 'false');
+  async mounted() {
+    if (!localStorage.getItem(`vorobeyArtClientId-${this.$props.title}`)) {
+      this.clientId = nanoid();
+      localStorage.setItem(
+        `vorobeyArtClientId-${this.$props.title}`,
+        this.clientId
+      );
+    } else {
+      this.clientId = localStorage.getItem(
+        `vorobeyArtClientId-${this.$props.title}`
+      );
+    }
 
-    axios.get('api/likesv2.json').then((response) => {
-      let data = response.data;
-      // IF IN DATA HAVE NOT LIKE THIS PAGE
-      if (data[this.$props.title] === undefined) {
-        let params = new URLSearchParams();
-        params.append('title', this.$props.title);
-        params.append('like', 0);
-        axios
-          .post('like.php', params, {
-            headers: {
-              'content-type': 'application/x-www-form-urlencoded',
-            },
-          })
-          .then((e) => {
-            console.log('New like counter been created', e.data);
-          });
-        this.likesCount = 0;
-      } else {
-        this.likesCount = data[this.$props.title];
-      }
-    });
+    await this.getLikes();
   },
   methods: {
-    async toggleLike(e) {
-      const BEEN_THIS_PAGE = localStorage.getItem(
-        `hasLike-${this.$props.title}`
-      );
+    async update(toggle = false) {
+      this.sending = true;
+      try {
+        const { data } = await axios.post('like-handler.php', {
+          id: this.clientId,
+          toggle: toggle,
+        });
+        this.likesCount = data.likesCount;
+        this.isLiked = data.isLiked;
+      } catch (error) {
+        console.log('не удалось обновить количество лайков', error);
+      } finally {
+        this.sending = false;
+      }
+    },
+    async getLikes() {
+      await this.update();
+    },
+    async toggleLike() {
+      this.markButtonAsPressed();
+      if (!this.sending) {
+        await this.update(true);
+      }
+    },
 
+    markButtonAsPressed() {
       if (!this.pressed) {
         this.pressed = true;
         setTimeout(() => {
           this.pressed = false;
         }, 300);
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (!this.sending) {
-        this.sending = true;
-        console.log('Sending...');
-        await axios.get('api/likesv2.json').then((response) => {
-          let data = response.data;
-          let number = Number(data[this.$props.title]);
-
-          if (number < 0 || isNaN(number)) {
-            number = 0;
-          }
-
-          if (BEEN_THIS_PAGE === 'false') {
-            localStorage.setItem(`hasLike-${this.$props.title}`, 'true');
-            number = number + 1;
-          } else if (BEEN_THIS_PAGE === 'true') {
-            localStorage.setItem(`hasLike-${this.$props.title}`, 'false');
-            number = number - 1;
-          }
-
-          let params = new URLSearchParams();
-          this.likesCount = number;
-          params.append('title', this.$props.title);
-          params.append('like', number);
-          axios
-            .post('like.php', params, {
-              headers: {
-                'content-type': 'application/x-www-form-urlencoded',
-              },
-            })
-            .finally(() => {
-              this.sending = false;
-              console.log('Sent!');
-            });
-        });
       }
     },
   },
