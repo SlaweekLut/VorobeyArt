@@ -1,12 +1,21 @@
 <IfModule mod_negotiation.c>
   Options -MultiViews
 </IfModule>
+ErrorDocument 404 https://zhigulskiy.ru/404
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteBase /
+#   RewriteRule ^index\.html$ - [L]
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule . /index.html [L]
+# </IfModule>
+
+<ifModule mod_headers.c>
+  <FilesMatch "\.(html|flv|swf|ico|gif|jpg|jpeg|png|js|css|txt|svg|webp|woff|woff2)$">
+    Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
 </IfModule>
+
+
