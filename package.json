@@ -14,8 +14,7 @@
     "2gis-maps": "^3.7.3",
     "axios": "^1.3.4",
     "core-js": "^3.8.3",
-    "nanoid": "^4.0.1",
-    "vue-yandex-maps": "^0.11.13"
+    "nanoid": "^4.0.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

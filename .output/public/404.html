@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8">
+<title>Vorobey Art</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Vorobey Art – быстроразвивающаяся креативная студия веб-дизайна, специализирующаяся на разработке кооперативных стилей, веб-сайтов, брендинга и 3Д моделирования.">
+<meta property="og:image" content="favicon/apple-touch-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="180">
+<meta property="og:image:height" content="180">
+<meta property="og:image:alt" content="The Vorobey Art Logo">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/entry.add97367.js"><link rel="preload" as="style" href="/_nuxt/entry.589c130c.css"><link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.8f7eb226.js"><link rel="stylesheet" href="/_nuxt/entry.589c130c.css"></head>
+<body ><div id="app"></div><script>window.__NUXT__={serverRendered:false,config:{public:{},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}},data:{},state:{}}</script><script type="module" src="/_nuxt/entry.add97367.js" crossorigin></script><script>
+(function() {
+  const w = window;
+  w._$delayHydration = (() => {
+    if (!("requestIdleCallback" in w) || !("requestAnimationFrame" in w))
+  return new Promise((resolve) => resolve("not supported"));
+function eventListeners() {
+  const c = new AbortController();
+  const p = new Promise((resolve) => {
+    const hydrateOnEvents = "mousemove,scroll,keydown,click,touchstart,wheel".split(",");
+    function handler(e) {
+      hydrateOnEvents.forEach((e2) => w.removeEventListener(e2, handler));
+      requestAnimationFrame(() => resolve(e));
+    }
+    hydrateOnEvents.forEach((e) => {
+      w.addEventListener(e, handler, {
+        capture: true,
+        once: true,
+        passive: true,
+        signal: c.signal
+      });
+    });
+  });
+  return { c: () => c.abort(), p };
+}
+function idleListener() {
+  let id;
+  const p = new Promise((resolve) => {
+    const isMobile = w.innerWidth < 640;
+    const timeout = isMobile ? Number.parseInt("5000") : Number.parseInt("4000");
+    const timeoutDelay = () => setTimeout(
+      () => requestAnimationFrame(() => resolve("timeout")),
+      timeout
+    );
+    id = w.requestIdleCallback(timeoutDelay, { timeout: Number.parseInt("7000") });
+  });
+  return { c: () => window.cancelIdleCallback(id), p };
+}
+const triggers = [idleListener(), eventListeners()];
+const hydrationPromise = Promise.race(
+  triggers.map((t) => t.p)
+).finally(() => {
+  triggers.forEach((t) => t.c());
+});
+return hydrationPromise;
+}
+  )();
+  w._$delayHydration.then((e) => { console.log('[nuxt-delay-hydration] Hydration event', e) })
+  ;(() => {
+  w._$delayHydration.then((e) => {
+    if (!(e instanceof PointerEvent) && !(e instanceof MouseEvent) && !(e instanceof TouchEvent))
+      return;
+    if (e instanceof MouseEvent && e.type !== "click")
+      return;
+    setTimeout(
+      () => w.requestIdleCallback(
+        () => setTimeout(() => e.target?.click(), 500)
+      ),
+      50
+    );
+  });
+})();
+
+})();
+</script></body>
+</html>

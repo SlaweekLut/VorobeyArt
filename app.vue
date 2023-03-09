@@ -1,41 +1,34 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    <HeaderPage
-      v-if="$route.matched[0]?.name !== 'NotFound'"
-      :curtains="curtains"
-      :pages="{
-        contacts: $route.path === '/contacts',
-        works: $route.path === '/works',
-        about: $route.path === '/about',
-        policy: $route.path === '/policy',
-      }"
-      :home="$route.path === '/'"
-      @set-curtains="setCurtains"
-    />
-    <PreloaderElement v-if="$route.matched[0]?.name !== 'NotFound'" />
-    <CurtainsElement
-      v-if="
-        $route.matched[0]?.name !== 'NotFound' &&
-        curtains !== 'Menu' &&
-        curtains !== 'Preloader'
-      "
-      @set-curtains="setCurtains"
-    />
-    <DelayHydration>
-      <NuxtPage v-slot="{ Component }">
-        <Transition :name="curtains === 'Menu' ? 'menu' : 'page'">
-          <component
-            :is="Component"
-            :key="$route.path"
-            :class="{ menu: curtains === 'Menu' }"
-            :curtains="curtains"
-          >
-          </component>
-        </Transition>
-      </NuxtPage>
-    </DelayHydration>
-  </div>
+	<div>
+		<HeaderPage
+			v-if="$route.matched[0]?.name !== 'NotFound'"
+			:curtains="curtains"
+			:pages="{
+				contacts: $route.path === '/contacts',
+				works: $route.path === '/works',
+				about: $route.path === '/about',
+				policy: $route.path === '/policy',
+			}"
+			:home="$route.path === '/'"
+			@setCurtains="setCurtains"
+			@setMenu="setMenu"
+		/>
+		<PreloaderElement v-if="$route.matched[0]?.name !== 'NotFound'" />
+		<CurtainsElement
+			v-if="$route.matched[0]?.name !== 'NotFound' && curtains !== 'Menu' && curtains !== 'Preloader'"
+			:menu="this.menu"
+			@setCurtains="setCurtains"
+			@setMenu="setMenu"
+		/>
+		<DelayHydration>
+			<!-- <Transition :name="curtains === 'Menu' ? 'menu' : 'page'"> -->
+			<NuxtPage v-slot="{ Component }" :class="{ menu: curtains === 'Menu' }" :curtains="curtains">
+				<component :is="Component" :key="$route.path"> </component>
+			</NuxtPage>
+			<!-- </Transition> -->
+		</DelayHydration>
+	</div>
 </template>
 
 <script>
@@ -43,37 +36,50 @@ import HeaderPage from '~/components/Header.vue';
 import PreloaderElement from '~/components/Preloader.vue';
 import CurtainsElement from '~/components/Curtains.vue';
 export default {
-  name: 'App',
-  components: {
-    PreloaderElement,
-    HeaderPage,
-    CurtainsElement,
-  },
-  data() {
-    return {
-      curtains: 'Preloader',
-    };
-  },
-  watch: {
-    curtains() {
-      console.log(this.curtains);
-    },
-  },
-  mounted() {
-    if (this.curtains === 'Preloader') {
-      setTimeout(() => {
-        this.curtains = 'Nothing';
-      }, 3900);
-    }
-  },
-  methods: {
-    setCurtains(curtains) {
-      // if (curtains === 'Menu') {
-      // 	window.scrollTo(0, 0);
-      // }
-      this.curtains = curtains;
-    },
-  },
+	name: 'App',
+	// transition: {
+	// 	afterLeave(el) {
+	// 		console.log('afterLeave', el);
+	// 	},
+	// },
+	components: {
+		PreloaderElement,
+		HeaderPage,
+		CurtainsElement,
+	},
+	data() {
+		return {
+			curtains: 'Preloader',
+			menu: false,
+		};
+	},
+	watch: {
+		curtains() {
+			console.log(this.curtains);
+		},
+	},
+	mounted() {
+		if (this.curtains === 'Preloader') {
+			setTimeout(() => {
+				this.curtains = 'Nothing';
+			}, 2700);
+		}
+	},
+	methods: {
+		setCurtains(curtains) {
+			this.curtains = curtains;
+		},
+		setMenu(menu) {
+			this.menu = menu;
+			if (menu) {
+				this.curtains = 'Menu';
+				setTimeout(() => {
+					this.menu = false;
+					this.curtains = 'Nothing';
+				}, 500);
+			}
+		},
+	},
 };
 </script>
 
@@ -226,19 +232,19 @@ body
 .page-leave-to
 	opacity: 0
 
-.menu-leave-active
+.menu.page-leave-active
 	transition: 0s linear
 
-.menu-enter-active
+.menu.page-enter-active
 	transition: 0s linear
 
-.menu-enter-from
+.menu.page-enter-from
 	opacity: 0
-.menu-enter-to
+.menu.page-enter-to
 	opacity: 1
 
-.menu-leave-from
+.menu.page-leave-from
 	opacity: 1
-.menu-leave-to
+.menu.page-leave-to
 	opacity: 0
 </style>
