@@ -28,8 +28,8 @@
 							class="home-slides__letters"
 							:class="{
 								'home-slides__letters--space': letter === ' ',
-								'home-slides__letters--preloader': curtains === 'Preloader',
 								'home-slides__letters--curtains': redirect,
+								'home-slides__letters--preloader': curtains === 'Preloader',
 								'home-slides__letters--scroll': isWait,
 							}"
 						>
@@ -41,8 +41,8 @@
 					<p
 						class="home-slides-info__text home-slides-info__bottom"
 						:class="{
-							'home-slides-info__bottom--preloader': curtains === 'Preloader',
 							'home-slides-info__bottom--curtains': redirect,
+							'home-slides-info__bottom--preloader': curtains === 'Preloader',
 							'home-slides-info__bottom--scroll': isWait,
 						}"
 					>
@@ -58,8 +58,8 @@
 							:class="{
 								'home-slides-info__bullet--prev': index === prevSlide,
 								'home-slides-info__bullet--active': index === activeSlide,
-								'home-slides-info__bullet--preloader': curtains === 'Preloader',
 								'home-slides-info__bullet--curtains': redirect,
+								'home-slides-info__bullet--preloader': curtains === 'Preloader',
 								'home-slides-info__bullet--scroll': isWait,
 							}"
 						></div>
@@ -84,9 +84,9 @@
 							type="image/webp"
 							class="home-slides__img"
 							:class="{
-								'home-slides__img--preloader': curtains === 'Preloader',
 								'home-slides__img--curtains': redirect,
 								'home-slides__img--scroll': isWait,
+								'home-slides__img--preloader': curtains === 'Preloader',
 								'home-slides__img--active': index === activeSlide,
 								// 'home-slides__img--wait': isWait || curtains === 'Preloader' || redirect,
 							}"
@@ -97,10 +97,10 @@
 					v-if="index === activeSlide"
 					class="home-slides__background"
 					:class="{
-						'home-slides__background--preloader': curtains === 'Preloader',
 						'home-slides__background--curtains': redirect,
 						'home-slides__background--scroll': isWait,
 						'home-slides__background--active': index === activeSlide,
+						'home-slides__background--preloader': curtains === 'Preloader',
 						// 'home-slides__background--wait': isWait || curtains === 'Preloader' || redirect,
 					}"
 				></div>
@@ -171,7 +171,7 @@ export default {
 				{
 					to: '/izenbot',
 					title: 'IZENBOT',
-					description: 'Разработка брендбука|и презентации',
+					description: 'Проектирование и|разработка игры',
 					img: ['izenbot', '/izenbot-page'],
 				},
 				{
@@ -203,12 +203,14 @@ export default {
 		};
 	},
 	mounted() {
+		document.querySelector('body').style.pointerEvents = 'none';
+		console.log('1234');
 		let posX = 0;
 		let wait;
 		this.isWait = true;
 		this.redirect = true;
 		let autoSlider;
-
+		let timer = this.curtains === 'Preloader' ? 3500 : 2000;
 		const autoSliderFn = () => {
 			this.scroll = true;
 			this.isWait = true;
@@ -220,77 +222,78 @@ export default {
 		};
 
 		setTimeout(() => {
+			console.log('off');
 			this.isWait = false;
 			this.redirect = false;
 			autoSlider = setInterval(autoSliderFn, 5000);
 			autoSlider;
-		}, 1900);
+			document.querySelector('body').style.pointerEvents = 'auto';
+			window.addEventListener('touchstart', (event) => {
+				const { clientX } = event.changedTouches[0];
+				posX = clientX;
+			});
 
-		window.addEventListener('touchstart', (event) => {
-			const { clientX } = event.changedTouches[0];
-			posX = clientX;
-		});
-
-		window.addEventListener('touchend', (event) => {
-			const { clientX } = event.changedTouches[0];
-			if (posX - clientX > 10) {
-				this.scroll = true;
-				this.isWait = true;
-				this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-				this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-			}
-			if (posX - clientX < -10) {
-				this.scroll = true;
-				this.isWait = true;
-				this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-				this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-			}
-			clearTimeout(wait);
-			clearInterval(autoSlider);
-
-			wait = setTimeout(() => {
-				this.isWait = false;
-			}, 1200);
-			clearInterval(autoSlider);
-			autoSlider = setInterval(autoSliderFn, 5000);
-			autoSlider;
-		});
-
-		window.addEventListener('wheel', (event) => {
-			let isTouchPad = event.wheelDeltaY ? event.wheelDeltaY === -3 * event.deltaY : event.deltaMode === 0;
-			let timer = isTouchPad ? 1200 : 100;
-			this.scroll = true;
-
-			if (!this.isChanged) {
-				this.isChanged = true;
-				this.isWait = true;
-
+			window.addEventListener('touchend', (event) => {
+				const { clientX } = event.changedTouches[0];
+				if (posX - clientX > 10) {
+					this.scroll = true;
+					this.isWait = true;
+					this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+					this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+				}
+				if (posX - clientX < -10) {
+					this.scroll = true;
+					this.isWait = true;
+					this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+					this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+				}
 				clearTimeout(wait);
 				clearInterval(autoSlider);
 
 				wait = setTimeout(() => {
 					this.isWait = false;
 				}, 1200);
+				clearInterval(autoSlider);
+				autoSlider = setInterval(autoSliderFn, 5000);
+				autoSlider;
+			});
 
-				setTimeout(() => {
-					this.isChanged = false;
-					autoSlider = setInterval(autoSliderFn, 5000);
-					autoSlider;
-				}, timer);
+			window.addEventListener('wheel', (event) => {
+				let isTouchPad = event.wheelDeltaY ? event.wheelDeltaY === -3 * event.deltaY : event.deltaMode === 0;
+				let timer = isTouchPad ? 1200 : 100;
+				this.scroll = true;
 
-				if (event.deltaY === 0) return;
+				if (!this.isChanged) {
+					this.isChanged = true;
+					this.isWait = true;
 
-				if (event.deltaY > 0) {
-					this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-					this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-					this.dir = 'next';
-				} else {
-					this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
-					this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
-					this.dir = 'prev';
+					clearTimeout(wait);
+					clearInterval(autoSlider);
+
+					wait = setTimeout(() => {
+						this.isWait = false;
+					}, 1200);
+
+					setTimeout(() => {
+						this.isChanged = false;
+						autoSlider = setInterval(autoSliderFn, 5000);
+						autoSlider;
+					}, timer);
+
+					if (event.deltaY === 0) return;
+
+					if (event.deltaY > 0) {
+						this.activeSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+						this.prevSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+						this.dir = 'next';
+					} else {
+						this.activeSlide = this.activeSlide - 1 === -1 ? this.slides.length - 1 : this.activeSlide - 1;
+						this.prevSlide = this.activeSlide + 1 === this.slides.length ? 0 : this.activeSlide + 1;
+						this.dir = 'prev';
+					}
 				}
-			}
-		});
+			});
+		}, timer);
 	},
 };
 </script>
@@ -377,6 +380,17 @@ export default {
 				animation: animationLetters 1.2s ease forwards 0.9s;
 			}
 		}
+		&--scroll {
+			&:nth-child(n + 1) {
+				animation: animationLetters 0.6s ease forwards;
+			}
+			&:nth-child(n + 2) {
+				animation: animationLetters 0.8s ease forwards;
+			}
+			&:nth-child(n + 3) {
+				animation: animationLetters 1.2s ease forwards;
+			}
+		}
 		&--preloader {
 			opacity: 0;
 			&:nth-child(n + 1) {
@@ -387,17 +401,6 @@ export default {
 			}
 			&:nth-child(n + 3) {
 				animation: animationLetters 1.2s ease forwards 2.7s;
-			}
-		}
-		&--scroll {
-			&:nth-child(n + 1) {
-				animation: animationLetters 0.6s ease forwards;
-			}
-			&:nth-child(n + 2) {
-				animation: animationLetters 0.8s ease forwards;
-			}
-			&:nth-child(n + 3) {
-				animation: animationLetters 1.2s ease forwards;
 			}
 		}
 		&--space {
@@ -424,11 +427,11 @@ export default {
 		&--curtains {
 			animation: animationImages 1s ease backwards 0.9s;
 		}
-		&--preloader {
-			animation: animationImages 1s ease backwards 2.7s;
-		}
 		&--scroll {
 			animation: animationImages 1s ease backwards;
+		}
+		&--preloader {
+			animation: animationImages 1s ease backwards 2.7s;
 		}
 	}
 
@@ -450,11 +453,11 @@ export default {
 		&--curtains {
 			animation: animationBackground 1s ease both 0.9s;
 		}
-		&--preloader {
-			animation: animationBackground 1s ease both 2.7s;
-		}
 		&--scroll {
 			animation: animationBackground 1s ease both;
+		}
+		&--preloader {
+			animation: animationBackground 1s ease both 2.7s;
 		}
 	}
 
@@ -490,11 +493,11 @@ export default {
 		&--curtains {
 			animation: animationInfoFour 1s ease both 0.9s;
 		}
-		&--preloader {
-			animation: animationInfoFour 1s ease both 2.7s;
-		}
 		&--scroll {
 			animation: animationInfoFour 1s ease both;
+		}
+		&--preloader {
+			animation: animationInfoFour 1s ease both 2.7s;
 		}
 	}
 	&__pagination {
@@ -616,11 +619,11 @@ export default {
 			background-color: white;
 			transform: translate(45px, -5px) rotate(-180deg);
 		}
-		&--preloader::after {
-			animation: linkCircleFirstAnimation 1s linear both 2.7s;
-		}
 		&--curtains::after {
 			animation: linkCircleFirstAnimation 1s linear both 0.9s;
+		}
+		&--preloader::after {
+			animation: linkCircleFirstAnimation 1s linear both 2.7s;
 		}
 	}
 	&__circle-small {
@@ -632,11 +635,11 @@ export default {
 		transform: translate(0, -50%);
 		z-index: 2;
 		animation: none;
-		&--preloader {
-			animation: linkCircleTwoAnimation 1s ease both 2.7s;
-		}
 		&--curtains {
 			animation: linkCircleTwoAnimation 1s ease both 0.9s;
+		}
+		&--preloader {
+			animation: linkCircleTwoAnimation 1s ease both 2.7s;
 		}
 	}
 	&:hover {

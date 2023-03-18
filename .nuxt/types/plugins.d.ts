@@ -10,7 +10,6 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/lib/vueuse-head.plugin").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client").default> &
-  InjectionType<typeof import("../../node_modules/nuxt-delay-hydration/dist/runtime/mount-plugin.client").default> &
   InjectionType<typeof import("../../plugins/mapgl.client").default> &
   InjectionType<typeof import("../../plugins/router").default>
 

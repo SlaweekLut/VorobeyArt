@@ -2,8 +2,17 @@
 declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
+    '/__nuxt_error': {
+      'default': Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>
+    }
     '/robots.txt': {
       'default': Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/robots/dist/runtime/server/middleware').default>>
+    }
+    '/sitemap.xml': {
+      'default': Awaited<ReturnType<typeof import('../../node_modules/nuxt-simple-sitemap/dist/runtime/sitemap').default>>
+    }
+    '/sitemap.preview.xml': {
+      'default': Awaited<ReturnType<typeof import('../../node_modules/nuxt-simple-sitemap/dist/runtime/sitemap.preview').default>>
     }
   }
 }
@@ -48,6 +57,9 @@ declare global {
   const getQuery: typeof import('h3')['getQuery']
   const getRequestHeader: typeof import('h3')['getRequestHeader']
   const getRequestHeaders: typeof import('h3')['getRequestHeaders']
+  const getRequestHost: typeof import('h3')['getRequestHost']
+  const getRequestProtocol: typeof import('h3')['getRequestProtocol']
+  const getRequestURL: typeof import('h3')['getRequestURL']
   const getResponseHeader: typeof import('h3')['getResponseHeader']
   const getResponseHeaders: typeof import('h3')['getResponseHeaders']
   const getResponseStatus: typeof import('h3')['getResponseStatus']
@@ -86,6 +98,7 @@ declare global {
   const setResponseHeader: typeof import('h3')['setResponseHeader']
   const setResponseHeaders: typeof import('h3')['setResponseHeaders']
   const setResponseStatus: typeof import('h3')['setResponseStatus']
+  const splitCookiesString: typeof import('h3')['splitCookiesString']
   const toEventHandler: typeof import('h3')['toEventHandler']
   const toNodeListener: typeof import('h3')['toNodeListener']
   const unsealSession: typeof import('h3')['unsealSession']

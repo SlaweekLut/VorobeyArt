@@ -13,6 +13,9 @@ export default defineNuxtConfig({
 	// },
 	nitro: {
 		serveStatic: true,
+		devServer: {
+			watch: ['./'],
+		},
 	},
 	experimental: {
 		payloadExtraction: false,
@@ -21,7 +24,7 @@ export default defineNuxtConfig({
 		server: true,
 		client: true,
 	},
-	modules: [['nuxt-delay-hydration', { mode: 'mount', replayClick: true }], '@nuxtjs/robots', ['nuxt-simple-sitemap', { hostname: 'https://vorobeyart.ru' }]],
+	modules: ['@nuxtjs/robots', ['nuxt-simple-sitemap', { hostname: 'https://vorobeyart.ru' }]],
 	app: {
 		rootId: 'app',
 		pageTransition: { name: 'page' },
@@ -45,6 +48,7 @@ export default defineNuxtConfig({
 				{ property: 'og:image:alt', content: 'The Vorobey Art Logo' },
 				{ name: 'msapplication-TileColor', content: '#ffffff' },
 				{ name: 'theme-color', content: '#ffffff' },
+				{ name: 'yandex-verification', content: '317433ee872bb5f0' },
 			],
 			link: [
 				{ rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon/favicon-32x32.png' },

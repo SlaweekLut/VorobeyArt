@@ -1,7 +1,7 @@
 <IfModule mod_negotiation.c>
   Options -MultiViews
 </IfModule>
-ErrorDocument 404 https://zhigulskiy.ru/404
+ErrorDocument 404 https://vorobeyart.ru/404
 
 # <IfModule mod_rewrite.c>
 #   RewriteEngine On

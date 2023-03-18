@@ -21,13 +21,13 @@
 			@setCurtains="setCurtains"
 			@setMenu="setMenu"
 		/>
-		<DelayHydration>
-			<!-- <Transition :name="curtains === 'Menu' ? 'menu' : 'page'"> -->
-			<NuxtPage v-slot="{ Component }" :class="{ menu: curtains === 'Menu' }" :curtains="curtains">
-				<component :is="Component" :key="$route.path"> </component>
-			</NuxtPage>
-			<!-- </Transition> -->
-		</DelayHydration>
+		<!-- <DelayHydration> -->
+		<!-- <Transition :name="curtains === 'Menu' ? 'menu' : 'page'"> -->
+		<NuxtPage v-slot="{ Component }" :class="{ menu: curtains === 'Menu' }" :curtains="curtains">
+			<component :is="Component" :key="$route.path"> </component>
+		</NuxtPage>
+		<!-- </Transition> -->
+		<!-- </DelayHydration> -->
 	</div>
 </template>
 
@@ -35,6 +35,7 @@
 import HeaderPage from '~/components/Header.vue';
 import PreloaderElement from '~/components/Preloader.vue';
 import CurtainsElement from '~/components/Curtains.vue';
+
 export default {
 	name: 'App',
 	// transition: {
@@ -62,7 +63,7 @@ export default {
 		if (this.curtains === 'Preloader') {
 			setTimeout(() => {
 				this.curtains = 'Nothing';
-			}, 2700);
+			}, 3500);
 		}
 	},
 	methods: {
@@ -247,4 +248,46 @@ body
 	opacity: 1
 .menu.page-leave-to
 	opacity: 0
+
+.content
+	max-width: 1920px
+	width: 100%
+	margin: 76px auto 0
+	padding: 0 93px 100px
+	&__wrapper
+		max-width: 1274px
+		width: 100%
+		margin: 0 auto
+		position: relative
+		z-index: 3
+
+@media (max-width: 1440px)
+	.content
+		&__wrapper
+			max-width: 1146px
+
+@media (max-width: 1024px)
+	.content
+		margin: 46px auto 0
+		padding: 0 41px 100px
+		&__wrapper
+			max-width: 798px
+
+@media (max-width: 768px)
+	.content
+		padding: 0px 41px 50px
+		&__wrapper
+			max-width: 612px
+
+@media (max-width: 425px)
+	.content
+		margin: 43px auto 0
+		padding: 0 32px 50px
+		&__wrapper
+			max-width: 337px
+
+@media (max-width: 366px)
+	.content
+		&__wrapper
+			max-width: 284px
 </style>
