@@ -218,6 +218,7 @@
 			<path d="M1398.1 2.4568L1316.31 242.123H1259.24L1177.45 2.4568H1234.52L1287.78 167.941L1341.04 2.4568H1398.1Z" fill="#E6F2F9" />
 			<path d="M1422.77 2.4568H1593.96V55.716H1477.93V93.7583H1584.45V147.018H1477.93V188.864H1597.76V242.123H1422.77V2.4568Z" fill="#E6F2F9" />
 		</svg>
+		<div class="preloader__date">2018 - {{ new Date().getFullYear() }}</div>
 		<!-- <div class="preloader__title">Creative</div> -->
 	</div>
 </template>
@@ -232,14 +233,25 @@ export default {
 .preloader
 	width: 100vw
 	height: 100%
-	background-color: white
-	animation: animationBackground .5s ease 2.4s forwards
+	background: white
+	animation: animationBackground 0.5s ease 2.4s both
 	pointer-events: none
 	user-select: none
 	position: fixed
 	top: 0
 	left: 0
 	z-index: 10
+
+	&__date
+		font-size: 20px
+		color: #868686
+		position: absolute
+		bottom: 63px
+		left: 50%
+		font-weight: 500
+		font-feature-settings: 'tnum' on, 'lnum' on
+		transform: translateX(-50%)
+		animation: animationTitle 2.2s linear forwards
 
 	&__logo
 		z-index: 1
@@ -263,6 +275,17 @@ export default {
 		transform: translate(-50%, -50%)
 		color: #e6f2f9
 		animation: animationTitle 2.2s linear forwards
+
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100vw
+		height: 100vh
+		z-index: -1
+		background: url('../img/bg-lines.svg') repeat-y
+		animation: animationBackground 0.5s ease 0.2s both reverse
 
 @media screen and (max-width: 1440px)
 	.preloader
@@ -293,6 +316,8 @@ export default {
 
 @media screen and (max-width: 425px)
 	.preloader
+		&__date
+			font-size: 16px
 		&__title
 			max-width: 322px
 			width: 75.764vw

@@ -7,14 +7,14 @@
 			'header--preloader': curtains === 'Preloader',
 			'header--curtains': curtains === 'Curtains' || curtains === 'Header',
 			'header--scrolling': headerScrollTop,
-			'header--nocase': pages.about || pages.works || pages.contacts || pages.policy,
+			// 'header--nocase': pages.about || pages.works || pages.contacts || pages.policy,
 		}"
 	>
 		<div
 			class="header__wrapper"
 			:class="{
 				'header__wrapper--open': menu,
-				'header__wrapper--line': pages.about || pages.works || pages.contacts || pages.policy,
+				'header__wrapper--line': (pages.about || pages.works || pages.contacts || pages.policy || pages.services) && !home,
 			}"
 		>
 			<NuxtLink
@@ -35,15 +35,16 @@
 				<span class="header-logo__crumbread"></span>
 				<span class="header-logo__text">Vorobey Art</span>
 			</NuxtLink>
-			<a
-				href="https://t.me/Vorobey_Art"
-				class="header-start-button"
-				:class="{
-					'header-start-button--hidden': home || pages.about || pages.works || pages.contacts || pages.policy,
-				}"
-				@mousemove="startPorject"
-			>
-				<span>Начать проект</span>
+
+			<div class="nav-row">
+				<NuxtLink to="/about" class="nav-row__link"> О нас </NuxtLink>
+				<NuxtLink to="/services" class="nav-row__link"> Услуги </NuxtLink>
+				<NuxtLink to="/works" class="nav-row__link"> Проекты </NuxtLink>
+				<NuxtLink to="/contacts" class="nav-row__link"> Контакты </NuxtLink>
+			</div>
+
+			<a href="https://t.me/Vorobey_Art" class="header-start-button" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
+				<span>Обсудить</span>
 				<div class="header-start-button__fill"></div>
 			</a>
 			<button
@@ -64,9 +65,10 @@
 			<div class="nav" :class="{ 'nav--open': menu, 'nav--close': menu === false }">
 				<div class="nav__wrapper">
 					<nav class="nav__nav">
-						<NuxtLink to="/about" class="nav__link" @click="clickHandle"> <sup>01</sup> О нас </NuxtLink>
-						<NuxtLink to="/works" class="nav__link" @click="clickHandle"> <sup>02</sup> Проекты</NuxtLink>
-						<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>03</sup> Контакты</NuxtLink>
+						<NuxtLink to="/about" class="nav__link" @click="clickHandle"> <sup>/01</sup> О нас </NuxtLink>
+						<NuxtLink to="/services" class="nav__link" @click="clickHandle"> <sup>/02</sup> Услуги </NuxtLink>
+						<NuxtLink to="/works" class="nav__link" @click="clickHandle"> <sup>/03</sup> Проекты </NuxtLink>
+						<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> Контакты </NuxtLink>
 					</nav>
 					<img src="/img/Logo-big.svg" alt="Навигация" class="nav__logo" />
 				</div>
@@ -85,6 +87,7 @@ export default {
 			works: Boolean,
 			contacts: Boolean,
 			policy: Boolean,
+			services: Boolean,
 		},
 		curtains: String,
 	},
@@ -148,6 +151,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-row {
+	display: flex;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	gap: 50px;
+	&__link {
+		color: #222;
+		font-weight: 500;
+		font-size: 20px;
+		text-decoration: none;
+		transition: color 0.15s ease;
+		pointer-events: auto;
+		&:hover {
+			color: #0181c8;
+		}
+	}
+}
 .header-start-button {
 	height: 40px;
 	background: #0181c8;
@@ -168,6 +190,8 @@ export default {
 	z-index: 5;
 	pointer-events: all;
 	overflow: hidden;
+	max-width: 145px;
+	width: 100%;
 	transition: color 0.6s ease, background 0s ease 0.1s;
 	// animation: headerStartButton 1s ease both .5s
 	border: none;
@@ -206,13 +230,14 @@ export default {
 	position: fixed;
 	height: 100vh;
 	width: 100vw;
-	top: -100vh;
 	left: 50%;
 	overflow: hidden;
 	transform: translate(-50%, 0);
 	z-index: 5;
-	background-color: #f9f9f9;
-	transition: 1s ease top;
+	top: 0;
+	background-color: #f6f6f6;
+	clip-path: inset(0 0 100% 0);
+	transition: clip-path 0.6s cubic-bezier(0.38, 0.005, 0.215, 1), -webkit-clip-path 0.6s cubic-bezier(0.38, 0.005, 0.215, 1);
 	pointer-events: auto;
 
 	&__wrapper {
@@ -222,19 +247,23 @@ export default {
 		margin: 0 auto;
 	}
 	&--open {
-		transition: 0.5s linear top;
-		top: 0;
+		clip-path: inset(0 0 0 0);
 		.nav {
 			&__link {
 				opacity: 1;
+				transform: translate3d(0, 0, 0);
+				transition: opacity 0.6s linear, transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+				&:nth-child(4) {
+					transition-delay: 0.6s;
+				}
 				&:nth-child(3) {
-					transition: 0.3s ease 0.1s;
+					transition-delay: 0.5s;
 				}
 				&:nth-child(2) {
-					transition: 0.3s ease 0.2s;
+					transition-delay: 0.4s;
 				}
 				&:nth-child(1) {
-					transition: 0.3s ease 0.3s;
+					transition-delay: 0.3s;
 				}
 			}
 			&__logo {
@@ -243,20 +272,11 @@ export default {
 		}
 	}
 	&--close {
-		transition: 0.5s linear top;
-		top: -100vh;
+		clip-path: inset(0 0 100% 0);
 		.nav {
 			&__link {
 				opacity: 0;
-				&:nth-child(1) {
-					transition: 0.5s ease;
-				}
-				&:nth-child(2) {
-					transition: 0.5s ease;
-				}
-				&:nth-child(3) {
-					transition: 0.5s ease;
-				}
+				transition: opacity 0.6s linear, transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
 			}
 			&__logo {
 				opacity: 0;
@@ -267,31 +287,24 @@ export default {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		gap: clamp(34px, 6vw, 84px);
+		gap: clamp(34px, 6vw, 60px);
 		top: 50%;
-		left: 10%;
+		left: 11.3%;
 		transform: translate(0, -50%);
 	}
 	&__link {
-		font-size: 100px;
+		font-size: 60px;
 		text-decoration: none;
 		font-weight: 700;
 		opacity: 0;
+		transform: translate3d(0, -50%, 0);
 		display: flex;
 		align-items: flex-start;
 		sup {
 			font-size: 20px;
-			margin-right: 26px;
+			margin-right: 43px;
+			font-weight: 600;
 			font-feature-settings: 'tnum' on, 'lnum' on;
-		}
-		&:nth-child(3) {
-			transition: 0.5s ease 0.2s;
-		}
-		&:nth-child(2) {
-			transition: 0.5s ease 0.3s;
-		}
-		&:nth-child(1) {
-			transition: 0.5s ease 0.4s;
 		}
 		&:hover {
 			transition: 0s ease !important;
@@ -367,6 +380,7 @@ export default {
 		left: 0;
 		border-radius: 1px;
 		transform-origin: center center;
+		transition: 0.3s ease;
 		&--1 {
 			top: 0;
 		}
@@ -382,6 +396,11 @@ export default {
 			bottom: 0;
 		}
 	}
+	&:not(&--open):hover {
+		.header-menu__element--2 {
+			animation: burgerMiddleHover 0.6s ease forwards !important;
+		}
+	}
 }
 .header {
 	display: flex;
@@ -393,6 +412,8 @@ export default {
 	justify-content: center;
 	min-height: 140px;
 	position: fixed;
+	transform: translateY(0);
+	transition: transform 0.6s cubic-bezier(0.38, 0.005, 0.215, 1);
 
 	&--home {
 		.header__wrapper {
@@ -440,7 +461,7 @@ export default {
 			position: fixed;
 			background: #ffffffcc;
 			backdrop-filter: blur(5px);
-			border-bottom: 1px solid #d0d0d0;
+			border-bottom: 1px solid #ebebeb;
 		}
 		&--open {
 			position: fixed;
@@ -473,6 +494,9 @@ export default {
 			} // .header-start-button
 			// 	animation: headerStartButton 1s ease both 2.7s
 		}
+	}
+	&:not(&--scrolling) {
+		transform: translateY(-100%);
 	}
 }
 @keyframes headerLogo {
@@ -568,7 +592,15 @@ export default {
 		position: fixed;
 	}
 }
+@media (max-width: 1440px) {
+	.header__wrapper {
+		padding: 49px 73px;
+	}
+}
 @media (max-width: 1024px) {
+	.nav-row {
+		display: none;
+	}
 	.header-start-button {
 		top: 50px;
 		right: 112px;
@@ -599,40 +631,22 @@ export default {
 		}
 	}
 }
-@media (min-width: 769px) {
-	.header {
-		&:not(&--scrolling) {
-			&:not(.header--nocase) {
-				.header-logo {
-					&__text {
-						transform: translate(-100px) scale(0);
-						opacity: 0;
-					}
-					&__crumbread {
-						transform: scale(0);
-					}
-				}
-			}
-		}
-
-		&__wrapper {
-			&--open {
-				.header-logo {
-					&__text {
-						transform: translate(0) scale(1) !important;
-						opacity: 1 !important;
-					}
-					&__crumbread {
-						transform: scale(1) !important;
-					}
-				}
-			}
-		}
-	}
-}
 @media (max-width: 768px) {
 	.header-start-button {
-		display: none;
+		opacity: 0;
+		pointer-events: none;
+		top: 85vh;
+		left: 50%;
+		transform: translateX(-50%) translate3d(0, -50%, 0);
+		z-index: 6;
+		transition: opacity 0.1s linear, transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	.header-start-button--nav {
+		transition: opacity 0.6s linear, transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition-delay: 0.8s;
+		opacity: 1;
+		transform: translateX(-50%) translate3d(0, 0, 0);
+		pointer-events: auto;
 	}
 	.header-placeholder {
 		&--home {
@@ -727,10 +741,10 @@ export default {
 @media (max-width: 425px) {
 	.nav {
 		&__link {
-			font-size: 50px;
+			font-size: 40px;
 			sup {
-				font-size: 16px;
-				margin-right: 15px;
+				font-size: 14px;
+				margin-right: 20px;
 			}
 		}
 		&__logo {
@@ -936,6 +950,18 @@ export default {
 		top: auto;
 		bottom: 50%;
 		transform: translate(0, 50%) rotate(45deg);
+	}
+}
+@keyframes burgerMiddleHover {
+	0% {
+		transform: scale(1) translate(-50%, -50%);
+	}
+	50% {
+		width: 100%;
+	}
+	100% {
+		width: 24px;
+		transform: scale(1) translate(-50%, -50%);
 	}
 }
 </style>

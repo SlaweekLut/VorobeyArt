@@ -116,7 +116,7 @@
 					<p class="home-slides-pagination__current">
 						0
 						<span class="home-slides-pagination__wrapper-col">
-							<span v-for="n in slides.length" :key="n" class="home-slides-pagination__active" :style="{ right: `${105 * activeSlide}px` }">{{ n }}</span>
+							<span v-for="n in slides.length" :key="n" class="home-slides-pagination__active" :style="{ bottom: `${54 * activeSlide}px` }">{{ n }}</span>
 						</span>
 					</p>
 					<div class="home-slides-pagination__line"></div>
@@ -204,7 +204,6 @@ export default {
 	},
 	mounted() {
 		document.querySelector('body').style.pointerEvents = 'none';
-		console.log('1234');
 		let posX = 0;
 		let wait;
 		this.isWait = true;
@@ -222,7 +221,6 @@ export default {
 		};
 
 		setTimeout(() => {
-			console.log('off');
 			this.isWait = false;
 			this.redirect = false;
 			autoSlider = setInterval(autoSliderFn, 5000);
@@ -301,9 +299,7 @@ export default {
 <style lang="scss" scoped>
 .background-text {
 	font-size: 23vw;
-	color: transparent;
-	stroke: #000;
-	-webkit-text-stroke: 0.5px #dcdcdc;
+	color: #f6f6f6;
 	font-weight: 800;
 	transform-origin: bottom left;
 	position: absolute;
@@ -562,7 +558,7 @@ export default {
 .home-link {
 	text-decoration: none;
 	position: fixed;
-	bottom: 95px;
+	bottom: 70px;
 	left: 93px;
 	height: 90px;
 	z-index: 1;
@@ -576,18 +572,6 @@ export default {
 		white-space: nowrap;
 		transform: translate(0, -50%);
 		transition: 0.3s ease;
-		&::after {
-			content: '';
-			position: absolute;
-			z-index: -1;
-			width: 60px;
-			height: 60px;
-			display: block;
-			background-color: #fff;
-			transform: rotate(45deg);
-			left: -5px;
-			top: -20px;
-		}
 	}
 	&__wrapper {
 		overflow: hidden;
@@ -608,17 +592,8 @@ export default {
 		width: 90px;
 		height: 90px;
 		border: 1px solid #0181c8;
+		border-right-color: transparent;
 		transition: 0.3s ease;
-		&::after {
-			content: '';
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			width: 90px;
-			height: 120px;
-			background-color: white;
-			transform: translate(45px, -5px) rotate(-180deg);
-		}
 		&--curtains::after {
 			animation: linkCircleFirstAnimation 1s linear both 0.9s;
 		}
@@ -674,11 +649,11 @@ export default {
 	}
 }
 .home-slides-pagination {
-	right: 80px;
-	top: 50%;
-	transform: translate(0, -50%) rotate(180deg);
+	right: 0;
+	bottom: 83px;
 	position: absolute;
 	overflow: hidden;
+	z-index: 1;
 	&--curtains {
 		animation: paginationPreloaderAnimation 1s ease both 0.9s;
 	}
@@ -689,24 +664,18 @@ export default {
 		display: flex;
 		flex-direction: column;
 		transition: 1s ease;
-		// &--scroll.home-slides-pagination__active--next {
-		// 	animation: animationPaginationNext 1s ease both;
-		// }
-		// &--scroll.home-slides-pagination__active--prev {
-		// 	animation: animationPaginationPrev 1s ease both;
-		// }
 	}
 	&__wrapper {
-		flex-direction: column;
-		align-items: center;
 		display: flex;
-		min-height: 420px;
+		align-items: center;
+		gap: 30px;
 	}
 	&__wrapper-col {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		width: 105px;
+		// width: 105px;
+		height: 36px;
 		overflow: hidden;
 		&--hidden {
 			display: none;
@@ -717,9 +686,8 @@ export default {
 		// justify-content: center;
 	}
 	&__current {
-		writing-mode: vertical-lr;
-		font-size: 105px;
-		line-height: 105px;
+		font-size: 45px;
+		height: 54px;
 		font-weight: 600;
 		color: #0181c8;
 		font-feature-settings: 'tnum' on, 'lnum' on;
@@ -727,7 +695,7 @@ export default {
 		position: relative;
 		display: flex;
 		span {
-			line-height: 105px;
+			height: 54px;
 			position: relative;
 			color: inherit;
 		}
@@ -738,18 +706,18 @@ export default {
 		// 	right: 105px
 	}
 	&__count {
-		font-size: 70px;
+		font-size: 50px;
+		line-height: 60px;
+		height: 60px;
 		font-weight: 600;
-		color: #868686;
+		color: #a5a5a5;
 		font-feature-settings: 'tnum' on, 'lnum' on;
-		writing-mode: vertical-lr;
 	}
 	&__line {
-		width: 1px;
-		height: 122px;
+		width: 64px;
+		height: 1px;
 		border-radius: 1px;
-		background-color: #868686;
-		margin: 40px 0px 50px;
+		background-color: #a5a5a5;
 	}
 }
 .home {
@@ -851,10 +819,10 @@ export default {
 
 @keyframes paginationPreloaderAnimation {
 	0% {
-		height: 0px;
+		width: 0px;
 	}
 	100% {
-		height: 420px;
+		width: 233px;
 	}
 }
 
@@ -927,9 +895,6 @@ export default {
 	.home-slides-info {
 		left: 40px;
 	}
-	.home-slides-pagination {
-		right: 40px;
-	}
 }
 
 @media (max-width: 1024px) {
@@ -952,8 +917,7 @@ export default {
 		padding: 0px 61px;
 	}
 	.home-slides-pagination {
-		display: none;
-		right: 0px;
+		bottom: 50px;
 	}
 }
 

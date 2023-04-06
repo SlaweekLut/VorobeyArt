@@ -1,6 +1,5 @@
 <template>
 	<div class="content works">
-		<TitlePage title="Проекты" />
 		<div class="content__wrapper">
 			<p class="works__title">Смотрите, что умеем</p>
 			<div class="works-nav" @click="() => (dropdown = !dropdown)">
@@ -326,6 +325,10 @@ export default {
 			],
 		};
 	},
+	mounted() {
+		this.handleScroll();
+		window.addEventListener('scroll', this.handleScroll);
+	},
 	methods: {
 		handleNav(activeTab) {
 			if (activeTab === 'all') {
@@ -357,6 +360,14 @@ export default {
 			const filler = e.target.children[1];
 			filler.style.left = `${x}px`;
 			filler.style.top = `${y}px`;
+		},
+		handleScroll() {
+			const works = document.querySelectorAll('.works-example:not(.visible)');
+			works.forEach((work) => {
+				if (work.offsetTop + 400 < window.scrollY + window.innerHeight) {
+					work.classList.add('visible');
+				}
+			});
 		},
 	},
 };
@@ -455,8 +466,32 @@ body {
 	}
 }
 .works-example {
+	$time: 0.05s;
 	position: relative;
 	text-decoration: none;
+	animation: animationWork 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175) both;
+	animation-play-state: paused;
+	&:nth-child(1n) {
+		animation-delay: 0s;
+	}
+	&:nth-child(2n) {
+		animation-delay: $time * 2;
+	}
+	&:nth-child(3n) {
+		animation-delay: $time * 3;
+	}
+	&:nth-child(4n) {
+		animation-delay: $time * 4;
+	}
+	&:nth-child(4n + 1) {
+		animation-delay: 0s;
+	}
+	&:nth-child(4n + 2) {
+		animation-delay: $time * 2;
+	}
+	&:nth-child(4n + 3) {
+		animation-delay: $time * 3;
+	}
 	&__link {
 		position: absolute;
 		z-index: 2;
@@ -535,7 +570,22 @@ body {
 			}
 		}
 	}
+	&.visible {
+		animation-play-state: running;
+	}
 }
+
+@keyframes animationWork {
+	0% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 @media (max-width: 1200px) {
 	.works-examples {
 		grid-template-columns: repeat(3, 1fr);

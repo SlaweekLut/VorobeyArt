@@ -10,14 +10,12 @@
 			/>
 		</Head>
 		<div class="content about-text">
-			<TitlePage title="О нас" />
 			<div class="content__wrapper about-text__wrapper">
 				<p class="about-text__title">Команда</p>
 				<p class="about-text__text">
-					Команда, креатив которой не знает границ. Наши дизайнерские решения покоряют сердца, а технические навыки позволяют реализовывать самые смелые идеи.
-					<br /><br />
-					Точный контроль, выстроенные бизнес-процессы и максимальная вовлечённость в каждый проект позволяют вовремя реализовывать задачи. Поверьте, в Ваш проект команда
-					вложит максимум своих знаний и умений.
+					Команда, креатив которой не знает границ. Наши дизайнерские решения покоряют сердца, а технические навыки позволяют реализовывать самые смелые идеи. Точный
+					контроль, выстроенные бизнес-процессы и максимальная вовлечённость в каждый проект позволяют вовремя реализовывать задачи. Поверьте, в Ваш проект команда вложит
+					максимум своих знаний и умений.
 				</p>
 			</div>
 		</div>
@@ -39,7 +37,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="content about-service">
+		<!-- <div class="content about-service">
 			<div class="about-service__wrapper content__wrapper">
 				<h2 class="about-service__title">Креативные Услуги</h2>
 				<AboutService
@@ -62,6 +60,12 @@
 					title="Анимация"
 					text="Создаем качественный визуальный контент с использованием <strong>3D анимации</strong>. Изготавливаем анимированные <strong>баннеры</strong>. Работаем с <strong>раскадровкой</strong>. Предлагаем услуги <strong>видеомонтажа</strong> и создания <strong>видеопрезентаций</strong> с использованием <strong>видеоинфографики</strong>."
 				/>
+			</div>
+		</div> -->
+		<div class="content about-video">
+			<p class="background-text">Creative</p>
+			<div class="content__wrapper">
+				<img src="/img/video-about-preloader.png" alt="" class="about-video__preview" />
 			</div>
 		</div>
 	</div>
@@ -297,22 +301,44 @@ body {
 		height: 0;
 	}
 }
-.about-service {
-	margin-top: 0;
-	padding: 90px 93px 130px;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	z-index: 0;
+// .about-service {
+// 	margin-top: 0;
+// 	padding: 90px 93px 130px;
+// 	display: flex;
+// 	flex-direction: column;
+// 	position: relative;
+// 	z-index: 0;
 
-	&__title {
-		font-size: 60px;
-		font-weight: 700;
-		margin-bottom: 74px;
+// 	&__title {
+// 		font-size: 60px;
+// 		font-weight: 700;
+// 		margin-bottom: 74px;
+// 	}
+// }
+.background-text {
+	font-size: 23vw;
+	color: #f6f6f6;
+	font-weight: 800;
+	transform-origin: bottom left;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 32%);
+	z-index: 0;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.about-video {
+	position: relative;
+	margin-top: 130px;
+	padding-bottom: 200px;
+	&__preview {
+		width: 100%;
+		height: auto;
 	}
 }
 .about-text {
-	padding: 76px 93px 90px;
+	padding: 120px 93px 130px;
 	margin: 0 auto;
 	&__wrapper {
 		display: flex;
@@ -327,10 +353,11 @@ body {
 		font-size: 20px;
 		font-weight: 500;
 		line-height: 120%;
+		text-align: justify;
 	}
 }
 .about {
-	padding: 0 93px 90px;
+	padding: 0 93px 130px;
 	margin: 0 auto !important;
 	position: relative;
 	z-index: 2;
@@ -349,9 +376,7 @@ body {
 	&__title {
 		font-size: clamp(230px, 16vw, 250px);
 		line-height: clamp(230px, 16vw, 250px);
-		color: transparent;
-		stroke: #000;
-		-webkit-text-stroke: 2px #ededed;
+		color: #f6f6f6;
 		font-weight: 900;
 		position: absolute;
 		top: 50%;
@@ -396,20 +421,20 @@ body {
 	.about {
 		padding: 0 41px 90px;
 	}
-	.about-service {
-		padding: 90px 41px 130px;
-		&__title {
-			font-size: 48px;
-			margin-bottom: 60px;
-		}
-	}
+	// .about-service {
+	// 	padding: 90px 41px 130px;
+	// 	&__title {
+	// 		font-size: 48px;
+	// 		margin-bottom: 60px;
+	// 	}
+	// }
 	.about-numbers {
 		margin: 0 auto;
 		padding: 43px 41px 60px;
 	}
 	.about-text {
 		margin: 0 auto;
-		padding: 52px 41px 60px;
+		padding: 90px 41px 60px;
 		&__wrapper {
 			gap: 20px;
 		}
@@ -442,9 +467,9 @@ body {
 			gap: 25px;
 		}
 	}
-	.about-service {
-		padding: 60px 41px 130px;
-	}
+	// .about-service {
+	// 	padding: 60px 41px 130px;
+	// }
 	.about {
 		padding: 0 41px 91px;
 		&__title {
@@ -494,18 +519,18 @@ body {
 			grid-template-columns: repeat(2, 145px);
 		}
 	}
-	.about-service {
-		padding: 50px 31px;
-		&__title {
-			font-size: 32px;
-			margin-bottom: 30px;
-			white-space: nowrap;
-		}
-		&__wrapper {
-			max-width: 100%;
-			width: 100%;
-		}
-	}
+	// .about-service {
+	// 	padding: 50px 31px;
+	// 	&__title {
+	// 		font-size: 32px;
+	// 		margin-bottom: 30px;
+	// 		white-space: nowrap;
+	// 	}
+	// 	&__wrapper {
+	// 		max-width: 100%;
+	// 		width: 100%;
+	// 	}
+	// }
 }
 @media (max-width: 394px) {
 	.about {

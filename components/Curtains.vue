@@ -66,9 +66,12 @@ export default {
 	left: 0
 	z-index: 10
 	overflow: hidden
-	transform: translateY(-100vh) translateZ(0)
+	// transform: translateY(-100vh) translateZ(0)
+	clip-path: inset(0 0 100% 0)
 	&--active
-		animation: animationCurtains 1s linear
+		// animation: animationCurtains 1s linear
+		// animation: animationCurtains 1s cubic-bezier(0.38, 0.005, 0.215, 1) both
+		animation: animationCurtains 1s cubic-bezier(0.38, 0.005, 0.215, 1) both
 	&__img
 		position: absolute
 		max-width: 70%
@@ -78,11 +81,15 @@ export default {
 		transform: translate(-50%, -50%) translateZ(0)
 @keyframes animationCurtains
 	0%
-			transform: translateY(-100vh) translateZ(0)
-	50%
-		transform: translateY(0) translateZ(0)
+		clip-path: inset(0 0 100% 0)
+		// transform: translateY(-100vh) translateZ(0)
+	45%, 55%
+		clip-path: inset(0 0 0 0)
+		clip-path: inset(0 0 0 0)
+		// transform: translateY(0) translateZ(0)
 	100%
-		transform: translateY(-100vh) translateZ(0)
+		clip-path: inset(0 0 100% 0)
+		// transform: translateY(-100vh) translateZ(0)
 
 @media (max-width:1024px)
 	.curtains

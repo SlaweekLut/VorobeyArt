@@ -24,7 +24,21 @@ export default defineNuxtConfig({
 		server: true,
 		client: true,
 	},
-	modules: ['@nuxtjs/robots', ['nuxt-simple-sitemap', { hostname: 'https://vorobeyart.ru' }]],
+	modules: [
+		[
+			'yandex-metrika-module-nuxt3',
+			{
+				id: '90766833',
+				clickmap: true,
+				trackLinks: true,
+				accurateTrackBounce: true,
+				webvisor: true,
+				ecommerce: 'dataLayer',
+			},
+		],
+		'@nuxtjs/robots',
+		['nuxt-simple-sitemap', { hostname: 'https://vorobeyart.ru' }],
+	],
 	app: {
 		rootId: 'app',
 		pageTransition: { name: 'page' },

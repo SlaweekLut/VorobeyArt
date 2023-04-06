@@ -5,12 +5,13 @@
 			v-if="$route.matched[0]?.name !== 'NotFound'"
 			:curtains="curtains"
 			:pages="{
-				contacts: $route.path === '/contacts',
-				works: $route.path === '/works',
-				about: $route.path === '/about',
-				policy: $route.path === '/policy',
+				contacts: currentPageName === 'contacts',
+				works: currentPageName === 'works',
+				about: currentPageName === 'about',
+				policy: currentPageName === 'policy',
+				services: currentPageName === 'services',
 			}"
-			:home="$route.path === '/'"
+			:home="currentPageName === 'index'"
 			@setCurtains="setCurtains"
 			@setMenu="setMenu"
 		/>
@@ -52,14 +53,43 @@ export default {
 		return {
 			curtains: 'Preloader',
 			menu: false,
+			currentPageName: '',
 		};
 	},
 	watch: {
 		curtains() {
-			console.log(this.curtains);
+			console.log('%c%s', 'background: lightgreen; color: #222; padding: 2px 6px; border-radius: 20px;', 'Curtains:', this.curtains);
+		},
+		'$route.name': {
+			handler: function (name) {
+				this.currentPageName = name;
+				console.log('%c%s', 'background: lightblue; color: #222; padding: 2px 6px; border-radius: 20px;', 'Current Page:', name);
+
+				if (name === 'contacts' || name === 'index' || name === 'works' || name === 'about' || name === 'policy' || name === 'services') {
+					document.body.classList.add('lines');
+				} else {
+					document.body.classList.remove('lines');
+				}
+			},
+			deep: true,
+			// immediate: true,
 		},
 	},
 	mounted() {
+		this.currentPageName = this.$route?.name;
+		if (
+			this.currentPageName === 'contacts' ||
+			this.currentPageName === 'index' ||
+			this.currentPageName === 'works' ||
+			this.currentPageName === 'about' ||
+			this.currentPageName === 'policy' ||
+			this.currentPageName === 'services'
+		) {
+			document.body.classList.add('lines');
+		} else {
+			document.body.classList.remove('lines');
+		}
+
 		if (this.curtains === 'Preloader') {
 			setTimeout(() => {
 				this.curtains = 'Nothing';
@@ -199,6 +229,11 @@ body
 	margin: 0
 	padding: 0
 	line-height: 1
+	overflow-x: hidden
+	overflow-y: auto
+	&.lines
+		background: url('../img/bg-lines.svg') repeat-y
+	// background-size: 500vw 1281px
 
 *
 	box-sizing: border-box
@@ -215,7 +250,7 @@ body
 
 #app
 	max-width: 100vw
-	overflow: hidden
+	width: 100vw
 
 .page-leave-active
 	transition: .5s linear
@@ -252,7 +287,7 @@ body
 .content
 	max-width: 1920px
 	width: 100%
-	margin: 76px auto 0
+	margin: 120px auto 0
 	padding: 0 93px 100px
 	&__wrapper
 		max-width: 1274px
