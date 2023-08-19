@@ -319,7 +319,7 @@ export default {
 		async function init() {
 
 			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
-			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setPixelRatio( window.devicePixelRatio ); // min(devicePixelRatio, 2) for optimizations?
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			// renderer.toneMapping = THREE.ACESFilmicToneMapping;
 			// renderer.toneMappingExposure = 0.4;
@@ -332,12 +332,13 @@ export default {
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.01, 1000 );
 			camera.position.set( 0, 0, 1.1 );
 
-			controls = new OrbitControls( camera, renderer.domElement );
+			//controls = new OrbitControls( camera, renderer.domElement ); // TODO: ripoff
 			// controls.target.set( 0, 0, 0 );
-			controls.minDistance = 0.1;
-			controls.maxDistance = 2;
-			controls.addEventListener( 'change', render );
-			controls.update();
+			//controls.minDistance = 0.1;
+			//controls.maxDistance = 2;
+			//controls.addEventListener( 'change', render ); 
+			//controls.update();
+      // okay, we rerender only when controls updates, this is how animation works rn.
 
 			const rgbeLoader = new RGBELoader().setPath( 'models/' );
 			const gltfLoader = new GLTFLoader().setPath( 'models/' );
@@ -350,7 +351,7 @@ export default {
 				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
 				gltfLoader.loadAsync( 'model-ok.gltf' ),
 			] );
-			console.log(1999)
+			console.log(1999) // ??
 
 			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
 			// environment
@@ -383,8 +384,6 @@ export default {
 
 			scene.add( gltf.scene );
 
-			render();
-
 			window.addEventListener( 'resize', onWindowResize );
 
 		}
@@ -392,11 +391,15 @@ export default {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize( window.innerWidth, window.innerHeight );
-			render();
 		}
 		function render() {
 			renderer.render( scene, camera );
 		}
+    function animate(){
+      render();
+      window.requestAnimationFrame(animate)
+    }
+    animate()
 	}
 };
 </script>
