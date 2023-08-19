@@ -340,7 +340,7 @@ export default {
 			const [ gltf ] = await Promise.all( [
 				// rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' ),
 				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
-				gltfLoader.loadAsync( 'model-ok.gltf' ),
+				gltfLoader.loadAsync( 'pero_by_agamurian.glb' ),
 			] );
 
 			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
@@ -383,19 +383,26 @@ export default {
 
 			window.addEventListener( 'resize', onWindowResize );
 
+      let prevX = 0
+      let prevY = 0
+      let pageWidth = window.innerWidth
+      let pageHeight = window.innerHeight
+      const deBounceDelta = 5
       window.addEventListener('mousemove', (e) => {
-          //console.log('x:' + e.pageX)
-          //console.log('y:' + e.pageY)
-        gsap.to(
-            theObject.rotation,
-            {
-                duration: 1.5,
-                ease: 'power2.inOut',
-                x: '+=6',
-                y: '+=3',
-                z: '+=1.5'
-            }
-        )
+        if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
+          prevX = e.x
+          prevY = e.y
+          gsap.to(
+              theObject.rotation,
+             {           
+                  duration: 0.1,
+                  ease: 'linear',
+                  x: (e.y - pageHeight/2)/1000,
+                  y: (e.x - pageWidth/2)/1000,
+                  z: 0
+              }
+          )
+        }
           
       })
 
