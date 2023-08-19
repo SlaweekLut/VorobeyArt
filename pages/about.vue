@@ -72,6 +72,7 @@
 
 <script>
 import axios from 'axios';
+import gsap from 'gsap'
 
 import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
@@ -328,7 +329,7 @@ export default {
 			scene = new THREE.Scene();
 
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
-			camera.position.set( 0.4, 0, 1.0 );
+			camera.position.set( 0, 0, 1.0 );
 
 			const rgbeLoader = new RGBELoader().setPath( 'models/' );
 			const gltfLoader = new GLTFLoader().setPath( 'models/' );
@@ -385,6 +386,17 @@ export default {
       window.addEventListener('mousemove', (e) => {
           //console.log('x:' + e.pageX)
           //console.log('y:' + e.pageY)
+        gsap.to(
+            theObject.rotation,
+            {
+                duration: 1.5,
+                ease: 'power2.inOut',
+                x: '+=6',
+                y: '+=3',
+                z: '+=1.5'
+            }
+        )
+          
       })
 
 		}
