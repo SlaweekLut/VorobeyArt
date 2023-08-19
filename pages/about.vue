@@ -385,8 +385,6 @@ export default {
 
       let prevX = 0
       let prevY = 0
-      let pageWidth = window.innerWidth
-      let pageHeight = window.innerHeight
       const deBounceDelta = 5
       window.addEventListener('mousemove', (e) => {
         if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
@@ -397,8 +395,8 @@ export default {
              {           
                   duration: 0.1,
                   ease: 'linear',
-                  x: (e.y - pageHeight/2)/1000,
-                  y: (e.x - pageWidth/2)/1000,
+                  x: (e.y - window.innerHeight/2)/1000,
+                  y: (e.x - window.innerWidth/2)/1000,
                   z: 0
               }
           )
