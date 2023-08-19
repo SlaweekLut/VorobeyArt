@@ -334,14 +334,19 @@ export default {
 			const rgbeLoader = new RGBELoader().setPath( 'models/' );
 			const gltfLoader = new GLTFLoader().setPath( 'models/' );
 
-			// const PMREMGenerator = new THREE.PMREMGenerator( renderer );
+			const pmremGenerator = new THREE.PMREMGenerator( renderer );
 			// PMREMGenerator.compileEquirectangularShader();
 
 			const [ gltf ] = await Promise.all( [
-				// rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' ),
 				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
 				gltfLoader.loadAsync( 'pero_by_agamurian.glb' ),
 			] );
+
+      const envMap = await rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' )
+      const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 1024 ).fromEquirectangularTexture( renderer, envMap );
+      scene.environment = cubeRenderTarget.texture;
+      let debugobj = {}
+      debugobj.envMapIntensity = 2.5
 
 			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
 			// environment
@@ -356,22 +361,11 @@ export default {
 			]); // INFO: png is heavy, consider jpg
       //TODO: btw - convert hdr to cubemap
 			//texture.encoding = THREE.sRGBEncoding;
-			scene.environment = texture;
+			//scene.environment = texture;
 			//scene.background = null;
 
       let theObject
       // you didnt find the object!
-			scene.traverse(function (object) {
-        //console.log(object)
-				if (object.isObject3D === true) {
-						//object.material.envMap = texture;
-						//object.material.envMapIntensity = 12.5;
-						//object.material.needsUpdate = true;
-            console.log('founded object')
-            console.log(object)
-            theObject = object
-				}
-			});
 			
 			// let model = gltf.scene;
 			// let child = gltf.scene.children[0];
@@ -380,6 +374,17 @@ export default {
 			// child.rotation.set(Math.PI / 2, -Math.PI / 8, 0);
 
 			scene.add( gltf.scene );
+      // so basicly traverse was before adding gltf
+      // omg how long i searched for that
+
+			scene.traverse(function (object) {
+				if (object instanceof THREE.Mesh) {
+            console.log(object)
+						object.material.envMapIntensity = 2.0;
+						object.material.needsUpdate = true;
+            theObject = object
+				}
+			});
 
 			window.addEventListener( 'resize', onWindowResize );
 
