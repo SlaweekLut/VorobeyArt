@@ -19,7 +19,7 @@
     <GalleryTemplate :settings="gallery[4]" />
     <GalleryTemplate :settings="gallery[5]" />
     <GalleryTemplate :settings="gallery[6]" />
-    <LikeTemplate :title="intro.img[0]" />
+    <!-- // <LikeTemplate :title="intro.img[0]" /> -->
     <FooterTemplate :settings="footer" />
   </div>
 </template>

@@ -87,7 +87,7 @@
     <TitleTemplate :settings="titles[5]" />
     <GalleryTemplate :settings="gallery[2]" />
     <GalleryTemplate :settings="gallery[3]" />
-    <LikeTemplate title="spicynote" />
+    <!-- // <LikeTemplate title="spicynote" /> -->
     <FooterTemplate :settings="footer" />
   </div>
 </template>

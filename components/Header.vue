@@ -1,5 +1,13 @@
 <template>
 	<div class="header-placeholder header-placeholder--home"></div>
+	<!-- <div
+		class="header-glass"
+		:class="{
+			'header-glass--scrolling': headerScrollTop,
+			'header-glass--line': !home,
+			'header-glass--home': home,
+		}"
+	></div> -->
 	<header
 		class="header"
 		:class="{
@@ -7,6 +15,7 @@
 			'header--preloader': curtains === 'Preloader',
 			'header--curtains': curtains === 'Curtains' || curtains === 'Header',
 			'header--scrolling': headerScrollTop,
+			'header--open': menu,
 			// 'header--nocase': pages.about || pages.works || pages.contacts || pages.policy,
 		}"
 	>
@@ -14,7 +23,7 @@
 			class="header__wrapper"
 			:class="{
 				'header__wrapper--open': menu,
-				'header__wrapper--line': (pages.about || pages.works || pages.contacts || pages.policy || pages.services) && !home,
+				'header__wrapper--line': !home,
 			}"
 		>
 			<NuxtLink
@@ -36,14 +45,19 @@
 				<span class="header-logo__text">Vorobey Art</span>
 			</NuxtLink>
 
-			<div class="nav-row">
+			<div
+				class="nav-row"
+				:class="{
+					'nav-row--hide': menu,
+				}"
+			>
 				<NuxtLink to="/about" class="nav-row__link"> О нас </NuxtLink>
 				<NuxtLink to="/services" class="nav-row__link"> Услуги </NuxtLink>
 				<NuxtLink to="/works" class="nav-row__link"> Проекты </NuxtLink>
 				<NuxtLink to="/contacts" class="nav-row__link"> Контакты </NuxtLink>
 			</div>
 
-			<a href="https://t.me/Vorobey_Art" class="header-start-button" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
+			<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--pc" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
 				<span>Обсудить</span>
 				<div class="header-start-button__fill"></div>
 			</a>
@@ -62,19 +76,23 @@
 					<span class="header-menu__element header-menu__element--3"></span>
 				</div>
 			</button>
-			<div class="nav" :class="{ 'nav--open': menu, 'nav--close': menu === false }">
-				<div class="nav__wrapper">
-					<nav class="nav__nav">
-						<NuxtLink to="/about" class="nav__link" @click="clickHandle"> <sup>/01</sup> О нас </NuxtLink>
-						<NuxtLink to="/services" class="nav__link" @click="clickHandle"> <sup>/02</sup> Услуги </NuxtLink>
-						<NuxtLink to="/works" class="nav__link" @click="clickHandle"> <sup>/03</sup> Проекты </NuxtLink>
-						<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> Контакты </NuxtLink>
-					</nav>
-					<img src="/img/Logo-big.svg" alt="Навигация" class="nav__logo" />
-				</div>
-			</div>
 		</div>
 	</header>
+	<div class="nav" :class="{ 'nav--open': menu, 'nav--close': menu === false }">
+		<div class="nav__wrapper">
+			<nav class="nav__nav">
+				<NuxtLink to="/about" class="nav__link" @click="clickHandle"> <sup>/01</sup> О нас </NuxtLink>
+				<NuxtLink to="/services" class="nav__link" @click="clickHandle"> <sup>/02</sup> Услуги </NuxtLink>
+				<NuxtLink to="/works" class="nav__link" @click="clickHandle"> <sup>/03</sup> Проекты </NuxtLink>
+				<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> Контакты </NuxtLink>
+				<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--mobile" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
+					<span>Обсудить</span>
+					<div class="header-start-button__fill"></div>
+				</a>
+			</nav>
+			<img src="/img/Logo-big.svg" alt="Навигация" class="nav__logo" />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -157,6 +175,7 @@ export default {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	transition: 0.3s ease 0.5s;
 	gap: 50px;
 	&__link {
 		color: #222;
@@ -169,9 +188,34 @@ export default {
 			color: #0181c8;
 		}
 	}
+	&--hide {
+		transform: translate(-50%, -100%);
+		opacity: 0;
+		transition: 0.3s ease;
+	}
+}
+.header-glass {
+	min-height: 140px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 140px;
+	transform: translateY(0);
+	transition: transform 0.6s cubic-bezier(0.38, 0.005, 0.215, 1);
+	z-index: 4;
+	&:not(&--scrolling) {
+		transform: translateY(-100%);
+	}
+	&--line {
+		background: #ffffffcc;
+		backdrop-filter: blur(5px);
+		border-bottom: 1px solid #ebebeb;
+	}
 }
 .header-start-button {
 	height: 40px;
+	width: 220px;
 	background: #0181c8;
 	color: #fff;
 	font-size: 20px;
@@ -182,15 +226,12 @@ export default {
 	justify-content: center;
 	padding: 0px 27px;
 	border-radius: 80px;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 200px;
+	position: relative;
 	cursor: pointer;
 	z-index: 5;
 	pointer-events: all;
 	overflow: hidden;
-	max-width: 145px;
+	max-width: 220px;
 	width: 100%;
 	transition: color 0.6s ease, background 0s ease 0.1s;
 	// animation: headerStartButton 1s ease both .5s
@@ -206,6 +247,9 @@ export default {
 	&--hidden {
 		display: none;
 	}
+	&--mobile {
+		display: none;
+	}
 	&__fill {
 		position: absolute;
 		width: 370px;
@@ -217,18 +261,20 @@ export default {
 		transform: scale(0) translate(-50%, -50%);
 		pointer-events: none;
 	}
-	&:hover {
-		color: #222222;
-		background: #f8f8f8;
-		transition: color 0.6s ease, background 0.3s ease 0.1s;
-	}
-	&:hover &__fill {
-		transform: scale(1) translate(-50%, -50%);
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			color: #222222;
+			background: #f8f8f8;
+			transition: color 0.6s ease, background 0.3s ease 0.1s;
+		}
+		&:hover &__fill {
+			transform: scale(1) translate(-50%, -50%);
+		}
 	}
 }
 .nav {
 	position: fixed;
-	height: 100vh;
+	height: 100%;
 	width: 100vw;
 	left: 50%;
 	overflow: hidden;
@@ -243,7 +289,7 @@ export default {
 	&__wrapper {
 		max-width: 1920px;
 		position: relative;
-		height: 100vh;
+		height: 100%;
 		margin: 0 auto;
 	}
 	&--open {
@@ -306,9 +352,11 @@ export default {
 			font-weight: 600;
 			font-feature-settings: 'tnum' on, 'lnum' on;
 		}
-		&:hover {
-			transition: 0s ease !important;
-			color: #0181c8;
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				transition: 0s ease !important;
+				color: #0181c8;
+			}
 		}
 		&:focus {
 			transition: 0.3s ease 0.1s !important;
@@ -335,7 +383,7 @@ export default {
 	top: 50%;
 	padding: 10px;
 	right: 93px;
-	display: flex;
+	display: none;
 	align-items: center;
 	cursor: pointer;
 	transform: translateY(-50%);
@@ -404,22 +452,26 @@ export default {
 }
 .header {
 	display: flex;
-	width: 100vw;
+	width: 100%;
+	max-width: 1400px;
 	margin: 0 auto;
 	pointer-events: none;
 	z-index: 10;
 	top: 0;
 	justify-content: center;
-	min-height: 140px;
+	height: 86px;
+	border-radius: 100px;
+	background: rgba(255, 255, 255, 0.80);
+	backdrop-filter: blur(5px);
 	position: fixed;
-	transform: translateY(0);
+	left: 50%;
+	transform: translateY(24px) translateX(-50%);
 	transition: transform 0.6s cubic-bezier(0.38, 0.005, 0.215, 1);
-
+	border: 1px solid #EBEBEB;
+	
 	&--home {
 		.header__wrapper {
 			z-index: 10;
-			position: fixed;
-			top: 0;
 		}
 		&.header--curtains {
 			.header-menu {
@@ -449,22 +501,15 @@ export default {
 		}
 	}
 	&__wrapper {
-		max-width: 100vw;
+		max-width: 1312px;
 		width: 100%;
-		padding: 49px 93px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		z-index: 6;
 		left: 0;
-		&--line {
-			position: fixed;
-			background: #ffffffcc;
-			backdrop-filter: blur(5px);
-			border-bottom: 1px solid #ebebeb;
-		}
 		&--open {
-			position: fixed;
+			// position: fixed;
 			top: 0;
 			// .header-logo--scroll {
 			// 	animation: headerLogo 0.3s ease both 0.5s;
@@ -495,8 +540,12 @@ export default {
 			// 	animation: headerStartButton 1s ease both 2.7s
 		}
 	}
+	&--open {
+		background: transparent;
+		border-color: transparent;
+	}
 	&:not(&--scrolling) {
-		transform: translateY(-100%);
+		transform: translateY(-101%) translateX(-50%);
 	}
 }
 @keyframes headerLogo {
@@ -593,17 +642,31 @@ export default {
 	}
 }
 @media (max-width: 1440px) {
-	.header__wrapper {
-		padding: 49px 73px;
+	.header {
+		max-width: 1234px;
+		&__wrapper {
+			padding: 23px 45px;
+			max-width: 1234px;
+		}
 	}
 }
 @media (max-width: 1024px) {
+	.header-menu {
+		display: flex;
+	}
+	.header-glass {
+		min-height: 102px;
+		height: 102px;
+	}
 	.nav-row {
 		display: none;
 	}
 	.header-start-button {
-		top: 50px;
-		right: 112px;
+		// top: 50px;
+		right: 126px;
+		max-width: 145px;
+		transform: none;
+		position: absolute;
 	}
 	.header-placeholder {
 		&--home {
@@ -626,6 +689,10 @@ export default {
 	}
 	.header {
 		min-height: 102px;
+		height: 102px;
+		max-width: 100%;
+		border-radius: 0;
+		transform: translateX(-50%);
 		&__wrapper {
 			padding: 30px 41px;
 		}
@@ -635,18 +702,41 @@ export default {
 	.header-start-button {
 		opacity: 0;
 		pointer-events: none;
-		top: 85vh;
+		top: auto;
+		min-width: 183px;
+		bottom: 132px;
 		left: 50%;
-		transform: translateX(-50%) translate3d(0, -50%, 0);
+		font-size: 18px;
+		transform: translate3d(0, -50%, 0);
 		z-index: 6;
-		transition: opacity 0.1s linear, transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1);
+		&--pc {
+			display: none;
+		}
+		&--mobile {
+			display: flex;
+			position: relative;
+			top: unset;
+			left: unset;
+			right: unset;
+			bottom: unset;
+			margin: 0 auto;
+			opacity: 0;
+			transform: translate3d(0, -50%, 0);
+		}
 	}
 	.header-start-button--nav {
+		position: relative;
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
 		transition: opacity 0.6s linear, transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 		transition-delay: 0.8s;
-		opacity: 1;
-		transform: translateX(-50%) translate3d(0, 0, 0);
 		pointer-events: auto;
+		top: unset;
+		left: unset;
+		right: unset;
+		bottom: unset;
+		margin: 0 auto;
+		margin-top: 34px;
 	}
 	.header-placeholder {
 		&--home {
@@ -671,10 +761,7 @@ export default {
 			}
 		}
 		&:not(&--home) &__wrapper {
-			background-color: #ffffffcc;
-			backdrop-filter: blur(5px);
 			position: fixed;
-			border-bottom: 1px solid #d0d0d0;
 			align-items: center;
 		}
 		&__wrapper {
@@ -686,6 +773,13 @@ export default {
 					animation: headerText 1s ease both 2.7s;
 				}
 			}
+		}
+	}
+	.header-glass {
+		&:not(&--home) {
+			background-color: #ffffffcc;
+			backdrop-filter: blur(5px);
+			border-bottom: 1px solid #d0d0d0;
 		}
 	}
 	.header-logo {
@@ -739,6 +833,10 @@ export default {
 	}
 }
 @media (max-width: 425px) {
+	.header-glass {
+		min-height: 74px;
+		height: 74px;
+	}
 	.nav {
 		&__link {
 			font-size: 40px;
@@ -748,9 +846,12 @@ export default {
 			}
 		}
 		&__logo {
-			width: calc(100% + 34px);
-			max-height: 500px;
-			top: 485px;
+			width: calc(100% + 200px);
+			max-height: 710px;
+			top: min(65vh, 390px);
+		}
+		&__nav {
+			gap: 30px;
 		}
 	}
 	.header-placeholder {
@@ -761,6 +862,7 @@ export default {
 	}
 	.header {
 		min-height: 74px;
+		height: 74px;
 		&__wrapper {
 			padding: 20px 32px;
 		}
@@ -788,6 +890,23 @@ export default {
 				width: 17px;
 			}
 		}
+	}
+}
+@media (max-width: 375px) {
+	.nav__logo {
+		max-height: 600px;
+		width: 543px;
+	}
+}
+@media (max-height: 510px) {
+	.header-start-button--nav {
+		margin-top: 0;
+	}
+}
+@media (max-height: 574px) {
+	.nav__nav {
+		top: 55%;
+		transform: translate(-50%, -50%);
 	}
 }
 @keyframes headerBurgerTop {

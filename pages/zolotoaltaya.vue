@@ -10,7 +10,7 @@
     <GalleryTemplate :settings="gallery[2]" />
     <TitleTemplate :settings="titles[3]" />
     <GalleryCardTemplate :settings="gallery[3]" />
-    <LikeTemplate :title="intro.img[0]" />
+    <!-- // <LikeTemplate :title="intro.img[0]" /> -->
     <FooterTemplate :settings="footer" />
   </div>
 </template>

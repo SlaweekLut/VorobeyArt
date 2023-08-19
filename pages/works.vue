@@ -1,56 +1,61 @@
 <template>
-	<div class="content works">
-		<div class="content__wrapper">
-			<p class="works__title">Смотрите, что умеем</p>
-			<div class="works-nav" @click="() => (dropdown = !dropdown)">
-				<div class="works-nav__list" :class="{ 'works-nav__list--open': dropdown }">
-					<button
-						v-for="(tag, i) in tags"
-						:key="i"
-						:onmousemove="startPorject"
-						class="works-nav__links"
-						:class="{
-							'works-nav__links--active': i === activeTab,
-							'works-nav__links--open': dropdown,
-						}"
-						@click="() => handleNav(tag.tag)"
-					>
-						<span>{{ tag.title }}</span>
-						<div class="works-nav__links-fill"></div>
-					</button>
-				</div>
-			</div>
-			<div class="works-examples">
-				<div v-for="(work, i) in works" :key="i" :class="{ 'works-example--hide': !work.visible }" class="works-example">
-					<NuxtLink v-if="work.to !== '/'" class="works-example__link" :to="{ path: work.to }"></NuxtLink>
-					<div class="works-example__header">
-						<picture>
-							<source media="(max-width: 768px)" :srcset="`/img/${work.img[0]}/Mobile/${work.img[1]}.webp`" type="image/webp" />
-							<source media="(min-width: 769px)" :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" type="image/webp" />
-							<source :srcset="`/img/${work.img[0]}/JPG/${work.img[1]}.png`" type="image/png" />
-							<img :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" alt="Пример работы" type="image/webp" class="works-example__img" />
-						</picture>
-						<div class="works-example__background"></div>
+	<div>
+		<div class="content works">
+			<div class="content__wrapper">
+				<p class="works__title">Смотрите, что умеем</p>
+				<div class="works-nav" @click="() => (dropdown = !dropdown)">
+					<div class="works-nav__list" :class="{ 'works-nav__list--open': dropdown }">
+						<button
+							v-for="(tag, i) in tags"
+							:key="i"
+							:onmousemove="startPorject"
+							class="works-nav__links"
+							:class="{
+								'works-nav__links--active': i === activeTab,
+								'works-nav__links--open': dropdown,
+							}"
+							@click="() => handleNav(tag.tag)"
+						>
+							<span>{{ tag.title }}</span>
+							<div class="works-nav__links-fill"></div>
+						</button>
 					</div>
-					<div class="works-example__info">
-						<h3 v-if="work.to !== '/'" class="works-example__title">
-							{{ work.title }}
-						</h3>
-						<h3 v-if="work.to === '/'" class="works-example__title works-example__title--dev">В разработке</h3>
-						<p class="works-example__text" v-html="work.description"></p>
+				</div>
+				<div class="works-examples">
+					<div v-for="(work, i) in works" :key="i" class="works-example" :class="{ 'works-example--hide': !work.visible }">
+						<NuxtLink v-if="work.to !== '/'" class="works-example__link" :to="{ path: work.to }"></NuxtLink>
+						<div class="works-example__header">
+							<picture>
+								<source media="(max-width: 768px)" :srcset="`/img/${work.img[0]}/Mobile/${work.img[1]}.webp`" type="image/webp" />
+								<source media="(min-width: 769px)" :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" type="image/webp" />
+								<source :srcset="`/img/${work.img[0]}/JPG/${work.img[1]}.png`" type="image/png" />
+								<img :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" alt="Пример работы" type="image/webp" class="works-example__img" />
+							</picture>
+							<div class="works-example__background"></div>
+						</div>
+						<div class="works-example__info">
+							<h3 v-if="work.to !== '/'" class="works-example__title">
+								{{ work.title }}
+							</h3>
+							<h3 v-if="work.to === '/'" class="works-example__title works-example__title--dev">В разработке</h3>
+							<p class="works-example__text" v-html="work.description"></p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<Footer :case="false"/>
 	</div>
 </template>
 
 <script>
 import TitlePage from '@/components/Title.vue';
+import Footer from '../components/Cases/Footer.vue';
 export default {
 	name: 'WorksPage',
 	components: {
 		TitlePage,
+		Footer
 	},
 	data() {
 		return {
@@ -64,7 +69,7 @@ export default {
 					to: '/energotek',
 					img: ['energotek', 'energotek-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Разработка приложения <br/> AR Play Market / App Store',
@@ -72,7 +77,7 @@ export default {
 					to: '/energotekAR',
 					img: ['energotekAR', 'energotekAR-page'],
 					visible: true,
-					tags: ['two', 'five'],
+					tags: ['3D', 'mobile'],
 				},
 				{
 					description: 'Разработка брендбука и презентации',
@@ -80,7 +85,7 @@ export default {
 					to: '/wballiance',
 					img: ['wballiance', 'wballiance-page'],
 					visible: true,
-					tags: ['one', 'three'],
+					tags: ['design', 'brand'],
 				},
 				{
 					description: 'Эксклюзивный дизайн футболок',
@@ -88,7 +93,7 @@ export default {
 					to: '/motorika',
 					img: ['motorika', 'motorika-page'],
 					visible: true,
-					tags: ['three'],
+					tags: ['brand'],
 				},
 				{
 					description: 'Создание логотипа и визуализация',
@@ -96,7 +101,7 @@ export default {
 					to: '/spicynote',
 					img: ['spisynote', 'spisynote-page'],
 					visible: true,
-					tags: ['three'],
+					tags: ['brand'],
 				},
 				{
 					description: 'Разработка приложения <br/> AR Play Market / App Store',
@@ -104,7 +109,7 @@ export default {
 					to: '/genezis',
 					img: ['genezisproject', 'genezisproject-page'],
 					visible: true,
-					tags: ['one', 'three'],
+					tags: ['design', 'brand'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для маркетплейсов',
@@ -112,7 +117,7 @@ export default {
 					to: '/zolotoaltaya',
 					img: ['zolotoaltaya', 'zolotoaltaya-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Дизайн печатной <br/> продукции',
@@ -120,7 +125,7 @@ export default {
 					to: '/marusya',
 					img: ['marusya', 'marusya-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Дизайн печатной <br/> продукции',
@@ -128,7 +133,7 @@ export default {
 					to: '/ukigassen',
 					img: ['ukigassen', 'ukigassen-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Разработка <br/> презентации',
@@ -136,7 +141,7 @@ export default {
 					to: '/oceanview',
 					img: ['oceanview', 'oceanview-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для каталогов',
@@ -144,7 +149,7 @@ export default {
 					to: '/ximtexp',
 					img: ['ximtexp', 'ximtexp-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для сайта',
@@ -152,7 +157,7 @@ export default {
 					to: '/mobdebut',
 					img: ['mobdebut', 'mobdebut-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Разработка <br/> презентации',
@@ -160,7 +165,7 @@ export default {
 					to: '/primetravel',
 					img: ['primetravel', 'primetravel-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Разработка <br/> презентации',
@@ -168,7 +173,7 @@ export default {
 					to: '/tomiai',
 					img: ['tomiai', 'tomiai-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Разработка брендбука и презентации',
@@ -176,7 +181,7 @@ export default {
 					to: '/kvanttelekomBrend',
 					img: ['kvanttelekomBrend', 'kvanttelekomBrend-page'],
 					visible: true,
-					tags: ['one', 'three'],
+					tags: ['design', 'brand'],
 				},
 				{
 					description: 'Разработка <br/> презентации',
@@ -184,7 +189,7 @@ export default {
 					to: '/prozapchast',
 					img: ['prozapchast', 'prozapchast-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Разработка <br/> презентации',
@@ -192,7 +197,7 @@ export default {
 					to: '/ownwifi',
 					img: ['ownwifi', 'ownwifi-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Создание логотипа и <br/> визуализация',
@@ -200,7 +205,7 @@ export default {
 					to: '/hone',
 					img: ['hone', 'hone-page'],
 					visible: true,
-					tags: ['three'],
+					tags: ['brand'],
 				},
 				{
 					description: 'Создание логотипа и визуализация',
@@ -208,7 +213,7 @@ export default {
 					to: '/aladdin',
 					img: ['aladdin', 'aladdin-page'],
 					visible: true,
-					tags: ['three'],
+					tags: ['brand'],
 				},
 				{
 					description: 'Дизайн печатной продукции',
@@ -216,7 +221,7 @@ export default {
 					to: '/unidance',
 					img: ['unidance', 'unidance-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Проектирование и<br>разработка игры',
@@ -224,7 +229,7 @@ export default {
 					to: '/izenbot',
 					img: ['izenbot', 'izenbot-page'],
 					visible: true,
-					tags: ['five'],
+					tags: ['mobile'],
 				},
 				{
 					description: 'Проектирование и<br>разработка игры',
@@ -232,7 +237,7 @@ export default {
 					to: '/flipknife',
 					img: ['flipknife', 'flipknife-page'],
 					visible: true,
-					tags: ['five'],
+					tags: ['mobile'],
 				},
 				{
 					description: 'Проектирование и<br>разработка игры',
@@ -240,7 +245,7 @@ export default {
 					to: '/goup',
 					img: ['goup', 'goup-page'],
 					visible: true,
-					tags: ['five'],
+					tags: ['mobile'],
 				},
 				{
 					description: 'Проектирование и<br>разработка игры',
@@ -248,7 +253,7 @@ export default {
 					to: '/pawpaw',
 					img: ['pawpaw', 'pawpaw-page'],
 					visible: true,
-					tags: ['five'],
+					tags: ['mobile'],
 				},
 				{
 					description: 'Проектирование и<br>разработка игры',
@@ -256,7 +261,7 @@ export default {
 					to: '/xplane',
 					img: ['xplane', 'xplane-page'],
 					visible: true,
-					tags: ['five'],
+					tags: ['mobile'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для маркетплейсов',
@@ -264,7 +269,7 @@ export default {
 					to: '/',
 					img: ['moltengrass', 'moltengrass-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для сайта',
@@ -272,7 +277,7 @@ export default {
 					to: '/',
 					img: ['3Dbani', '3Dbani-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 				{
 					description: 'Разработка дизайна <br/> приложения',
@@ -280,7 +285,7 @@ export default {
 					to: '/',
 					img: ['garillapoker', 'garillapoker-page'],
 					visible: true,
-					tags: ['one', 'three'],
+					tags: ['design', 'brand'],
 				},
 				{
 					description: 'Дизайн и разработка <br/> сайта',
@@ -288,7 +293,7 @@ export default {
 					to: '/',
 					img: ['kvanttelekomCite', 'kvanttelekomCite-page'],
 					visible: true,
-					tags: ['four'],
+					tags: ['web'],
 				},
 				{
 					description: 'Создание логотипа и <br/> визуализация',
@@ -296,7 +301,7 @@ export default {
 					to: '/',
 					img: ['polarbear', 'polarbear-page'],
 					visible: true,
-					tags: ['three'],
+					tags: ['brand'],
 				},
 				{
 					description: 'Дизайн печатной <br/> продукции',
@@ -304,7 +309,7 @@ export default {
 					to: '/',
 					img: ['automoika1', 'automoika1-page'],
 					visible: true,
-					tags: ['one'],
+					tags: ['design'],
 				},
 				{
 					description: 'Создание 3D моделей <br/> для сайта',
@@ -312,36 +317,57 @@ export default {
 					to: '/',
 					img: ['3Dsloi', '3Dsloi-page'],
 					visible: true,
-					tags: ['two'],
+					tags: ['3D'],
 				},
 			],
 			tags: [
 				{ title: 'Все проекты', tag: 'all' },
-				{ title: 'Графический дизайн', tag: 'one' },
-				{ title: '3D дизайн', tag: 'two' },
-				{ title: 'Брендинг', tag: 'three' },
-				{ title: 'WEB разработка', tag: 'four' },
-				{ title: 'Мобильная разработка', tag: 'five' },
+				{ title: 'Графический дизайн', tag: 'design' },
+				{ title: '3D дизайн', tag: '3D' },
+				{ title: 'Брендинг', tag: 'brand' },
+				{ title: 'WEB разработка', tag: 'web' },
+				{ title: 'Мобильная разработка', tag: 'mobile' },
 			],
+			PART_HEIGHT: 12,
 		};
 	},
 	mounted() {
-		this.handleScroll();
 		window.addEventListener('scroll', this.handleScroll);
+		let hash = window.location.hash.slice(1) !== '' ? window.location.hash.slice(1) : 'all';
+		this.handleNav(hash, true);
+		setTimeout(() => {
+			this.visibleWork();
+		}, 600);
 	},
 	methods: {
-		handleNav(activeTab) {
+		visibleWork() {
+			const works = document.querySelectorAll('.works-example:not(.visible)');
+			works.forEach((work) => {
+				if (!work.classList.contains('works-example--hide')) {
+					const { y } = work.getBoundingClientRect();
+					if (y < window.innerHeight) {
+						work.classList.add('visible','loading');
+						setTimeout(() => {
+							work.classList.remove('loading');
+						}, 200)
+					}
+				}
+			});
+		},
+		handleNav(activeTab, isMounted) {
+			// this.handleScroll();
+			if (!isMounted) this.setLocation(activeTab);
 			if (activeTab === 'all') {
 				this.activeTab = 0;
-			} else if (activeTab === 'one') {
+			} else if (activeTab === 'design') {
 				this.activeTab = 1;
-			} else if (activeTab === 'two') {
+			} else if (activeTab === '3D') {
 				this.activeTab = 2;
-			} else if (activeTab === 'three') {
+			} else if (activeTab === 'brand') {
 				this.activeTab = 3;
-			} else if (activeTab === 'four') {
+			} else if (activeTab === 'web') {
 				this.activeTab = 4;
-			} else if (activeTab === 'five') {
+			} else if (activeTab === 'mobile') {
 				this.activeTab = 5;
 			}
 			this.$data.works.forEach((work) => {
@@ -352,6 +378,19 @@ export default {
 				}
 			});
 			this.$data.active = activeTab;
+			setTimeout(() => {
+				document.querySelectorAll('.visible')?.forEach((work) => {
+					work.classList.remove('visible');
+				});
+				this.visibleWork();
+			}, 1);
+		},
+		setLocation(hash) {
+			try {
+				history.pushState(null, null, window.location.pathname + '#' + hash);
+				return;
+			} catch (e) {}
+			window.location = window.location.href + '#' + hash;
 		},
 		startPorject(e) {
 			const target = e.target.getBoundingClientRect();
@@ -362,12 +401,14 @@ export default {
 			filler.style.top = `${y}px`;
 		},
 		handleScroll() {
-			const works = document.querySelectorAll('.works-example:not(.visible)');
-			works.forEach((work) => {
-				if (work.offsetTop + 400 < window.scrollY + window.innerHeight) {
-					work.classList.add('visible');
-				}
-			});
+			this.visibleWork();
+			// const works = document.querySelectorAll('.works-example:not(.visible)');
+			// works.forEach((work) => {
+			// 	const { y } = work.getBoundingClientRect();
+			// 	if (y < window.innerHeight) {
+			// 		work.classList.add('visible');
+			// 	}
+			// });
 		},
 	},
 };
@@ -445,6 +486,8 @@ body {
 			transition: background-color 0.3s ease;
 			background-color: #0181c8;
 			color: #fff;
+			pointer-events: none;
+			overflow: hidden;
 		}
 		&:hover {
 			color: #fff;
@@ -466,32 +509,9 @@ body {
 	}
 }
 .works-example {
-	$time: 0.05s;
 	position: relative;
 	text-decoration: none;
-	animation: animationWork 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175) both;
-	animation-play-state: paused;
-	&:nth-child(1n) {
-		animation-delay: 0s;
-	}
-	&:nth-child(2n) {
-		animation-delay: $time * 2;
-	}
-	&:nth-child(3n) {
-		animation-delay: $time * 3;
-	}
-	&:nth-child(4n) {
-		animation-delay: $time * 4;
-	}
-	&:nth-child(4n + 1) {
-		animation-delay: 0s;
-	}
-	&:nth-child(4n + 2) {
-		animation-delay: $time * 2;
-	}
-	&:nth-child(4n + 3) {
-		animation-delay: $time * 3;
-	}
+	$time: 0.05s;
 	&__link {
 		position: absolute;
 		z-index: 2;
@@ -550,39 +570,81 @@ body {
 	&__img {
 		max-width: 100%;
 		position: relative;
-		transition: 0.3s ease;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		will-change: transform, opacity;
+		transform: translate3d(-50%, -50%, 0) scale3d(0.3, 0.3, 0.3);
+		-webkit-transform: translate3d(-50%, -50%, 0) scale3d(0.3, 0.3, 0.3);
+		transition: 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+		opacity: 0;
 		z-index: 1;
 		width: clamp(260px, 20vw, 290px);
 		height: clamp(250px, 20vw, 266px);
 		object-fit: contain;
 		object-position: center center;
 	}
+	&.visible &__img {
+		// animation: animationWork 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175) backwards;
+		opacity: 1;
+		transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+	}
+	&:nth-child(1n).loading &__img{
+		transition-delay: 0s;
+	}
+	&:nth-child(2n).loading &__img{
+		transition-delay: $time * 2;
+	}
+	&:nth-child(3n).loading &__img{
+		transition-delay: $time * 3;
+	}
+	&:nth-child(4n).loading &__img{
+		transition-delay: $time * 4;
+	}
+	&:nth-child(4n + 1).loading &__img{
+		transition-delay: 0s;
+	}
+	&:nth-child(4n + 2).loading &__img{
+		transition-delay: $time * 2;
+	}
+	&:nth-child(4n + 3).loading &__img{
+		transition-delay: $time * 3;
+	}
 	&:hover {
 		.works-example {
 			&__background {
-				transform: translate(-50%, -50%) rotate(15deg) scale(0.9);
+				transform: translate3d(-50%, -50%, 0) rotate(15deg) scale3d(0.9, 0.9, 0.9);
 			}
 			&__img {
-				transform: translate(-50%, -50%) scale(1.1);
+				
+				opacity: 1;
+				// animation: animationWorkHover 0.3s ease both 0s;
+				transform: translate3d(-50%, -50%, 0) scale3d(1.1, 1.1, 1.1) !important;
+				transition-delay: 0s;
 			}
 		}
-	}
-	&.visible {
-		animation-play-state: running;
 	}
 }
 
 @keyframes animationWork {
 	0% {
 		opacity: 0;
-		transform: scale(0.3);
+		transform: translate3d(-50%, -50%, 0) scale3d(0.3, 0.3, 0.3);
+		-webkit-transform: translate3d(-50%, -50%, 0) scale3d(0.3, 0.3, 0.3);
 	}
 	100% {
 		opacity: 1;
-		transform: scale(1);
+		transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+		-webkit-transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+	}
+}
+@keyframes animationWorkHover {
+	0% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1.1);
 	}
 }
 

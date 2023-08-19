@@ -14,7 +14,9 @@
     "2gis-maps": "^3.7.3",
     "axios": "^1.3.4",
     "core-js": "^3.8.3",
+    "gsap": "^3.12.2",
     "nanoid": "^4.0.1",
+    "three": "^0.154.0",
     "yandex-metrika-module-nuxt3": "^1.5.3"
   },
   "devDependencies": {

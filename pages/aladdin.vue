@@ -42,7 +42,7 @@
     <GalleryTemplate :settings="gallery[6]" />
     <GalleryTemplate :settings="gallery[7]" />
     <GalleryTemplate :settings="gallery[8]" />
-    <LikeTemplate :title="intro.img[0]" />
+    <!-- // <LikeTemplate :title="intro.img[0]" /> -->
     <FooterTemplate :settings="footer" />
   </div>
 </template>

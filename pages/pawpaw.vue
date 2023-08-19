@@ -9,7 +9,7 @@
     <GalleryTemplate :settings="gallery[2]" />
     <GalleryTemplate :settings="gallery[3]" />
     <GalleryTemplate :settings="gallery[4]" />
-    <LikeTemplate :title="intro.img[0]" />
+    <!-- // <LikeTemplate :title="intro.img[0]" /> -->
     <FooterTemplate :settings="footer" />
   </div>
 </template>

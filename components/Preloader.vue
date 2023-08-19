@@ -304,6 +304,8 @@ export default {
 		&__logo
 			max-width: 177px
 			width: 17.28vw
+		&__date
+			bottom: 112px
 
 @media screen and (max-width: 768px)
 	.preloader
@@ -313,11 +315,14 @@ export default {
 		&__logo
 			max-width: 246px
 			width: 32vw
+		&::after
+			background-size: 960px
 
 @media screen and (max-width: 425px)
 	.preloader
 		&__date
 			font-size: 16px
+			bottom: 112px
 		&__title
 			max-width: 322px
 			width: 75.764vw

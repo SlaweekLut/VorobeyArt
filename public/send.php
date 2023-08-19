@@ -10,8 +10,8 @@ $mail = new PHPMailer();
 $mail->CharSet = 'UTF-8';
 
 
-$password = 'Ff267S_Zs555';
 $yourEmail = 'team@vorobeyart.ru';
+$password = 'Ff267S_Zs555';
 
 $dataName = $_POST['name'];
 $dataEmail = $_POST['email'];
@@ -20,8 +20,8 @@ $dataPhone = $_POST['phone'];
 
 // настройки SMTP
 $mail->Mailer = 'smtp';
-$mail->Host = 'ssl://smtp.yandex.ru';
-$mail->Port = 465;
+$mail->Host = 'mail.netangels.ru';
+$mail->Port = 25;
 $mail->SMTPAuth = true;
 $mail->Username = $yourEmail; // ваш email - тот же что и в поле From:
 $mail->Password = $password; // ваш пароль;

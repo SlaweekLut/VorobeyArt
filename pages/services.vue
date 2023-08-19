@@ -27,6 +27,16 @@
 			</div>
 		</div>
 		<div class="content services-groups">
+			<svg class="services-groups__svg" width="1920" height="299" viewBox="0 0 1920 299" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M132.299 233.594C150.918 233.594 165.503 229.233 176.054 220.513C186.915 211.48 194.053 201.046 197.466 189.211L267.288 193.883C263.875 207.898 258.289 221.291 250.531 234.061C242.773 246.831 233.153 258.043 221.671 267.698C210.189 277.042 196.846 284.673 181.64 290.591C166.745 296.197 150.298 299 132.299 299C112.438 299 93.6641 295.263 75.9758 287.788C58.5979 280.001 43.3922 269.411 30.3587 256.019C17.3253 242.315 6.92954 226.43 -0.828466 208.366C-8.27615 190.301 -12 170.679 -12 149.5C-12 128.632 -8.27615 109.166 -0.828466 91.1016C6.92954 72.7255 17.3253 56.8412 30.3587 43.4484C43.3922 29.7443 58.5979 19.1547 75.9758 11.6797C93.6641 3.89323 112.438 0 132.299 0C149.677 0 165.658 2.95885 180.243 8.87656C195.139 14.4828 208.172 22.1135 219.344 31.7688C230.826 41.1125 240.446 52.1693 248.204 64.9391C255.962 77.7089 261.547 91.1016 264.961 105.117L195.139 109.789C193.277 103.871 190.639 98.2651 187.226 92.9703C183.812 87.6755 179.468 83.0037 174.192 78.9547C168.917 74.9057 162.71 71.6354 155.573 69.1438C148.746 66.6521 140.988 65.4063 132.299 65.4063C121.748 65.4063 111.818 67.5865 102.508 71.9469C93.1986 75.9958 84.9751 81.7578 77.8377 89.2328C71.0107 96.7078 65.5801 105.584 61.5459 115.863C57.5118 126.141 55.4947 137.353 55.4947 149.5C55.4947 161.647 57.5118 172.859 61.5459 183.138C65.5801 193.416 71.0107 202.292 77.8377 209.767C84.9751 217.242 93.1986 223.16 102.508 227.52C111.818 231.569 121.748 233.594 132.299 233.594Z" fill="#F6F6F6"/>
+				<path d="M423.406 2.33594C438.612 2.33594 452.421 4.82761 464.834 9.81095C477.557 14.7943 488.418 21.4906 497.418 29.9C506.417 38.3094 513.399 48.2761 518.364 59.8C523.329 71.0125 525.812 83.0037 525.812 95.7735C525.812 112.281 522.864 126.141 516.968 137.353C511.382 148.566 505.02 157.754 497.883 164.917C491.056 171.769 484.694 176.753 478.798 179.867C472.902 182.982 469.954 184.539 469.954 184.539L535.121 296.664L460.645 296.664L407.114 198.555H372.203V296.664H304.709L304.709 2.33594L423.406 2.33594ZM423.406 133.148C435.198 133.148 444.353 130.034 450.869 123.805C457.386 117.576 460.645 109.789 460.645 100.445C460.645 91.1016 457.386 83.3151 450.869 77.0859C444.353 70.8568 435.198 67.7422 423.406 67.7422L372.203 67.7422V133.148H423.406Z" fill="#F6F6F6"/>
+				<path d="M570.178 2.33594L779.644 2.33594V67.7422L637.673 67.7422V114.461L768.007 114.461V179.867H637.673V231.258L784.299 231.258V296.664H570.178V2.33594Z" fill="#F6F6F6"/>
+				<path d="M972.619 182.203L940.035 84.0938L907.451 182.203L972.619 182.203ZM888.832 240.602L870.213 296.664H800.391L905.124 2.33594L974.946 2.33594L1079.68 296.664H1009.86L991.238 240.602L888.832 240.602Z" fill="#F6F6F6"/>
+				<path d="M1214.58 296.664H1147.08V67.7422L1063.3 67.7422V2.33594L1298.36 2.33594V67.7422L1214.58 67.7422V296.664Z" fill="#F6F6F6"/>
+				<path d="M1398.62 296.664H1331.13V2.33594L1398.62 2.33594V296.664Z" fill="#F6F6F6"/>
+				<path d="M1698.7 2.33594L1598.62 296.664L1528.79 296.664L1428.72 2.33594L1498.54 2.33594L1563.71 205.563L1628.87 2.33594L1698.7 2.33594Z" fill="#F6F6F6"/>
+				<path d="M1728.88 2.33594L1938.35 2.33594V67.7422L1796.37 67.7422V114.461L1926.71 114.461V179.867L1796.37 179.867V231.258L1943 231.258V296.664L1728.88 296.664V2.33594Z" fill="#F6F6F6"/>
+			</svg>
 			<div class="content__wrapper">
 				<div class="services-groups__wrapper">
 					<div class="services-group" v-for="(service, index) in services">
@@ -38,17 +48,14 @@
 								</p>
 							</div>
 						</div>
-						<a href="/works" class="services-group__link">
+						<!-- <NuxtLink :to="service.link" class="services-group__link">
 							Проекты
-							<span
-								><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M5.42426 5.42426C5.65858 5.18995 5.65858 4.81005 5.42426 4.57574L1.60589 0.757359C1.37157 0.523044 0.991674 0.523044 0.757359 0.757359C0.523045 0.991674 0.523045 1.37157 0.757359 1.60589L4.15147 5L0.757359 8.39411C0.523044 8.62843 0.523044 9.00833 0.757359 9.24264C0.991673 9.47696 1.37157 9.47696 1.60589 9.24264L5.42426 5.42426ZM4 5.6L5 5.6L5 4.4L4 4.4L4 5.6Z"
-										fill="white"
-									/>
+							<span>
+								<svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L5 4L1 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 							</span>
-						</a>
+						</NuxtLink> -->
 						<ul class="services-group-list">
 							<li class="services-group-list__item" v-for="item in service.list">{{ item }}</li>
 						</ul>
@@ -56,31 +63,46 @@
 				</div>
 			</div>
 		</div>
+		<div class="content services-lists">
+			<div class="content__wrapper">
+				<Accordion title="Дизайн"/>
+				<Accordion title="Сайты"/>
+				<Accordion title="Копирайтинг"/>
+			</div>
+		</div>
+		<Footer :case="false"/>
 	</div>
 </template>
 
 <script>
+import Accordion from '../components/Accordion.vue';
+import Footer from '../components/Cases/Footer.vue';
+
+
 export default {
 	name: 'ServicesPage',
 	props: {},
+	components: {
+		Footer,
+		Accordion
+	},
 	data() {
 		return {
 			services: [
 				{
-					title: 'Design',
-					list: ['Brand identity', 'UX design', 'UI design', 'Interaction design', 'Graphic design', 'Art direction'],
+					title: 'Дизайн',
+					list: ['UX/UI', 'Фирменный стиль', 'Сайты / Приложения',  'Графический дизайн', 'Инфографика', '3D'],
+					link: 'works#design',
 				},
 				{
-					title: '3D Model',
-					list: ['Brand identity', 'UX design', 'UI design', 'Interaction design', 'Graphic design', 'Art direction'],
+					title: 'Сайты / Приложения',
+					list: ['HTML / CSS / JS', 'iOS / Android', 'Backend / API', 'AR', 'CMS', '@^##_//'],
+					link: 'works#web',
 				},
 				{
-					title: 'Content',
-					list: ['Messaging strategy', 'Brand copywriting', 'Website content strategy', 'Website copywriting', 'Search engine optimization', 'Visual content strategy'],
-				},
-				{
-					title: 'Web / App',
-					list: ['Interactive Development', 'Mobile Experience', 'AR & VR', 'WebGL', 'CMS', 'Native Apps'],
+					title: 'Копирайт',
+					list: ['Сайты', 'Ком. предложения', 'Презентации', 'SMM', 'Нейминг', 'SEO тексты',],
+					link: 'works',
 				},
 			],
 		};
@@ -117,40 +139,53 @@ export default {
 				`;
 
 			for (let i = 0; i < 10; i++) {
+				let featherContainer = document.createElement('div');
+				featherContainer.classList.add('feather-container');
 				let feather = document.createElement('div');
 				feather.classList.add('feather');
 				feather.innerHTML = featherSvg;
-				feather.style.left = event.clientX + 'px';
-				feather.style.top = event.clientY + this.random(-50, 0) + 'px';
-				feather.style.animationName = `featherBoom-${i + 1}`;
-				feather.style.setProperty(`--translateX-${i + 1}`, `calc(-50% + ${this.random(-250, 250)}px)`);
-				feather.style.setProperty(`--translateY-${i + 1}`, `calc(-50% + ${this.random(-250, 250)}px)`);
-				feather.style.setProperty(`--translateXTo1-${i + 1}`, `calc(-50% + ${this.random(-60, 60)}px)`);
-				feather.style.setProperty(`--translateXTo2-${i + 1}`, `calc(-50% + ${this.random(-60, 60)}px)`);
-				feather.style.setProperty(`--translateXTo3-${i + 1}`, `calc(-50% + ${this.random(-30, 30)}px)`);
-				feather.style.setProperty(`--rotateDegTo-${i + 1}`, `${this.random(-25, 25)}deg`);
-				feather.style.setProperty(`--scale-${i + 1}`, `${this.random(3, 8) / 10}`);
-				document.querySelector('#app').prepend(feather);
+				featherContainer.append(feather);
+
+				let x = this.random(-200, 200),
+					x1 = this.random(-60, 60),
+					x2 = this.random(-60, 60),
+					x3 = this.random(-30, 30),
+					y = this.random(-150, 150),
+					// ty = y < 0 ? y * 2 : y * 0.5,
+					rotate = this.random(-25, 25),
+					scale = this.random(3, 8);
+
+				featherContainer.style.setProperty(`--axisX-${i + 1}`, `${x}px`);
+				featherContainer.style.setProperty(`--axisY-${i + 1}`, `${y}px`);
+
+				// featherContainer.style.setProperty(`--axisTopY-${i + 1}`, `${ty}px`);
+				featherContainer.style.setProperty(`--axisX-1-${i + 1}`, `${x1}px`);
+				featherContainer.style.setProperty(`--axisX-2-${i + 1}`, `${x2}px`);
+				featherContainer.style.setProperty(`--axisX-3-${i + 1}`, `${x3}px`);
+				featherContainer.style.setProperty(`--rotate-${i + 1}`, `${rotate}deg`);
+				featherContainer.style.setProperty(`--scale-${i + 1}`, `${scale / 10}`);
+
+				featherContainer.style.left = event.clientX + window.scrollX - 50 + 'px';
+				featherContainer.style.top = event.clientY + window.scrollY - 18 + 'px';
+				featherContainer.style.animationName = `featherAxisX-${i + 1}`;
+				feather.style.animationName = `featherAxisY-${i + 1}`;
+
+				document.querySelector('#app').prepend(featherContainer);
+				let repeat = null;
 
 				setTimeout(() => {
 					feather.style.animationName = `featherFalling-${i + 1}`;
 					feather.style.animationDuration = '10s';
 					feather.style.animationFillMode = 'both';
 					feather.style.animationTimingFunction = 'ease-in-out';
-					feather.style.animationIterationCount = 'infinite';
-					let repeat = setInterval(() => {
-						if (
-							Number(feather?.style.top.replace('px', '')) > window.scrollY + window.innerHeight ||
-							Number(feather?.style.top.replace('px', '')) > startWindowHeight
-						) {
-							feather.remove();
-							clearInterval(repeat);
-						} else {
-							feather.style.top = Number(feather.style.top.replace('px', '')) + 0.5 + 'px';
-							feather.style.animationName = `featherFalling-${i + 1}`;
-						}
+					repeat = setInterval(() => {
+						featherContainer.style.top = Number(featherContainer.style.top.replace('px', '')) + 0.5 + 'px';
 					}, 24);
-				}, 1000);
+					setTimeout(() => {
+						featherContainer.remove();
+						clearInterval(repeat);
+					}, 10000);
+				}, 500);
 			}
 		},
 	},
@@ -158,59 +193,60 @@ export default {
 </script>
 
 <style lang="scss">
-.feather {
+.feather-container {
 	position: absolute;
 	pointer-events: none;
-	top: 0;
-	left: 0;
 	z-index: 4;
-	animation: featherBoom-1 1s ease both;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
 }
-@function randomNum($min, $max) {
-	$rand: random();
-	$randomNum: $min + floor($rand * (($max - $min) + 1));
-
-	@return $randomNum;
+.feather {
+	pointer-events: none;
+	animation-duration: 0.5s;
+	animation-fill-mode: both;
 }
 @for $i from 1 through 10 {
-	:root {
-		--translateXThin-#{$i}: calc(-50% + #{randomNum(-100, 100) + px});
-		--translateX-#{$i}: calc(-50% + #{randomNum(-250, 250) + px});
-		--translateY-#{$i}: calc(-50% + #{randomNum(-250, 250) + px});
-		--translateXTo1-#{$i}: calc(-50% + #{randomNum(60, -60) + px});
-		--translateXTo2-#{$i}: calc(-50% + #{randomNum(60, -60) + px});
-		--translateXTo3-#{$i}: calc(-50% + #{randomNum(30, -30) + px});
-		--rotateDegTo-#{$i}: #{randomNum(-25, 25) + deg};
-		--scale-#{$i}: #{randomNum(0.5, 0.5)};
-	}
-	@keyframes featherBoom-#{$i} {
+	@keyframes featherAxisX-#{$i} {
 		0% {
-			opacity: 0;
-			transform: translate(0, 0) rotate(0) scale(0);
+			opacity: 1;
+			transform: translateX(0) scale(0);
+			animation-timing-function: ease-in;
+		}
+		85% {
+			opacity: 1;
 		}
 		100% {
-			opacity: 1;
-			transform: translate(var(--translateX-#{$i}), var(--translateY-#{$i})) rotate(var(--rotateDegTo-#{$i})) scale(var(--scale-#{$i}));
+			transform: translateX(var(--axisX-#{$i})) scale(1);
 		}
 	}
+
+	@keyframes featherAxisY-#{$i} {
+		0% {
+			animation-timing-function: ease-out;
+			transform: translateY(0) rotate(var(--rotate-#{$i})) scale(var(--scale-#{$i}));
+		}
+		100% {
+			transform: translate(0, var(--axisY-#{$i})) rotate(var(--rotate-#{$i})) scale(var(--scale-#{$i}));
+		}
+	}
+
 	@keyframes featherFalling-#{$i} {
 		0% {
-			transform: translate(var(--translateX-#{$i}), var(--translateY-#{$i})) rotate(var(--rotateDegTo-#{$i})) scale(var(--scale-#{$i}));
+			transform: translate(0px, var(--axisY-#{$i})) rotate(var(--rotate-#{$i})) scale(var(--scale-#{$i}));
 		}
 		25% {
-			transform: translate(calc(var(--translateX-#{$i}) + var(--translateXTo1-#{$i})), var(--translateY-#{$i})) rotate(calc(var(--rotateDegTo-#{$i}) + 25deg))
-				scale(var(--scale-#{$i}));
+			transform: translate(var(--axisX-1-#{$i}), var(--axisY-#{$i})) rotate(calc(var(--rotate-#{$i}) + 25deg)) scale(var(--scale-#{$i}));
 		}
 		50% {
-			transform: translate(calc(var(--translateX-#{$i}) - var(--translateXTo2-#{$i})), var(--translateY-#{$i})) rotate(calc(var(--rotateDegTo-#{$i}) - 30deg))
-				scale(var(--scale-#{$i}));
+			transform: translate(var(--axisX-2-#{$i}), var(--axisY-#{$i})) rotate(calc(var(--rotate-#{$i}) - 30deg)) scale(var(--scale-#{$i}));
+			opacity: 1;
 		}
 		75% {
-			transform: translate(calc(var(--translateX-#{$i}) + var(--translateXTo3-#{$i})), var(--translateY-#{$i})) rotate(calc(var(--rotateDegTo-#{$i}) + 15deg))
-				scale(var(--scale-#{$i}));
+			transform: translate(var(--axisX-3-#{$i}), var(--axisY-#{$i})) rotate(calc(var(--rotate-#{$i}) + 15deg)) scale(var(--scale-#{$i}));
 		}
 		100% {
-			transform: translate(calc(var(--translateX-#{$i}) + 0px), var(--translateY-#{$i})) rotate(var(--rotateDegTo-#{$i})) scale(var(--scale-#{$i}));
+			opacity: 0;
+			transform: translate(0px, var(--axisY-#{$i})) rotate(var(--rotate-#{$i})) scale(var(--scale-#{$i}));
 		}
 	}
 }
@@ -224,6 +260,11 @@ body {
 		width: 0;
 		height: 0;
 	}
+}
+
+.services-lists {
+	padding-top: 106px;
+	padding-bottom: 189px;
 }
 
 .services-text {
@@ -371,28 +412,42 @@ body {
 }
 .services-groups {
 	margin-top: 0;
+	padding-bottom: 53px;
+	position: relative;
+	&__svg {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
 	&__wrapper {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 0 170px;
+		display: flex;
+		padding: 32px;
+		justify-content: space-between;
+		gap: 32px;
 	}
 }
 .services-group {
-	padding: 64px 0;
-	border-top: 1px solid #222;
+	padding: 65px 0;
+	// border-top: 1px solid #222;
 	display: flex;
 	flex-direction: column;
 	&__row {
 		display: flex;
-		gap: 16px;
+		align-items: center;
+		position: relative;
+		padding-left: 32px;
 	}
 	&__title {
-		font-size: 20px;
+		font-size: 25px;
 		font-weight: 700;
 	}
 	&__number {
-		font-size: 16px;
+		font-size: 15px;
 		font-weight: 400;
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: #A4A4A4;
 	}
 	&__link {
 		text-decoration: none;
@@ -415,27 +470,26 @@ body {
 	}
 }
 .services-group-list {
-	margin-top: 40px;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	margin-top: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 	&__item {
 		display: flex;
-		flex-direction: column;
-		line-height: 36px;
+		flex-direction: row;
+		gap: 46px;
+		align-items: center;
+		padding: 7px 0;
 		font-size: 18px;
 		font-weight: 500;
-		padding-left: 25px;
 		position: relative;
 		&::before {
 			content: '';
 			display: block;
-			width: 4px;
-			height: 4px;
+			width: 7px;
+			height: 7px;
 			border-radius: 50%;
-			background-color: #222;
-			position: absolute;
-			top: 16px;
-			left: 10px;
+			background-color: #0181C8;
 		}
 	}
 }
@@ -455,7 +509,12 @@ body {
 	.services-groups__wrapper {
 		display: flex;
 		flex-direction: column;
-		max-width: 560px;
+		max-width: 100%;
+	}
+	.services-group {
+		&__title {
+			font-size: 20px;
+		}
 	}
 }
 @media (max-width: 768px) {

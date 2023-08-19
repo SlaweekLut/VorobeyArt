@@ -105,7 +105,7 @@
 			</div>
 		</div>
 		<GalleryTemplate :settings="gallery[0]" />
-		<LikeTemplate :title="intro.img[0]" />
+		<!-- // <LikeTemplate :title="intro.img[0]" /> -->
 		<FooterTemplate :settings="footer" />
 	</div>
 </template>

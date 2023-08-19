@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-	<div>
+	<!-- <Plug @pass="checkPass" v-if="!isDeveloper"/> -->
+	<div class="main-container">
 		<HeaderPage
 			v-if="$route.matched[0]?.name !== 'NotFound'"
 			:curtains="curtains"
@@ -36,6 +37,7 @@
 import HeaderPage from '~/components/Header.vue';
 import PreloaderElement from '~/components/Preloader.vue';
 import CurtainsElement from '~/components/Curtains.vue';
+import Plug from './components/Plug.vue';
 
 export default {
 	name: 'App',
@@ -48,12 +50,15 @@ export default {
 		PreloaderElement,
 		HeaderPage,
 		CurtainsElement,
+		Plug
 	},
 	data() {
 		return {
 			curtains: 'Preloader',
 			menu: false,
 			currentPageName: '',
+			isDeveloper: false,
+			pass: "Ff267S_Zs555"
 		};
 	},
 	watch: {
@@ -65,7 +70,7 @@ export default {
 				this.currentPageName = name;
 				console.log('%c%s', 'background: lightblue; color: #222; padding: 2px 6px; border-radius: 20px;', 'Current Page:', name);
 
-				if (name === 'contacts' || name === 'index' || name === 'works' || name === 'about' || name === 'policy' || name === 'services') {
+				if ( name === 'works' || name === 'about' || name === 'policy' || name === 'services') {
 					document.body.classList.add('lines');
 				} else {
 					document.body.classList.remove('lines');
@@ -76,10 +81,11 @@ export default {
 		},
 	},
 	mounted() {
+		let password = localStorage.getItem('VorobeyArtPassword')
+		if(password === this.pass) this.isDeveloper = true
+		console.log(this.isDeveloper, password)
 		this.currentPageName = this.$route?.name;
 		if (
-			this.currentPageName === 'contacts' ||
-			this.currentPageName === 'index' ||
 			this.currentPageName === 'works' ||
 			this.currentPageName === 'about' ||
 			this.currentPageName === 'policy' ||
@@ -110,6 +116,10 @@ export default {
 				}, 500);
 			}
 		},
+		checkPass(e) {
+			localStorage.setItem('VorobeyArtPassword', e);
+			if(e === this.pass) this.isDeveloper = true
+		}
 	},
 };
 </script>
@@ -229,6 +239,7 @@ body
 	margin: 0
 	padding: 0
 	line-height: 1
+	min-height: 100vh
 	overflow-x: hidden
 	overflow-y: auto
 	&.lines
@@ -250,7 +261,14 @@ body
 
 #app
 	max-width: 100vw
+	min-height: 100vh
 	width: 100vw
+	overflow: hidden
+	position: relative
+
+.main-container 
+	height: 100%
+	min-height: 100vh
 
 .page-leave-active
 	transition: .5s linear
@@ -313,6 +331,8 @@ body
 		padding: 0px 41px 50px
 		&__wrapper
 			max-width: 612px
+	body.lines
+			background-size: 960px
 
 @media (max-width: 425px)
 	.content

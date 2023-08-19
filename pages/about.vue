@@ -13,9 +13,7 @@
 			<div class="content__wrapper about-text__wrapper">
 				<p class="about-text__title">Команда</p>
 				<p class="about-text__text">
-					Команда, креатив которой не знает границ. Наши дизайнерские решения покоряют сердца, а технические навыки позволяют реализовывать самые смелые идеи. Точный
-					контроль, выстроенные бизнес-процессы и максимальная вовлечённость в каждый проект позволяют вовремя реализовывать задачи. Поверьте, в Ваш проект команда вложит
-					максимум своих знаний и умений.
+					Команда, креатив которой не знает границ. Наши дизайнерские решения покоряют сердца, а технические навыки позволяют реализовывать самые смелые идеи. Точный контроль, выстроенные бизнес-процессы и максимальная вовлечённость в каждый проект позволяют вовремя реализовывать задачи. Поверьте, в Ваш проект команда вложит максимум своих знаний и умений. а технические навыки позволяют 
 				</p>
 			</div>
 		</div>
@@ -33,7 +31,7 @@
 					<AboutNumbers :curtains="curtains" number="57" title="Завершенных проектов" />
 					<AboutNumbers :curtains="curtains" number="45" title="Довольных клиентов" />
 					<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" />
-					<AboutNumbers :curtains="curtains" number="7" title="лет успешной работы" />
+					<AboutNumbers :curtains="curtains" number="5" title="лет успешной работы" />
 				</div>
 			</div>
 		</div>
@@ -62,10 +60,11 @@
 				/>
 			</div>
 		</div> -->
-		<div class="content about-video">
+		<div class="content about-infographic">
 			<p class="background-text">Creative</p>
 			<div class="content__wrapper">
-				<img src="/img/video-about-preloader.png" alt="" class="about-video__preview" />
+				<div id="feather"></div>
+				<!-- <canvas id="feather"></canvas> -->
 			</div>
 		</div>
 	</div>
@@ -78,6 +77,15 @@ import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
 import AboutCard from '@/components/About/Card.vue';
 import TitlePage from '@/components/Title.vue';
+
+import * as THREE from 'three';
+
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
+import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
 export default {
 	name: 'AboutPage',
 	components: {
@@ -183,25 +191,6 @@ export default {
 				},
 				{
 					img: '05',
-					title: 'Светлана',
-					subtitle: 'Менеджер счастья',
-					skills: [
-						{
-							title: 'Ведение переговоров',
-							progress: '90',
-						},
-						{
-							title: 'Выращивание микрозелени',
-							progress: '40',
-						},
-						{
-							title: 'Управление временем',
-							progress: '70',
-						},
-					],
-				},
-				{
-					img: '06',
 					title: 'Ирина',
 					subtitle: 'Штатный суетолог',
 					skills: [
@@ -220,39 +209,58 @@ export default {
 					],
 				},
 				{
+					img: '06',
+					title: 'Светлана',
+					subtitle: 'Менеджер счастья',
+					skills: [
+						{
+							title: 'Ведение переговоров',
+							progress: '90',
+						},
+						{
+							title: 'Выращивание микрозелени',
+							progress: '40',
+						},
+						{
+							title: 'Управление временем',
+							progress: '70',
+						},
+					],
+				},
+				{
 					img: '07',
-					title: 'Анастасия',
-					subtitle: 'Мастер планирования',
+					title: 'Евгения',
+					subtitle: 'Важный гусь',
 					skills: [
 						{
 							title: 'Обращение с пером',
 							progress: '90',
 						},
 						{
-							title: 'Вождение автомобиля',
-							progress: '40',
+							title: 'Мастер игр',
+							progress: '80',
 						},
 						{
-							title: 'Критическое мышление',
-							progress: '60',
+							title: 'Фея математики',
+							progress: '10',
 						},
 					],
 				},
 				{
 					img: '08',
-					title: 'Катерина',
-					subtitle: 'SMM Джедай',
+					title: 'Дмитрий',
+					subtitle: 'Mr. Пон',
 					skills: [
 						{
-							title: 'Знание трендов',
+							title: 'Понимание',
 							progress: '60',
 						},
 						{
-							title: 'Расклады по звездам',
+							title: 'Знание трендов',
 							progress: '90',
 						},
 						{
-							title: 'Креативность',
+							title: 'Вождение автомобиля',
 							progress: '20',
 						},
 					],
@@ -264,6 +272,7 @@ export default {
 	async mounted() {
 		await this.updateLikes();
 	},
+
 	methods: {
 		async updateLikes() {
 			this.sending = true;
@@ -289,10 +298,113 @@ export default {
 			else this.$data.openAboutData = number;
 		},
 	},
+
+	mounted() {
+		let renderer, scene, camera, controls;
+		init();
+
+		function isSwiftShaderRenderer() {
+			const canvas = document.getElementById('feather')
+			const gl = canvas.getContext("webgl");
+			const debug_ext = gl.getExtension("WEBGL_debug_renderer_info");
+			if (debug_ext) {
+					const renderer = gl.getParameter(debug_ext.UNMASKED_RENDERER_WEBGL);
+					if (renderer.indexOf("SwiftShader") >= 0) {
+							return false;
+					}
+			}
+			return true;
+	}
+
+		async function init() {
+
+			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			// renderer.toneMapping = THREE.ACESFilmicToneMapping;
+			// renderer.toneMappingExposure = 0.4;
+			// renderer.outputEncoding = THREE.sRGBEncoding;
+
+			document.getElementById('feather').appendChild( renderer.domElement );
+
+			scene = new THREE.Scene();
+
+			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.01, 1000 );
+			camera.position.set( 0, 0, 1.1 );
+
+			controls = new OrbitControls( camera, renderer.domElement );
+			// controls.target.set( 0, 0, 0 );
+			controls.minDistance = 0.1;
+			controls.maxDistance = 2;
+			controls.addEventListener( 'change', render );
+			controls.update();
+
+			const rgbeLoader = new RGBELoader().setPath( 'models/' );
+			const gltfLoader = new GLTFLoader().setPath( 'models/' );
+
+			// const PMREMGenerator = new THREE.PMREMGenerator( renderer );
+			// PMREMGenerator.compileEquirectangularShader();
+
+			const [ gltf ] = await Promise.all( [
+				// rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' ),
+				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
+				gltfLoader.loadAsync( 'model-ok.gltf' ),
+			] );
+			console.log(1999)
+
+			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
+			// environment
+			const textureLoader = new THREE.CubeTextureLoader();
+			const texture = textureLoader.load([
+					"models/px.png",
+					"models/nx.png",
+					"models/py.png",
+					"models/ny.png",
+					"models/pz.png",
+					"models/nz.png",
+			]);
+			texture.encoding = THREE.sRGBEncoding;
+			scene.environment = texture;
+			scene.background = null;
+
+			scene.traverse(function (object) {
+				if (object.isMesh) {
+						object.material.envMap = texture;
+						object.material.envMapIntensity = 2.5;
+						object.material.needsUpdate = true;
+				}
+			});
+			
+			// let model = gltf.scene;
+			// let child = gltf.scene.children[0];
+			// model.scale.set(20, 20, 20);
+			// model.position.set(0, 0.25, 0);
+			// child.rotation.set(Math.PI / 2, -Math.PI / 8, 0);
+
+			scene.add( gltf.scene );
+
+			render();
+
+			window.addEventListener( 'resize', onWindowResize );
+
+		}
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			render();
+		}
+		function render() {
+			renderer.render( scene, camera );
+		}
+	}
 };
 </script>
 
 <style lang="scss" scoped>
+:deep(.lil-gui .controller>.name) {
+	color: white;
+}
 body {
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -326,17 +438,34 @@ body {
 	transform: translate(-50%, 32%);
 	z-index: 0;
 	text-transform: uppercase;
+	pointer-events: none;
 	white-space: nowrap;
 }
-.about-video {
+.about-infographic {
+	height: 740px;
 	position: relative;
-	margin-top: 130px;
-	padding-bottom: 200px;
-	&__preview {
-		width: 100%;
-		height: auto;
+	#feather {
+		position: absolute;
+		top: -120px;
+		left: 0;
+		width: 100vw;
+		height: 740px;
+		// pointer-events: none;
+	}
+	.content__wrapper {
+		position: static;
 	}
 }
+// .about-video {
+// 	position: relative;
+// 	margin-top: 130px;
+// 	padding-bottom: 200px;
+// 	overflow: hidden;
+// 	&__preview {
+// 		width: 100%;
+// 		height: auto;
+// 	}
+// }
 .about-text {
 	padding: 120px 93px 130px;
 	margin: 0 auto;
@@ -445,6 +574,10 @@ body {
 			font-size: 18px;
 		}
 	}
+	.about-video {
+		margin-top: 100px;
+		padding-bottom: 70px;
+	}
 }
 @media (max-width: 960px) {
 	.about {
@@ -484,6 +617,10 @@ body {
 			gap: 50px 60px;
 			grid-template-columns: repeat(2, 215px);
 		}
+	}
+	.about-video {
+		margin-top: 50px;
+		padding-bottom: 50px;
 	}
 }
 @media (max-width: 570px) {
@@ -531,6 +668,10 @@ body {
 	// 		width: 100%;
 	// 	}
 	// }
+	.about-video {
+		margin-top: 40px;
+		padding-bottom: 40px;
+	}
 }
 @media (max-width: 394px) {
 	.about {
