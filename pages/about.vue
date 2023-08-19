@@ -337,51 +337,44 @@ export default {
 			const pmremGenerator = new THREE.PMREMGenerator( renderer );
 			// PMREMGenerator.compileEquirectangularShader();
 
-			const [ gltf ] = await Promise.all( [
-				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
-				gltfLoader.loadAsync( 'pero_by_agamurian.glb' ),
-			] );
+			const gltf = await gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
 
-      const envMap = await rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' )
-      const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 1024 ).fromEquirectangularTexture( renderer, envMap );
-      scene.environment = cubeRenderTarget.texture;
-      let debugobj = {}
-      debugobj.envMapIntensity = 2.5
+      // // another method of getting envMap 
+      //const envMap = await rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' )
+      //const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 1024 ).fromEquirectangularTexture( renderer, envMap );
+      //scene.environment = cubeRenderTarget.texture;
 
-			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
-			// environment
 			const textureLoader = new THREE.CubeTextureLoader();
 			const texture = textureLoader.load([
-					"models/px.png",
-					"models/nx.png",
-					"models/py.png",
-					"models/ny.png",
-					"models/pz.png",
-					"models/nz.png",
-			]); // INFO: png is heavy, consider jpg
-      //TODO: btw - convert hdr to cubemap
-			//texture.encoding = THREE.sRGBEncoding;
-			//scene.environment = texture;
-			//scene.background = null;
+					"models/cubemap/0001.jpg",
+					"models/cubemap/0002.jpg",
+					"models/cubemap/0003.jpg",
+					"models/cubemap/0004.jpg",
+					"models/cubemap/0005.jpg",
+					"models/cubemap/0006.jpg",
+			]);
+			texture.encoding = THREE.sRGBEncoding;
+			scene.environment = texture;
+      
+      //light
+      const light = new THREE.DirectionalLight('#88aaff', 100)
+      light.position.set(5.25, 3, 2.25)
+			scene.add( light );
 
-      let theObject
-      // you didnt find the object!
-			
-			// let model = gltf.scene;
-			// let child = gltf.scene.children[0];
-			// model.scale.set(20, 20, 20);
-			// model.position.set(0, 0.25, 0);
-			// child.rotation.set(Math.PI / 2, -Math.PI / 8, 0);
+      const light2 = new THREE.DirectionalLight('#ff88aa', 20)
+      light2.position.set(3.25, 5, 3.25)
+			scene.add( light );
 
 			scene.add( gltf.scene );
       // so basicly traverse was before adding gltf
       // omg how long i searched for that
-
+      let theObject
 			scene.traverse(function (object) {
 				if (object instanceof THREE.Mesh) {
             console.log(object)
 						object.material.envMapIntensity = 2.0;
 						object.material.needsUpdate = true;
+            object.material
             theObject = object
 				}
 			});
