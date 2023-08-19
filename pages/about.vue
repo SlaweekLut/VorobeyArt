@@ -80,11 +80,8 @@ import TitlePage from '@/components/Title.vue';
 
 import * as THREE from 'three';
 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 export default {
 	name: 'AboutPage',
@@ -300,9 +297,10 @@ export default {
 	},
 
 	mounted() {
-		let renderer, scene, camera, controls;
+		let renderer, scene, camera;
 		init();
 
+    // never used, consider deletion
 		function isSwiftShaderRenderer() {
 			const canvas = document.getElementById('feather')
 			const gl = canvas.getContext("webgl");
@@ -329,16 +327,8 @@ export default {
 
 			scene = new THREE.Scene();
 
-			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.01, 1000 );
-			camera.position.set( 0, 0, 1.1 );
-
-			//controls = new OrbitControls( camera, renderer.domElement ); // TODO: ripoff
-			// controls.target.set( 0, 0, 0 );
-			//controls.minDistance = 0.1;
-			//controls.maxDistance = 2;
-			//controls.addEventListener( 'change', render ); 
-			//controls.update();
-      // okay, we rerender only when controls updates, this is how animation works rn.
+			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
+			camera.position.set( 0.4, 0, 1.0 );
 
 			const rgbeLoader = new RGBELoader().setPath( 'models/' );
 			const gltfLoader = new GLTFLoader().setPath( 'models/' );
@@ -351,7 +341,6 @@ export default {
 				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
 				gltfLoader.loadAsync( 'model-ok.gltf' ),
 			] );
-			console.log(1999) // ??
 
 			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
 			// environment
@@ -363,16 +352,23 @@ export default {
 					"models/ny.png",
 					"models/pz.png",
 					"models/nz.png",
-			]);
-			texture.encoding = THREE.sRGBEncoding;
+			]); // INFO: png is heavy, consider jpg
+      //TODO: btw - convert hdr to cubemap
+			//texture.encoding = THREE.sRGBEncoding;
 			scene.environment = texture;
-			scene.background = null;
+			//scene.background = null;
 
+      let theObject
+      // you didnt find the object!
 			scene.traverse(function (object) {
-				if (object.isMesh) {
-						object.material.envMap = texture;
-						object.material.envMapIntensity = 2.5;
-						object.material.needsUpdate = true;
+        //console.log(object)
+				if (object.isObject3D === true) {
+						//object.material.envMap = texture;
+						//object.material.envMapIntensity = 12.5;
+						//object.material.needsUpdate = true;
+            console.log('founded object')
+            console.log(object)
+            theObject = object
 				}
 			});
 			
@@ -385,6 +381,11 @@ export default {
 			scene.add( gltf.scene );
 
 			window.addEventListener( 'resize', onWindowResize );
+
+      window.addEventListener('mousemove', (e) => {
+          //console.log('x:' + e.pageX)
+          //console.log('y:' + e.pageY)
+      })
 
 		}
 		function onWindowResize() {
