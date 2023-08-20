@@ -72,6 +72,7 @@
 
 <script>
 import axios from 'axios';
+import gsap from 'gsap'
 
 import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
@@ -80,11 +81,8 @@ import TitlePage from '@/components/Title.vue';
 
 import * as THREE from 'three';
 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 export default {
 	name: 'AboutPage',
@@ -300,9 +298,10 @@ export default {
 	},
 
 	mounted() {
-		let renderer, scene, camera, controls;
+		let renderer, scene, camera;
 		init();
 
+    // never used, consider deletion
 		function isSwiftShaderRenderer() {
 			const canvas = document.getElementById('feather')
 			const gl = canvas.getContext("webgl");
@@ -319,7 +318,7 @@ export default {
 		async function init() {
 
 			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
-			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setPixelRatio( window.devicePixelRatio ); // min(devicePixelRatio, 2) for optimizations?
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			// renderer.toneMapping = THREE.ACESFilmicToneMapping;
 			// renderer.toneMappingExposure = 0.4;
@@ -329,74 +328,94 @@ export default {
 
 			scene = new THREE.Scene();
 
-			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.01, 1000 );
-			camera.position.set( 0, 0, 1.1 );
-
-			controls = new OrbitControls( camera, renderer.domElement );
-			// controls.target.set( 0, 0, 0 );
-			controls.minDistance = 0.1;
-			controls.maxDistance = 2;
-			controls.addEventListener( 'change', render );
-			controls.update();
+			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
+			camera.position.set( 0, 0, 1.0 );
 
 			const rgbeLoader = new RGBELoader().setPath( 'models/' );
 			const gltfLoader = new GLTFLoader().setPath( 'models/' );
 
-			// const PMREMGenerator = new THREE.PMREMGenerator( renderer );
+			const pmremGenerator = new THREE.PMREMGenerator( renderer );
 			// PMREMGenerator.compileEquirectangularShader();
 
-			const [ gltf ] = await Promise.all( [
-				// rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' ),
-				// rgbeLoader.loadAsync( 'little_paris_eiffel_tower_1k.hdr' ),
-				gltfLoader.loadAsync( 'model-ok.gltf' ),
-			] );
-			console.log(1999)
+			const gltf = await gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
 
-			// let envMap = PMREMGenerator.fromEquirectangular( texture ).texture;
-			// environment
+      // // another method of getting envMap 
+      //const envMap = await rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' )
+      //const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 1024 ).fromEquirectangularTexture( renderer, envMap );
+      //scene.environment = cubeRenderTarget.texture;
+
 			const textureLoader = new THREE.CubeTextureLoader();
 			const texture = textureLoader.load([
-					"models/px.png",
-					"models/nx.png",
-					"models/py.png",
-					"models/ny.png",
-					"models/pz.png",
-					"models/nz.png",
+					"models/cubemap/0001.jpg",
+					"models/cubemap/0002.jpg",
+					"models/cubemap/0003.jpg",
+					"models/cubemap/0004.jpg",
+					"models/cubemap/0005.jpg",
+					"models/cubemap/0006.jpg",
 			]);
 			texture.encoding = THREE.sRGBEncoding;
 			scene.environment = texture;
-			scene.background = null;
+      
+      //light
+      const light = new THREE.DirectionalLight('#88aaff', 100)
+      light.position.set(5.25, 3, 2.25)
+			scene.add( light );
 
-			scene.traverse(function (object) {
-				if (object.isMesh) {
-						object.material.envMap = texture;
-						object.material.envMapIntensity = 2.5;
-						object.material.needsUpdate = true;
-				}
-			});
-			
-			// let model = gltf.scene;
-			// let child = gltf.scene.children[0];
-			// model.scale.set(20, 20, 20);
-			// model.position.set(0, 0.25, 0);
-			// child.rotation.set(Math.PI / 2, -Math.PI / 8, 0);
+      const light2 = new THREE.DirectionalLight('#ff88aa', 20)
+      light2.position.set(3.25, 5, 3.25)
+			scene.add( light );
 
 			scene.add( gltf.scene );
-
-			render();
+      // so basicly traverse was before adding gltf
+      // omg how long i searched for that
+      let theObject
+			scene.traverse(function (object) {
+				if (object instanceof THREE.Mesh) {
+            console.log(object)
+						object.material.envMapIntensity = 2.0;
+						object.material.needsUpdate = true;
+            object.material
+            theObject = object
+				}
+			});
 
 			window.addEventListener( 'resize', onWindowResize );
+
+      let prevX = 0
+      let prevY = 0
+      const deBounceDelta = 5
+      window.addEventListener('mousemove', (e) => {
+        if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
+          prevX = e.x
+          prevY = e.y
+          gsap.to(
+              theObject.rotation,
+             {           
+                  duration: 0.1,
+                  ease: 'linear',
+                  x: (e.y - window.innerHeight/2)/1000,
+                  y: (e.x - window.innerWidth/2)/1000,
+                  z: 0
+              }
+          )
+        }
+          
+      })
 
 		}
 		function onWindowResize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize( window.innerWidth, window.innerHeight );
-			render();
 		}
 		function render() {
 			renderer.render( scene, camera );
 		}
+    function animate(){
+      render();
+      window.requestAnimationFrame(animate)
+    }
+    animate()
 	}
 };
 </script>
