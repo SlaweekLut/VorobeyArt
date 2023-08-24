@@ -1,11 +1,12 @@
 <template>
-	<div class="numbers">
+	<div class="numbers" ref="numberElem">
 		<h1 class="numbers__title">{{ num }}<span>+</span></h1>
 		<p class="numbers__subtitle">{{ title }}</p>
 	</div>
 </template>
 
 <script>
+
 export default {
 	name: 'AboutNumbers',
 	props: {
@@ -19,15 +20,18 @@ export default {
 		};
 	},
 	mounted() {
-		let timeout = 1000;
-		if (this.$props.curtains === 'Preloader') timeout = 2600;
-		if (this.$props.curtains === 'Curtains') timeout = 700;
-		setTimeout(() => {
-			let addNum = setInterval(() => {
-				this.num += 1;
-				if (this.$props.number < this.num + 1) clearInterval(addNum);
-			}, 30);
-		}, timeout);
+		let stop = false
+		window.addEventListener('scroll', (event) => {
+			if(!stop && this.$refs.numberElem.getBoundingClientRect().top - window.innerHeight < 0 ) {
+				stop = true
+				let addNum = setInterval(() => {
+					this.num += 1;
+					if (this.$props.number < this.num + 1) clearInterval(addNum);
+				}, 30);
+				// setTimeout(() => {
+				// }, timeout);
+			}
+		})
 	},
 };
 </script>

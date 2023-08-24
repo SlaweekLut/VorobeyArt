@@ -25,48 +25,57 @@
 				</div>
 			</div>
 		</div>
-		<div class="content about-numbers">
+		<div class="content about-logos">
 			<div class="content__wrapper">
-				<div class="about__numbers">
-					<AboutNumbers :curtains="curtains" number="57" title="Завершенных проектов" />
-					<AboutNumbers :curtains="curtains" number="45" title="Довольных клиентов" />
-					<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" />
-					<AboutNumbers :curtains="curtains" number="5" title="лет успешной работы" />
+				<div class="about__logos">
+					<img src="/img/about/energotek.svg" alt="energotek">
+					<img src="/img/about/garilla.svg" alt="garilla">
+					<img src="/img/about/Genezis.svg" alt="Genezis">
+					<img src="/img/about/H_one.svg" alt="H_one">
+					<img src="/img/about/HARO.svg" alt="HARO">
+					<img src="/img/about/marusya.svg" alt="marusya">
+					<img src="/img/about/Mobdebut.svg" alt="Mobdebut">
+					<img src="/img/about/MoltenGrass.svg" alt="MoltenGrass">
+					<img src="/img/about/Motorika.svg" alt="Motorika">
+					<img src="/img/about/Muza_Amanita.svg" alt="Muza_Amanita">
+					<img src="/img/about/OceanView.svg" alt="OceanView">
+					<img src="/img/about/OwnWifi.svg" alt="OwnWifi">
+					<img src="/img/about/PolarBear.svg" alt="PolarBear">
+					<img src="/img/about/PrimeTravel.svg" alt="PrimeTravel">
+					<img src="/img/about/ProZapchast.svg" alt="ProZapchast">
+					<img src="/img/about/SmartsKvantelekom.svg" alt="SmartsKvantelekom">
+					<img src="/img/about/SpisyNote.svg" alt="SpisyNote">
+					<img src="/img/about/Tomi_Ai.svg" alt="Tomi_Ai">
+					<img src="/img/about/Uni.svg" alt="Uni">
+					<img src="/img/about/ximtex.svg" alt="ximtex">
+					<img src="/img/about/Ykigassen.svg" alt="Ykigassen">
+					<img src="/img/about/Yrievskoe_Podvorie.svg" alt="Yrievskoe_Podvorie">
+					<img src="/img/about/ZolotoAltaya.svg" alt="ZolotoAltaya">
+					<img src="/img/about/energotek.svg" alt="energotek">
+					<img src="/img/about/garilla.svg" alt="garilla">
+					<img src="/img/about/Genezis.svg" alt="Genezis">
+					<img src="/img/about/H_one.svg" alt="H_one">
+					<img src="/img/about/HARO.svg" alt="HARO">
+					<img src="/img/about/marusya.svg" alt="marusya">
+					<img src="/img/about/Mobdebut.svg" alt="Mobdebut">
 				</div>
+				<!-- <div class="about__numbers">
+					
+				</div> -->
 			</div>
 		</div>
-		<!-- <div class="content about-service">
-			<div class="about-service__wrapper content__wrapper">
-				<h2 class="about-service__title">Креативные Услуги</h2>
-				<AboutService
-					title="Разработка приложений"
-					text="Работаем с ведущими платформами, в том числе <strong>Unity</strong>. Создаем приложения с использованием технологии <strong>AR (дополненная реальность)</strong>. Занимаемся мобильным программированием. Разрабатываем стильный <strong>дизайн приложений</strong>. Работаем как с <strong>iOS</strong>, так и с <strong>Android</strong>. Используем <strong>прототипирование</strong> для демонстрации промежуточного результата."
-				/>
-				<AboutService
-					title="3D моделирование "
-					text="Создаем <strong>3D модели</strong> для сайтов, каталогов и маркетплейсов. Занимаемся <strong>предметной визуализацией</strong> различной сложности. Выполняем высокоточную <strong>3D визуализацию</strong> объектов и <strong>интерьеров</strong>. Работаем с <strong>3D анимацией</strong>."
-				/>
-				<AboutService
-					title="Графический дизайн"
-					text="Разрабатываем <strong>логотипы</strong> и <strong>фирменный стиль</strong>. Работаем в направлении <strong>полиграфического дизайна</strong>, создаем рекламные <strong>баннеры и дизайн упаковки</strong>. Подготавливаем <strong>презентации</strong> с использованием <strong>инфографики</strong>. Прорабатываем <strong>дизайн сайтов</strong> и интуитивно понятные <strong>интерфейсы</strong> с точки зрения <strong>UI/UX</strong> дизайна."
-				/>
-				<AboutService
-					title="Разработка сайтов"
-					text="Предлагаем <strong>веб</strong> услуги <strong>под ключ</strong> с выполнением <strong>UI/UX дизайна</strong>. Разрабатываем <strong>информационные системы</strong> для организаций, <strong>веб-сервисы</strong> и <strong>промо-сайты</strong>."
-				/>
-				<AboutService
-					title="Анимация"
-					text="Создаем качественный визуальный контент с использованием <strong>3D анимации</strong>. Изготавливаем анимированные <strong>баннеры</strong>. Работаем с <strong>раскадровкой</strong>. Предлагаем услуги <strong>видеомонтажа</strong> и создания <strong>видеопрезентаций</strong> с использованием <strong>видеоинфографики</strong>."
-				/>
-			</div>
-		</div> -->
 		<div class="content about-infographic">
 			<p class="background-text">Creative</p>
 			<div class="content__wrapper">
+				<AboutNumbers :curtains="curtains" number="45" title="Довольных клиентов" class="about-infographic__number" />
+				<AboutNumbers :curtains="curtains" number="257" title="Завершенных проектов" class="about-infographic__number" />
+				<AboutNumbers :curtains="curtains" number="5" title="лет успешной работы" class="about-infographic__number" />
+				<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" class="about-infographic__number" />
 				<div id="feather"></div>
 				<!-- <canvas id="feather"></canvas> -->
 			</div>
 		</div>
+		<Footer :case="false"/>
 	</div>
 </template>
 
@@ -74,6 +83,7 @@
 import axios from 'axios';
 import gsap from 'gsap'
 
+import Footer from '../components/Cases/Footer.vue';
 import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
 import AboutCard from '@/components/About/Card.vue';
@@ -82,7 +92,6 @@ import TitlePage from '@/components/Title.vue';
 import * as THREE from 'three';
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
 export default {
 	name: 'AboutPage',
@@ -91,6 +100,7 @@ export default {
 		AboutService,
 		AboutCard,
 		TitlePage,
+		Footer
 	},
 	provide() {
 		return { Accordion: this.Accordion };
@@ -331,10 +341,10 @@ export default {
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 			camera.position.set( 0, 0, 1.0 );
 
-			const rgbeLoader = new RGBELoader().setPath( 'models/' );
-			const gltfLoader = new GLTFLoader().setPath( 'models/' );
+			// const rgbeLoader = new RGBELoader().setPath( 'models/' );
+			const gltfLoader = new GLTFLoader().setPath( '/models/' );
 
-			const pmremGenerator = new THREE.PMREMGenerator( renderer );
+			// const pmremGenerator = new THREE.PMREMGenerator( renderer );
 			// PMREMGenerator.compileEquirectangularShader();
 
 			const gltf = await gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
@@ -346,12 +356,12 @@ export default {
 
 			const textureLoader = new THREE.CubeTextureLoader();
 			const texture = textureLoader.load([
-					"models/cubemap/0001.jpg",
-					"models/cubemap/0002.jpg",
-					"models/cubemap/0003.jpg",
-					"models/cubemap/0004.jpg",
-					"models/cubemap/0005.jpg",
-					"models/cubemap/0006.jpg",
+					"/models/cubemap/0001.jpg",
+					"/models/cubemap/0002.jpg",
+					"/models/cubemap/0003.jpg",
+					"/models/cubemap/0004.jpg",
+					"/models/cubemap/0005.jpg",
+					"/models/cubemap/0006.jpg",
 			]);
 			texture.encoding = THREE.sRGBEncoding;
 			scene.environment = texture;
@@ -383,6 +393,7 @@ export default {
 
       let prevX = 0
       let prevY = 0
+			theObject.rotationZ = Math.PI * -0.13
       const deBounceDelta = 5
       window.addEventListener('mousemove', (e) => {
         if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
@@ -395,7 +406,7 @@ export default {
                   ease: 'linear',
                   x: (e.y - window.innerHeight/2)/1000,
                   y: (e.x - window.innerWidth/2)/1000,
-                  z: 0
+                  z: Math.PI * -0.13
               }
           )
         }
@@ -464,15 +475,44 @@ body {
 	height: 740px;
 	position: relative;
 	#feather {
+		max-height: calc(100% + 120px) !important;
+		height: calc(100% + 120px) !important;
 		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 		top: -120px;
-		left: 0;
-		width: 100vw;
-		height: 740px;
-		// pointer-events: none;
+	// 	position: absolute;
+	// 	top: 50%;
+	// 	left: 50%;
+	// 	transform: translate(-50%, -50%);
+	// 	width: 100vw;
+	// 	height: 740px;
+	// 	// pointer-events: none;
+		:deep(canvas) {
+			height: calc(100% + 120px) !important;
+		}
 	}
 	.content__wrapper {
-		position: static;
+		height: 100%;
+	}
+	&__number {
+		position: absolute;
+		&:nth-child(1) {
+			left: 230px;
+			top: 50px;
+		}
+		&:nth-child(2) {
+			left: 75px;
+			bottom: 60px;
+		}
+		&:nth-child(3) {
+			right: 95px;
+			top: 50px;
+		}
+		&:nth-child(4) {
+			right: 200px;
+			bottom: 60px;
+		}
 	}
 }
 // .about-video {
@@ -505,7 +545,7 @@ body {
 	}
 }
 .about {
-	padding: 0 93px 130px;
+	padding: 0 93px 38px;
 	margin: 0 auto !important;
 	position: relative;
 	z-index: 2;
@@ -521,6 +561,16 @@ body {
 		justify-content: center;
 		grid-template-columns: repeat(4, 215px);
 	}
+	&__logos {
+		display: flex;
+		gap: 40px;
+		filter: grayscale(1);
+		animation: logos 120s infinite linear;
+		img {
+			user-select: none;
+			pointer-events: none;
+		}
+	}
 	&__title {
 		font-size: clamp(230px, 16vw, 250px);
 		line-height: clamp(230px, 16vw, 250px);
@@ -533,6 +583,15 @@ body {
 		transform: translate(-50%, -50%);
 	}
 }
+
+@keyframes logos {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-361.3%);
+	}
+}
 .about-numbers {
 	padding: 52px 32px 70px;
 	margin: 0 auto;
@@ -540,6 +599,17 @@ body {
 	position: relative;
 	z-index: 0;
 }
+.about-logos {
+	width: 100vw;
+	background-color: #F9F9F9;
+	max-width: 100vw;
+	overflow: auto;
+	padding: 37px;
+	.content__wrapper {
+		max-width: 100%;
+	}
+}
+
 @media (max-width: 1200px) {
 	.about-text {
 		margin: 0 auto;

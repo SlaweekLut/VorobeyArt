@@ -323,14 +323,14 @@ export default {
 <style lang="scss" scoped>
 
 .background-text {
-	font-size: min(23vw, 490px) ;
+	font-size: clamp(205px,23vw, 490px) ;
 	color: #f6f6f6;
 	font-weight: 800;
 	z-index: 0;
 	text-transform: uppercase;
 	white-space: nowrap;
-	line-height: min(23vw, 490px) ;
-	height: min(23vw, 490px) ;
+	line-height: clamp(165px,23vw, 490px) ;
+	height: clamp(205px,23vw, 490px) ;
 	margin: -3vw auto;
 	&__container {
 		position: absolute;
@@ -354,6 +354,11 @@ export default {
 		// text-align: right;
 		margin: -3vw 0;
 		animation: bottomBackgroundText 53.3s linear infinite;
+	}
+	&:nth-child(8) {
+		font-size: min(23vw, 490px) ;
+		line-height: min(23vw, 490px);
+		height: min(23vw, 490px);
 	}
 }
 
@@ -878,7 +883,7 @@ export default {
 			animation: topBackgroundText 60s linear infinite;
 		}
 		&--bottom {
-			animation: topBackgroundText 20s linear infinite;
+			animation: bottomBackgroundText 20s linear infinite;
 		}
 	}
 	.home {
@@ -887,17 +892,6 @@ export default {
 		height: 100%;
 		max-height: 100%;
 	}
-	// .background-text {
-	// 	&__container {
-	// 		&:nth-child(2) {
-	// 			top: calc-between-width(769, -118, 360, -6);
-
-	// 		}
-	// 		&:nth-child(3) {
-	// 			top: 44%;
-	// 		}
-	// 	}
-	// }
 	.home-slides {
 		&__title {
 			text-align: center;

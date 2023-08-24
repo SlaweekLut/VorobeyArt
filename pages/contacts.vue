@@ -496,175 +496,106 @@ body
 		background-position: calc(446px * 2) 0
 
 
-
-@media (max-width: 1440px)
-	.contacts-form
-		padding: 50px 75px 65px
-		&::after
-			background-image: url("data:image/svg+xml,%3Csvg width='1146' height='501' viewBox='0 0 1146 501' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cmask id='mask0_109_804' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1146' height='501'%3E%3Crect x='2.5' y='2.5' width='1141' height='496' rx='7.5' stroke='black' stroke-width='5'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_109_804)'%3E%3Crect width='1146' height='501' rx='10' fill='white'/%3E%3Crect x='-362' y='276.562' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -362 276.562)' fill='%23FE3A52'/%3E%3Crect x='-312.977' y='227.543' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -312.977 227.543)' fill='%230181C8'/%3E%3Crect x='-263.953' y='178.52' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -263.953 178.52)' fill='%23FE3A52'/%3E%3Crect x='-214.932' y='129.496' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -214.932 129.496)' fill='%230181C8'/%3E%3Crect x='-165.908' y='80.4727' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -165.908 80.4727)' fill='%23FE3A52'/%3E%3Crect x='-116.885' y='31.4492' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -116.885 31.4492)' fill='%230181C8'/%3E%3Crect x='-67.8613' y='-17.5742' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -67.8613 -17.5742)' fill='%23FE3A52'/%3E%3Crect x='-18.8398' y='-66.5938' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -18.8398 -66.5938)' fill='%230181C8'/%3E%3Crect x='30.1855' y='-115.617' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 30.1855 -115.617)' fill='%23FE3A52'/%3E%3Crect x='79.207' y='-164.641' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 79.207 -164.641)' fill='%230181C8'/%3E%3Crect x='128.23' y='-213.664' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 128.23 -213.664)' fill='%23FE3A52'/%3E%3Crect x='177.254' y='-262.688' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 177.254 -262.688)' fill='%230181C8'/%3E%3Crect x='226.275' y='-311.711' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 226.275 -311.711)' fill='%23FE3A52'/%3E%3Crect x='275.299' y='-360.734' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 275.299 -360.734)' fill='%230181C8'/%3E%3Crect x='324.322' y='-409.758' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 324.322 -409.758)' fill='%23FE3A52'/%3E%3Crect x='373.346' y='-458.781' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 373.346 -458.781)' fill='%230181C8'/%3E%3Crect x='422.367' y='-507.805' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 422.367 -507.805)' fill='%23FE3A52'/%3E%3Crect x='471.391' y='-556.828' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 471.391 -556.828)' fill='%230181C8'/%3E%3Crect x='520.414' y='-605.852' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 520.414 -605.852)' fill='%23FE3A52'/%3E%3C/g%3E%3C/svg%3E%0A")
-
-
 @media (max-width: 1024px)
-	.contacts-map
-		height: 450px
-	.contacts-maps
-		padding: 60px 32px
-	.contacts-address
-		gap: 16px
-		padding: 72px 28px
-		&__title
-			font-size: 25px
-		&__text, &__link
-			font-size: 22px
-	.contacts-form
-		padding: 56px 71px 80px 80px
-		&::after
-			background-image: url("data:image/svg+xml,%3Csvg width='798' height='601' viewBox='0 0 798 601' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cmask id='mask0_109_855' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='798' height='601'%3E%3Crect x='2.5' y='2.5' width='793' height='596' rx='7.5' stroke='black' stroke-width='5'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_109_855)'%3E%3Crect width='798' height='601' rx='10' fill='white'/%3E%3Crect x='-508' y='304.562' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -508 304.562)' fill='%23FE3A52'/%3E%3Crect x='-458.977' y='255.543' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -458.977 255.543)' fill='%230181C8'/%3E%3Crect x='-409.953' y='206.52' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -409.953 206.52)' fill='%23FE3A52'/%3E%3Crect x='-360.932' y='157.496' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -360.932 157.496)' fill='%230181C8'/%3E%3Crect x='-311.908' y='108.473' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -311.908 108.473)' fill='%23FE3A52'/%3E%3Crect x='-262.885' y='59.4492' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -262.885 59.4492)' fill='%230181C8'/%3E%3Crect x='-213.861' y='10.4258' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -213.861 10.4258)' fill='%23FE3A52'/%3E%3Crect x='-164.84' y='-38.5938' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -164.84 -38.5938)' fill='%230181C8'/%3E%3Crect x='-115.814' y='-87.6172' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -115.814 -87.6172)' fill='%23FE3A52'/%3E%3Crect x='-66.793' y='-136.641' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -66.793 -136.641)' fill='%230181C8'/%3E%3Crect x='-17.7695' y='-185.664' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -17.7695 -185.664)' fill='%23FE3A52'/%3E%3Crect x='31.2539' y='-234.688' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 31.2539 -234.688)' fill='%230181C8'/%3E%3Crect x='80.2754' y='-283.711' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 80.2754 -283.711)' fill='%23FE3A52'/%3E%3Crect x='129.299' y='-332.734' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 129.299 -332.734)' fill='%230181C8'/%3E%3Crect x='178.322' y='-381.758' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 178.322 -381.758)' fill='%23FE3A52'/%3E%3Crect x='227.346' y='-430.781' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 227.346 -430.781)' fill='%230181C8'/%3E%3Crect x='276.367' y='-479.805' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 276.367 -479.805)' fill='%23FE3A52'/%3E%3Crect x='325.391' y='-528.828' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 325.391 -528.828)' fill='%230181C8'/%3E%3Crect x='374.414' y='-577.852' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 374.414 -577.852)' fill='%23FE3A52'/%3E%3C/g%3E%3C/svg%3E%0A")
-		&__row
-			flex-direction: column
-			gap: 52px
-		&__mark
-			width: 127px
-		&__text
-			font-size: 18px
-		&__input
-			font-size: 18px
-			padding: 11px 0
-		&__label
-			&:focus-within, &--full
-				.contacts-form
-					&__text
-						font-size: 16px
-						bottom: 41px
-		&__submit
-			max-width: 100%
-			width: 100%
-		.checkbox
-			max-width: 100%
-			width: 100%
-	.contacts
-		&__wrapper
-			margin-bottom: 60px
-		&__link-text
-			font-size: 22px
-			margin-bottom: 0
-		&__description
-			font-size: 35px
-		&__row
+	.contacts__description, .contacts-form__title 
+		font-size: 35px
+
+	.content__wrapper 
+		flex-direction: column
+		gap: 53px
+
+	.contacts__line 
+		width: 100vw
+		height: 1px
+		margin-left: 50%
+		transform: translate(-50%)
+	.contacts 
+		padding-top: 65px
+		padding-bottom: 105px
+		&__link-text 
 			margin-bottom: 0
 		&__col
-			width: 100%
 			max-width: 100%
-			flex-direction: row
-			justify-content: space-evenly
-			align-items: center
+			display: grid
+			gap: 48px 10px
+			grid-template-columns: 1fr 1fr
+			grid-template-areas: 'title title' 'social address1' 'contacts addres2'
+			& > *:nth-child(1) 
+				grid-area: title
+				margin-bottom: 12px
+			& > *:nth-child(2) 
+				grid-area: social
+				margin-bottom: 0
+			& > *:nth-child(3) 
+				grid-area: contacts
+				margin-bottom: 0
+			& > *:nth-child(4) 
+				grid-area: address1
+				margin-bottom: 0
+			& > *:nth-child(5) 
+				grid-area: addres2
+				margin-bottom: 0
+	.contacts-form 
+		width: 100%
+		max-width: 100%
+		&__header 
+			margin-bottom: 50px
+		&__column
+			gap: 48px 60px
+			display: grid
+			grid-template-columns: 1fr 1fr
+		&__row 
+			gap: 60px
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
 
 @media (max-width: 768px)
-	.contacts-map
-		height: 400px
-	.contacts-address
-		&__text, &__link
-			font-size: 18px
-	.contacts-form
-		padding: 64px 80px 80px
-		&::after
-			background-image: url("data:image/svg+xml,%3Csvg width='611' height='755' viewBox='0 0 611 755' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cmask id='mask0_109_902' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='611' height='755'%3E%3Crect x='2.5' y='2.5' width='606' height='750' rx='7.5' stroke='black' stroke-width='5'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_109_902)'%3E%3Crect width='611' height='755' rx='10' fill='white'/%3E%3Crect x='-612' y='271.562' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -612 271.562)' fill='%23FE3A52'/%3E%3Crect x='-562.977' y='222.543' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -562.977 222.543)' fill='%230181C8'/%3E%3Crect x='-513.953' y='173.52' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -513.953 173.52)' fill='%23FE3A52'/%3E%3Crect x='-464.932' y='124.496' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -464.932 124.496)' fill='%230181C8'/%3E%3Crect x='-415.908' y='75.4727' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -415.908 75.4727)' fill='%23FE3A52'/%3E%3Crect x='-366.885' y='26.4492' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -366.885 26.4492)' fill='%230181C8'/%3E%3Crect x='-317.861' y='-22.5742' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -317.861 -22.5742)' fill='%23FE3A52'/%3E%3Crect x='-268.84' y='-71.5938' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -268.84 -71.5938)' fill='%230181C8'/%3E%3Crect x='-219.814' y='-120.617' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -219.814 -120.617)' fill='%23FE3A52'/%3E%3Crect x='-170.793' y='-169.641' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -170.793 -169.641)' fill='%230181C8'/%3E%3Crect x='-121.77' y='-218.664' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -121.77 -218.664)' fill='%23FE3A52'/%3E%3Crect x='-72.7461' y='-267.688' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -72.7461 -267.688)' fill='%230181C8'/%3E%3Crect x='-23.7246' y='-316.711' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 -23.7246 -316.711)' fill='%23FE3A52'/%3E%3Crect x='25.2988' y='-365.734' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 25.2988 -365.734)' fill='%230181C8'/%3E%3Crect x='74.3223' y='-414.758' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 74.3223 -414.758)' fill='%23FE3A52'/%3E%3Crect x='123.346' y='-463.781' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 123.346 -463.781)' fill='%230181C8'/%3E%3Crect x='172.367' y='-512.805' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 172.367 -512.805)' fill='%23FE3A52'/%3E%3Crect x='221.391' y='-561.828' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 221.391 -561.828)' fill='%230181C8'/%3E%3Crect x='270.414' y='-610.852' width='41.2227' height='1355.66' rx='10' transform='rotate(-45 270.414 -610.852)' fill='%23FE3A52'/%3E%3C/g%3E%3C/svg%3E%0A")
-		&__title
-			text-align: center
-			white-space: nowrap
-			width: 100%
-		&__mark
-			display: none
-		&__row
-			gap: 50px
-			margin-top: 43px
-		&__wrapper
-			gap: 33px
-		&__column
-			gap: 33px
-			max-width: 100%
-		&__label
-			&:focus-within, &--full
-				.contacts-form
-					&__text
-						font-size: 16px
-						bottom: 44px
-	.contacts
-		&__col
-			flex-wrap: wrap
-			gap: 5px
-		&__description
-			font-size: 30px
-		&__link-text
-			font-size: 18px
+	.contacts__description, .contacts-form__title 
+		font-size: 30px
 
-@media (max-width: 570px)
-	.contacts-maps
-		padding: 0 0 50px
-		&__wrapper
-			max-width: 100%
-			width: 100%
-			gap: 25px
-			flex-direction: column
-			padding-left: 13px
-			padding-right: 13px
-		.content__wrapper
-			max-width: 100%
-	.contacts-address
-		padding: 75px 35px 75px 45px
-	.contacts-map
-		height: 320px
-	.contacts-form
-		padding: 35px 35px 30px
-		&::after
-			background-image: url("data:image/svg+xml,%3Csvg width='336' height='547' viewBox='0 0 336 547' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cmask id='mask0_109_941' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='336' height='547'%3E%3Crect x='1.5' y='1.5' width='333' height='544' rx='3.5' stroke='black' stroke-width='3'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_109_941)'%3E%3Crect width='336' height='547' rx='5' fill='white'/%3E%3Crect x='-360' y='259.096' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -360 259.096)' fill='%23FE3A52'/%3E%3Crect x='-330.847' y='229.943' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -330.847 229.943)' fill='%230181C8'/%3E%3Crect x='-301.692' y='200.79' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -301.692 200.79)' fill='%23FE3A52'/%3E%3Crect x='-272.54' y='171.637' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -272.54 171.637)' fill='%230181C8'/%3E%3Crect x='-243.387' y='142.482' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -243.387 142.482)' fill='%23FE3A52'/%3E%3Crect x='-214.232' y='113.33' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -214.232 113.33)' fill='%230181C8'/%3E%3Crect x='-185.079' y='84.1768' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -185.079 84.1768)' fill='%23FE3A52'/%3E%3Crect x='-155.928' y='55.0244' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -155.928 55.0244)' fill='%230181C8'/%3E%3Crect x='-126.771' y='25.8711' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -126.771 25.8711)' fill='%23FE3A52'/%3E%3Crect x='-97.6201' y='-3.28223' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -97.6201 -3.28223)' fill='%230181C8'/%3E%3Crect x='-68.4668' y='-32.4365' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -68.4668 -32.4365)' fill='%23FE3A52'/%3E%3Crect x='-39.3125' y='-61.5898' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -39.3125 -61.5898)' fill='%230181C8'/%3E%3Crect x='-10.1602' y='-90.7432' width='24.5146' height='806.197' rx='10' transform='rotate(-45 -10.1602 -90.7432)' fill='%23FE3A52'/%3E%3Crect x='18.9941' y='-119.897' width='24.5146' height='806.197' rx='10' transform='rotate(-45 18.9941 -119.897)' fill='%230181C8'/%3E%3Crect x='48.1475' y='-149.051' width='24.5146' height='806.197' rx='10' transform='rotate(-45 48.1475 -149.051)' fill='%23FE3A52'/%3E%3Crect x='77.3008' y='-178.204' width='24.5146' height='806.197' rx='10' transform='rotate(-45 77.3008 -178.204)' fill='%230181C8'/%3E%3Crect x='106.454' y='-207.358' width='24.5146' height='806.197' rx='10' transform='rotate(-45 106.454 -207.358)' fill='%23FE3A52'/%3E%3Crect x='135.607' y='-236.512' width='24.5146' height='806.197' rx='10' transform='rotate(-45 135.607 -236.512)' fill='%230181C8'/%3E%3Crect x='164.761' y='-265.666' width='24.5146' height='806.197' rx='10' transform='rotate(-45 164.761 -265.666)' fill='%23FE3A52'/%3E%3C/g%3E%3C/svg%3E%0A")
-		&__header
-			margin-bottom: 50px
-		&__row
-			margin-top: 26px
-			gap: 49px
-		&__submit
-			font-size: 16px
-			height: 40px
-		&__text
-			font-size: 16px
-		&__input
-			font-size: 16px
-			padding: 8px 0
-		&__title
-			font-size: 25px
-		&__label
-			&:focus-within, &--full
-				.contacts-form
-					&__text
-						font-size: 14px
-						bottom: 34px
-	.checkbox
-		gap: 20px
-		&__text
-			font-size: 12px
+	.content__wrapper 
+		gap: 28px
+	
 	.contacts
-		&__description
-			font-size: 25px
-		&__wrapper
-			margin-bottom: 50px
-			gap: 50px
-		&__row
-			margin-bottom: 20px
+		padding-top: 58px
+		padding-bottom: 58px
+		&__link-text 
+			font-size: 18px
+	
+	.contacts-form
+		&__column
+			display: flex
+			gap: 48px
+			label 
+				max-width: 100%
+		&__row 
+			display: flex
+			gap: 40px
+			
+@media (max-width: 570px)
+	.contacts__description, .contacts-form__title 
+		font-size: 25px
+	.content__wrapper 
+		gap: 65px
+
+	.contacts-form
+		&__column
+			gap: 35px
+	.contacts 
+		padding-top: 44px
+		padding-bottom: 68px
 		&__col
-			flex-direction: column
+			display: flex
+			gap: 28px
+			&-group
+				&:nth-child(3) 
+					margin-bottom: 42px
+				&:nth-child(4) 
+					margin-bottom: 10px
+		&__description
+			margin-bottom: 20px
+		
+
 
 @media (max-width: 360px)
-	.checkbox
-		align-items: flex-start
-
-	.contacts-form
-		padding: 35px 30px 30px
-		&__column
-			gap: 24px
-		&__wrapper
-			gap: 24px
-		&__row
-			margin-top: 35px
-			gap: 35px
 </style>

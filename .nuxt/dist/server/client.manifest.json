@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "/home/agamurian/gits/VorobeyArt/node_modules/nuxt/dist/app/entry.mjs": {
+  "/Users/marinamalova/inWork/VorobeyArt/vorobey/node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "/home/agamurian/gits/VorobeyArt/node_modules/nuxt/dist/app/entry.mjs"
+    "file": "/Users/marinamalova/inWork/VorobeyArt/vorobey/node_modules/nuxt/dist/app/entry.mjs"
   }
 }
