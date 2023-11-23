@@ -90,18 +90,17 @@ import AboutCard from '@/components/About/Card.vue';
 import TitlePage from '@/components/Title.vue';
 
 import * as THREE from 'three';
-
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export default {
 	name: 'AboutPage',
 	components: {
-		AboutNumbers,
-		AboutService,
-		AboutCard,
-		TitlePage,
-		Footer
-	},
+    AboutNumbers,
+    AboutService,
+    AboutCard,
+    TitlePage,
+    Footer,
+},
 	provide() {
 		return { Accordion: this.Accordion };
 	},
@@ -323,7 +322,7 @@ export default {
 					}
 			}
 			return true;
-	}
+		}
 
 		async function init() {
 
@@ -489,7 +488,10 @@ body {
 	// 	height: 740px;
 	// 	// pointer-events: none;
 		:deep(canvas) {
-			height: calc(100% + 120px) !important;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 		}
 	}
 	.content__wrapper {

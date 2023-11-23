@@ -244,7 +244,7 @@ body
 	overflow-y: auto
 	&.lines
 		background: url('../img/bg-lines.svg') repeat-y
-	// background-size: 500vw 1281px
+	background-size: 500vw 1281px
 
 *
 	box-sizing: border-box

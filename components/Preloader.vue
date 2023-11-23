@@ -284,7 +284,7 @@ export default {
 		width: 100vw
 		height: 100vh
 		z-index: -1
-		background: url('../img/bg-lines.svg') repeat-y
+		background: url('../img/bg-lines.svg') repeat
 		animation: animationBackground 0.5s ease 0.2s both reverse
 
 @media screen and (max-width: 1440px)
