@@ -57,10 +57,13 @@
 				<NuxtLink to="/contacts" class="nav-row__link"> Контакты </NuxtLink>
 			</div>
 
-			<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--pc" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
-				<span>Обсудить</span>
-				<div class="header-start-button__fill"></div>
-			</a>
+			<div class="header__controllers">
+				<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--pc" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
+					<span>Обсудить</span>
+					<div class="header-start-button__fill"></div>
+				</a>
+				<button class="header__lang">EN</button>
+			</div>
 			<button
 				aria-label="Menu navigation"
 				class="header-menu"
@@ -87,6 +90,9 @@
 				<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> Контакты </NuxtLink>
 				<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--mobile" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
 					<span>Обсудить</span>
+					<svg width="157" height="41" viewBox="0 0 157 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 4.51866C0 2.06406 1.98985 0.0742188 4.44444 0.0742188H137C148.046 0.0742188 157 9.02852 157 20.0742C157 31.1199 148.046 40.0742 137 40.0742H35.5556C15.9188 40.0742 0 24.1555 0 4.51866Z" fill="#0181C8"/>
+					</svg>
 					<div class="header-start-button__fill"></div>
 				</a>
 			</nav>
@@ -215,7 +221,7 @@ export default {
 }
 .header-start-button {
 	height: 40px;
-	width: 220px;
+	width: 157px;
 	background: #0181c8;
 	color: #fff;
 	font-size: 20px;
@@ -225,13 +231,13 @@ export default {
 	align-items: center;
 	justify-content: center;
 	padding: 0px 27px;
-	border-radius: 80px;
+	border-radius: 8px 48px 48px 86px;
 	position: relative;
 	cursor: pointer;
 	z-index: 5;
 	pointer-events: all;
 	overflow: hidden;
-	max-width: 220px;
+	max-width: 157px;
 	width: 100%;
 	transition: color 0.6s ease, background 0s ease 0.1s;
 	// animation: headerStartButton 1s ease both .5s
@@ -243,6 +249,11 @@ export default {
 		font-size: inherit;
 		color: inherit;
 		pointer-events: none;
+		color: #FFF;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 1.4px;
+		text-transform: uppercase;
 	}
 	&--hidden {
 		display: none;
@@ -260,6 +271,12 @@ export default {
 		transform-origin: 0% 0%;
 		transform: scale(0) translate(-50%, -50%);
 		pointer-events: none;
+	}
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 	@media (hover: hover) and (pointer: fine) {
 		&:hover {
@@ -547,6 +564,31 @@ export default {
 	&:not(&--scrolling) {
 		transform: translateY(-101%) translateX(-50%);
 	}
+	&--home:not(.header--scrolling) {
+		transform: translateY(24px) translateX(-50%);
+	}
+	&__controllers {
+		display: flex;
+		align-items: center;
+	}
+	&__lang {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		outline: none;
+		height: 40px;
+		pointer-events: all;
+		cursor: pointer;
+		margin-left: 20px;
+		padding-left: 20px;
+		border-left: 1px solid #EBEBEB;
+		color: #222;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 1.4px;
+		text-transform: uppercase;
+	}
 }
 @keyframes headerLogo {
 	0% {
@@ -696,6 +738,9 @@ export default {
 		&__wrapper {
 			padding: 30px 41px;
 		}
+		&__lang {
+			display: none;
+		}
 	}
 }
 @media (max-width: 768px) {
@@ -773,6 +818,9 @@ export default {
 					animation: headerText 1s ease both 2.7s;
 				}
 			}
+		}
+		&--home:not(.header--scrolling) {
+			transform: translateY(0) translateX(-50%);
 		}
 	}
 	.header-glass {

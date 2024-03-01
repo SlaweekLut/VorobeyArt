@@ -1,5 +1,5 @@
 
-import { defuFn } from '/Users/marinamalova/inWork/VorobeyArt/vorobey/node_modules/defu/dist/defu.mjs'
+import { defuFn } from 'D:/inWork/VorobeyArt/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 
