@@ -63,21 +63,23 @@ export default {
 
 @media (max-width: 768px)
 	.numbers
-		max-width: 50%
+		max-width: 210px
 		width: 100%
-		align-items: center
+		align-items: flex-start
 		&__title
-			font-size: 80px
+			text-align: left
+			font-size: 100px
 		&__subtitle
-			font-size: 18px
+			font-size: 20px
 			max-width: 170px
 			width: 100%
 
 @media (max-width: 590px)
 	.numbers
+		max-width: 100%
 		&__title
-			font-size: 70px
+			font-size: 40px
 		&__subtitle
-			font-size: 18px
+			font-size: 16px
 			max-width: 170px
 </style>

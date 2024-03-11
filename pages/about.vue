@@ -9,62 +9,97 @@
           смелые идеи."
 			/>
 		</Head>
-		<div class="content about-text">
-			<div class="content__wrapper about-text__wrapper">
-				<p class="about-text__title">Команда</p>
-				<p class="about-text__text">
-					Команда, креатив которой не знает границ. Наши дизайнерские решения покоряют сердца, а технические навыки позволяют реализовывать самые смелые идеи. Точный контроль, выстроенные бизнес-процессы и максимальная вовлечённость в каждый проект позволяют вовремя реализовывать задачи. Поверьте, в Ваш проект команда вложит максимум своих знаний и умений. а технические навыки позволяют 
-				</p>
-			</div>
-		</div>
 		<div class="content about">
 			<div class="content__wrapper">
-				<p class="about__title">CREATIVE</p>
+				<!-- <p class="about__title">CREATIVE</p> -->
 				<div class="about__grid">
 					<AboutCard v-for="(item, key) in cards" :key="key" :settings="item" :open="openAboutData" @openInfo="openInfo" />
+					<p class="about__back-title">К</p>
+					<p class="about__back-title">О</p>
+					<p class="about__back-title">М</p>
+					<p class="about__back-title">А</p>
+					<p class="about__back-title">Н</p>
+					<p class="about__back-title">ДА</p>
+					<p class="about__decor-text">
+						// DESIGN
+						<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x CREATIVE
+					</p>
 				</div>
 			</div>
+			<img src="/img/about/feather.png" alt="" class="about__decor about__decor--1">
+			<img src="/img/about/feather.png" alt="" class="about__decor about__decor--2">
 		</div>
 		<div class="content about-logos">
 			<div class="content__wrapper">
-				<div class="about__logos">
-					<img src="/img/about/energotek.svg" alt="energotek">
-					<img src="/img/about/garilla.svg" alt="garilla">
-					<img src="/img/about/Genezis.svg" alt="Genezis">
-					<img src="/img/about/H_one.svg" alt="H_one">
-					<img src="/img/about/HARO.svg" alt="HARO">
-					<img src="/img/about/marusya.svg" alt="marusya">
-					<img src="/img/about/Mobdebut.svg" alt="Mobdebut">
-					<img src="/img/about/MoltenGrass.svg" alt="MoltenGrass">
-					<img src="/img/about/Motorika.svg" alt="Motorika">
-					<img src="/img/about/Muza_Amanita.svg" alt="Muza_Amanita">
-					<img src="/img/about/OceanView.svg" alt="OceanView">
-					<img src="/img/about/OwnWifi.svg" alt="OwnWifi">
-					<img src="/img/about/PolarBear.svg" alt="PolarBear">
-					<img src="/img/about/PrimeTravel.svg" alt="PrimeTravel">
-					<img src="/img/about/ProZapchast.svg" alt="ProZapchast">
-					<img src="/img/about/SmartsKvantelekom.svg" alt="SmartsKvantelekom">
-					<img src="/img/about/SpisyNote.svg" alt="SpisyNote">
-					<img src="/img/about/Tomi_Ai.svg" alt="Tomi_Ai">
-					<img src="/img/about/Uni.svg" alt="Uni">
-					<img src="/img/about/ximtex.svg" alt="ximtex">
-					<img src="/img/about/Ykigassen.svg" alt="Ykigassen">
-					<img src="/img/about/Yrievskoe_Podvorie.svg" alt="Yrievskoe_Podvorie">
-					<img src="/img/about/ZolotoAltaya.svg" alt="ZolotoAltaya">
-					<img src="/img/about/energotek.svg" alt="energotek">
-					<img src="/img/about/garilla.svg" alt="garilla">
-					<img src="/img/about/Genezis.svg" alt="Genezis">
-					<img src="/img/about/H_one.svg" alt="H_one">
-					<img src="/img/about/HARO.svg" alt="HARO">
-					<img src="/img/about/marusya.svg" alt="marusya">
-					<img src="/img/about/Mobdebut.svg" alt="Mobdebut">
+				<div class="about-logos__logos">
+					<div class="about-logos__logo"><img src="/img/about/energotek.svg" alt="energotek"></div>
+					<div class="about-logos__logo"><img src="/img/about/garilla.svg" alt="garilla"></div>
+					<div class="about-logos__logo"><img src="/img/about/Genezis.svg" alt="Genezis"></div>
+					<div class="about-logos__logo"><img src="/img/about/H_one.svg" alt="H_one"></div>
+					<div class="about-logos__logo"><img src="/img/about/HARO.svg" alt="HARO"></div>
+					<div class="about-logos__logo"><img src="/img/about/marusya.svg" alt="marusya"></div>
+					<div class="about-logos__logo"><img src="/img/about/Mobdebut.svg" alt="Mobdebut"></div>
+					<div class="about-logos__logo"><img src="/img/about/MoltenGrass.svg" alt="MoltenGrass"></div>
+					<div class="about-logos__logo"><img src="/img/about/Motorika.svg" alt="Motorika"></div>
+					<div class="about-logos__logo"><img src="/img/about/Muza_Amanita.svg" alt="Muza_Amanita"></div>
+					<div class="about-logos__logo"><img src="/img/about/OceanView.svg" alt="OceanView"></div>
+					<div class="about-logos__logo"><img src="/img/about/OwnWifi.svg" alt="OwnWifi"></div>
+					<div class="about-logos__logo"><img src="/img/about/PolarBear.svg" alt="PolarBear"></div>
+					<div class="about-logos__logo"><img src="/img/about/PrimeTravel.svg" alt="PrimeTravel"></div>
+					<div class="about-logos__logo"><img src="/img/about/ProZapchast.svg" alt="ProZapchast"></div>
+					<div class="about-logos__logo"><img src="/img/about/SmartsKvantelekom.svg" alt="SmartsKvantelekom"></div>
+					<div class="about-logos__logo"><img src="/img/about/SpisyNote.svg" alt="SpisyNote"></div>
+					<div class="about-logos__logo"><img src="/img/about/Tomi_Ai.svg" alt="Tomi_Ai"></div>
+					<div class="about-logos__logo"><img src="/img/about/Uni.svg" alt="Uni"></div>
+					<div class="about-logos__logo"><img src="/img/about/ximtex.svg" alt="ximtex"></div>
+					<div class="about-logos__logo"><img src="/img/about/Ykigassen.svg" alt="Ykigassen"></div>
+					<div class="about-logos__logo"><img src="/img/about/Yrievskoe_Podvorie.svg" alt="Yrievskoe_Podvorie"></div>
+					<div class="about-logos__logo"><img src="/img/about/ZolotoAltaya.svg" alt="ZolotoAltaya"></div>
+					<div class="about-logos__logo"><img src="/img/about/energotek.svg" alt="energotek"></div>
+					<div class="about-logos__logo"><img src="/img/about/garilla.svg" alt="garilla"></div>
+					<div class="about-logos__logo"><img src="/img/about/Genezis.svg" alt="Genezis"></div>
+					<div class="about-logos__logo"><img src="/img/about/H_one.svg" alt="H_one"></div>
+					<div class="about-logos__logo"><img src="/img/about/HARO.svg" alt="HARO"></div>
+					<div class="about-logos__logo"><img src="/img/about/marusya.svg" alt="marusya"></div>
+					<div class="about-logos__logo"><img src="/img/about/Mobdebut.svg" alt="Mobdebut"></div>
 				</div>
-				<!-- <div class="about__numbers">
-					
-				</div> -->
 			</div>
 		</div>
-		<div class="content about-infographic">
+		<div class="about-text__wrapper">
+			<div class="about-text__decor">
+				<svg width="1016" height="267" viewBox="0 0 1016 267" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M137.882 267H76.3653V59.3333H0V0H214.247V59.3333H137.882V267Z" fill="#FBFBFB"/>
+					<path d="M244.11 0H435.024V59.3333H305.627V101.714H424.417V161.048H305.627V207.667H439.266V267H244.11V0Z" fill="#FBFBFB"/>
+					<path d="M610.906 163.167L581.208 74.1667L551.511 163.167H610.906ZM534.541 216.143L517.571 267H453.933L549.389 0H613.027L708.484 267H644.846L627.876 216.143H534.541Z" fill="#FBFBFB"/>
+					<path d="M960.847 0H1016V267H954.484V133.5L892.967 267H854.784L793.268 133.5V267H731.751V0H786.904L873.876 188.595L960.847 0Z" fill="#FBFBFB"/>
+				</svg>
+			</div>
+			<div class="content about-text">
+				<div class="content__wrapper">
+					<div class="about-text__col">
+						<p class="about-text__title">«Как для себя»</p>
+						<p class="about-text__text">
+							Даже если вы не разбираетесь в создании дизайна, написании продающих текстов или коде, поможем разобраться и разложить задачу на этапы.
+							<br>
+							<br>
+							Наша цель — выслушать, максимально понять желания клиента, вникнуть в суть и дать варианты готовых решений. 
+							<br>
+							<br>
+							<br>
+							<span>//</span> Каждая деталь имеет значение
+						</p>
+					</div>
+					<div class="about-text__grid">
+						<AboutNumbers :curtains="curtains" number="120" title="Довольных клиентов" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="8" title="Экспертов в команде" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="257" title="Завершенных проектов" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" class="about-text__number" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="content about-infographic">
 			<p class="background-text">Creative</p>
 			<div class="content__wrapper">
 				<AboutNumbers :curtains="curtains" number="45" title="Довольных клиентов" class="about-infographic__number" />
@@ -72,9 +107,8 @@
 				<AboutNumbers :curtains="curtains" number="5" title="лет успешной работы" class="about-infographic__number" />
 				<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" class="about-infographic__number" />
 				<div id="feather"></div>
-				<!-- <canvas id="feather"></canvas> -->
 			</div>
-		</div>
+		</div> -->
 		<Footer :case="false"/>
 	</div>
 </template>
@@ -88,19 +122,18 @@ import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
 import AboutCard from '@/components/About/Card.vue';
 import TitlePage from '@/components/Title.vue';
-
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export default {
 	name: 'AboutPage',
 	components: {
-    AboutNumbers,
-    AboutService,
-    AboutCard,
-    TitlePage,
-    Footer,
-},
+		AboutNumbers,
+		AboutService,
+		AboutCard,
+		TitlePage,
+		Footer,
+	},
 	provide() {
 		return { Accordion: this.Accordion };
 	},
@@ -109,6 +142,9 @@ export default {
 			type: String,
 			default: '',
 		},
+		model: {
+			type: Object,
+		}
 	},
 	data() {
 		return {
@@ -121,157 +157,36 @@ export default {
 			likesCount: 0,
 			cards: [
 				{
-					img: '01',
-					title: 'Считает лайки',
-					subtitle: '2 + 2 = 0',
-					skills: [
-						{
-							title: 'Владение калькулятором',
-							progress: '100',
-						},
-						{
-							title: 'Порядочность',
-							progress: '80',
-						},
-						{
-							title: 'Ловля мышей',
-							progress: '20',
-						},
-					],
-				},
-				{
 					img: '02',
 					title: 'Артем',
 					subtitle: 'Хранитель идей',
-					skills: [
-						{
-							title: 'Ловкость рук',
-							progress: '80',
-						},
-						{
-							title: 'Работа в Paint',
-							progress: '10',
-						},
-						{
-							title: 'Организация команды',
-							progress: '95',
-						},
-					],
-				},
-				{
-					img: '03',
-					title: 'Симон',
-					subtitle: 'Магистр надежных стратегий',
-					skills: [
-						{
-							title: 'Однозадачность',
-							progress: '20',
-						},
-						{
-							title: 'Управление 150 детьми',
-							progress: '95',
-						},
-						{
-							title: 'Продажа снега эскимосам',
-							progress: '80',
-						},
-					],
-				},
-				{
-					img: '04',
-					title: 'Вячеслав',
-					subtitle: 'Р@зр@бот4иk',
-					skills: [
-						{
-							title: 'Магия вне Хогвартса',
-							progress: '100',
-						},
-						{
-							title: 'Приготовление оливье',
-							progress: '30',
-						},
-						{
-							title: 'Умение уметь',
-							progress: '80',
-						},
-					],
 				},
 				{
 					img: '05',
 					title: 'Ирина',
 					subtitle: 'Штатный суетолог',
-					skills: [
-						{
-							title: 'Владение фотошопом',
-							progress: '90',
-						},
-						{
-							title: 'Боевой настрой',
-							progress: '70',
-						},
-						{
-							title: 'Спокойствие',
-							progress: '20',
-						},
-					],
-				},
-				{
-					img: '06',
-					title: 'Светлана',
-					subtitle: 'Менеджер счастья',
-					skills: [
-						{
-							title: 'Ведение переговоров',
-							progress: '90',
-						},
-						{
-							title: 'Выращивание микрозелени',
-							progress: '40',
-						},
-						{
-							title: 'Управление временем',
-							progress: '70',
-						},
-					],
 				},
 				{
 					img: '07',
 					title: 'Евгения',
 					subtitle: 'Важный гусь',
-					skills: [
-						{
-							title: 'Обращение с пером',
-							progress: '90',
-						},
-						{
-							title: 'Мастер игр',
-							progress: '80',
-						},
-						{
-							title: 'Фея математики',
-							progress: '10',
-						},
-					],
 				},
 				{
-					img: '08',
-					title: 'Дмитрий',
-					subtitle: 'Mr. Пон',
-					skills: [
-						{
-							title: 'Понимание',
-							progress: '60',
-						},
-						{
-							title: 'Знание трендов',
-							progress: '90',
-						},
-						{
-							title: 'Вождение автомобиля',
-							progress: '20',
-						},
-					],
+					img: '03',
+					title: 'Симон',
+					subtitle: 'Магистр надежных стратегий',
 				},
+				{
+					img: '04',
+					title: 'Вячеслав',
+					subtitle: 'Р@зр@бот4иk',
+				},
+				{
+					img: '06',
+					title: 'Светлана',
+					subtitle: 'Менеджер счастья',
+				},
+				
 			],
 			clientId: '',
 		};
@@ -307,9 +222,15 @@ export default {
 	},
 
 	mounted() {
-		let renderer, scene, camera;
-		init();
-
+		let renderer, scene, camera, gltf, texture;
+		console.log('asd',this.$props.model)
+		setTimeout(() => {
+			console.log('asd',this.$props.model)
+			gltf = this.$props.model.gltf
+			texture = this.$props.model.texture
+			// init();
+		}, 1000)
+		
     // never used, consider deletion
 		function isSwiftShaderRenderer() {
 			const canvas = document.getElementById('feather')
@@ -325,7 +246,6 @@ export default {
 		}
 
 		async function init() {
-
 			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
 			renderer.setPixelRatio( window.devicePixelRatio ); // min(devicePixelRatio, 2) for optimizations?
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -340,29 +260,6 @@ export default {
 			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 			camera.position.set( 0, 0, 1.0 );
 
-			// const rgbeLoader = new RGBELoader().setPath( 'models/' );
-			const gltfLoader = new GLTFLoader().setPath( '/models/' );
-
-			// const pmremGenerator = new THREE.PMREMGenerator( renderer );
-			// PMREMGenerator.compileEquirectangularShader();
-
-			const gltf = await gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
-
-      // // another method of getting envMap 
-      //const envMap = await rgbeLoader.loadAsync( 'studio_small_08_1k.hdr' )
-      //const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 1024 ).fromEquirectangularTexture( renderer, envMap );
-      //scene.environment = cubeRenderTarget.texture;
-
-			const textureLoader = new THREE.CubeTextureLoader();
-			const texture = textureLoader.load([
-					"/models/cubemap/0001.jpg",
-					"/models/cubemap/0002.jpg",
-					"/models/cubemap/0003.jpg",
-					"/models/cubemap/0004.jpg",
-					"/models/cubemap/0005.jpg",
-					"/models/cubemap/0006.jpg",
-			]);
-			texture.encoding = THREE.sRGBEncoding;
 			scene.environment = texture;
       
       //light
@@ -425,7 +322,9 @@ export default {
       render();
       window.requestAnimationFrame(animate)
     }
-    animate()
+		setTimeout(() => {
+			// animate()
+		}, 1000)
 	}
 };
 </script>
@@ -442,20 +341,6 @@ body {
 		height: 0;
 	}
 }
-// .about-service {
-// 	margin-top: 0;
-// 	padding: 90px 93px 130px;
-// 	display: flex;
-// 	flex-direction: column;
-// 	position: relative;
-// 	z-index: 0;
-
-// 	&__title {
-// 		font-size: 60px;
-// 		font-weight: 700;
-// 		margin-bottom: 74px;
-// 	}
-// }
 .background-text {
 	font-size: 23vw;
 	color: #f6f6f6;
@@ -470,80 +355,60 @@ body {
 	pointer-events: none;
 	white-space: nowrap;
 }
-.about-infographic {
-	height: 740px;
-	position: relative;
-	#feather {
-		max-height: calc(100% + 120px) !important;
-		height: calc(100% + 120px) !important;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: -120px;
-	// 	position: absolute;
-	// 	top: 50%;
-	// 	left: 50%;
-	// 	transform: translate(-50%, -50%);
-	// 	width: 100vw;
-	// 	height: 740px;
-	// 	// pointer-events: none;
-		:deep(canvas) {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-	}
+.about-text {
+	padding: 120px 80px;
+	margin: 0 auto;
 	.content__wrapper {
-		height: 100%;
+		max-width: 1328px;
+		display: flex;
+		justify-content: space-between;
+		gap: 70px 32px;
+		flex-wrap: wrap;
+	}
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		max-width: 485px;
+		width: 100%;
+		gap: 44px 0;
 	}
 	&__number {
-		position: absolute;
-		&:nth-child(1) {
-			left: 230px;
-			top: 50px;
-		}
-		&:nth-child(2) {
-			left: 75px;
-			bottom: 60px;
-		}
-		&:nth-child(3) {
-			right: 95px;
-			top: 50px;
-		}
-		&:nth-child(4) {
-			right: 200px;
-			bottom: 60px;
+		:deep(.numbers__subtitle) {
+			text-align: left;
 		}
 	}
-}
-// .about-video {
-// 	position: relative;
-// 	margin-top: 130px;
-// 	padding-bottom: 200px;
-// 	overflow: hidden;
-// 	&__preview {
-// 		width: 100%;
-// 		height: auto;
-// 	}
-// }
-.about-text {
-	padding: 120px 93px 130px;
-	margin: 0 auto;
+	&__decor {
+		position: absolute;
+		bottom: 0;
+		width: 110vw;
+		left: 50%;
+		bottom: -40%;
+		height: auto;
+		transform: translate(-50%, 0) rotate(-15deg);
+		svg {
+			height: auto;
+			width: inherit;
+		}
+	}
 	&__wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
+		position: relative;
+		overflow: hidden;
+	}
+	&__col {
+		max-width: 500px;
+		width: 100%;
 	}
 	&__title {
-		font-size: 60px;
+		font-size: 50px;
 		font-weight: 700;
 	}
 	&__text {
 		font-size: 20px;
 		font-weight: 500;
-		line-height: 120%;
-		text-align: justify;
+		margin-top: 30px;
+		span {
+			color: #0181C8;
+		}
 	}
 }
 .about {
@@ -551,27 +416,43 @@ body {
 	margin: 0 auto !important;
 	position: relative;
 	z-index: 2;
+	margin-top: 53px !important;
 	&__numbers {
 		display: flex;
 		justify-content: space-evenly;
 		gap: 20px;
 		flex-wrap: wrap;
 	}
-	&__grid {
-		display: grid;
-		gap: 60px 50px;
-		justify-content: center;
-		grid-template-columns: repeat(4, 215px);
-	}
-	&__logos {
-		display: flex;
-		gap: 40px;
-		filter: grayscale(1);
-		animation: logos 120s infinite linear;
-		img {
-			user-select: none;
-			pointer-events: none;
+	&__decor {
+		position: absolute;
+		&--1 {
+			width: 404px;
+			height: 133px;
+			transform: scaleY(-1) rotate(42deg);
+			left: -142px;
+			bottom: -60px;
 		}
+		&--2 {
+			top: -50px;
+			right: -347px;
+			transform: scale(-1) rotate(45deg);
+		}
+	}
+	&__decor-text {
+		position: absolute;
+		right: 50px;
+		top: 50%;
+		font-size: 20px;
+		font-weight: 700;
+		color: #c1c1c1;
+		transform: translate(0, -50%);
+	}
+	&__grid {
+		position: relative;
+		height: 531px;
+		max-width: 1168px;
+		width: 100%;
+		margin: 0 auto;
 	}
 	&__title {
 		font-size: clamp(230px, 16vw, 250px);
@@ -584,6 +465,35 @@ body {
 		white-space: nowrap;
 		transform: translate(-50%, -50%);
 	}
+	&__back-title {
+		position: absolute;
+		font-size: 200px;
+		font-weight: 700;
+		top: 118px;
+		color: #000;
+		z-index: -1;
+		&:nth-of-type(1) {
+			left: 10.70%;
+			z-index: 1;
+		}
+		&:nth-of-type(2) {
+			left: 29.53%;
+		}
+		&:nth-of-type(3) {
+			left: 42.97%;
+		}
+		&:nth-of-type(4) {
+			left: 56.84%;
+		}
+		&:nth-of-type(5) {
+			top: 289px;
+			left: 37.58%;
+		}
+		&:nth-of-type(6) {
+			top: 289px;
+			left: 78.93%;
+		}
+	}
 }
 
 @keyframes logos {
@@ -594,46 +504,105 @@ body {
 		transform: translateX(-361.3%);
 	}
 }
-.about-numbers {
-	padding: 52px 32px 70px;
-	margin: 0 auto;
-	background-color: #f9f9f9;
-	position: relative;
-	z-index: 0;
-}
 .about-logos {
 	width: 100vw;
-	background-color: #F9F9F9;
 	max-width: 100vw;
 	overflow: auto;
 	padding: 37px;
 	.content__wrapper {
 		max-width: 100%;
 	}
+	&__logos {
+		display: flex;
+		animation: logos 120s infinite linear;
+		img {
+			user-select: none;
+		}
+	}
+	&__logo {
+		padding: 55px 50px 55px 55px;
+		border-right: 1px solid #E0E0E0;
+		border-bottom: 1px solid #E0E0E0;
+		filter: grayscale(1);
+		transition: 0.3s ease-out;
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
 }
 
 @media (max-width: 1200px) {
 	.about-text {
-		margin: 0 auto;
-		flex-direction: column-reverse;
-		&__column {
+		padding-top: 70px;
+		padding-bottom: 70px;
+		.content__wrapper {
+			justify-content: center;
+		}
+		&__col {
 			max-width: 100%;
 		}
-		&__images {
-			max-width: 100%;
-			min-width: 0;
-			width: 100%;
-			justify-content: center;
+		&__title {
+			font-size: 35px;
+		}
+		&__text {
+			font-size: 18px;
+		}
+		&__decor {
+			bottom: -10%;
 		}
 	}
 	.about {
 		&__grid {
-			grid-template-columns: repeat(4, 162px);
-			gap: 45px 37px;
+			height: 403px;
 		}
 		&__title {
 			font-size: clamp(150px, 20vw, 190px);
 			line-height: clamp(150px, 20vw, 190px);
+		}
+		&__back-title {
+			font-size: 152px;
+			top: 90px;
+			z-index: -1;
+			&:nth-of-type(1) {
+				left: 9.25%;
+			}
+			&:nth-of-type(2) {
+				left: 28.93%;
+			}
+			&:nth-of-type(3) {
+				left: 42.82%;
+			}
+			&:nth-of-type(4) {
+				left: 57.17%;
+			}
+			&:nth-of-type(5) {
+				top: 222px;
+				left: 37.26%;
+			}
+			&:nth-of-type(6) {
+				top: 222px;
+				left: 80.09%;
+			}
+		}
+		&__decor-text {
+			font-size: 18px;
+			right: 8px;
+		}
+		&__decor {
+			&--1 {
+				width: 448px;
+				height: 147px;
+				left: -176px;
+				bottom: -150px;
+				transform: scaleY(-1) rotate(52deg);
+			}
+			&--2 {
+				width: 654px;
+				height: 215px;
+				right: -244px;
+				top: -157px;
+				transform: scale(-1) rotate(42deg);
+			}
 		}
 	}
 }
@@ -641,33 +610,10 @@ body {
 	.about {
 		padding: 0 41px 90px;
 	}
-	// .about-service {
-	// 	padding: 90px 41px 130px;
-	// 	&__title {
-	// 		font-size: 48px;
-	// 		margin-bottom: 60px;
-	// 	}
-	// }
-	.about-numbers {
-		margin: 0 auto;
-		padding: 43px 41px 60px;
-	}
-	.about-text {
-		margin: 0 auto;
-		padding: 90px 41px 60px;
-		&__wrapper {
-			gap: 20px;
+	.about-logos {
+		&__logo {
+			padding: 47px 37px;
 		}
-		&__title {
-			font-size: 48px;
-		}
-		&__text {
-			font-size: 18px;
-		}
-	}
-	.about-video {
-		margin-top: 100px;
-		padding-bottom: 70px;
 	}
 }
 @media (max-width: 960px) {
@@ -680,20 +626,14 @@ body {
 	}
 }
 @media (max-width: 768px) {
-	.about-numbers {
-		margin: 0 auto;
-		padding: 60px 41px;
-	}
 	.about-text {
-		margin: 0 auto;
-		padding: 46px 41px 60px;
-		&__wrapper {
-			gap: 25px;
+		&__grid {
+			max-width: 466px;
+		}
+		&__decor {
+			bottom: 0%;
 		}
 	}
-	// .about-service {
-	// 	padding: 60px 41px 130px;
-	// }
 	.about {
 		padding: 0 41px 91px;
 		&__title {
@@ -705,63 +645,124 @@ body {
 			gap: 50px 0px;
 		}
 		&__grid {
-			gap: 50px 60px;
-			grid-template-columns: repeat(2, 215px);
+			max-width: 571px;
+			height: 700px;
+		}
+		&__back-title {
+			font-size: 154px;
+			top: 90px;
+			&:nth-of-type(1) {
+				left: 23.82%;
+			}
+			&:nth-of-type(2) {
+				left: 53.59%;
+			}
+			&:nth-of-type(3) {
+				left: 38.53%;
+				top: 220px;
+			}
+			&:nth-of-type(4) {
+				left: 60.42%;
+				top: 220px;
+			}
+			&:nth-of-type(5) {
+				top: 346px;
+				left: 30.47%;
+			}
+			&:nth-of-type(6) {
+				top: 506px;
+				left: 48.34%;
+			}
+		}
+		&__decor-text {
+			display: none;
+		}
+		&__decor {
+			&--1 {
+				width: 962px;
+				height: 317px;
+				right: unset;
+				left: -437px;
+				top: -32px;
+				transform: scale(-1) rotate(84deg);
+			}
+			&--2 {
+				width: 404px;
+				height: 133px;
+				transform: scaleX(-1) rotate(-112deg);
+				top: 468px;
+				right: -148px;
+			}
 		}
 	}
-	.about-video {
-		margin-top: 50px;
-		padding-bottom: 50px;
+	.about-logos {
+		&__logo {
+			padding: 43px 40px;
+		}
 	}
 }
 @media (max-width: 570px) {
+	.about-text {
+		padding: 60px 31px;
+		&__title {
+			font-size: 25px;
+		}
+		&__text {
+			font-size: 16px;
+			margin-top: 40px;
+		}
+		&__grid {
+			max-width: 262px;
+		}
+	}
 	.about {
 		&__grid {
-			gap: 15px 13px;
+			max-width: 300px;
+			height: 545px;
 		}
 		&__title {
 			writing-mode: vertical-lr;
 			font-size: 170px;
 			line-height: 170px;
 		}
+		&__back-title {
+			font-size: 112px;
+			top: 90px;
+			&:nth-of-type(1) {
+				left: 30.33%;
+			}
+			&:nth-of-type(2) {
+				left: 69.33%;
+			}
+			&:nth-of-type(3) {
+				left: 4.33%;
+				top: 183px;
+			}
+			&:nth-of-type(4) {
+				left: 34.67%;
+				top: 183px;
+				z-index: 1;
+			}
+			&:nth-of-type(5) {
+				top: 290px;
+				left: 36.33%;
+			}
+			&:nth-of-type(6) {
+				top: 406px;
+				left: 45.33%;
+			}
+		}
+		&__decor {
+			display: none;
+		}
 	}
 }
 @media (max-width: 425px) {
-	.about-text {
-		margin: 0 auto;
-		padding: 43px 31px 50px;
-		&__wrapper {
-			gap: 20px;
-		}
-		&__text {
-			font-size: 16px;
-		}
-	}
-	.about-numbers {
-		margin: 0 auto;
-		padding: 37px 31px 50px;
-	}
 	.about {
 		padding: 0 31px 51px;
 		&__grid {
 			grid-template-columns: repeat(2, 145px);
 		}
-	}
-	// .about-service {
-	// 	padding: 50px 31px;
-	// 	&__title {
-	// 		font-size: 32px;
-	// 		margin-bottom: 30px;
-	// 		white-space: nowrap;
-	// 	}
-	// 	&__wrapper {
-	// 		max-width: 100%;
-	// 		width: 100%;
-	// 	}
-	// }
-	.about-video {
-		margin-top: 40px;
-		padding-bottom: 40px;
 	}
 }
 @media (max-width: 394px) {
@@ -769,10 +770,6 @@ body {
 		&__numbers {
 			gap: 38px 0px;
 		}
-	}
-	.about-numbers {
-		margin: 0 auto;
-		padding: 36px 31px 56px;
 	}
 }
 </style>

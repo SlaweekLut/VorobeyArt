@@ -6,17 +6,17 @@
 				<source :srcset="`/img/Team/Team-${settings.img}.png`" type="image/png" />
 				<img :srcset="`/img/Team/Team-${settings.img}.webp`" alt="Команда" type="image/webp" class="about-card__img" />
 			</picture>
-			<button class="about-card__info" @click="handleOpen" @mouseenter="handleHover" @mouseleave="handleClose">
+			<!-- <button class="about-card__info" @click="handleOpen" @mouseenter="handleHover" @mouseleave="handleClose">
 				<svg width="8" height="26" viewBox="0 0 8 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M7.27737 4.26802C7.068 4.54267 6.82143 4.77782 6.53767 4.97347C6.2527 5.15833 5.94551 5.2911 5.61608 5.37177C5.28544 5.44165 4.96129 5.42346 4.64363 5.31719C4.33675 5.2097 4.06095 5.03868 3.81623 4.8041C3.29202 4.31703 2.99903 3.79852 2.93728 3.2486C2.87552 2.69867 2.91577 2.27923 3.05803 1.99028C3.20985 1.68934 3.41087 1.43747 3.66106 1.23467C4.14111 0.842278 4.60757 0.620652 5.06045 0.569795C5.52412 0.517726 5.88359 0.510116 6.13886 0.546963C6.40491 0.582599 6.65425 0.663788 6.88686 0.790531C7.45518 1.08703 7.7684 1.49407 7.82653 2.01165C7.88344 2.51845 7.85579 2.95285 7.74358 3.31486C7.64094 3.66487 7.48553 3.98259 7.27737 4.26802ZM5.9269 22.141C6.20726 22.1096 6.36802 22.2771 6.40919 22.6438C6.46368 23.129 6.29894 23.6552 5.91496 24.2224C5.35275 25.0499 4.52711 25.5248 3.43803 25.6471C2.18722 25.7875 1.27306 25.377 0.695572 24.4155C0.483086 24.079 0.348386 23.6574 0.291474 23.1506C0.234562 22.6438 0.257859 22.0734 0.361365 21.4394C0.474443 20.7934 0.622233 20.1162 0.804737 19.4078C0.996813 18.6874 1.20985 17.9593 1.44385 17.2232L2.07223 15.089C2.5269 13.4984 2.72699 12.4605 2.6725 11.9752C2.61801 11.49 2.52838 11.178 2.40359 11.0391C2.28839 10.8883 2.16663 10.7764 2.03833 10.7034L1.68942 10.5133C1.57311 10.4499 1.50466 10.3266 1.48408 10.1433C1.46228 9.94919 1.51179 9.75801 1.63259 9.56974C1.76418 9.38027 1.94132 9.20751 2.16401 9.05147C2.62139 8.74898 3.17357 8.5614 3.82054 8.48875C5.40563 8.31075 6.2448 8.63689 6.33804 9.46717C6.44702 10.4376 6.31834 11.5767 5.95201 12.8845C5.58446 14.1814 5.26576 15.2327 4.9959 16.0382L4.27609 18.3792C3.74847 20.0982 3.52523 21.3189 3.60636 22.0413C3.65964 22.5158 3.9235 22.7263 4.39795 22.6731C4.86161 22.621 5.2054 22.5223 5.4293 22.3771C5.65321 22.2318 5.81908 22.1532 5.9269 22.141Z"
 						fill="white"
 					/>
 				</svg>
-			</button>
+			</button> -->
 		</div>
 
-		<div class="about-card-info" :class="{ 'about-card-info--active': open === settings.img }">
+		<!-- <div class="about-card-info" :class="{ 'about-card-info--active': open === settings.img }">
 			<svg width="179" height="265" viewBox="0 0 179 265" fill="none" xmlns="http://www.w3.org/2000/svg" class="about-card-info__bg">
 				<path
 					fill-rule="evenodd"
@@ -43,19 +43,7 @@
 					<span class="about-card-skill__progress-value" :style="`--progress: ${item.progress}%`"></span>
 				</p>
 			</div>
-			<!-- <div class="about-card-skill">
-				<p class="about-card-skill__title">Ловля мышей</p>
-				<p class="about-card-skill__progress">
-					<span class="about-card-skill__progress-value" style="--progress: 10%"></span>
-				</p>
-			</div>
-			<div class="about-card-skill">
-				<p class="about-card-skill__title">Порядочность</p>
-				<p class="about-card-skill__progress">
-					<span class="about-card-skill__progress-value" style="--progress: 60%"></span>
-				</p>
-			</div> -->
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -95,6 +83,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: absolute;
 	&__content {
 		position: relative;
 	}
@@ -123,6 +112,27 @@ export default {
 		top: 16px;
 		transform: rotate(15deg);
 		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	}
+	&:nth-child(1) {
+		left: -2.65%;
+	}
+	&:nth-child(2) {
+		left: 20.63%;
+	}
+	&:nth-child(3) {
+		left: 64.81%
+	}
+	&:nth-child(4) {
+		left: 20.63%;
+		bottom: 0;
+	}
+	&:nth-child(5) {
+		left: 47.26%;
+		bottom: 0;
+	}
+	&:nth-child(6) {
+		left: 64.81%;
+		bottom: 0;
 	}
 }
 .about-card-info {
@@ -222,18 +232,41 @@ export default {
 				height: 18.62px;
 			}
 		}
+		&:nth-child(1) {
+			left: -4.51%;
+		}
+		&:nth-child(2) {
+			left: 19.67%;
+		}
+		&:nth-child(3) {
+			left: 65.39%
+		}
+		&:nth-child(4) {
+			left: 19.67%;
+			bottom: 0;
+		}
+		&:nth-child(5) {
+			left: 47.22%;
+			bottom: 0;
+		}
+		&:nth-child(6) {
+			left: 65.39%;
+			bottom: 0;
+		}
 	}
 }
 @media (max-width: 768px) {
 	.about-card {
+		width: 170px;
+		height: 200px;
 		&__img {
-			width: 215px;
-			height: 255px;
+			width: 170px;
+			height: 200px;
 		}
 		&::after {
-			width: 170px;
-			height: 225px;
-			top: 16px;
+			width: 131px;
+			height: 178px;
+			top: 10px;
 		}
 		&__info {
 			width: 40px;
@@ -248,23 +281,35 @@ export default {
 		}
 	}
 	.about-card {
-		&:nth-child(odd) {
-			.about-card-info {
-				left: 100%;
-				transform: translate(-48%);
-			}
+		bottom: unset;
+		&:nth-child(1) {
+			left: 0%;
 		}
-		&:nth-child(even) {
-			.about-card-info {
-				right: 100%;
-				left: auto;
-				transform: translate(48%);
-			}
+		&:nth-child(2) {
+			left: 39.4%;
+		}
+		&:nth-child(3) {
+			top: 128px;
+			left: 73.03%;
+		}
+		&:nth-child(4) {
+			top: 325px;
+			left: 1.05%;
+		}
+		&:nth-child(5) {
+			top: 325px;
+			left: 45.88%;
+		}
+		&:nth-child(6) {
+			left: 25.92%;
+			top: 500px;
 		}
 	}
 }
 @media (max-width: 570px) {
 	.about-card {
+		width: 120px;
+		height: 142px;
 		&__info {
 			width: 33px;
 			height: 33px;
@@ -275,13 +320,36 @@ export default {
 			}
 		}
 		&__img {
-			width: 145px;
-			height: 172px;
+			width: 120px;
+			height: 142px;
 		}
 		&::after {
-			width: 114px;
-			height: 152px;
-			top: 10px;
+			width: 96px;
+			height: 124px;
+			top: 7px;
+		}
+		&:nth-child(1) {
+			left: 0%;
+		}
+		&:nth-child(2) {
+			left: 59.67%;
+		}
+		&:nth-child(3) {
+			top: 134px;
+			left: 47.67%;
+		}
+		&:nth-child(4) {
+			top: 275px;
+			left: 0%;
+			z-index: 1;
+		}
+		&:nth-child(5) {
+			top: 275px;
+			left: 59.67%;
+		}
+		&:nth-child(6) {
+			left: 17.33%;
+			top: 403px;
 		}
 	}
 }

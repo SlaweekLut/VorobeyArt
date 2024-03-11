@@ -21,7 +21,7 @@
 			<path d="M434.36 203.665C438.084 190.643 440.567 189.403 448.636 189.403C467.257 189.403 475.326 200.565 475.326 214.207C475.326 248.312 452.36 301.021 407.67 301.021C404.566 301.021 403.946 299.161 403.946 297.3C403.946 293.714 410.799 273.737 418.499 251.291C424.111 234.931 430.173 217.259 434.36 203.665Z" fill="#1D8FCE"/>
 		</svg>
 		<div class="footer-curtains__background-white"></div>
-		<div class="footer-curtains__date">2018 - {{ new Date().getFullYear() }}</div>
+		<!-- <div class="footer-curtains__date">2018 - {{ new Date().getFullYear() }}</div> -->
 	</div>
 </div>
 </template>
@@ -87,7 +87,6 @@ onUnmounted(() => {
 			left: 0;
 			width: 100vw;
 			height: 200vh;
-			background: url('../img/bg-lines.svg') repeat
 		}
 	}
 	&--global {

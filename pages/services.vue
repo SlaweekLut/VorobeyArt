@@ -15,7 +15,7 @@
 					Невозможно<br />
 					– не наш формат
 				</p>
-				<button class="services-text__button" @click="featherHandler($event)">
+				<!-- <button class="services-text__button" @click="featherHandler($event)">
 					<span>Клик</span>
 					<span>Чирик</span>
 					<div class="services-text__circles">
@@ -23,20 +23,10 @@
 						<span></span>
 						<span></span>
 					</div>
-				</button>
+				</button> -->
 			</div>
 		</div>
 		<div class="content services-groups">
-			<svg class="services-groups__svg" width="1920" height="299" viewBox="0 0 1920 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M132.299 233.594C150.918 233.594 165.503 229.233 176.054 220.513C186.915 211.48 194.053 201.046 197.466 189.211L267.288 193.883C263.875 207.898 258.289 221.291 250.531 234.061C242.773 246.831 233.153 258.043 221.671 267.698C210.189 277.042 196.846 284.673 181.64 290.591C166.745 296.197 150.298 299 132.299 299C112.438 299 93.6641 295.263 75.9758 287.788C58.5979 280.001 43.3922 269.411 30.3587 256.019C17.3253 242.315 6.92954 226.43 -0.828466 208.366C-8.27615 190.301 -12 170.679 -12 149.5C-12 128.632 -8.27615 109.166 -0.828466 91.1016C6.92954 72.7255 17.3253 56.8412 30.3587 43.4484C43.3922 29.7443 58.5979 19.1547 75.9758 11.6797C93.6641 3.89323 112.438 0 132.299 0C149.677 0 165.658 2.95885 180.243 8.87656C195.139 14.4828 208.172 22.1135 219.344 31.7688C230.826 41.1125 240.446 52.1693 248.204 64.9391C255.962 77.7089 261.547 91.1016 264.961 105.117L195.139 109.789C193.277 103.871 190.639 98.2651 187.226 92.9703C183.812 87.6755 179.468 83.0037 174.192 78.9547C168.917 74.9057 162.71 71.6354 155.573 69.1438C148.746 66.6521 140.988 65.4063 132.299 65.4063C121.748 65.4063 111.818 67.5865 102.508 71.9469C93.1986 75.9958 84.9751 81.7578 77.8377 89.2328C71.0107 96.7078 65.5801 105.584 61.5459 115.863C57.5118 126.141 55.4947 137.353 55.4947 149.5C55.4947 161.647 57.5118 172.859 61.5459 183.138C65.5801 193.416 71.0107 202.292 77.8377 209.767C84.9751 217.242 93.1986 223.16 102.508 227.52C111.818 231.569 121.748 233.594 132.299 233.594Z" fill="#F6F6F6"/>
-				<path d="M423.406 2.33594C438.612 2.33594 452.421 4.82761 464.834 9.81095C477.557 14.7943 488.418 21.4906 497.418 29.9C506.417 38.3094 513.399 48.2761 518.364 59.8C523.329 71.0125 525.812 83.0037 525.812 95.7735C525.812 112.281 522.864 126.141 516.968 137.353C511.382 148.566 505.02 157.754 497.883 164.917C491.056 171.769 484.694 176.753 478.798 179.867C472.902 182.982 469.954 184.539 469.954 184.539L535.121 296.664L460.645 296.664L407.114 198.555H372.203V296.664H304.709L304.709 2.33594L423.406 2.33594ZM423.406 133.148C435.198 133.148 444.353 130.034 450.869 123.805C457.386 117.576 460.645 109.789 460.645 100.445C460.645 91.1016 457.386 83.3151 450.869 77.0859C444.353 70.8568 435.198 67.7422 423.406 67.7422L372.203 67.7422V133.148H423.406Z" fill="#F6F6F6"/>
-				<path d="M570.178 2.33594L779.644 2.33594V67.7422L637.673 67.7422V114.461L768.007 114.461V179.867H637.673V231.258L784.299 231.258V296.664H570.178V2.33594Z" fill="#F6F6F6"/>
-				<path d="M972.619 182.203L940.035 84.0938L907.451 182.203L972.619 182.203ZM888.832 240.602L870.213 296.664H800.391L905.124 2.33594L974.946 2.33594L1079.68 296.664H1009.86L991.238 240.602L888.832 240.602Z" fill="#F6F6F6"/>
-				<path d="M1214.58 296.664H1147.08V67.7422L1063.3 67.7422V2.33594L1298.36 2.33594V67.7422L1214.58 67.7422V296.664Z" fill="#F6F6F6"/>
-				<path d="M1398.62 296.664H1331.13V2.33594L1398.62 2.33594V296.664Z" fill="#F6F6F6"/>
-				<path d="M1698.7 2.33594L1598.62 296.664L1528.79 296.664L1428.72 2.33594L1498.54 2.33594L1563.71 205.563L1628.87 2.33594L1698.7 2.33594Z" fill="#F6F6F6"/>
-				<path d="M1728.88 2.33594L1938.35 2.33594V67.7422L1796.37 67.7422V114.461L1926.71 114.461V179.867L1796.37 179.867V231.258L1943 231.258V296.664L1728.88 296.664V2.33594Z" fill="#F6F6F6"/>
-			</svg>
 			<div class="content__wrapper">
 				<div class="services-groups__wrapper">
 					<div class="services-group" v-for="(service, index) in services">
@@ -63,11 +53,111 @@
 				</div>
 			</div>
 		</div>
+		<div class="content about-logos">
+			<div class="content__wrapper">
+				<div class="about-logos__logos">
+					<div class="about-logos__logo"><img src="/img/about/energotek.svg" alt="energotek"></div>
+					<div class="about-logos__logo"><img src="/img/about/garilla.svg" alt="garilla"></div>
+					<div class="about-logos__logo"><img src="/img/about/Genezis.svg" alt="Genezis"></div>
+					<div class="about-logos__logo"><img src="/img/about/H_one.svg" alt="H_one"></div>
+					<div class="about-logos__logo"><img src="/img/about/HARO.svg" alt="HARO"></div>
+					<div class="about-logos__logo"><img src="/img/about/marusya.svg" alt="marusya"></div>
+					<div class="about-logos__logo"><img src="/img/about/Mobdebut.svg" alt="Mobdebut"></div>
+					<div class="about-logos__logo"><img src="/img/about/MoltenGrass.svg" alt="MoltenGrass"></div>
+					<div class="about-logos__logo"><img src="/img/about/Motorika.svg" alt="Motorika"></div>
+					<div class="about-logos__logo"><img src="/img/about/Muza_Amanita.svg" alt="Muza_Amanita"></div>
+					<div class="about-logos__logo"><img src="/img/about/OceanView.svg" alt="OceanView"></div>
+					<div class="about-logos__logo"><img src="/img/about/OwnWifi.svg" alt="OwnWifi"></div>
+					<div class="about-logos__logo"><img src="/img/about/PolarBear.svg" alt="PolarBear"></div>
+					<div class="about-logos__logo"><img src="/img/about/PrimeTravel.svg" alt="PrimeTravel"></div>
+					<div class="about-logos__logo"><img src="/img/about/ProZapchast.svg" alt="ProZapchast"></div>
+					<div class="about-logos__logo"><img src="/img/about/SmartsKvantelekom.svg" alt="SmartsKvantelekom"></div>
+					<div class="about-logos__logo"><img src="/img/about/SpisyNote.svg" alt="SpisyNote"></div>
+					<div class="about-logos__logo"><img src="/img/about/Tomi_Ai.svg" alt="Tomi_Ai"></div>
+					<div class="about-logos__logo"><img src="/img/about/Uni.svg" alt="Uni"></div>
+					<div class="about-logos__logo"><img src="/img/about/ximtex.svg" alt="ximtex"></div>
+					<div class="about-logos__logo"><img src="/img/about/Ykigassen.svg" alt="Ykigassen"></div>
+					<div class="about-logos__logo"><img src="/img/about/Yrievskoe_Podvorie.svg" alt="Yrievskoe_Podvorie"></div>
+					<div class="about-logos__logo"><img src="/img/about/ZolotoAltaya.svg" alt="ZolotoAltaya"></div>
+					<div class="about-logos__logo"><img src="/img/about/energotek.svg" alt="energotek"></div>
+					<div class="about-logos__logo"><img src="/img/about/garilla.svg" alt="garilla"></div>
+					<div class="about-logos__logo"><img src="/img/about/Genezis.svg" alt="Genezis"></div>
+					<div class="about-logos__logo"><img src="/img/about/H_one.svg" alt="H_one"></div>
+					<div class="about-logos__logo"><img src="/img/about/HARO.svg" alt="HARO"></div>
+					<div class="about-logos__logo"><img src="/img/about/marusya.svg" alt="marusya"></div>
+					<div class="about-logos__logo"><img src="/img/about/Mobdebut.svg" alt="Mobdebut"></div>
+				</div>
+			</div>
+		</div>
 		<div class="content services-lists">
 			<div class="content__wrapper">
-				<Accordion title="Дизайн"/>
-				<Accordion title="Сайты"/>
-				<Accordion title="Копирайтинг"/>
+				<div class="services-lists__row">
+					<p class="services-lists__text">*** Этапы работы</p>
+					<p class="services-lists__text">Vorobey Art <span>x</span> XX24</p>
+				</div>
+				<Accordion title="Дизайн">
+					<div class="services-more">
+						<div class="services-more__row">
+							<Step title="Бриф" step="01" icon="services-design-01" text="Сбор информации, понимание потребностей клиента и требований проекта."/>
+							<Step title="Поиск идей" step="02" icon="services-design-02" text="Генерация идей, проводим мозговые штурмы концепций и создаваем зарисовки дизайна."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Наброски" step="03" icon="services-design-03" text="Создаем черновые эскизы и цифровые каркасы для визуализации макета и структуры дизайна."/>
+							<Step title="Прототип" step="04" icon="services-design-04" text="Разрабатываем интерактивные прототипы для тестирования функциональности, пользовательского опыта и сбора обратной связи."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Создание" step="05" icon="services-design-05" text="Создание визуальных элементов, таких как графика, типографика, цветовые схемы и макет."/>
+							<Step title="Обратная связь" step="06" icon="services-design-06" text="Учитываем обратную связь заказчика и заинтересованных сторон. Вносим изменения и уточняем дизайн."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Завершение" step="07" icon="services-design-07" text="Подготовка материалов проекта к производству, обеспечиваем их соответствие техническим спецификациям и требованиям."/>
+							<Step title="Сотрудничество" step="08" icon="services-design-08" text="Взаимодействуем с разработчиками, копирайтерами и другими членами команды, чтобы обеспечить правильную реализацию проекта далее."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Тестирование" step="09" icon="services-design-09" text="Проводим тестирование, чтобы убедиться, что конструкция работает так, как задумано, и соответствует ожиданиям пользователей."/>
+							<Step title="Доставка" step="10" icon="services-design-10" text="Презентация окончательных результатов клиенту или отправка его в производство, обеспечивая предоставление всех необходимых файлов и документации."/>
+						</div>
+					</div>
+				</Accordion>
+				<Accordion title="Сайты">
+					<div class="services-more">
+						<div class="services-more__row">
+							<Step title="Бриф" step="01" icon="services-web-01" text="Понимание требований, определение целей проекта и проведение исследования целевой аудитории и конкурентов."/>
+							<Step title="Прототип" step="02" icon="services-web-02" text="Создание визуального макета и пользовательского интерфейса веб-сайта, включая каркасы, макеты, а также выбор цветовых схем, шрифтов и графики."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Создание контента" step="03" icon="services-web-03" text="Создание и организация контента: текст, изображения, видео и другие медиа-элементы. Это может включать в себя работу с копирайтерами, дизайнерами и специалистами по мультимедиа."/>
+							<Step title="Разработка" step="04" icon="services-web-04" text="Использование оптимальных решений для вашего проекта при переносе дизайна. Написание чистого и эффективного кода, создание адаптивных макетов и интеграция всех необходимых функций."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Тестирование" step="05" icon="services-web-05" text="Тестирование работы сайта на разных устройствах, браузерах, размерах экрана. Выявление и исправление любых ошибок или проблем."/>
+							<Step title="Развертывание" step="06" icon="services-web-06" text="Загрузка сайта на сервер и настройка его доступности для общественности. Сюда входит регистрация домена, настройка хостинга и интеграция базы данных, если необходимо."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Обслуживание" step="07" icon="services-web-07" text="Мониторинг производительности сайта, устранение любых возникающих проблем, а также внедрение обновлений или улучшений."/>
+						</div>
+					</div>
+				</Accordion>
+				<Accordion title="Копирайтинг">
+					<div class="services-more">
+						<div class="services-more__row">
+							<Step title="Исследование" step="01" icon="services-copyright-01" text="Сбор информации, понимание потребностей клиента и требований проекта."/>
+							<Step title="Планирование" step="02" icon="services-copyright-02" text="Генерация идей, проводим мозговые штурмы концепций и создаваем зарисовки дизайна."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Написание" step="03" icon="services-copyright-03" text="Создаем черновые эскизы и цифровые каркасы для визуализации макета и структуры дизайна."/>
+							<Step title="Редактирование" step="04" icon="services-copyright-04" text="Разрабатываем интерактивные прототипы для тестирования функциональности, пользовательского опыта и сбора обратной связи."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Обратная связь" step="05" icon="services-copyright-05" text="Создание визуальных элементов, таких как графика, типографика, цветовые схемы и макет."/>
+							<Step title="Пересмотр" step="06" icon="services-copyright-06" text="Учитываем обратную связь заказчика и заинтересованных сторон. Вносим изменения и уточняем дизайн."/>
+						</div>
+						<div class="services-more__row">
+							<Step title="Завершение" step="07" icon="services-copyright-07" text="Подготовка материалов проекта к производству, обеспечиваем их соответствие техническим спецификациям и требованиям."/>
+							<Step title="Тестирование" step="08" icon="services-copyright-08" text="Взаимодействуем с разработчиками, копирайтерами и другими членами команды, чтобы обеспечить правильную реализацию проекта далее."/>
+						</div>
+					</div>
+				</Accordion>
 			</div>
 		</div>
 		<Footer :case="false"/>
@@ -77,14 +167,15 @@
 <script>
 import Accordion from '../components/Accordion.vue';
 import Footer from '../components/Cases/Footer.vue';
-
+import Step from '../components/Services/Step.vue';
 
 export default {
 	name: 'ServicesPage',
 	props: {},
 	components: {
 		Footer,
-		Accordion
+		Accordion,
+		Step
 	},
 	data() {
 		return {
@@ -263,12 +354,39 @@ body {
 }
 
 .services-lists {
-	padding-top: 106px;
-	padding-bottom: 189px;
+	padding: 0px 93px 150px;
+	margin-top: 132px;
+	&__row {
+		display: flex;
+		padding: 0px 72px 34px;
+		justify-content: space-between;
+	}
+	&__text {
+		font-size: 18px;
+		color: #aaa;
+		span {
+			color: #222;
+		}
+	}
+}
+.services-more {
+	display: flex;
+	flex-direction: column;
+	gap: 92px;
+	&__row {
+		display: flex;
+		:deep(.services-item:first-child .services-item__row) {
+			border-right: 1px solid #E0E0E0;
+		}
+		:deep(.services-item) {
+			max-width: 50%;
+			width: 100%;
+		}
+	}
 }
 
 .services-text {
-	padding: 120px 93px 80px;
+	padding: 80px 93px;
 	margin: 0 auto;
 	&__wrapper {
 		display: flex;
@@ -412,8 +530,8 @@ body {
 }
 .services-groups {
 	margin-top: 0;
-	padding-bottom: 53px;
 	position: relative;
+	padding-bottom: 0;
 	&__svg {
 		position: absolute;
 		left: 0;
@@ -421,13 +539,12 @@ body {
 	}
 	&__wrapper {
 		display: flex;
-		padding: 32px;
+		padding: 30px;
 		justify-content: space-between;
 		gap: 32px;
 	}
 }
 .services-group {
-	padding: 65px 0;
 	// border-top: 1px solid #222;
 	display: flex;
 	flex-direction: column;
@@ -477,7 +594,7 @@ body {
 	&__item {
 		display: flex;
 		flex-direction: row;
-		gap: 46px;
+		gap: 16px;
 		align-items: center;
 		padding: 7px 0;
 		font-size: 18px;
@@ -493,9 +610,76 @@ body {
 		}
 	}
 }
+
+@keyframes logos {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-361.3%);
+	}
+}
+.about-logos {
+	width: 100vw;
+	max-width: 100vw;
+	overflow: auto;
+	padding: 37px;
+	margin-top: 63px;
+	.content__wrapper {
+		max-width: 100%;
+	}
+	&__logos {
+		display: flex;
+		animation: logos 120s infinite linear;
+		img {
+			user-select: none;
+		}
+	}
+	&__logo {
+		padding: 55px 50px 55px 55px;
+		border-right: 1px solid #E0E0E0;
+		border-bottom: 1px solid #E0E0E0;
+		filter: grayscale(1);
+		transition: 0.3s ease-out;
+		&:hover {
+			filter: grayscale(0);
+		}
+	}
+}
+
+
+@media (max-width: 1440px) {
+	.services-lists {
+		padding: 0px 65px 150px;
+		&__row {
+			padding-left: 72px;
+			padding-right: 72px;
+		}
+	}
+}
 @media (max-width: 1200px) {
 	.services-groups__wrapper {
-		gap: 0 100px;
+		gap: 50px 32px;
+		flex-wrap: wrap;
+	}
+	.services-more {
+		gap: 50px;
+		&__row {
+			flex-direction: column;
+			gap: 50px;
+			:deep(.services-item:first-child .services-item__row) {
+				border-right: none;
+			}
+			:deep(.services-item) {
+				max-width: 100%;
+			}
+		}
+	}
+	.services-lists {
+		&__row {
+			padding-left: 40px;
+			padding-right: 50px;
+		}
 	}
 }
 @media (max-width: 1024px) {
@@ -508,12 +692,16 @@ body {
 	}
 	.services-groups__wrapper {
 		display: flex;
-		flex-direction: column;
 		max-width: 100%;
 	}
 	.services-group {
 		&__title {
 			font-size: 20px;
+		}
+	}
+	.about-logos {
+		&__logo {
+			padding: 47px 37px;
 		}
 	}
 }
@@ -528,6 +716,15 @@ body {
 	// .about-service {
 	// 	padding: 60px 41px 130px;
 	// }
+	.about-logos {
+		&__logo {
+			padding: 43px 40px;
+		}
+	}
+	.services-lists {
+		padding: 0px 38px;
+		margin-top: 60px;
+	}
 }
 @media (max-width: 570px) {
 	.services-group-list {
@@ -537,6 +734,17 @@ body {
 	.services-text {
 		&__button {
 			display: none;
+		}
+	}
+	.services-lists {
+		padding-left: 13px;
+		padding-right: 13px;
+		&__row {
+			padding-left: 13px;
+			padding-right: 13px;
+		}
+		&__text {
+			font-size: 14px;
 		}
 	}
 }

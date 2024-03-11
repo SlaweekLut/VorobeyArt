@@ -22,25 +22,27 @@
 					</div>
 				</div>
 				<div class="works-examples">
-					<div v-for="(work, i) in works" :key="i" class="works-example" :class="{ 'works-example--hide': !work.visible }">
-						<NuxtLink v-if="work.to !== '/'" class="works-example__link" :to="{ path: work.to }"></NuxtLink>
-						<div class="works-example__header">
-							<picture>
-								<source media="(max-width: 768px)" :srcset="`/img/${work.img[0]}/Mobile/${work.img[1]}.webp`" type="image/webp" />
-								<source media="(min-width: 769px)" :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" type="image/webp" />
-								<source :srcset="`/img/${work.img[0]}/JPG/${work.img[1]}.png`" type="image/png" />
-								<img :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" alt="Пример работы" type="image/webp" class="works-example__img" />
-							</picture>
-							<div class="works-example__background"></div>
+					<template  v-for="(work, i) in works" :key="i">
+						<div v-if="work.to !== '/'" class="works-example" :class="{ 'works-example--hide': !work.visible }">
+							<NuxtLink v-if="work.to !== '/'" class="works-example__link" :to="{ path: work.to }"></NuxtLink>
+							<div class="works-example__header">
+								<picture>
+									<source media="(max-width: 768px)" :srcset="`/img/${work.img[0]}/Mobile/${work.img[1]}.webp`" type="image/webp" />
+									<source media="(min-width: 769px)" :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" type="image/webp" />
+									<source :srcset="`/img/${work.img[0]}/JPG/${work.img[1]}.png`" type="image/png" />
+									<img :srcset="`/img/${work.img[0]}/PC/${work.img[1]}.webp`" alt="Пример работы" type="image/webp" class="works-example__img" />
+								</picture>
+								<div class="works-example__background"></div>
+							</div>
+							<div class="works-example__info">
+								<h3 v-if="work.to !== '/'" class="works-example__title">
+									{{ work.title }}
+								</h3>
+								<h3 v-if="work.to === '/'" class="works-example__title works-example__title--dev">В разработке</h3>
+								<p class="works-example__text" v-html="work.description"></p>
+							</div>
 						</div>
-						<div class="works-example__info">
-							<h3 v-if="work.to !== '/'" class="works-example__title">
-								{{ work.title }}
-							</h3>
-							<h3 v-if="work.to === '/'" class="works-example__title works-example__title--dev">В разработке</h3>
-							<p class="works-example__text" v-html="work.description"></p>
-						</div>
-					</div>
+					</template>
 				</div>
 			</div>
 		</div>
@@ -501,9 +503,9 @@ body {
 }
 .works-examples {
 	display: grid;
-	gap: 73px 35px;
+	gap: 80px 65px;
 	height: auto;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	&::-webkit-scrollbar {
 		width: 0;
 	}
@@ -556,8 +558,8 @@ body {
 		font-weight: 600;
 	}
 	&__background {
-		width: clamp(100px, 15vw, 217px);
-		height: clamp(180px, 21vw, 290px);
+		width: clamp(100px, 15vw, 263px);
+		height: clamp(180px, 21vw, 350px);
 		border-radius: 15px;
 		border: 1px solid #0181c8;
 		position: absolute;
@@ -578,10 +580,11 @@ body {
 		transition: 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175);
 		opacity: 0;
 		z-index: 1;
-		width: clamp(260px, 20vw, 290px);
-		height: clamp(250px, 20vw, 266px);
+		width: clamp(260px, 20vw, 350px);
+		height: clamp(250px, 20vw, 330px);
 		object-fit: contain;
 		object-position: center center;
+		filter: grayscale(1);
 	}
 	&.visible &__img {
 		// animation: animationWork 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.175) backwards;
@@ -615,7 +618,7 @@ body {
 				transform: translate3d(-50%, -50%, 0) rotate(15deg) scale3d(0.9, 0.9, 0.9);
 			}
 			&__img {
-				
+				filter: grayscale(0);
 				opacity: 1;
 				// animation: animationWorkHover 0.3s ease both 0s;
 				transform: translate3d(-50%, -50%, 0) scale3d(1.1, 1.1, 1.1) !important;
@@ -663,6 +666,7 @@ body {
 	.works-example {
 		&__img {
 			max-width: 243px;
+			filter: grayscale(0);
 		}
 		&__header {
 			height: 276px;
@@ -769,58 +773,58 @@ body {
 	}
 }
 @media (max-width: 590px) {
-	.works-nav {
-		width: 100%;
-		height: 33px;
-		z-index: 3;
-		&__list {
-			position: absolute;
-			flex-direction: column;
-			width: 100%;
-			gap: 0;
-			background-color: #f8f8f8;
-			border-radius: 16px;
-			height: 100%;
-			transition: 0.3s ease;
-			overflow: hidden;
-			&--open {
-				height: 600%;
-			}
-		}
-		&__links {
-			height: 33px;
-			width: 100%;
-			text-align: left;
-			z-index: 5;
-			transition: unset !important;
-			&--active {
-				transition: unset !important;
-				order: -1;
-				&::after {
-					content: '';
-					width: 11px;
-					height: 8px;
-					display: block;
-					position: absolute;
-					right: 20px;
-					top: 50%;
-					transition: 0.3s ease;
-					transform: translateY(-50%);
-					background-image: url("data:image/svg+xml,%3Csvg width='13' height='8' viewBox='0 0 13 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6.5 7L12 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-					background-size: contain;
-					background-repeat: no-repeat;
-				}
-			}
-			&--open {
-				&::after {
-					transform: translateY(-50%) rotate(180deg);
-				}
-			}
-		}
-		&__links-fill {
-			display: none;
-		}
-	}
+	// .works-nav {
+	// 	width: 100%;
+	// 	height: 33px;
+	// 	z-index: 3;
+	// 	&__list {
+	// 		position: absolute;
+	// 		flex-direction: column;
+	// 		width: 100%;
+	// 		gap: 0;
+	// 		background-color: #f8f8f8;
+	// 		border-radius: 16px;
+	// 		height: 100%;
+	// 		transition: 0.3s ease;
+	// 		overflow: hidden;
+	// 		&--open {
+	// 			height: 600%;
+	// 		}
+	// 	}
+	// 	&__links {
+	// 		height: 33px;
+	// 		width: 100%;
+	// 		text-align: left;
+	// 		z-index: 5;
+	// 		transition: unset !important;
+	// 		&--active {
+	// 			transition: unset !important;
+	// 			order: -1;
+	// 			&::after {
+	// 				content: '';
+	// 				width: 11px;
+	// 				height: 8px;
+	// 				display: block;
+	// 				position: absolute;
+	// 				right: 20px;
+	// 				top: 50%;
+	// 				transition: 0.3s ease;
+	// 				transform: translateY(-50%);
+	// 				background-image: url("data:image/svg+xml,%3Csvg width='13' height='8' viewBox='0 0 13 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6.5 7L12 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+	// 				background-size: contain;
+	// 				background-repeat: no-repeat;
+	// 			}
+	// 		}
+	// 		&--open {
+	// 			&::after {
+	// 				transform: translateY(-50%) rotate(180deg);
+	// 			}
+	// 		}
+	// 	}
+	// 	&__links-fill {
+	// 		display: none;
+	// 	}
+	// }
 }
 @media (max-width: 425px) {
 	.works {

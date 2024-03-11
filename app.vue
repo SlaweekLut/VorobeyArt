@@ -25,7 +25,7 @@
 		/>
 		<!-- <DelayHydration> -->
 		<!-- <Transition :name="curtains === 'Menu' ? 'menu' : 'page'"> -->
-		<NuxtPage v-slot="{ Component }" :class="{ menu: curtains === 'Menu' }" :curtains="curtains">
+		<NuxtPage :model="model" v-slot="{ Component }" :class="{ menu: curtains === 'Menu' }" :curtains="curtains">
 			<component :is="Component" :key="$route.path"> </component>
 		</NuxtPage>
 		<!-- </Transition> -->
@@ -38,6 +38,8 @@ import HeaderPage from '~/components/Header.vue';
 import PreloaderElement from '~/components/Preloader.vue';
 import CurtainsElement from '~/components/Curtains.vue';
 import Plug from './components/Plug.vue';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export default {
 	name: 'App',
@@ -58,7 +60,10 @@ export default {
 			menu: false,
 			currentPageName: '',
 			isDeveloper: false,
-			pass: "Ff267S_Zs555"
+			pass: "Ff267S_Zs555",
+			model: {
+				loaded: false,
+			}
 		};
 	},
 	watch: {
@@ -80,7 +85,7 @@ export default {
 			// immediate: true,
 		},
 	},
-	mounted() {
+	async mounted() {
 		let password = localStorage.getItem('VorobeyArtPassword')
 		if(password === this.pass) this.isDeveloper = true
 		console.log(this.isDeveloper, password)
@@ -101,6 +106,19 @@ export default {
 				this.curtains = 'Nothing';
 			}, 3500);
 		}
+
+		this.model.gltfLoader = new GLTFLoader().setPath( '/models/' );
+		this.model.gltf = await this.model.gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
+		this.model.textureLoader = new THREE.CubeTextureLoader();
+		this.model.texture = this.model.textureLoader.load([
+			"/models/cubemap/0001.jpg",
+			"/models/cubemap/0002.jpg",
+			"/models/cubemap/0003.jpg",
+			"/models/cubemap/0004.jpg",
+			"/models/cubemap/0005.jpg",
+			"/models/cubemap/0006.jpg",
+		]);
+		this.model.texture.encoding = THREE.sRGBEncoding;
 	},
 	methods: {
 		setCurtains(curtains) {
@@ -242,8 +260,6 @@ body
 	min-height: 100vh
 	overflow-x: hidden
 	overflow-y: auto
-	&.lines
-		background: url('../img/bg-lines.svg') repeat-y
 	background-size: 500vw 1281px
 
 *
@@ -331,8 +347,6 @@ body
 		padding: 0px 41px 50px
 		&__wrapper
 			max-width: 612px
-	body.lines
-			background-size: 960px
 
 @media (max-width: 425px)
 	.content
