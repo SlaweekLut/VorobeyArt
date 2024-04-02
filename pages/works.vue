@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import TitlePage from '@/components/Title.vue';
+import TitlePage from '@/components/TitlePage.vue';
 import Footer from '../components/Cases/Footer.vue';
 export default {
 	name: 'WorksPage',
@@ -325,10 +325,10 @@ export default {
 			tags: [
 				{ title: 'Все проекты', tag: 'all' },
 				{ title: 'Графический дизайн', tag: 'design' },
-				{ title: '3D дизайн', tag: '3D' },
+				{ title: '3D моделирование', tag: '3D' },
 				{ title: 'Брендинг', tag: 'brand' },
 				{ title: 'WEB разработка', tag: 'web' },
-				{ title: 'Мобильная разработка', tag: 'mobile' },
+				{ title: 'Моб разработка', tag: 'mobile' },
 			],
 			PART_HEIGHT: 12,
 		};
@@ -426,8 +426,12 @@ body {
 	}
 }
 .works {
+	margin-top: 53px;
+	.content__wrapper {
+		max-width: 1168px;
+	}
 	&__title {
-		font-size: 60px;
+		font-size: 50px;
 		font-weight: 700;
 		margin-bottom: 20px;
 	}
@@ -526,7 +530,7 @@ body {
 	&__header {
 		position: relative;
 		height: 336px;
-		margin-bottom: 25px;
+		margin-bottom: 65px;
 	}
 	&__title {
 		font-weight: 800;
@@ -600,17 +604,11 @@ body {
 	&:nth-child(3n).loading &__img{
 		transition-delay: $time * 3;
 	}
-	&:nth-child(4n).loading &__img{
-		transition-delay: $time * 4;
-	}
-	&:nth-child(4n + 1).loading &__img{
+	&:nth-child(3n + 1).loading &__img{
 		transition-delay: 0s;
 	}
-	&:nth-child(4n + 2).loading &__img{
+	&:nth-child(3n + 2).loading &__img{
 		transition-delay: $time * 2;
-	}
-	&:nth-child(4n + 3).loading &__img{
-		transition-delay: $time * 3;
 	}
 	&:hover {
 		.works-example {
@@ -827,7 +825,22 @@ body {
 	// }
 }
 @media (max-width: 425px) {
+	.works-nav {
+		&__list {
+			gap: 8px;
+		}
+		&__links {
+			padding: 10px 16px 9px 16px;
+			font-size: 14px;
+			span {
+				font-size: 14px;
+			}
+		}
+	}
 	.works {
+		padding-left: 31px;
+		padding-right: 31px;
+		margin-top: 44px;
 		.content__wrapper {
 			max-width: 363px;
 		}

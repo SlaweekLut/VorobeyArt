@@ -86,11 +86,11 @@ defineProps({
 		}
 	}
 }
-@media (max-width: 768px) {
+@media (max-width: 425px) {
 	.services-item {
 		&__row {
 			flex-direction: column;
-			gap: 30px;
+			gap: 24px;
 			padding: 46px 23px 0px 13px;
 		}
 		&__header {

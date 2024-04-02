@@ -103,7 +103,7 @@ import LikeTemplate from '@/components/Cases/Like.vue';
 import FooterTemplate from '@/components/Cases/Footer.vue';
 import IntroTemplate from '@/components/Cases/Intro.vue';
 import TaskTemplate from '@/components/Cases/Task.vue';
-import TitleTemplate from '@/components/Cases/Title.vue';
+import TitleTemplate from '@/components/Cases/TitleTemplate.vue';
 
 export default {
   name: 'EnergotekARPage',

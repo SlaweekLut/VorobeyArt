@@ -229,8 +229,8 @@
 							<input type="text" class="contacts-modal-input__input" v-model="inputs.name" placeholder="Представьтесь, пожалуйста" required>
 						</label>
 						<label class="contacts-modal-input">
-							<p class="contacts-modal-input__title">Название компании</p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.company" placeholder="Vorobey.art">
+							<p class="contacts-modal-input__title">Название компании<span>*</span></p>
+							<input type="text" class="contacts-modal-input__input" v-model="inputs.company" placeholder="Vorobey.art" required>
 						</label>
 					</div>
 					<div class="contacts-modal__row">
@@ -283,7 +283,7 @@
 </template>
 
 <script>
-import TitlePage from '@/components/Title.vue';
+import TitlePage from '@/components/TitlePage.vue';
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -389,7 +389,7 @@ export default {
 			this.inputs.files = [...e.target.files];
 		},
 		openModal() {
-			const maxWidth = window.innerWidth - 40 >= 1440 ? 1400 : window.innerWidth - 40
+			const maxWidth = window.innerWidth - 40 >= 1440 ? 1400 : window.innerWidth - 40 >= 425 
 			this.showModal = true;
 			if(!this.tl) {
 				setTimeout(() => {
@@ -405,9 +405,11 @@ export default {
 							snap: 1
 						}
 					})
-					tl.addLabel("start")
-						.from(".contacts-modal__wrapper", { maxWidth: `${maxWidth}px`})
-						.to(".contacts-modal__wrapper", { maxWidth: `${window.innerWidth}px`})
+					if(window.innerWidth > 425) {
+						tl.addLabel("start")
+							.from(".contacts-modal__wrapper", { maxWidth: `${maxWidth}px`})
+							.to(".contacts-modal__wrapper", { maxWidth: `${window.innerWidth}px`})
+					}
 				}, 400)
 			}
 		},
@@ -516,7 +518,7 @@ export default {
 		transition: .3s ease;
 		&__wrapper {
 			border-radius: 43px 43px 0 0;
-			margin: 200px auto 0;
+			margin: 193px auto 0;
 			display: flex;
 			max-width: min(1400px, calc(100vw - 40px));
 			width: 100%;
@@ -619,6 +621,7 @@ export default {
 	}
 	.contacts-button {
 		display: flex;
+		align-items: center;
 		gap: 64px;
 		text-align: left;
 		padding: 0px 6px 4px 6px;
@@ -655,10 +658,13 @@ export default {
 		align-items: center;
 	}
 	.contacts {
-		margin-top: 80px;
+		margin-top: 53px;
 		margin-bottom: auto;
 		padding-top: 0;
 		padding-bottom: 0;
+		.content__wrapper {
+			max-width: 1168px;
+		}
 		&__grid {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
@@ -761,8 +767,7 @@ export default {
 			}
 		}
 		&__link-text {
-			font-size: 25px;
-			margin-bottom: 9px;
+			font-size: 20px;
 			font-weight: 600;
 			text-decoration: none;
 			&--mail {
@@ -985,7 +990,7 @@ export default {
 			&__col {
 				max-width: 100%;
 				display: flex;
-				gap: 48px 10px;
+				gap: 98px 10px;
 			}
 			&__decor {
 				top: 100px;
@@ -1010,6 +1015,9 @@ export default {
 			}
 		}
 		.contacts-modal {
+			&__wrapper {
+				border-radius: 25px 25px 0px 0px;
+			}
 			&__header {
 				max-width: 864px;
 			}
@@ -1019,6 +1027,9 @@ export default {
 			&__close {
 				top: 50px;
 				right: 40px;
+			}
+			&__title {
+				font-size: 35px;
 			}
 		}
 	}
@@ -1034,10 +1045,13 @@ export default {
 			padding-top: 58px;
 			padding-bottom: 58px;
 			&__link-text {
-				font-size: 18px;
+				font-size: 20px;
 			}
 			&__grid {
 				grid-template-columns: repeat(4, 1fr);
+			}
+			&__col {
+				gap: 78px 10px;
 			}
 		}
 		.contacts-form {
@@ -1074,6 +1088,9 @@ export default {
 					}
 				}
 			}
+			&__title {
+				font-size: 30px;
+			}
 		}
 	}
 	@media (max-width: 570px) {
@@ -1099,7 +1116,7 @@ export default {
 			}
 			&__col {
 				display: flex;
-				gap: 28px;
+				gap: 76px;
 				&-group {
 					&:nth-child(3) {
 						margin-bottom: 42px;
@@ -1114,7 +1131,7 @@ export default {
 				gap: 20px;
 			}
 			&__description {
-				margin-bottom: 20px;
+				margin-bottom: 0px;
 			}
 		}
 		.contacts-modal {
@@ -1142,6 +1159,18 @@ export default {
 					}
 				}
 			}
+			&__title {
+				font-size: 25px;
+			}
 		}
 	};
+	@media (max-width: 425px) {
+		.contacts-modal {
+			&__wrapper {
+				width: 100%;
+				padding-top: 30px;
+				max-width: 100%;
+			}
+		}
+	}
 </style>

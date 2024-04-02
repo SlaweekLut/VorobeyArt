@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="services">
 		<Head>
 			<Title>Услуги</Title>
 			<Meta
@@ -9,6 +9,8 @@
           смелые идеи."
 			/>
 		</Head>
+		<img src="/img/about/feather.png" alt="" class="services__decor services__decor--1">
+		<img src="/img/about/feather.png" alt="" class="services__decor services__decor--2">
 		<div class="content services-text">
 			<div class="content__wrapper services-text__wrapper">
 				<p class="services-text__title">
@@ -186,7 +188,7 @@ export default {
 					link: 'works#design',
 				},
 				{
-					title: 'Сайты / Приложения',
+					title: 'Сайты',
 					list: ['HTML / CSS / JS', 'iOS / Android', 'Backend / API', 'AR', 'CMS', '@^##_//'],
 					link: 'works#web',
 				},
@@ -353,6 +355,25 @@ body {
 	}
 }
 
+.services {
+	position: relative;
+	&__decor {
+		position: absolute;
+		&--1 {
+			width: 1082px;
+			transform: rotate(-135deg);
+			right: -30px;
+			top: -152px;
+		}
+		&--2 {
+			width: 678px;
+			transform: scaleY(-1) rotate(55deg);
+			top: 452px;
+			left: -280px;
+		}
+	}
+}
+
 .services-lists {
 	padding: 0px 93px 150px;
 	margin-top: 132px;
@@ -378,6 +399,10 @@ body {
 		:deep(.services-item:first-child .services-item__row) {
 			border-right: 1px solid #E0E0E0;
 		}
+		:deep(.services-item:last-child .services-item__row) {
+			padding-left: 40px;
+			padding-right: 112px;
+		}
 		:deep(.services-item) {
 			max-width: 50%;
 			width: 100%;
@@ -386,15 +411,17 @@ body {
 }
 
 .services-text {
-	padding: 80px 93px;
+	padding: 53px 20px 80px;
 	margin: 0 auto;
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		max-width: 1168px;
+		margin: 0 auto;
 	}
 	&__title {
-		font-size: 60px;
+		font-size: 50px;
 		font-weight: 700;
 	}
 	&__button {
@@ -540,6 +567,8 @@ body {
 	&__wrapper {
 		display: flex;
 		padding: 30px;
+		max-width: 1168px;
+		margin: 0 auto;
 		justify-content: space-between;
 		gap: 32px;
 	}
@@ -548,6 +577,8 @@ body {
 	// border-top: 1px solid #222;
 	display: flex;
 	flex-direction: column;
+	max-width: 232px;
+	width: 100%;
 	&__row {
 		display: flex;
 		align-items: center;
@@ -602,11 +633,10 @@ body {
 		position: relative;
 		&::before {
 			content: '';
+			background-image: url("data:image/svg+xml,%3Csvg width='5' height='5' viewBox='0 0 5 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 1.90741V3.09259L3.36918 3.01852L4.319 4.37037L3.29749 5L2.49104 3.48148L1.68459 5L0.681004 4.37037L1.6129 3.01852L0 3.09259V1.90741L1.6129 2L0.681004 0.62963L1.68459 0L2.49104 1.51852L3.29749 0L4.319 0.62963L3.36918 2L5 1.90741Z' fill='%230181C8'/%3E%3C/svg%3E%0A");
 			display: block;
-			width: 7px;
-			height: 7px;
-			border-radius: 50%;
-			background-color: #0181C8;
+			width: 5px;
+			height: 5px;
 		}
 	}
 }
@@ -616,15 +646,17 @@ body {
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-361.3%);
+		transform: translateX(calc(256px * -23));
 	}
 }
 .about-logos {
 	width: 100vw;
 	max-width: 100vw;
 	overflow: auto;
-	padding: 37px;
-	margin-top: 63px;
+	padding: 0px 37px;
+	height: 170px;
+	border-bottom: 1px solid #E0E0E0;
+	margin-top: 100px;
 	.content__wrapper {
 		max-width: 100%;
 	}
@@ -638,15 +670,16 @@ body {
 	&__logo {
 		padding: 55px 50px 55px 55px;
 		border-right: 1px solid #E0E0E0;
-		border-bottom: 1px solid #E0E0E0;
 		filter: grayscale(1);
 		transition: 0.3s ease-out;
+		img {
+			height: 60px;
+		}
 		&:hover {
 			filter: grayscale(0);
 		}
 	}
 }
-
 
 @media (max-width: 1440px) {
 	.services-lists {
@@ -654,6 +687,16 @@ body {
 		&__row {
 			padding-left: 72px;
 			padding-right: 72px;
+		}
+	}
+	.services {
+		&__decor {
+			&--1 {
+				right: -33px;
+			}
+			&--2 {
+				display: none;
+			}
 		}
 	}
 }
@@ -670,6 +713,9 @@ body {
 			:deep(.services-item:first-child .services-item__row) {
 				border-right: none;
 			}
+			:deep(.services-item:last-child .services-item__row) {
+				padding: 26px 90px 0px;
+			}
 			:deep(.services-item) {
 				max-width: 100%;
 			}
@@ -685,45 +731,85 @@ body {
 @media (max-width: 1024px) {
 	.services-text {
 		margin: 0 auto;
-		padding: 90px 41px 60px;
+		padding: 90px 80px 60px;
 		&__title {
 			font-size: 30px;
 		}
 	}
+	.services-groups {
+		.content__wrapper {
+			max-width: 100%;
+		}
+	}
 	.services-groups__wrapper {
 		display: flex;
-		max-width: 100%;
+		max-width: 608px;
+		width: 100%;
 	}
 	.services-group {
 		&__title {
 			font-size: 20px;
 		}
 	}
+	.services {
+		&__decor {
+			&--1 {
+				width: 914px;
+				right: -150px;
+			}
+		}
+	}
+	@keyframes logos {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(200px * -23));
+		}
+	}
 	.about-logos {
+		margin-top: 60px;
+		height: 134px;
 		&__logo {
-			padding: 47px 37px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 200px;
+			min-width: 200px;
+			height: 134px;
+			padding: 0px;
+			img {
+				height: 47px;
+			}
 		}
 	}
 }
 @media (max-width: 768px) {
+	.services {
+		&__decor {
+			&--1 {
+				width: 732px;
+				right: -117px;
+			}
+		}
+	}
 	.services-text {
 		margin: 0 auto;
-		padding: 46px 41px 60px;
+		padding: 46px 80px 60px;
 		&__wrapper {
 			gap: 25px;
 		}
 	}
-	// .about-service {
-	// 	padding: 60px 41px 130px;
-	// }
-	.about-logos {
-		&__logo {
-			padding: 43px 40px;
-		}
-	}
 	.services-lists {
-		padding: 0px 38px;
+		padding: 0px 38px 60px;
 		margin-top: 60px;
+	}
+	.services-more {
+		&__row {
+			:deep(.services-item:last-child .services-item__row) {
+				padding: 46px 42px 0px;
+			}
+		}
 	}
 }
 @media (max-width: 570px) {
@@ -732,6 +818,7 @@ body {
 		flex-direction: column;
 	}
 	.services-text {
+		padding-bottom: 30px;
 		&__button {
 			display: none;
 		}
@@ -749,9 +836,31 @@ body {
 	}
 }
 @media (max-width: 425px) {
+	.services {
+		&__decor {
+			&--1 {
+				display: none;
+			}
+		}
+	}
+	.services-more {
+		gap: 30px;
+		&__row {
+			:deep(.services-item:last-child .services-item__row) {
+				padding: 46px 23px 0px 13px
+			}
+		}
+	}
+	.services-lists {
+		.content__wrapper {
+			padding-left: 18px;
+			padding-right: 18px;
+			max-width: 100%;
+		}
+	}
 	.services-text {
 		margin: 0 auto;
-		padding: 43px 31px 60px;
+		padding: 43px 31px 30px;
 		&__title {
 			font-size: 25px;
 		}

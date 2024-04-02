@@ -63,16 +63,32 @@
 					<div class="about-logos__logo"><img src="/img/about/HARO.svg" alt="HARO"></div>
 					<div class="about-logos__logo"><img src="/img/about/marusya.svg" alt="marusya"></div>
 					<div class="about-logos__logo"><img src="/img/about/Mobdebut.svg" alt="Mobdebut"></div>
+					<div class="about-logos__logo"><img src="/img/about/MoltenGrass.svg" alt="MoltenGrass"></div>
+					<div class="about-logos__logo"><img src="/img/about/Motorika.svg" alt="Motorika"></div>
+					<div class="about-logos__logo"><img src="/img/about/Muza_Amanita.svg" alt="Muza_Amanita"></div>
+					<div class="about-logos__logo"><img src="/img/about/OceanView.svg" alt="OceanView"></div>
+					<div class="about-logos__logo"><img src="/img/about/OwnWifi.svg" alt="OwnWifi"></div>
+					<div class="about-logos__logo"><img src="/img/about/PolarBear.svg" alt="PolarBear"></div>
+					<div class="about-logos__logo"><img src="/img/about/PrimeTravel.svg" alt="PrimeTravel"></div>
+					<div class="about-logos__logo"><img src="/img/about/ProZapchast.svg" alt="ProZapchast"></div>
+					<div class="about-logos__logo"><img src="/img/about/SmartsKvantelekom.svg" alt="SmartsKvantelekom"></div>
+					<div class="about-logos__logo"><img src="/img/about/SpisyNote.svg" alt="SpisyNote"></div>
+					<div class="about-logos__logo"><img src="/img/about/Tomi_Ai.svg" alt="Tomi_Ai"></div>
+					<div class="about-logos__logo"><img src="/img/about/Uni.svg" alt="Uni"></div>
+					<div class="about-logos__logo"><img src="/img/about/ximtex.svg" alt="ximtex"></div>
+					<div class="about-logos__logo"><img src="/img/about/Ykigassen.svg" alt="Ykigassen"></div>
+					<div class="about-logos__logo"><img src="/img/about/Yrievskoe_Podvorie.svg" alt="Yrievskoe_Podvorie"></div>
+					<div class="about-logos__logo"><img src="/img/about/ZolotoAltaya.svg" alt="ZolotoAltaya"></div>
 				</div>
 			</div>
 		</div>
 		<div class="about-text__wrapper">
 			<div class="about-text__decor">
 				<svg width="1016" height="267" viewBox="0 0 1016 267" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M137.882 267H76.3653V59.3333H0V0H214.247V59.3333H137.882V267Z" fill="#FBFBFB"/>
-					<path d="M244.11 0H435.024V59.3333H305.627V101.714H424.417V161.048H305.627V207.667H439.266V267H244.11V0Z" fill="#FBFBFB"/>
-					<path d="M610.906 163.167L581.208 74.1667L551.511 163.167H610.906ZM534.541 216.143L517.571 267H453.933L549.389 0H613.027L708.484 267H644.846L627.876 216.143H534.541Z" fill="#FBFBFB"/>
-					<path d="M960.847 0H1016V267H954.484V133.5L892.967 267H854.784L793.268 133.5V267H731.751V0H786.904L873.876 188.595L960.847 0Z" fill="#FBFBFB"/>
+					<path d="M137.882 267H76.3653V59.3333H0V0H214.247V59.3333H137.882V267Z" fill="#F6F6F6"/>
+					<path d="M244.11 0H435.024V59.3333H305.627V101.714H424.417V161.048H305.627V207.667H439.266V267H244.11V0Z" fill="#F6F6F6"/>
+					<path d="M610.906 163.167L581.208 74.1667L551.511 163.167H610.906ZM534.541 216.143L517.571 267H453.933L549.389 0H613.027L708.484 267H644.846L627.876 216.143H534.541Z" fill="#F6F6F6"/>
+					<path d="M960.847 0H1016V267H954.484V133.5L892.967 267H854.784L793.268 133.5V267H731.751V0H786.904L873.876 188.595L960.847 0Z" fill="#F6F6F6"/>
 				</svg>
 			</div>
 			<div class="content about-text">
@@ -115,13 +131,13 @@
 
 <script>
 import axios from 'axios';
-import gsap from 'gsap'
+// import gsap from 'gsap'
 
 import Footer from '../components/Cases/Footer.vue';
 import AboutNumbers from '@/components/About/Numbers.vue';
 import AboutService from '@/components/About/Service.vue';
 import AboutCard from '@/components/About/Card.vue';
-import TitlePage from '@/components/Title.vue';
+import TitlePage from '@/components/TitlePage.vue';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -221,111 +237,111 @@ export default {
 		},
 	},
 
-	mounted() {
-		let renderer, scene, camera, gltf, texture;
-		console.log('asd',this.$props.model)
-		setTimeout(() => {
-			console.log('asd',this.$props.model)
-			gltf = this.$props.model.gltf
-			texture = this.$props.model.texture
-			// init();
-		}, 1000)
+	// mounted() {
+	// 	let renderer, scene, camera, gltf, texture;
+	// 	console.log('asd',this.$props.model)
+	// 	setTimeout(() => {
+	// 		console.log('asd',this.$props.model)
+	// 		gltf = this.$props.model.gltf
+	// 		texture = this.$props.model.texture
+	// 		// init();
+	// 	}, 1000)
 		
-    // never used, consider deletion
-		function isSwiftShaderRenderer() {
-			const canvas = document.getElementById('feather')
-			const gl = canvas.getContext("webgl");
-			const debug_ext = gl.getExtension("WEBGL_debug_renderer_info");
-			if (debug_ext) {
-					const renderer = gl.getParameter(debug_ext.UNMASKED_RENDERER_WEBGL);
-					if (renderer.indexOf("SwiftShader") >= 0) {
-							return false;
-					}
-			}
-			return true;
-		}
+  //   // never used, consider deletion
+	// 	function isSwiftShaderRenderer() {
+	// 		const canvas = document.getElementById('feather')
+	// 		const gl = canvas.getContext("webgl");
+	// 		const debug_ext = gl.getExtension("WEBGL_debug_renderer_info");
+	// 		if (debug_ext) {
+	// 				const renderer = gl.getParameter(debug_ext.UNMASKED_RENDERER_WEBGL);
+	// 				if (renderer.indexOf("SwiftShader") >= 0) {
+	// 						return false;
+	// 				}
+	// 		}
+	// 		return true;
+	// 	}
 
-		async function init() {
-			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
-			renderer.setPixelRatio( window.devicePixelRatio ); // min(devicePixelRatio, 2) for optimizations?
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			// renderer.toneMapping = THREE.ACESFilmicToneMapping;
-			// renderer.toneMappingExposure = 0.4;
-			// renderer.outputEncoding = THREE.sRGBEncoding;
+	// 	async function init() {
+	// 		renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+	// 		renderer.setPixelRatio( window.devicePixelRatio ); // min(devicePixelRatio, 2) for optimizations?
+	// 		renderer.setSize( window.innerWidth, window.innerHeight );
+	// 		// renderer.toneMapping = THREE.ACESFilmicToneMapping;
+	// 		// renderer.toneMappingExposure = 0.4;
+	// 		// renderer.outputEncoding = THREE.sRGBEncoding;
 
-			document.getElementById('feather').appendChild( renderer.domElement );
+	// 		document.getElementById('feather').appendChild( renderer.domElement );
 
-			scene = new THREE.Scene();
+	// 		scene = new THREE.Scene();
 
-			camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
-			camera.position.set( 0, 0, 1.0 );
+	// 		camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
+	// 		camera.position.set( 0, 0, 1.0 );
 
-			scene.environment = texture;
+	// 		scene.environment = texture;
       
-      //light
-      const light = new THREE.DirectionalLight('#88aaff', 100)
-      light.position.set(5.25, 3, 2.25)
-			scene.add( light );
+  //     //light
+  //     const light = new THREE.DirectionalLight('#88aaff', 100)
+  //     light.position.set(5.25, 3, 2.25)
+	// 		scene.add( light );
 
-      const light2 = new THREE.DirectionalLight('#ff88aa', 20)
-      light2.position.set(3.25, 5, 3.25)
-			scene.add( light );
+  //     const light2 = new THREE.DirectionalLight('#ff88aa', 20)
+  //     light2.position.set(3.25, 5, 3.25)
+	// 		scene.add( light );
 
-			scene.add( gltf.scene );
-      // so basicly traverse was before adding gltf
-      // omg how long i searched for that
-      let theObject
-			scene.traverse(function (object) {
-				if (object instanceof THREE.Mesh) {
-            console.log(object)
-						object.material.envMapIntensity = 2.0;
-						object.material.needsUpdate = true;
-            object.material
-            theObject = object
-				}
-			});
+	// 		scene.add( gltf.scene );
+  //     // so basicly traverse was before adding gltf
+  //     // omg how long i searched for that
+  //     let theObject
+	// 		scene.traverse(function (object) {
+	// 			if (object instanceof THREE.Mesh) {
+  //           console.log(object)
+	// 					object.material.envMapIntensity = 2.0;
+	// 					object.material.needsUpdate = true;
+  //           object.material
+  //           theObject = object
+	// 			}
+	// 		});
 
-			window.addEventListener( 'resize', onWindowResize );
+	// 		window.addEventListener( 'resize', onWindowResize );
 
-      let prevX = 0
-      let prevY = 0
-			theObject.rotationZ = Math.PI * -0.13
-      const deBounceDelta = 5
-      window.addEventListener('mousemove', (e) => {
-        if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
-          prevX = e.x
-          prevY = e.y
-          gsap.to(
-              theObject.rotation,
-             {           
-                  duration: 0.1,
-                  ease: 'linear',
-                  x: (e.y - window.innerHeight/2)/1000,
-                  y: (e.x - window.innerWidth/2)/1000,
-                  z: Math.PI * -0.13
-              }
-          )
-        }
+  //     let prevX = 0
+  //     let prevY = 0
+	// 		theObject.rotationZ = Math.PI * -0.13
+  //     const deBounceDelta = 5
+  //     window.addEventListener('mousemove', (e) => {
+  //       if ( Math.abs(e.x - prevX) > deBounceDelta || Math.abs(e.y - prevY) > deBounceDelta ) {
+  //         prevX = e.x
+  //         prevY = e.y
+  //         gsap.to(
+  //             theObject.rotation,
+  //            {           
+  //                 duration: 0.1,
+  //                 ease: 'linear',
+  //                 x: (e.y - window.innerHeight/2)/1000,
+  //                 y: (e.x - window.innerWidth/2)/1000,
+  //                 z: Math.PI * -0.13
+  //             }
+  //         )
+  //       }
           
-      })
+  //     })
 
-		}
-		function onWindowResize() {
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-		}
-		function render() {
-			renderer.render( scene, camera );
-		}
-    function animate(){
-      render();
-      window.requestAnimationFrame(animate)
-    }
-		setTimeout(() => {
-			// animate()
-		}, 1000)
-	}
+	// 	}
+	// 	function onWindowResize() {
+	// 		camera.aspect = window.innerWidth / window.innerHeight;
+	// 		camera.updateProjectionMatrix();
+	// 		renderer.setSize( window.innerWidth, window.innerHeight );
+	// 	}
+	// 	function render() {
+	// 		renderer.render( scene, camera );
+	// 	}
+  //   function animate(){
+  //     render();
+  //     window.requestAnimationFrame(animate)
+  //   }
+	// 	setTimeout(() => {
+	// 		// animate()
+	// 	}, 1000)
+	// }
 };
 </script>
 
@@ -356,10 +372,10 @@ body {
 	white-space: nowrap;
 }
 .about-text {
-	padding: 120px 80px;
+	padding: 110px 80px 120px;
 	margin: 0 auto;
 	.content__wrapper {
-		max-width: 1328px;
+		max-width: 1168px;
 		display: flex;
 		justify-content: space-between;
 		gap: 70px 32px;
@@ -370,7 +386,7 @@ body {
 		grid-template-columns: repeat(2, 1fr);
 		max-width: 485px;
 		width: 100%;
-		gap: 44px 0;
+		gap: 44px 115px;
 	}
 	&__number {
 		:deep(.numbers__subtitle) {
@@ -412,7 +428,7 @@ body {
 	}
 }
 .about {
-	padding: 0 93px 38px;
+	padding: 0 93px 0;
 	margin: 0 auto !important;
 	position: relative;
 	z-index: 2;
@@ -501,14 +517,17 @@ body {
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-361.3%);
+		transform: translateX(calc(256px * -23));
 	}
 }
 .about-logos {
 	width: 100vw;
 	max-width: 100vw;
+	padding: 0px 37px;
 	overflow: auto;
-	padding: 37px;
+	height: 170px;
+	margin-top: 100px;
+	border-bottom: 1px solid #E0E0E0;
 	.content__wrapper {
 		max-width: 100%;
 	}
@@ -522,9 +541,11 @@ body {
 	&__logo {
 		padding: 55px 50px 55px 55px;
 		border-right: 1px solid #E0E0E0;
-		border-bottom: 1px solid #E0E0E0;
 		filter: grayscale(1);
 		transition: 0.3s ease-out;
+		img {
+			height: 60px;
+		}
 		&:hover {
 			filter: grayscale(0);
 		}
@@ -607,12 +628,31 @@ body {
 	}
 }
 @media (max-width: 1024px) {
+	@keyframes logos {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(200px * -23));
+		}
+	}
 	.about {
-		padding: 0 41px 90px;
+		padding: 0 41px 0;
 	}
 	.about-logos {
+		margin-top: 60px;
+		height: 134px;
 		&__logo {
-			padding: 47px 37px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 200px;
+			min-width: 200px;
+			height: 134px;
+			padding: 0px;
+			img {
+				height: 47px;
+			}
 		}
 	}
 }
@@ -635,7 +675,7 @@ body {
 		}
 	}
 	.about {
-		padding: 0 41px 91px;
+		padding: 0 41px 0;
 		&__title {
 			writing-mode: vertical-lr;
 			font-size: 280px;
@@ -693,11 +733,6 @@ body {
 				top: 468px;
 				right: -148px;
 			}
-		}
-	}
-	.about-logos {
-		&__logo {
-			padding: 43px 40px;
 		}
 	}
 }
@@ -759,9 +794,14 @@ body {
 }
 @media (max-width: 425px) {
 	.about {
-		padding: 0 31px 51px;
+		padding: 0 31px 0;
 		&__grid {
 			grid-template-columns: repeat(2, 145px);
+		}
+	}
+	.about-text {
+		&__grid {
+			gap: 74px 47px;
 		}
 	}
 }

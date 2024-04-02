@@ -163,12 +163,12 @@ export default {
 			}
 		},
 		startPorject(e) {
-			const target = e.target.getBoundingClientRect();
-			const x = e.clientX - target.left;
-			const y = e.clientY - target.top;
-			const filler = e.target.children[1];
-			filler.style.left = `${x}px`;
-			filler.style.top = `${y}px`;
+			// const target = e.target.getBoundingClientRect();
+			// const x = e.clientX - target.left;
+			// const y = e.clientY - target.top;
+			// const filler = e.target.children[1];
+			// filler.style.left = `${x}px`;
+			// filler.style.top = `${y}px`;
 		},
 	},
 };
@@ -223,7 +223,7 @@ export default {
 .header-start-button {
 	height: 40px;
 	width: 157px;
-	background: #0181c8;
+	background: #0181C8;
 	color: #fff;
 	font-size: 20px;
 	font-weight: 400;
@@ -240,7 +240,7 @@ export default {
 	overflow: hidden;
 	max-width: 157px;
 	width: 100%;
-	transition: color 0.6s ease, background 0s ease 0.1s;
+	transition: color 0.6s ease, background 0.3s ease;
 	// animation: headerStartButton 1s ease both .5s
 	border: none;
 	outline: none;
@@ -262,31 +262,30 @@ export default {
 	&--mobile {
 		display: none;
 	}
-	&__fill {
-		position: absolute;
-		width: 370px;
-		height: 370px;
-		border-radius: 50%;
-		background-color: #f8f8f8;
-		transition: transform 0.6s ease;
-		transform-origin: 0% 0%;
-		transform: scale(0) translate(-50%, -50%);
-		pointer-events: none;
-	}
 	svg {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+	&__fill {
+		width: 12px;
+		position: absolute;
+		height: 80px;
+		background: #ffffff80;
+		transform: translateX(-100px) rotate(20deg);
+		transition: 0s ease;
+		filter: blur(10px);
+	}
 	@media (hover: hover) and (pointer: fine) {
 		&:hover {
-			color: #222222;
-			background: #f8f8f8;
-			transition: color 0.6s ease, background 0.3s ease 0.1s;
+			background: #016197;
+			
+			transition: color 0.6s ease, background 0.3s ease;
 		}
 		&:hover &__fill {
-			transform: scale(1) translate(-50%, -50%);
+			transform: translateX(100px) rotate(20deg);
+			transition: .5s ease;
 		}
 	}
 }
@@ -351,22 +350,25 @@ export default {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		gap: clamp(34px, 6vw, 60px);
+		gap: clamp(34px, 6vw, 54px);
 		top: 50%;
 		left: 11.3%;
 		transform: translate(0, -50%);
 	}
 	&__link {
-		font-size: 60px;
+		font-size: 55px;
 		text-decoration: none;
 		font-weight: 700;
 		opacity: 0;
 		transform: translate3d(0, -50%, 0);
 		display: flex;
 		align-items: flex-start;
+		line-height: auto;
 		sup {
 			font-size: 20px;
-			margin-right: 43px;
+			margin-right: 15px;
+			color: #8C8C8C;
+			margin-top: 10px;
 			font-weight: 600;
 			font-feature-settings: 'tnum' on, 'lnum' on;
 		}
@@ -595,8 +597,8 @@ export default {
 		height: 40px;
 		pointer-events: all;
 		cursor: pointer;
-		margin-left: 20px;
-		padding-left: 20px;
+		margin-left: 26px;
+		padding-left: 26px;
 		border-left: 1px solid #EBEBEB;
 		color: #222;
 		font-size: 14px;
@@ -680,7 +682,7 @@ export default {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
-	gap: 40px;
+	gap: 35px;
 	position: relative;
 	z-index: 6;
 	pointer-events: auto;
@@ -708,10 +710,10 @@ export default {
 }
 @media (max-width: 1440px) {
 	.header {
-		max-width: 1234px;
+		max-width: calc(100vw - 40px);
 		&__wrapper {
 			padding: 23px 45px;
-			max-width: 1234px;
+			max-width: calc(100vw - 40px);
 		}
 	}
 }
@@ -740,9 +742,9 @@ export default {
 	}
 	.nav {
 		&__link {
-			font-size: 80px;
+			font-size: 55px;
 			sup {
-				font-size: 18px;
+				font-size: 20px;
 			}
 		}
 		&__logo {
@@ -760,6 +762,7 @@ export default {
 		transform: translateX(-50%);
 		&__wrapper {
 			padding: 30px 41px;
+			max-width: 100%;
 		}
 		&__lang {
 			position: absolute;
@@ -874,9 +877,6 @@ export default {
 	// }
 	.nav {
 		&__nav {
-			top: 140px;
-			left: 50%;
-			transform: translate(-50%, 0);
 			z-index: 1;
 		}
 		&__link {
@@ -964,10 +964,11 @@ export default {
 	}
 	.nav {
 		&__link {
-			font-size: 40px;
+			font-size: 35px;
 			sup {
 				font-size: 14px;
-				margin-right: 20px;
+				margin-top: 8px;
+				margin-right: 12px;
 			}
 		}
 		&__logo {
@@ -977,6 +978,9 @@ export default {
 		}
 		&__nav {
 			gap: 30px;
+			top: 160px;
+			left: 50%;
+			transform: translate(-50%, 0);
 		}
 	}
 	.header-placeholder {
@@ -989,7 +993,7 @@ export default {
 		min-height: 74px;
 		height: 74px;
 		&__wrapper {
-			padding: 20px 32px;
+			padding: 20px 30px;
 		}
 		&__lang {
 			right: 83px;
@@ -998,12 +1002,17 @@ export default {
 	.header-logo {
 		gap: 18px;
 		&__img {
-			width: 31px;
-			height: 34px;
+			width: 27px;
+			height: 30px;
 		}
 		&__text {
 			font-size: 14px;
-			line-height: auto;
+			line-height: 16px;
+			height: 16px;
+		}
+		&__crumbread {
+			width: 3px;
+			height: 3px;
 		}
 	}
 	.header-menu {

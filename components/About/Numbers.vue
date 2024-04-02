@@ -40,15 +40,14 @@ export default {
 .numbers
 	display: flex
 	flex-direction: column
-	gap: 12px
 	max-width: clamp(110px, 16vw,191px)
 	&__title
-		text-align: center
 		font-size: 100px
 		font-weight: 600
 		span
 			font: inherit
 			color: #0181C8
+			font-weight: 400
 	&__subtitle
 		text-align: center
 		font-size: 20px

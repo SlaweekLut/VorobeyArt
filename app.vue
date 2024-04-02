@@ -38,8 +38,8 @@ import HeaderPage from '~/components/Header.vue';
 import PreloaderElement from '~/components/Preloader.vue';
 import CurtainsElement from '~/components/Curtains.vue';
 import Plug from './components/Plug.vue';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import * as THREE from 'three';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export default {
 	name: 'App',
@@ -107,18 +107,18 @@ export default {
 			}, 3500);
 		}
 
-		this.model.gltfLoader = new GLTFLoader().setPath( '/models/' );
-		this.model.gltf = await this.model.gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
-		this.model.textureLoader = new THREE.CubeTextureLoader();
-		this.model.texture = this.model.textureLoader.load([
-			"/models/cubemap/0001.jpg",
-			"/models/cubemap/0002.jpg",
-			"/models/cubemap/0003.jpg",
-			"/models/cubemap/0004.jpg",
-			"/models/cubemap/0005.jpg",
-			"/models/cubemap/0006.jpg",
-		]);
-		this.model.texture.encoding = THREE.sRGBEncoding;
+		// this.model.gltfLoader = new GLTFLoader().setPath( '/models/' );
+		// this.model.gltf = await this.model.gltfLoader.loadAsync( 'pero_by_agamurian.glb' )
+		// this.model.textureLoader = new THREE.CubeTextureLoader();
+		// this.model.texture = this.model.textureLoader.load([
+		// 	"/models/cubemap/0001.jpg",
+		// 	"/models/cubemap/0002.jpg",
+		// 	"/models/cubemap/0003.jpg",
+		// 	"/models/cubemap/0004.jpg",
+		// 	"/models/cubemap/0005.jpg",
+		// 	"/models/cubemap/0006.jpg",
+		// ]);
+		// this.model.texture.encoding = THREE.sRGBEncoding;
 	},
 	methods: {
 		setCurtains(curtains) {

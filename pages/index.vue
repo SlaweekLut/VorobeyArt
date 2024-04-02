@@ -189,9 +189,6 @@
 							// 'home-slides__background--wait': isWait || curtains === 'Preloader' || redirect,
 						}"
 					>
-						<p class="home-slides__pagination">
-							{{ '0' + (index + 1) }}
-						</p>
 					</div>
 				</div>
 				<div class="home-slides-info">
@@ -244,22 +241,22 @@
 						Создаем дизайн<br>
 						для сильных брендов
 					</p>
+					<div class="home-slides-info__pagination">
+						<div
+							v-for="(slide, index) in slides"
+							:key="index"
+							class="home-slides-info__bullet"
+							:class="{
+								'home-slides-info__bullet--prev': index === prevSlide,
+								'home-slides-info__bullet--active': index === activeSlide,
+								'home-slides-info__bullet--curtains': redirect,
+								'home-slides-info__bullet--preloader': curtains === 'Preloader',
+								'home-slides-info__bullet--scroll': isWait,
+							}"
+						></div>
+					</div>
 				</div>
 			</div>
-			<div class="home-slides-info__pagination">
-					<div
-						v-for="(slide, index) in slides"
-						:key="index"
-						class="home-slides-info__bullet"
-						:class="{
-							'home-slides-info__bullet--prev': index === prevSlide,
-							'home-slides-info__bullet--active': index === activeSlide,
-							'home-slides-info__bullet--curtains': redirect,
-							'home-slides-info__bullet--preloader': curtains === 'Preloader',
-							'home-slides-info__bullet--scroll': isWait,
-						}"
-					></div>
-				</div>
 			<div
 				class="home-slides-pagination"
 				:class="{
@@ -499,6 +496,7 @@ export default {
 		justify-content: center;
 		transform: translate3d(-50%, -50%, 0) rotate(-15deg);
 		z-index: 0;
+		gap: 35px;
 		height: 100vh;
 		width: 100vw;
 		transform-origin: center center;
@@ -509,12 +507,12 @@ export default {
 		justify-content: center;
 	}
 	&--top {
-		animation: topBackgroundText 30s linear infinite;
+		animation: topBackgroundText 60s linear infinite;
 	}
 	&--bottom {
 		// text-align: right;
 		// margin: -3vw 0;
-		animation: bottomBackgroundText 30s linear infinite;
+		animation: bottomBackgroundText 60s linear infinite;
 	}
 	// &:nth-child(8) {
 		// width: 100vw;
@@ -690,14 +688,13 @@ export default {
 	width: 100%;
 	text-decoration: none;
 	&__text {
-		font-size: clamp(14px, 1vw, 16px);
 		color: #222;
 		font-weight: 500;
-		font-size: 25px;
+		font-size: 20px;
 	}
 	&__bottom {
 		position: relative;
-		margin-top: 24px;
+		margin-top: 30px;
 		&--curtains {
 			animation: animationInfoFour 1s ease both 0.9s;
 		}
@@ -770,8 +767,8 @@ export default {
 .home-link {
 	text-decoration: none;
 	position: fixed;
-	bottom: 70px;
-	left: 93px;
+	bottom: 60px;
+	left: 90px;
 	height: 140px;
 	width: 140px;
 	z-index: 1;
@@ -858,7 +855,7 @@ export default {
 }
 .home-slides-pagination {
 	right: 0;
-	bottom: 83px;
+	bottom: 60px;
 	position: absolute;
 	overflow: hidden;
 	z-index: 1;
@@ -1144,6 +1141,7 @@ export default {
 		&__wrapper {
 			flex-direction: column;
 			gap: 60px;
+			top: calc(50% + 50px);
 		}
 	}
 	.home-slides-pagination {
@@ -1153,16 +1151,16 @@ export default {
 		left: 50%;
 		width: 100%;
 		&__text {
-			text-align: center;
+			display: none;
 		}
 		&__pagination {
 			display: flex;
-			top: unset;
-			bottom: 30px;
-			position: fixed;
-			left: 50%;
-			transform: translate(-50%, 0);
-			margin-top: 16px;
+			// top: unset;
+			// bottom: 30px;
+			position: static;
+			// left: 50%;
+			// transform: translate(-50%, 0);
+			margin-top: 24px;
 		}
 	}
 	.home-link {

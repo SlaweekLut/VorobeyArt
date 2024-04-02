@@ -11,7 +11,6 @@
   "dependencies": {
     "@nuxtjs/robots": "^3.0.0",
     "@vueuse/core": "^9.11.1",
-    "2gis-maps": "^3.7.3",
     "axios": "^1.3.4",
     "core-js": "^3.8.3",
     "gsap": "^3.12.2",
