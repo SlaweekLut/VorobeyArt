@@ -254,7 +254,7 @@
 						<div class="contacts-modal-input__wrapper">
 							<input type="file" multiple @input="onFiles" class="contacts-modal-input__input" placeholder="Адрес электронной почты">
 							<p class="contacts-modal-input__files">Перетащите файлы сюда или щелкните, чтобы выбрать их на устройстве</p>
-							<template v-for="file in inputs.files">
+							<template v-for="(file, i) in inputs.files" :key="i">
 								<p class="contacts-modal-input__file">
 									{{ file.name }} - {{ (file.size / 1024 / 1024).toFixed(2) }} МБ
 								</p>
@@ -389,7 +389,7 @@ export default {
 			this.inputs.files = [...e.target.files];
 		},
 		openModal() {
-			const maxWidth = window.innerWidth - 40 >= 1440 ? 1400 : window.innerWidth - 40 >= 425 
+			const maxWidth = window.innerWidth - 40 >= 1440 ? 1400 : window.innerWidth - 40 >= 425
 			this.showModal = true;
 			if(!this.tl) {
 				setTimeout(() => {

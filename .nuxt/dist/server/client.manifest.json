@@ -1,15 +1,18 @@
 {
   "@vite/client": {
+    "prefetch": true,
     "isEntry": true,
     "file": "@vite/client",
     "css": [],
     "module": true,
     "resourceType": "script"
   },
-  "D:/inWork/VorobeyArt/node_modules/nuxt/dist/app/entry.mjs": {
+  "C:/Users/evgen/Desktop/dev/vorobey/VorobeyArt-master/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
+    "prefetch": true,
+    "preload": true,
     "isEntry": true,
-    "file": "D:/inWork/VorobeyArt/node_modules/nuxt/dist/app/entry.mjs"
+    "file": "C:/Users/evgen/Desktop/dev/vorobey/VorobeyArt-master/node_modules/nuxt/dist/app/entry.js"
   }
 }

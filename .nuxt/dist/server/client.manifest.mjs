@@ -1,1 +1,1 @@
-export { default } from "file:///D:/inWork/VorobeyArt/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///C:/Users/evgen/Desktop/dev/vorobey/VorobeyArt-master/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

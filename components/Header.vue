@@ -62,7 +62,7 @@
 					<span>Обсудить</span>
 					<div class="header-start-button__fill"></div>
 				</a>
-				<button class="header__lang">EN</button>
+				<NuxtLink class="header__lang" :to="switchLocalePath(availableLocales[0].code)">{{ $t('second_lang') }}</NuxtLink>
 			</div>
 			<button
 				aria-label="Menu navigation"
@@ -101,6 +101,15 @@
 	</div>
 </template>
 
+<script setup>
+const switchLocalePath = useSwitchLocalePath();
+const { locale, locales } = useI18n();
+
+const availableLocales = computed(() => {
+  return (locales.value).filter(i => i.code !== locale.value)
+})
+</script>
+
 <script>
 export default {
 	name: 'HeaderPage', // <--- add this line
@@ -123,12 +132,15 @@ export default {
 			headerScrollLogo: false,
 		};
 	},
+  computed: {
+    availableLocales: () => (locales.value).filter(i => i.code !== locale.value)
+  },
+
 	mounted() {
 		let lastScrollTop = 0;
 		window.addEventListener('scroll', () => {
 			let delta = window.pageYOffset || document.documentElement.scrollTop;
 
-			// console.log(delta);
 			if (delta > lastScrollTop && this.$data.menu !== true) {
 				this.$data.headerScrollTop = false;
 				this.$data.menu = null;
@@ -280,7 +292,7 @@ export default {
 	@media (hover: hover) and (pointer: fine) {
 		&:hover {
 			background: #016197;
-			
+
 			transition: color 0.6s ease, background 0.3s ease;
 		}
 		&:hover &__fill {
@@ -488,7 +500,7 @@ export default {
 	transform: translateY(24px) translateX(-50%);
 	transition: transform 0.6s cubic-bezier(0.38, 0.005, 0.215, 1);
 	border: 1px solid #EBEBEB;
-	
+
 	&--home {
 		.header__wrapper {
 			z-index: 10;

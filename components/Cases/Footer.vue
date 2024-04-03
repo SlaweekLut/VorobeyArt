@@ -9,8 +9,8 @@
 				</p>
 				<div class="footer-contacts__info">
 					<NuxtLink to="https://disk.yandex.ru/i/ffr_32LgvsLmYg" target="_blank" class="home-link">
-						<svg 
-							class="home-link__svg" 
+						<svg
+							class="home-link__svg"
 							:class="{
 								'home-link__svg--preloader': curtains === 'Preloader',
 								'home-link__svg--curtains': redirect,
@@ -41,7 +41,7 @@
 							<path d="M121.838 46.5156L111.728 51.3351L111.095 50.0064L114.965 48.1612L114.008 46.1536L108.891 45.3847L108.169 43.8681L113.407 44.668C113.24 43.8967 113.333 43.1494 113.685 42.426C114.037 41.7027 114.57 41.1712 115.282 40.8315C116.149 40.4184 117.03 40.3706 117.926 40.688C118.836 41.0105 119.497 41.605 119.91 42.4716L121.838 46.5156ZM114.884 44.8676L116.179 47.5828L119.948 45.7858L118.654 43.0706C118.42 42.5795 118.035 42.2431 117.499 42.0612C116.963 41.8794 116.436 41.9124 115.916 42.1603C115.396 42.4081 115.033 42.7997 114.827 43.335C114.631 43.8656 114.65 44.3765 114.884 44.8676Z" fill="white"/>
 						</svg>
 
-						<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" 
+						<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"
 							class="home-link__play"
 							:class="{
 								'home-link__play--preloader': curtains === 'Preloader',

@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
 	// hooks: {
@@ -11,19 +10,45 @@ export default defineNuxtConfig({
 	//     });
 	//   },
 	// },
-	nitro: {
-		serveStatic: true,
-		devServer: {
-			watch: ['./'],
-		},
-	},
 	experimental: {
-		payloadExtraction: false,
+		payloadExtraction: true,
+    componentIslands: true,
+    sharedPrerenderData: true,
 	},
 	sourcemap: {
 		server: true,
-		client: true,
+		client: false,
 	},
+
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
+
+  i18n: {
+    baseUrl: 'https://vorobeyart.ru',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        iso: 'en',
+        file: 'en.json',
+      },
+      {
+        code: 'ru',
+        name: 'Русский',
+        iso: 'ru',
+        file: 'ru.json',
+      },
+    ],
+    lazy: true,
+    langDir: 'lang',
+    defaultLocale: 'ru',
+    vueI18n: './i18n.config.ts',
+  },
 	modules: [
 		[
 			'yandex-metrika-module-nuxt3',
@@ -37,8 +62,39 @@ export default defineNuxtConfig({
 			},
 		],
 		'@nuxtjs/robots',
-		['nuxt-simple-sitemap', { hostname: 'https://vorobeyart.ru' }],
+    'nuxt-delay-hydration',
+    'nuxt-beastcss',
+		'@nuxtjs/sitemap',
+    '@nuxtjs/i18n',
 	],
+
+  delayHydration: {
+    mode: 'init',
+  },
+
+  beastcss: {
+    config: {
+      minifyCss: true,
+      autoRemoveStyleTags: true,
+      preloadExternalStylesheets: true,
+      pruneSource: true,
+    },
+  },
+
+	site: {
+    url: 'https://vorobeyart.ru',
+  },
+
+	sitemap: {
+    enabled: true,
+    autoLastmod: true,
+    credits: false,
+    xslColumns: [
+      { label: 'URL', width: '75%' },
+      { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
+    ],
+  },
+
 	app: {
 		rootId: 'app',
 		pageTransition: { name: 'page' },

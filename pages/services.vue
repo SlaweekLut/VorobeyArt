@@ -31,7 +31,7 @@
 		<div class="content services-groups">
 			<div class="content__wrapper">
 				<div class="services-groups__wrapper">
-					<div class="services-group" v-for="(service, index) in services">
+					<div class="services-group" v-for="(service, index) in services" :key="index">
 						<div class="services-group__header">
 							<div class="services-group__row">
 								<p class="services-group__number">/0{{ index + 1 }}</p>
@@ -49,7 +49,7 @@
 							</span>
 						</NuxtLink> -->
 						<ul class="services-group-list">
-							<li class="services-group-list__item" v-for="item in service.list">{{ item }}</li>
+							<li class="services-group-list__item" v-for="(item, i) in service.list" :key="i">{{ item }}</li>
 						</ul>
 					</div>
 				</div>
