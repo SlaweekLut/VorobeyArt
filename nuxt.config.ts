@@ -48,6 +48,10 @@ export default defineNuxtConfig({
     langDir: 'lang',
     defaultLocale: 'ru',
     vueI18n: './i18n.config.ts',
+    compilation: {
+      escapeHtml: false,
+      strictMessage: false,
+    },
   },
 	modules: [
 		[

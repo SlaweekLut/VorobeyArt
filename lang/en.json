@@ -1,3 +1,4 @@
 {
-  "second_lang": "РУС"
+  "second_lang": "РУС",
+  "testHtml": "<b>Hello</b> <br /> <i>world</i>"
 }

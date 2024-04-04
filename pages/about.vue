@@ -10,6 +10,9 @@
 			/>
 		</Head>
 		<div class="content about">
+
+      <span v-html="$t('testHtml')"></span>
+
 			<div class="content__wrapper">
 				<!-- <p class="about__title">CREATIVE</p> -->
 				<div class="about__grid">
@@ -202,7 +205,7 @@ export default {
 					title: 'Светлана',
 					subtitle: 'Менеджер счастья',
 				},
-				
+
 			],
 			clientId: '',
 		};
@@ -246,7 +249,7 @@ export default {
 	// 		texture = this.$props.model.texture
 	// 		// init();
 	// 	}, 1000)
-		
+
   //   // never used, consider deletion
 	// 	function isSwiftShaderRenderer() {
 	// 		const canvas = document.getElementById('feather')
@@ -277,7 +280,7 @@ export default {
 	// 		camera.position.set( 0, 0, 1.0 );
 
 	// 		scene.environment = texture;
-      
+
   //     //light
   //     const light = new THREE.DirectionalLight('#88aaff', 100)
   //     light.position.set(5.25, 3, 2.25)
@@ -313,7 +316,7 @@ export default {
   //         prevY = e.y
   //         gsap.to(
   //             theObject.rotation,
-  //            {           
+  //            {
   //                 duration: 0.1,
   //                 ease: 'linear',
   //                 x: (e.y - window.innerHeight/2)/1000,
@@ -322,7 +325,7 @@ export default {
   //             }
   //         )
   //       }
-          
+
   //     })
 
 	// 	}
