@@ -66,7 +66,7 @@ export default {
 			dropdown: false,
 			works: [
 				{
-					description: 'Создание 3D моделей для каталогов',
+					description: this.$t('works.description1'),
 					title: 'ЭНЕРГОТЭК',
 					to: '/energotek',
 					img: ['energotek', 'energotek-page'],
@@ -74,7 +74,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Разработка приложения <br/> AR Play Market / App Store',
+					description: this.$t('works.description2'),
 					title: 'ЭНЕРГОТЭК AR',
 					to: '/energotekAR',
 					img: ['energotekAR', 'energotekAR-page'],
@@ -82,7 +82,7 @@ export default {
 					tags: ['3D', 'mobile'],
 				},
 				{
-					description: 'Разработка брендбука и презентации',
+					description: this.$t('works.description3'),
 					title: 'WB ALLIANCE',
 					to: '/wballiance',
 					img: ['wballiance', 'wballiance-page'],
@@ -90,7 +90,7 @@ export default {
 					tags: ['design', 'brand'],
 				},
 				{
-					description: 'Эксклюзивный дизайн футболок',
+					description: this.$t('works.description4'),
 					title: 'МОТОРИКА',
 					to: '/motorika',
 					img: ['motorika', 'motorika-page'],
@@ -98,7 +98,7 @@ export default {
 					tags: ['brand'],
 				},
 				{
-					description: 'Создание логотипа и визуализация',
+					description: this.$t('works.description5'),
 					title: 'SPICY NOTE',
 					to: '/spicynote',
 					img: ['spisynote', 'spisynote-page'],
@@ -106,7 +106,7 @@ export default {
 					tags: ['brand'],
 				},
 				{
-					description: 'Разработка приложения <br/> AR Play Market / App Store',
+					description: this.$t('works.description6'),
 					title: 'ГЕНЕЗИС ПРОЕКТ',
 					to: '/genezis',
 					img: ['genezisproject', 'genezisproject-page'],
@@ -114,7 +114,7 @@ export default {
 					tags: ['design', 'brand'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для маркетплейсов',
+					description: this.$t('works.description7'),
 					title: 'ЗОЛОТО АЛТАЯ',
 					to: '/zolotoaltaya',
 					img: ['zolotoaltaya', 'zolotoaltaya-page'],
@@ -122,7 +122,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Дизайн печатной <br/> продукции',
+					description: this.$t('works.description8'),
 					title: 'MARUSYA',
 					to: '/marusya',
 					img: ['marusya', 'marusya-page'],
@@ -130,7 +130,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Дизайн печатной <br/> продукции',
+					description: this.$t('works.description9'),
 					title: 'UKIGASSEN',
 					to: '/ukigassen',
 					img: ['ukigassen', 'ukigassen-page'],
@@ -138,7 +138,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Разработка <br/> презентации',
+					description: this.$t('works.description10'),
 					title: 'OCEAN VIEW',
 					to: '/oceanview',
 					img: ['oceanview', 'oceanview-page'],
@@ -146,7 +146,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для каталогов',
+					description: this.$t('works.description11'),
 					title: 'ХИМТЕХ-Р',
 					to: '/ximtexp',
 					img: ['ximtexp', 'ximtexp-page'],
@@ -154,7 +154,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для сайта',
+					description: this.$t('works.description12'),
 					title: 'MOBDEBUT',
 					to: '/mobdebut',
 					img: ['mobdebut', 'mobdebut-page'],
@@ -162,7 +162,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Разработка <br/> презентации',
+					description: this.$t('works.description13'),
 					title: 'PRIME TRAVEL',
 					to: '/primetravel',
 					img: ['primetravel', 'primetravel-page'],
@@ -170,7 +170,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Разработка <br/> презентации',
+					description: this.$t('works.description14'),
 					title: 'TOMI.AI',
 					to: '/tomiai',
 					img: ['tomiai', 'tomiai-page'],
@@ -178,7 +178,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Разработка брендбука и презентации',
+					description: this.$t('works.description15'),
 					title: 'КВАНТТЕЛЕКОМ',
 					to: '/kvanttelekomBrend',
 					img: ['kvanttelekomBrend', 'kvanttelekomBrend-page'],
@@ -186,7 +186,7 @@ export default {
 					tags: ['design', 'brand'],
 				},
 				{
-					description: 'Разработка <br/> презентации',
+					description: this.$t('works.description16'),
 					title: 'PROЗАПЧАСТЬ',
 					to: '/prozapchast',
 					img: ['prozapchast', 'prozapchast-page'],
@@ -194,7 +194,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Разработка <br/> презентации',
+					description: this.$t('works.description17'),
 					title: 'OWN WIFI',
 					to: '/ownwifi',
 					img: ['ownwifi', 'ownwifi-page'],
@@ -202,7 +202,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Создание логотипа и <br/> визуализация',
+					description: this.$t('works.description18'),
 					title: 'H ONE',
 					to: '/hone',
 					img: ['hone', 'hone-page'],
@@ -210,7 +210,7 @@ export default {
 					tags: ['brand'],
 				},
 				{
-					description: 'Создание логотипа и визуализация',
+					description: this.$t('works.description19'),
 					title: 'Aladdin',
 					to: '/aladdin',
 					img: ['aladdin', 'aladdin-page'],
@@ -218,7 +218,7 @@ export default {
 					tags: ['brand'],
 				},
 				{
-					description: 'Дизайн печатной продукции',
+					description: this.$t('works.description20'),
 					title: 'Unidance',
 					to: '/unidance',
 					img: ['unidance', 'unidance-page'],
@@ -226,7 +226,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Проектирование и<br>разработка игры',
+					description: this.$t('works.description21'),
 					title: 'IZENBOT',
 					to: '/izenbot',
 					img: ['izenbot', 'izenbot-page'],
@@ -234,7 +234,7 @@ export default {
 					tags: ['mobile'],
 				},
 				{
-					description: 'Проектирование и<br>разработка игры',
+					description: this.$t('works.description22'),
 					title: 'Flip Knife',
 					to: '/flipknife',
 					img: ['flipknife', 'flipknife-page'],
@@ -242,7 +242,7 @@ export default {
 					tags: ['mobile'],
 				},
 				{
-					description: 'Проектирование и<br>разработка игры',
+					description: this.$t('works.description23'),
 					title: 'Go Up',
 					to: '/goup',
 					img: ['goup', 'goup-page'],
@@ -250,7 +250,7 @@ export default {
 					tags: ['mobile'],
 				},
 				{
-					description: 'Проектирование и<br>разработка игры',
+					description: this.$t('works.description24'),
 					title: 'Paw Paw',
 					to: '/pawpaw',
 					img: ['pawpaw', 'pawpaw-page'],
@@ -258,7 +258,7 @@ export default {
 					tags: ['mobile'],
 				},
 				{
-					description: 'Проектирование и<br>разработка игры',
+					description: this.$t('works.description25'),
 					title: 'X-Plane',
 					to: '/xplane',
 					img: ['xplane', 'xplane-page'],
@@ -266,7 +266,7 @@ export default {
 					tags: ['mobile'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для маркетплейсов',
+					description: this.$t('works.description26'),
 					title: 'MOLTENGRASS',
 					to: '/',
 					img: ['moltengrass', 'moltengrass-page'],
@@ -274,7 +274,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для сайта',
+					description: this.$t('works.description27'),
 					title: '3D БАНИ ',
 					to: '/',
 					img: ['3Dbani', '3Dbani-page'],
@@ -282,7 +282,7 @@ export default {
 					tags: ['3D'],
 				},
 				{
-					description: 'Разработка дизайна <br/> приложения',
+					description: this.$t('works.description28'),
 					title: 'GARILLA POKER ',
 					to: '/',
 					img: ['garillapoker', 'garillapoker-page'],
@@ -290,7 +290,7 @@ export default {
 					tags: ['design', 'brand'],
 				},
 				{
-					description: 'Дизайн и разработка <br/> сайта',
+					description: this.$t('works.description29'),
 					title: 'КВАНТТЕЛЕКОМ',
 					to: '/',
 					img: ['kvanttelekomCite', 'kvanttelekomCite-page'],
@@ -298,7 +298,7 @@ export default {
 					tags: ['web'],
 				},
 				{
-					description: 'Создание логотипа и <br/> визуализация',
+					description: this.$t('works.description30'),
 					title: 'POLAR BEAR',
 					to: '/',
 					img: ['polarbear', 'polarbear-page'],
@@ -306,7 +306,7 @@ export default {
 					tags: ['brand'],
 				},
 				{
-					description: 'Дизайн печатной <br/> продукции',
+					description: this.$t('works.description31'),
 					title: 'АВТОМОЙКА №1',
 					to: '/',
 					img: ['automoika1', 'automoika1-page'],
@@ -314,7 +314,7 @@ export default {
 					tags: ['design'],
 				},
 				{
-					description: 'Создание 3D моделей <br/> для сайта',
+					description: this.$t('works.description32'),
 					title: '3D СЛОИ',
 					to: '/',
 					img: ['3Dsloi', '3Dsloi-page'],
@@ -323,12 +323,12 @@ export default {
 				},
 			],
 			tags: [
-				{ title: 'Все проекты', tag: 'all' },
-				{ title: 'Графический дизайн', tag: 'design' },
-				{ title: '3D моделирование', tag: '3D' },
-				{ title: 'Брендинг', tag: 'brand' },
-				{ title: 'WEB разработка', tag: 'web' },
-				{ title: 'Моб разработка', tag: 'mobile' },
+				{ title: this.$t('works.tag1'), tag: 'all' },
+				{ title: this.$t('works.tag2'), tag: 'design' },
+				{ title: this.$t('works.tag3'), tag: '3D' },
+				{ title: this.$t('works.tag4'),tag: 'brand' },
+				{ title: this.$t('works.tag5'), tag: 'web' },
+				{ title: this.$t('works.tag6'), tag: 'mobile' },
 			],
 			PART_HEIGHT: 12,
 		};
@@ -648,7 +648,17 @@ body {
 		transform: translate(-50%, -50%) scale(1.1);
 	}
 }
-
+@media (max-width: 1440px) {
+	.works-example {
+		&__background {
+			height: 342px;
+			width: 255px;
+		}
+		&__img {
+			width: 340px;
+		}
+	}
+}
 @media (max-width: 1200px) {
 	.works-examples {
 		grid-template-columns: repeat(3, 1fr);
@@ -657,8 +667,11 @@ body {
 @media (max-width: 1024px) {
 	.works {
 		&__title {
-			font-size: 50px;
+			font-size: 35px;
 			margin-bottom: 18px;
+		}
+		.content__wrapper {
+			max-width: 864px;
 		}
 	}
 	.works-example {
@@ -677,6 +690,9 @@ body {
 		}
 	}
 	.works-nav {
+		&__list {
+			max-width: 692px;
+		}
 		&__links {
 			font-size: 18px;
 		}
@@ -689,6 +705,14 @@ body {
 }
 
 @media (max-width: 768px) {
+	.works {
+		&__title {
+			font-size: 30px;
+		}
+		.content__wrapper {
+			max-width: 608px;
+		}
+	}
 	.works-examples {
 		gap: 30px 23px;
 		display: grid;
@@ -845,7 +869,7 @@ body {
 			max-width: 363px;
 		}
 		&__title {
-			font-size: 30px;
+			font-size: 25px;
 			margin-bottom: 15px;
 		}
 	}

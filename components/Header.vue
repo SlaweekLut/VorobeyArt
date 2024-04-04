@@ -51,18 +51,19 @@
 					'nav-row--hide': menu,
 				}"
 			>
-				<NuxtLink to="/about" class="nav-row__link"> О нас </NuxtLink>
-				<NuxtLink to="/services" class="nav-row__link"> Услуги </NuxtLink>
-				<NuxtLink to="/works" class="nav-row__link"> Проекты </NuxtLink>
-				<NuxtLink to="/contacts" class="nav-row__link"> Контакты </NuxtLink>
+				<NuxtLink to="about" class="nav-row__link"> {{ $t('header.about') }} </NuxtLink>
+				<NuxtLink to="services" class="nav-row__link"> {{ $t('header.services')}} </NuxtLink>
+				<NuxtLink to="works" class="nav-row__link"> {{ $t('header.works') }} </NuxtLink>
+				<NuxtLink to="contacts" class="nav-row__link"> {{ $t('header.contacts')}} </NuxtLink>
 			</div>
 
 			<div class="header__controllers">
 				<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--pc" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
-					<span>Обсудить</span>
+					<span>{{ $t('header.discuss') }}</span>
 					<div class="header-start-button__fill"></div>
 				</a>
-				<NuxtLink class="header__lang" :to="switchLocalePath(availableLocales[0].code)">{{ $t('second_lang') }}</NuxtLink>
+				<!-- <button class="header__lang" @click="switchLocalePath(availableLocales[0].code)">{{ $t('second_lang') }}</button> -->
+				<button @click="$i18n.locale = $i18n.locale === 'en' ? 'ru' : 'en'" class="header__lang">{{ $t('second_lang') }}</button>
 			</div>
 			<button
 				aria-label="Menu navigation"
@@ -84,12 +85,12 @@
 	<div class="nav" :class="{ 'nav--open': menu, 'nav--close': menu === false }">
 		<div class="nav__wrapper">
 			<nav class="nav__nav">
-				<NuxtLink to="/about" class="nav__link" @click="clickHandle"> <sup>/01</sup> О нас </NuxtLink>
-				<NuxtLink to="/services" class="nav__link" @click="clickHandle"> <sup>/02</sup> Услуги </NuxtLink>
-				<NuxtLink to="/works" class="nav__link" @click="clickHandle"> <sup>/03</sup> Проекты </NuxtLink>
-				<NuxtLink to="/contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> Контакты </NuxtLink>
+				<NuxtLink to="about" class="nav__link" @click="clickHandle"> <sup>/01</sup> {{ $t('header.about') }} </NuxtLink>
+				<NuxtLink to="services" class="nav__link" @click="clickHandle"> <sup>/02</sup> {{ $t('header.services')}} </NuxtLink>
+				<NuxtLink to="works" class="nav__link" @click="clickHandle"> <sup>/03</sup> {{ $t('header.works') }} </NuxtLink>
+				<NuxtLink to="contacts" class="nav__link" @click="clickHandle"> <sup>/04</sup> {{ $t('header.contacts')}} </NuxtLink>
 				<a href="https://t.me/Vorobey_Art" class="header-start-button header-start-button--mobile" :class="{ 'header-start-button--nav': menu }" @mousemove="startPorject">
-					<span>Обсудить</span>
+					<span>{{ $t('header.discuss') }}</span>
 					<svg width="157" height="41" viewBox="0 0 157 41" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0 4.51866C0 2.06406 1.98985 0.0742188 4.44444 0.0742188H137C148.046 0.0742188 157 9.02852 157 20.0742C157 31.1199 148.046 40.0742 137 40.0742H35.5556C15.9188 40.0742 0 24.1555 0 4.51866Z" fill="#0181C8"/>
 					</svg>
@@ -101,14 +102,6 @@
 	</div>
 </template>
 
-<script setup>
-const switchLocalePath = useSwitchLocalePath();
-const { locale, locales } = useI18n();
-
-const availableLocales = computed(() => {
-  return (locales.value).filter(i => i.code !== locale.value)
-})
-</script>
 
 <script>
 export default {
@@ -519,17 +512,17 @@ export default {
 					}
 				}
 			}
-			.header-logo {
-				&__crumbread {
-					animation: headerLogoCrumbread 1s ease both 1s;
-				}
-				&__text {
-					animation: headerLogoText 1s ease both 1s;
-				}
-				&__img {
-					animation: headerLogoText 1s ease both 1s;
-				}
-			}
+			// .header-logo {
+			// 	&__crumbread {
+			// 		animation: headerLogoCrumbread 1s ease both 1s;
+			// 	}
+			// 	&__text {
+			// 		animation: headerLogoText 1s ease both 1s;
+			// 	}
+			// 	&__img {
+			// 		animation: headerLogoText 1s ease both 1s;
+			// 	}
+			// }
 		}
 	}
 	&__wrapper {
@@ -601,6 +594,10 @@ export default {
 		align-items: center;
 	}
 	&__lang {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		justify-content: center;
 		background: transparent;
 		border: none;
 		padding: 0;
@@ -840,13 +837,13 @@ export default {
 		&--home {
 			min-height: 102px;
 			position: fixed;
-			&.header--curtains {
-				.header-logo {
-					&__text {
-						animation: headerText 1s ease both 1s;
-					}
-				}
-			}
+			// &.header--curtains {
+			// 	.header-logo {
+			// 		&__text {
+			// 			animation: headerText 1s ease both 1s;
+			// 		}
+			// 	}
+			// }
 		}
 		&:not(&--home) &__wrapper {
 			position: fixed;

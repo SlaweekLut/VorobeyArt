@@ -28,27 +28,6 @@ export default defineNuxtConfig({
     },
   },
 
-  i18n: {
-    baseUrl: 'https://vorobeyart.ru',
-    locales: [
-      {
-        code: 'en',
-        name: 'English',
-        iso: 'en',
-        file: 'en.json',
-      },
-      {
-        code: 'ru',
-        name: 'Русский',
-        iso: 'ru',
-        file: 'ru.json',
-      },
-    ],
-    lazy: true,
-    langDir: 'lang',
-    defaultLocale: 'ru',
-    vueI18n: './i18n.config.ts',
-  },
 	modules: [
 		[
 			'yandex-metrika-module-nuxt3',
@@ -65,7 +44,6 @@ export default defineNuxtConfig({
     'nuxt-delay-hydration',
     'nuxt-beastcss',
 		'@nuxtjs/sitemap',
-    '@nuxtjs/i18n',
 	],
 
   delayHydration: {

@@ -13,8 +13,7 @@
 		<div class="content contacts">
 			<div class="content__wrapper">
 				<div class="contacts__col">
-					<h2 class="contacts__description">Создаём дизайн <br>
-						для сильных брендов</h2>
+					<h2 class="contacts__description" v-html="$t('contacts.tagline')"></h2>
 
 					<div class="contacts__row-link">
 						<div class="contacts__col-link">
@@ -50,7 +49,7 @@
 							</div>
 						</div>
 						<button class="contacts-button" @click="openModal">
-							Оставить <br> заявку
+							<span v-html="$t('contacts.button')"></span>
 							<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 23.8516L22.92 1.93097" stroke="black" stroke-width="2" stroke-linecap="round"/>
 								<path d="M23 23.8516L23 1.85156" stroke="black" stroke-width="2" stroke-linecap="round"/>
@@ -77,209 +76,114 @@
 					<div class="contacts__logo"><img src="/img/about/PrimeTravel.svg" alt="PrimeTravel"></div>
 					<div class="contacts__logo"><img src="/img/about/ProZapchast.svg" alt="ProZapchast"></div>
 				</div>
-				<!-- <form id="contacts" action="POST" class="contacts-form" @submit.prevent="onSubmit">
-					<div class="contacts-form__header">
-						<h2 class="contacts-form__title">Связаться с нами</h2>
+			</div>
+		</div>
+		<teleport to='body'>
+			<div class="contacts-modal" :class="{'contacts-modal--active': showModal}" @click.self="closeModal">
+				<div class="contacts-modal__wrapper">
+					<div class="contacts-modal__header">
+						<div class="contacts__col-link">
+							<div class="contacts__row">
+								<a href="https://wa.me/79113119113" class="contacts__link">
+									<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M0.985352 22.2182L2.49622 16.7031C1.32736 14.6735 0.860691 12.3149 1.16857 9.99313C1.47646 7.67132 2.54168 5.51593 4.19912 3.86109C5.85656 2.20625 8.01363 1.14441 10.3359 0.840177C12.6582 0.535945 15.016 1.00632 17.0438 2.17837C19.0716 3.35043 20.6561 5.1587 21.5516 7.32285C22.4472 9.487 22.6038 11.8862 21.9972 14.1484C21.3906 16.4106 20.0546 18.4095 18.1964 19.8352C16.3382 21.261 14.0616 22.0339 11.7195 22.0341C9.94283 22.0331 8.19473 21.5873 6.63458 20.7374L0.985352 22.2182ZM6.88871 18.8163L7.21291 19.0164C8.57613 19.8237 10.1311 20.2501 11.7155 20.2511C13.6774 20.2515 15.5839 19.5999 17.1351 18.3986C18.6863 17.1974 19.7944 15.5148 20.285 13.6151C20.7757 11.7155 20.6212 9.70674 19.8457 7.90454C19.0703 6.10233 17.7179 4.60894 16.0012 3.65913C14.2844 2.70932 12.3008 2.35696 10.362 2.65744C8.42315 2.95792 6.63918 3.8942 5.2905 5.31909C3.94182 6.74398 3.10491 8.57668 2.91135 10.5291C2.71779 12.4814 3.17856 14.4428 4.2212 16.1048L4.42132 16.4389L3.5268 19.7028L6.88871 18.8163Z"
+											fill="#A3A3A3"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M17.0819 13.9233C17.0158 13.8113 16.8377 13.7452 16.5716 13.6132C16.3054 13.4811 14.9987 12.8367 14.7545 12.7467C14.5104 12.6566 14.3343 12.6146 14.1542 12.8807C13.9741 13.1469 13.4678 13.7452 13.3137 13.9233C13.1596 14.1014 13.0015 14.1235 12.7374 13.9894C11.9574 13.6761 11.2376 13.2299 10.6102 12.6706C10.0288 12.1328 9.53039 11.5117 9.13134 10.8276C8.97525 10.5614 9.11333 10.4274 9.24741 10.2853C9.38149 10.1432 9.51356 9.97309 9.64764 9.81901C9.75767 9.68478 9.84735 9.53509 9.91379 9.37475C9.94882 9.30123 9.96513 9.2202 9.96129 9.13886C9.95745 9.05751 9.93357 8.97838 9.89177 8.90849C9.82573 8.77641 9.29143 7.46767 9.07131 6.93536C8.85118 6.40306 8.63706 6.48711 8.47097 6.4771C8.30487 6.4671 8.13878 6.4771 7.96268 6.4771C7.82591 6.47936 7.69113 6.51027 7.56705 6.56783C7.44296 6.62539 7.33232 6.70833 7.24226 6.81129C6.94383 7.09426 6.70712 7.43588 6.54698 7.81468C6.38685 8.19349 6.30676 8.60131 6.31174 9.01255C6.31174 10.3213 7.26428 11.586 7.39836 11.7641C7.53244 11.9422 9.27343 14.6277 11.9409 15.7784C12.4362 15.9921 12.9425 16.1791 13.4578 16.3387C14.0003 16.5035 14.5738 16.5398 15.1328 16.4448C15.643 16.3687 16.7057 15.8004 16.9338 15.1801C17.1619 14.5597 17.1479 14.0334 17.0819 13.9233Z"
+											fill="#A3A3A3"
+										/>
+									</svg>
+								</a>
+								<a href="https://t.me/Vorobey_Art" class="contacts__link">
+									<svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M1.86721 9.14313C8.12277 6.41758 12.2938 4.62055 14.3803 3.75206C20.3397 1.27465 21.5844 0.844402 22.3849 0.828393C22.6817 0.822623 22.9729 0.910111 23.2174 1.07854C23.3889 1.22647 23.4983 1.43374 23.5235 1.65887C23.5666 1.93884 23.5787 2.22272 23.5596 2.50535C23.2374 5.90729 21.8386 14.13 21.1282 17.9301C20.828 19.531 20.2357 20.0774 19.6613 20.1314C18.4166 20.2454 17.4601 19.3069 16.2594 18.5165C14.3703 17.2778 13.3037 16.5153 11.4707 15.2986C9.35147 13.8978 10.7263 13.1354 11.9329 11.8827C12.2491 11.5545 17.7362 6.55966 17.8443 6.1074C17.8586 6.04062 17.8569 5.97142 17.8395 5.90538C17.8222 5.83934 17.7895 5.77831 17.7443 5.72718C17.6786 5.68613 17.6042 5.66096 17.5271 5.65366C17.45 5.64637 17.3722 5.65715 17.3 5.68516C17.1119 5.72652 14.0955 7.72032 8.25085 11.6666C7.39436 12.2549 6.61859 12.5417 5.92352 12.5271C5.15709 12.509 3.68424 12.0928 2.58762 11.7266C1.24485 11.2903 0.186257 11.0602 0.270305 10.3258C0.319667 9.94158 0.851966 9.54736 1.86721 9.14313Z"
+											fill="#A3A3A3"
+										/>
+									</svg>
+								</a>
+							</div>
+							<div class="contacts__col-group">
+								<a href="tel:+79113119113" class="contacts__link-text">+7 911 311 911 3</a>
+								<a href="mailto:team@vorobeyart.ru" class="contacts__link-text contacts__link-text--mail">team@vorobeyart.ru</a>
+							</div>
+						</div>
+						<button class="contacts-modal__close" @click="closeModal">
+							<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M1 1L24.9999 24.9999" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+								<path d="M25 1L1.00008 24.9999" stroke="#222222" stroke-linecap="round"/>
+							</svg>
+						</button>
 					</div>
-					<div class="contacts-form__wrapper">
-						<div class="contacts-form__column">
-							<label
-								class="contacts-form__label"
-								:class="{
-									'contacts-form__label--full': inputs.name.length > 0,
-								}"
-							>
-								<p class="contacts-form__text">Представьтесь, пожалуйста<span>*</span></p>
-								<input v-model="inputs.name" type="text" class="contacts-form__input" required />
+					<form @submit.prevent="onSubmit" class="contacts-modal__form">
+						<p class="contacts-modal__title">{{ $t('contacts.modal') }}</p>
+						<div class="contacts-modal__col">
+							<p class="contacts-modal__text">Заполните поля, и мы ответим Вам в ближайшее время</p>
+							<p class="contacts-modal__text contacts-modal__text--gray">Хотите просто пообщаться? Позвоните или напишите нам</p>
+						</div>
+						<div class="contacts-modal__row">
+							<label class="contacts-modal-input">
+								<p class="contacts-modal-input__title">{{ $t('contacts.input1') }}<span>*</span></p>
+								<input type="text" class="contacts-modal-input__input" v-model="inputs.name" :placeholder="$t('contacts.placeholder1')" required>
 							</label>
-							<label
-								class="contacts-form__label"
-								:class="{
-									'contacts-form__label--full': inputs.email.length > 0,
-								}"
-							>
-								<p class="contacts-form__text">Эл. почта для ответа<span>*</span></p>
-								<input v-model="inputs.email" type="email" class="contacts-form__input" required />
-							</label>
-							<label
-								class="contacts-form__label"
-								:class="{
-									'contacts-form__label--full': inputs.about.length > 0,
-								}"
-							>
-								<p class="contacts-form__text">О Вашем проекте</p>
-								<input v-model="inputs.about" type="text" class="contacts-form__input" />
-							</label>
-							<label
-								class="contacts-form__label"
-								:class="{
-									'contacts-form__label--full': inputs.phone.length > 0,
-								}"
-							>
-								<p class="contacts-form__text">Телефон<span>*</span></p>
-								<input v-model="inputs.phone" type="tel" class="contacts-form__input" required />
+							<label class="contacts-modal-input">
+								<p class="contacts-modal-input__title">{{ $t('contacts.input2') }}<span>*</span></p>
+								<input type="text" class="contacts-modal-input__input" v-model="inputs.company" :placeholder="$t('contacts.placeholder2')" required>
 							</label>
 						</div>
-						<div class="contacts-form__row">
-							<label class="checkbox">
-								<input v-model="inputs.checked" type="checkbox" class="checkbox__input" required />
-								<div class="checkbox__box">
-									<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M1.74609 8.19613L6.29316 12.9807L12.1392 1.01929" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-								</div>
-								<p class="checkbox__text">
-									Я ознакомлен с
-									<NuxtLink to="/policy">политикой обработки персональных данных</NuxtLink>
-									и согласен на их обработку
-								</p>
+						<div class="contacts-modal__row">
+							<label class="contacts-modal-input">
+								<p class="contacts-modal-input__title">{{ $t('contacts.input3') }}<span>*</span></p>
+								<input type="text" class="contacts-modal-input__input" v-model="inputs.phone" :placeholder="$t('contacts.placeholder3')" required>
 							</label>
+							<label class="contacts-modal-input">
+								<p class="contacts-modal-input__title">{{ $t('contacts.input4') }}</p>
+								<input type="text" class="contacts-modal-input__input" v-model="inputs.email" :placeholder="$t('contacts.placeholder4')">
+							</label>
+						</div>
+						<label class="contacts-modal-input contacts-modal-input--textarea">
+							<p class="contacts-modal-input__title">{{ $t('contacts.input5') }}</p>
+							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder5') }}</p>
+							<textarea class="contacts-modal-input__input" v-model="inputs.about"></textarea>
+						</label>
+						<label class="contacts-modal-input contacts-modal-input--file" :class="{ 'contacts-modal-input--error': inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 || inputs.files.filter(e => e.size > 25 * 1024 * 1024).length > 0 }">
+							<p class="contacts-modal-input__title">{{ $t('contacts.input6') }}</p>
+							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder6') }}</p>
+							<div class="contacts-modal-input__wrapper">
+								<input type="file" multiple @input="onFiles" class="contacts-modal-input__input">
+								<p class="contacts-modal-input__files">{{ $t('contacts.files') }}</p>
+								<template v-for="(file, i) in inputs.files" :key="i">
+									<p class="contacts-modal-input__file">
+										{{ file.name }} - {{ (file.size / 1024 / 1024).toFixed(2) }} МБ
+									</p>
+								</template>
+							</div>
+						</label>
+						<label class="contacts-modal-input">
+							<p class="contacts-modal-input__title">{{ $t('contacts.input7') }}</p>
+							<input type="text" class="contacts-modal-input__input" v-model="inputs.where" :placeholder="$t('contacts.placeholder7')">
+						</label>
+						<div class="contacts-modal__row">
 							<button
 								class="contacts-form__submit"
 								type="submit"
-								:disabled="!inputs.checked || inputs.name === '' || inputs.email === '' || inputs.phone === '' || disabled"
+								:disabled="inputs.name === '' || inputs.phone === '' || disabled || inputs?.files?.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024"
 							>
-								Отправить
+								{{ $t('contacts.send') }}
 							</button>
+							<p class="contacts-modal__text contacts-modal__text--small contacts-modal__text--gray">{{ $t('contacts.text1') }}</p>
 						</div>
-					</div>
-				</form> -->
-			</div>
-			<!-- <yandexMap>
-				<ymapMarker />
-			</yandexMap> -->
-		</div>
-		<!-- <div class="content contacts-maps">
-			<div class="content__wrapper">
-				<div class="contacts-maps__wrapper">
-					<div class="contacts-address" :class="{ 'contacts-address--active': address === 0 }" @click="goTo(0)">
-						<p class="contacts-address__title">Санкт-Петербург</p>
-						<p class="contacts-address__text">ул. Галерная 22-А офис № 38</p>
-						<a
-							class="contacts-address__link"
-							href="https://www.google.com/maps/place/%D0%93%D0%B0%D0%BB%D0%B5%D1%80%D0%BD%D0%B0%D1%8F+%D1%83%D0%BB.,+22%D0%90,+%D0%BE%D1%84%D0%B8%D1%81+38,+%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3,+190000/@59.9334795,30.2865273,15z/data=!3m1!4b1!4m6!3m5!1s0x4696311ef8340001:0x8ef5863636a0d5ab!8m2!3d59.933469!4d30.2952606!16s%2Fg%2F11rht303l5?hl=RU"
-							>Посмотреть на карте</a
-						>
-					</div>
-					<div class="contacts-address" :class="{ 'contacts-address--active': address === 1 }" @click="goTo(1)">
-						<p class="contacts-address__title">Мурманск</p>
-						<p class="contacts-address__text">ул. П. Осипенко 37-А (2 этаж)</p>
-						<a
-							class="contacts-address__link"
-							href="https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%9E%D1%81%D0%B8%D0%BF%D0%B5%D0%BD%D0%BA%D0%BE,+37%D0%90,+%D0%9C%D1%83%D1%80%D0%BC%D0%B0%D0%BD%D1%81%D0%BA,+%D0%9C%D1%83%D1%80%D0%BC%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB.,+183017/@69.016127,33.0910021,17z/data=!3m1!4b1!4m6!3m5!1s0x443411a729b4c9bf:0x8125989d467637dd!8m2!3d69.016127!4d33.0910021!16s%2Fg%2F11c28rm48_?hl=RU"
-							>Посмотреть на карте</a
-						>
-					</div>
+					</form>
 				</div>
 			</div>
-		</div> -->
+		</teleport>
 	</div>
-	<teleport to='body'>
-		<div class="contacts-modal" :class="{'contacts-modal--active': showModal}" @click.self="closeModal">
-			<div class="contacts-modal__wrapper">
-				<div class="contacts-modal__header">
-					<div class="contacts__col-link">
-						<div class="contacts__row">
-							<a href="https://wa.me/79113119113" class="contacts__link">
-								<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M0.985352 22.2182L2.49622 16.7031C1.32736 14.6735 0.860691 12.3149 1.16857 9.99313C1.47646 7.67132 2.54168 5.51593 4.19912 3.86109C5.85656 2.20625 8.01363 1.14441 10.3359 0.840177C12.6582 0.535945 15.016 1.00632 17.0438 2.17837C19.0716 3.35043 20.6561 5.1587 21.5516 7.32285C22.4472 9.487 22.6038 11.8862 21.9972 14.1484C21.3906 16.4106 20.0546 18.4095 18.1964 19.8352C16.3382 21.261 14.0616 22.0339 11.7195 22.0341C9.94283 22.0331 8.19473 21.5873 6.63458 20.7374L0.985352 22.2182ZM6.88871 18.8163L7.21291 19.0164C8.57613 19.8237 10.1311 20.2501 11.7155 20.2511C13.6774 20.2515 15.5839 19.5999 17.1351 18.3986C18.6863 17.1974 19.7944 15.5148 20.285 13.6151C20.7757 11.7155 20.6212 9.70674 19.8457 7.90454C19.0703 6.10233 17.7179 4.60894 16.0012 3.65913C14.2844 2.70932 12.3008 2.35696 10.362 2.65744C8.42315 2.95792 6.63918 3.8942 5.2905 5.31909C3.94182 6.74398 3.10491 8.57668 2.91135 10.5291C2.71779 12.4814 3.17856 14.4428 4.2212 16.1048L4.42132 16.4389L3.5268 19.7028L6.88871 18.8163Z"
-										fill="#A3A3A3"
-									/>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M17.0819 13.9233C17.0158 13.8113 16.8377 13.7452 16.5716 13.6132C16.3054 13.4811 14.9987 12.8367 14.7545 12.7467C14.5104 12.6566 14.3343 12.6146 14.1542 12.8807C13.9741 13.1469 13.4678 13.7452 13.3137 13.9233C13.1596 14.1014 13.0015 14.1235 12.7374 13.9894C11.9574 13.6761 11.2376 13.2299 10.6102 12.6706C10.0288 12.1328 9.53039 11.5117 9.13134 10.8276C8.97525 10.5614 9.11333 10.4274 9.24741 10.2853C9.38149 10.1432 9.51356 9.97309 9.64764 9.81901C9.75767 9.68478 9.84735 9.53509 9.91379 9.37475C9.94882 9.30123 9.96513 9.2202 9.96129 9.13886C9.95745 9.05751 9.93357 8.97838 9.89177 8.90849C9.82573 8.77641 9.29143 7.46767 9.07131 6.93536C8.85118 6.40306 8.63706 6.48711 8.47097 6.4771C8.30487 6.4671 8.13878 6.4771 7.96268 6.4771C7.82591 6.47936 7.69113 6.51027 7.56705 6.56783C7.44296 6.62539 7.33232 6.70833 7.24226 6.81129C6.94383 7.09426 6.70712 7.43588 6.54698 7.81468C6.38685 8.19349 6.30676 8.60131 6.31174 9.01255C6.31174 10.3213 7.26428 11.586 7.39836 11.7641C7.53244 11.9422 9.27343 14.6277 11.9409 15.7784C12.4362 15.9921 12.9425 16.1791 13.4578 16.3387C14.0003 16.5035 14.5738 16.5398 15.1328 16.4448C15.643 16.3687 16.7057 15.8004 16.9338 15.1801C17.1619 14.5597 17.1479 14.0334 17.0819 13.9233Z"
-										fill="#A3A3A3"
-									/>
-								</svg>
-							</a>
-							<a href="https://t.me/Vorobey_Art" class="contacts__link">
-								<svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M1.86721 9.14313C8.12277 6.41758 12.2938 4.62055 14.3803 3.75206C20.3397 1.27465 21.5844 0.844402 22.3849 0.828393C22.6817 0.822623 22.9729 0.910111 23.2174 1.07854C23.3889 1.22647 23.4983 1.43374 23.5235 1.65887C23.5666 1.93884 23.5787 2.22272 23.5596 2.50535C23.2374 5.90729 21.8386 14.13 21.1282 17.9301C20.828 19.531 20.2357 20.0774 19.6613 20.1314C18.4166 20.2454 17.4601 19.3069 16.2594 18.5165C14.3703 17.2778 13.3037 16.5153 11.4707 15.2986C9.35147 13.8978 10.7263 13.1354 11.9329 11.8827C12.2491 11.5545 17.7362 6.55966 17.8443 6.1074C17.8586 6.04062 17.8569 5.97142 17.8395 5.90538C17.8222 5.83934 17.7895 5.77831 17.7443 5.72718C17.6786 5.68613 17.6042 5.66096 17.5271 5.65366C17.45 5.64637 17.3722 5.65715 17.3 5.68516C17.1119 5.72652 14.0955 7.72032 8.25085 11.6666C7.39436 12.2549 6.61859 12.5417 5.92352 12.5271C5.15709 12.509 3.68424 12.0928 2.58762 11.7266C1.24485 11.2903 0.186257 11.0602 0.270305 10.3258C0.319667 9.94158 0.851966 9.54736 1.86721 9.14313Z"
-										fill="#A3A3A3"
-									/>
-								</svg>
-							</a>
-						</div>
-						<div class="contacts__col-group">
-							<a href="tel:+79113119113" class="contacts__link-text">+7 911 311 911 3</a>
-							<a href="mailto:team@vorobeyart.ru" class="contacts__link-text contacts__link-text--mail">team@vorobeyart.ru</a>
-						</div>
-					</div>
-					<button class="contacts-modal__close" @click="closeModal">
-						<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1 1L24.9999 24.9999" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
-							<path d="M25 1L1.00008 24.9999" stroke="#222222" stroke-linecap="round"/>
-						</svg>
-					</button>
-				</div>
-				<form @submit.prevent="onSubmit" class="contacts-modal__form">
-					<p class="contacts-modal__title">Давайте начнем</p>
-					<div class="contacts-modal__col">
-						<p class="contacts-modal__text">Заполните поля, и мы ответим Вам в ближайшее время</p>
-						<p class="contacts-modal__text contacts-modal__text--gray">Хотите просто пообщаться? Позвоните или напишите нам</p>
-					</div>
-					<div class="contacts-modal__row">
-						<label class="contacts-modal-input">
-							<p class="contacts-modal-input__title">Ваше имя<span>*</span></p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.name" placeholder="Представьтесь, пожалуйста" required>
-						</label>
-						<label class="contacts-modal-input">
-							<p class="contacts-modal-input__title">Название компании<span>*</span></p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.company" placeholder="Vorobey.art" required>
-						</label>
-					</div>
-					<div class="contacts-modal__row">
-						<label class="contacts-modal-input">
-							<p class="contacts-modal-input__title">Как связаться?<span>*</span></p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.phone" placeholder="Номер телефона" required>
-						</label>
-						<label class="contacts-modal-input">
-							<p class="contacts-modal-input__title">Эл. почта</p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.email" placeholder="Адрес электронной почты">
-						</label>
-					</div>
-					<label class="contacts-modal-input contacts-modal-input--textarea">
-						<p class="contacts-modal-input__title">Расскажите нам о проекте</p>
-						<p class="contacts-modal-input__text">Нужен новый сайт? Копирайтер? Расскажите нам</p>
-						<textarea class="contacts-modal-input__input" v-model="inputs.about"></textarea>
-					</label>
-					<label class="contacts-modal-input contacts-modal-input--file" :class="{ 'contacts-modal-input--error': inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 || inputs.files.filter(e => e.size > 25 * 1024 * 1024).length > 0 }">
-						<p class="contacts-modal-input__title">Пожалуйста, прикрепите дополнительные документы</p>
-						<p class="contacts-modal-input__text">Максимум 10 файлов по 25МБ каждый. Всего максимум 100МБ</p>
-						<div class="contacts-modal-input__wrapper">
-							<input type="file" multiple @input="onFiles" class="contacts-modal-input__input" placeholder="Адрес электронной почты">
-							<p class="contacts-modal-input__files">Перетащите файлы сюда или щелкните, чтобы выбрать их на устройстве</p>
-							<template v-for="(file, i) in inputs.files" :key="i">
-								<p class="contacts-modal-input__file">
-									{{ file.name }} - {{ (file.size / 1024 / 1024).toFixed(2) }} МБ
-								</p>
-							</template>
-						</div>
-					</label>
-					<label class="contacts-modal-input">
-						<p class="contacts-modal-input__title">Как Вы узнали о нас?</p>
-						<input type="text" class="contacts-modal-input__input" v-model="inputs.where" placeholder="От друга? Из Гугла? Из группы ВКонтакте?">
-					</label>
-					<div class="contacts-modal__row">
-						<button
-							class="contacts-form__submit"
-							type="submit"
-							:disabled="inputs.name === '' || inputs.phone === '' || disabled || inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024"
-						>
-							Отправить
-						</button>
-						<p class="contacts-modal__text contacts-modal__text--small contacts-modal__text--gray">Нажимая на кнопку “Отправить”, вы даете согласие на обработку персональных данных и соглашаетесь c <span>политикой конфиденциальности</span></p>
-					</div>
-				</form>
-			</div>
-		</div>
-	</teleport>
-	<!-- <div class="contacts-/map" style="background: url('../img/map.png')"></div> -->
 </template>
 
 <script>
@@ -379,10 +283,6 @@ export default {
 			// };
 			// let data = JSON.stringify({ name: this.$data.inputs.name, email: this.$data.inputs.email, about: this.$data.inputs.about, phone: this.$data.inputs.phone });
 			// request.send(data);
-		},
-		goTo(address) {
-			this.address = address;
-			// this.map.panTo(this.offices[address]);
 		},
 		onFiles(e) {
 			console.log([...e.target.files][0].name);
@@ -996,6 +896,9 @@ export default {
 				top: 100px;
 				bottom: auto;
 			}
+			.content__wrapper {
+				max-width: 864px;
+			}
 		}
 		.contacts-form {
 			width: 100%;
@@ -1031,6 +934,9 @@ export default {
 			&__title {
 				font-size: 35px;
 			}
+			&__row:last-child {
+				margin-top: 50px;
+			}
 		}
 	}
 	@media (max-width: 768px) {
@@ -1039,7 +945,7 @@ export default {
 			font-size: 30px;
 		}
 		.content__wrapper {
-			gap: 28px;
+			gap: 60px;
 		}
 		.contacts {
 			padding-top: 58px;
@@ -1090,6 +996,9 @@ export default {
 			}
 			&__title {
 				font-size: 30px;
+			}
+			&__wrapper  {
+				padding-top: 34px;
 			}
 		}
 	}
@@ -1170,6 +1079,12 @@ export default {
 				width: 100%;
 				padding-top: 30px;
 				max-width: 100%;
+			}
+			.contacts__col-link  {
+				gap: 30px;
+			}
+			&__text {
+				max-width: 283px;
 			}
 		}
 	}

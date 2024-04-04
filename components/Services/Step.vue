@@ -72,6 +72,13 @@ defineProps({
 		}
 	}
 }
+@media (max-width: 1024px) {
+	.services-item {
+		&__title {
+			font-size: 30px;
+		}
+	}
+}
 @media (max-width: 768px) {
 	.services-item {
 		&__title {

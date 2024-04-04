@@ -42,7 +42,7 @@ onMounted(() => {
 			document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight,
 			document.body.scrollHeight, document.body.offsetHeight
 		)
-		hidden.value = maxHeight.value - window.scrollY - window.innerHeight <= window.innerHeight
+		hidden.value = maxHeight.value - window.scrollY - window.innerHeight - 100 <= window.innerHeight
 	}, 10)
 })
 

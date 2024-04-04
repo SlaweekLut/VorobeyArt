@@ -127,6 +127,14 @@ const open = ref(false)
 		}
 	}
 }
+@media (max-width: 1440px) {
+	.accordion {
+		&__content {
+			max-width: 1164px;
+			margin: 0 auto;
+		}
+	}
+}
 @media (max-width: 1200px) {
 	.accordion {
 		&__title {
@@ -138,6 +146,14 @@ const open = ref(false)
 				width: 30px;
 				height: 30px;
 			}
+		}
+	}
+}
+@media (max-width: 1024px) {
+	.accordion {
+		&__content {
+			max-width: 100%;
+			width: 100%;
 		}
 	}
 }

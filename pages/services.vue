@@ -13,19 +13,7 @@
 		<img src="/img/about/feather.png" alt="" class="services__decor services__decor--2">
 		<div class="content services-text">
 			<div class="content__wrapper services-text__wrapper">
-				<p class="services-text__title">
-					Невозможно<br />
-					– не наш формат
-				</p>
-				<!-- <button class="services-text__button" @click="featherHandler($event)">
-					<span>Клик</span>
-					<span>Чирик</span>
-					<div class="services-text__circles">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</button> -->
+				<p class="services-text__title" v-html="$t('services.tagline')"></p>
 			</div>
 		</div>
 		<div class="content services-groups">
@@ -40,14 +28,6 @@
 								</p>
 							</div>
 						</div>
-						<!-- <NuxtLink :to="service.link" class="services-group__link">
-							Проекты
-							<span>
-								<svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L5 4L1 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</span>
-						</NuxtLink> -->
 						<ul class="services-group-list">
 							<li class="services-group-list__item" v-for="(item, i) in service.list" :key="i">{{ item }}</li>
 						</ul>
@@ -94,69 +74,69 @@
 		<div class="content services-lists">
 			<div class="content__wrapper">
 				<div class="services-lists__row">
-					<p class="services-lists__text">*** Этапы работы</p>
+					<p class="services-lists__text">*** {{ $t('services.stepstext') }}</p>
 					<p class="services-lists__text">Vorobey Art <span>x</span> XX24</p>
 				</div>
-				<Accordion title="Дизайн">
+				<Accordion :title="$t('services.steps.title1')">
 					<div class="services-more">
 						<div class="services-more__row">
-							<Step title="Бриф" step="01" icon="services-design-01" text="Сбор информации, понимание потребностей клиента и требований проекта."/>
-							<Step title="Поиск идей" step="02" icon="services-design-02" text="Генерация идей, проводим мозговые штурмы концепций и создаваем зарисовки дизайна."/>
+							<Step :title="$t('services.steps.title4')" step="01" icon="services-design-01" :text="$t('services.steps.text1')"/>
+							<Step :title="$t('services.steps.title5')" step="02" icon="services-design-02" :text="$t('services.steps.text2')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Наброски" step="03" icon="services-design-03" text="Создаем черновые эскизы и цифровые каркасы для визуализации макета и структуры дизайна."/>
-							<Step title="Прототип" step="04" icon="services-design-04" text="Разрабатываем интерактивные прототипы для тестирования функциональности, пользовательского опыта и сбора обратной связи."/>
+							<Step :title="$t('services.steps.title6')" step="03" icon="services-design-03" :text="$t('services.steps.text3')"/>
+							<Step :title="$t('services.steps.title7')" step="04" icon="services-design-04" :text="$t('services.steps.text4')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Создание" step="05" icon="services-design-05" text="Создание визуальных элементов, таких как графика, типографика, цветовые схемы и макет."/>
-							<Step title="Обратная связь" step="06" icon="services-design-06" text="Учитываем обратную связь заказчика и заинтересованных сторон. Вносим изменения и уточняем дизайн."/>
+							<Step :title="$t('services.steps.title8')" step="05" icon="services-design-05" :text="$t('services.steps.text5')"/>
+							<Step :title="$t('services.steps.title9')" step="06" icon="services-design-06" :text="$t('services.steps.text6')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Завершение" step="07" icon="services-design-07" text="Подготовка материалов проекта к производству, обеспечиваем их соответствие техническим спецификациям и требованиям."/>
-							<Step title="Сотрудничество" step="08" icon="services-design-08" text="Взаимодействуем с разработчиками, копирайтерами и другими членами команды, чтобы обеспечить правильную реализацию проекта далее."/>
+							<Step :title="$t('services.steps.title10')" step="07" icon="services-design-07" :text="$t('services.steps.text7')"/>
+							<Step :title="$t('services.steps.title11')" step="08" icon="services-design-08" :text="$t('services.steps.text8')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Тестирование" step="09" icon="services-design-09" text="Проводим тестирование, чтобы убедиться, что конструкция работает так, как задумано, и соответствует ожиданиям пользователей."/>
-							<Step title="Доставка" step="10" icon="services-design-10" text="Презентация окончательных результатов клиенту или отправка его в производство, обеспечивая предоставление всех необходимых файлов и документации."/>
+							<Step :title="$t('services.steps.title12')" step="09" icon="services-design-09" :text="$t('services.steps.text9')"/>
+							<Step :title="$t('services.steps.title13')" step="10" icon="services-design-10" :text="$t('services.steps.text10')"/>
 						</div>
 					</div>
 				</Accordion>
-				<Accordion title="Сайты">
+				<Accordion :title="$t('services.steps.title2')">
 					<div class="services-more">
 						<div class="services-more__row">
-							<Step title="Бриф" step="01" icon="services-web-01" text="Понимание требований, определение целей проекта и проведение исследования целевой аудитории и конкурентов."/>
-							<Step title="Прототип" step="02" icon="services-web-02" text="Создание визуального макета и пользовательского интерфейса веб-сайта, включая каркасы, макеты, а также выбор цветовых схем, шрифтов и графики."/>
+							<Step :title="$t('services.steps.title14')" step="01" icon="services-web-01" :text="$t('services.steps.text11')"/>
+							<Step :title="$t('services.steps.title15')" step="02" icon="services-web-02" :text="$t('services.steps.text12')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Создание контента" step="03" icon="services-web-03" text="Создание и организация контента: текст, изображения, видео и другие медиа-элементы. Это может включать в себя работу с копирайтерами, дизайнерами и специалистами по мультимедиа."/>
-							<Step title="Разработка" step="04" icon="services-web-04" text="Использование оптимальных решений для вашего проекта при переносе дизайна. Написание чистого и эффективного кода, создание адаптивных макетов и интеграция всех необходимых функций."/>
+							<Step :title="$t('services.steps.title16')" step="03" icon="services-web-03" :text="$t('services.steps.text13')"/>
+							<Step :title="$t('services.steps.title17')" step="04" icon="services-web-04" :text="$t('services.steps.text14')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Тестирование" step="05" icon="services-web-05" text="Тестирование работы сайта на разных устройствах, браузерах, размерах экрана. Выявление и исправление любых ошибок или проблем."/>
-							<Step title="Развертывание" step="06" icon="services-web-06" text="Загрузка сайта на сервер и настройка его доступности для общественности. Сюда входит регистрация домена, настройка хостинга и интеграция базы данных, если необходимо."/>
+							<Step :title="$t('services.steps.title18')" step="05" icon="services-web-05" :text="$t('services.steps.text15')"/>
+							<Step :title="$t('services.steps.title19')" step="06" icon="services-web-06" :text="$t('services.steps.text16')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Обслуживание" step="07" icon="services-web-07" text="Мониторинг производительности сайта, устранение любых возникающих проблем, а также внедрение обновлений или улучшений."/>
+							<Step :title="$t('services.steps.title20')" step="07" icon="services-web-07" :text="$t('services.steps.text17')"/>
 						</div>
 					</div>
 				</Accordion>
-				<Accordion title="Копирайтинг">
+				<Accordion :title="$t('services.steps.title3')">
 					<div class="services-more">
 						<div class="services-more__row">
-							<Step title="Исследование" step="01" icon="services-copyright-01" text="Сбор информации, понимание потребностей клиента и требований проекта."/>
-							<Step title="Планирование" step="02" icon="services-copyright-02" text="Генерация идей, проводим мозговые штурмы концепций и создаваем зарисовки дизайна."/>
+							<Step :title="$t('services.steps.title21')" step="01" icon="services-copyright-01" :text="$t('services.steps.text18')"/>
+							<Step :title="$t('services.steps.title22')" step="02" icon="services-copyright-02" :text="$t('services.steps.text19')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Написание" step="03" icon="services-copyright-03" text="Создаем черновые эскизы и цифровые каркасы для визуализации макета и структуры дизайна."/>
-							<Step title="Редактирование" step="04" icon="services-copyright-04" text="Разрабатываем интерактивные прототипы для тестирования функциональности, пользовательского опыта и сбора обратной связи."/>
+							<Step :title="$t('services.steps.title23')" step="03" icon="services-copyright-03" :text="$t('services.steps.text20')"/>
+							<Step :title="$t('services.steps.title24')" step="04" icon="services-copyright-04" :text="$t('services.steps.text21')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Обратная связь" step="05" icon="services-copyright-05" text="Создание визуальных элементов, таких как графика, типографика, цветовые схемы и макет."/>
-							<Step title="Пересмотр" step="06" icon="services-copyright-06" text="Учитываем обратную связь заказчика и заинтересованных сторон. Вносим изменения и уточняем дизайн."/>
+							<Step :title="$t('services.steps.title25')" step="05" icon="services-copyright-05" :text="$t('services.steps.text22')"/>
+							<Step :title="$t('services.steps.title26')" step="06" icon="services-copyright-06" :text="$t('services.steps.text23')"/>
 						</div>
 						<div class="services-more__row">
-							<Step title="Завершение" step="07" icon="services-copyright-07" text="Подготовка материалов проекта к производству, обеспечиваем их соответствие техническим спецификациям и требованиям."/>
-							<Step title="Тестирование" step="08" icon="services-copyright-08" text="Взаимодействуем с разработчиками, копирайтерами и другими членами команды, чтобы обеспечить правильную реализацию проекта далее."/>
+							<Step :title="$t('services.steps.title27')" step="07" icon="services-copyright-07" :text="$t('services.steps.text24')"/>
+							<Step :title="$t('services.steps.title28')" step="08" icon="services-copyright-08" :text="$t('services.steps.text25')"/>
 						</div>
 					</div>
 				</Accordion>
@@ -183,36 +163,36 @@ export default {
 		return {
 			services: [
 				{
-					title: 'Дизайн',
-					list: ['UX/UI', 'Фирменный стиль', 'Сайты / Приложения',  'Графический дизайн', 'Инфографика', '3D'],
+					title: this.$t('services.list.title1'),
+					list: this.$t('services.list.list1').split(', '),
 					link: 'works#design',
 				},
 				{
-					title: 'Сайты',
-					list: ['HTML / CSS / JS', 'iOS / Android', 'Backend / API', 'AR', 'CMS', '@^##_//'],
+					title: this.$t('services.list.title2'),
+					list: this.$t('services.list.list2').split(', '),
 					link: 'works#web',
 				},
 				{
-					title: 'Копирайт',
-					list: ['Сайты', 'Ком. предложения', 'Презентации', 'SMM', 'Нейминг', 'SEO тексты',],
+					title: this.$t('services.list.title3'),
+					list: this.$t('services.list.list3').split(', '),
 					link: 'works',
 				},
 			],
 		};
 	},
-	watch: {
-		'$route.name': {
-			handler: function (name) {
-				setTimeout(() => {
-					document.querySelectorAll('.feather').forEach((feather) => {
-						feather.remove();
-					});
-				}, 500);
-			},
-			deep: true,
-			// immediate: true,
-		},
-	},
+	// watch: {
+	// 	'$route.name': {
+	// 		handler: function (name) {
+	// 			setTimeout(() => {
+	// 				document.querySelectorAll('.feather').forEach((feather) => {
+	// 					feather.remove();
+	// 				});
+	// 			}, 500);
+	// 		},
+	// 		deep: true,
+	// 		// immediate: true,
+	// 	},
+	// },
 	methods: {
 		random(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -399,7 +379,7 @@ body {
 		:deep(.services-item:first-child .services-item__row) {
 			border-right: 1px solid #E0E0E0;
 		}
-		:deep(.services-item:last-child .services-item__row) {
+		:deep(.services-item:last-child:not(:first-child) .services-item__row) {
 			padding-left: 40px;
 			padding-right: 112px;
 		}
@@ -684,6 +664,9 @@ body {
 @media (max-width: 1440px) {
 	.services-lists {
 		padding: 0px 65px 150px;
+		.content__wrapper {
+			max-width: 1310px;
+		}
 		&__row {
 			padding-left: 72px;
 			padding-right: 72px;
@@ -729,11 +712,14 @@ body {
 	}
 }
 @media (max-width: 1024px) {
+	.services-lists {
+		padding: 0px 38px 120px;
+	}
 	.services-text {
 		margin: 0 auto;
 		padding: 90px 80px 60px;
 		&__title {
-			font-size: 30px;
+			font-size: 35px;
 		}
 	}
 	.services-groups {
@@ -743,7 +729,6 @@ body {
 	}
 	.services-groups__wrapper {
 		display: flex;
-		max-width: 608px;
 		width: 100%;
 	}
 	.services-group {
@@ -757,6 +742,11 @@ body {
 				width: 914px;
 				right: -150px;
 			}
+		}
+	}
+	.services-more {
+		:deep(.services-item .services-item__row) {
+			padding: 26px 90px 0px !important;
 		}
 	}
 	@keyframes logos {
@@ -793,11 +783,17 @@ body {
 			}
 		}
 	}
+	.services-groups {
+		padding: 0px 80px;
+	}
 	.services-text {
 		margin: 0 auto;
 		padding: 46px 80px 60px;
 		&__wrapper {
 			gap: 25px;
+		}
+		&__title {
+			font-size: 30px;
 		}
 	}
 	.services-lists {
@@ -806,8 +802,8 @@ body {
 	}
 	.services-more {
 		&__row {
-			:deep(.services-item:last-child .services-item__row) {
-				padding: 46px 42px 0px;
+			:deep(.services-item .services-item__row) {
+				padding: 46px 42px 0px !important;
 			}
 		}
 	}
@@ -836,6 +832,9 @@ body {
 	}
 }
 @media (max-width: 425px) {
+	.services-groups {
+		padding: 0px 30px;
+	}
 	.services {
 		&__decor {
 			&--1 {
@@ -846,8 +845,8 @@ body {
 	.services-more {
 		gap: 30px;
 		&__row {
-			:deep(.services-item:last-child .services-item__row) {
-				padding: 46px 23px 0px 13px
+			:deep(.services-item .services-item__row) {
+				padding: 46px 23px 0px 13px !important
 			}
 		}
 	}

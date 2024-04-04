@@ -237,9 +237,8 @@
 							'home-slides-info__bottom--preloader': curtains === 'Preloader',
 							// 'home-slides-info__bottom--scroll': isWait,
 						}"
+						v-html="$t('main.tagline')"
 					>
-						Создаем дизайн<br>
-						для сильных брендов
 					</p>
 					<div class="home-slides-info__pagination">
 						<div
@@ -665,8 +664,9 @@ export default {
 	&__wrapper {
 		position: absolute;
 		display: flex;
-		gap: 105px;
+		gap: 60px;
 		align-items: center;
+		z-index: 1;
 		top: 50%;
 		left: 50%;
 		transform: translate3d(-50%, -50%, 0);
@@ -1060,16 +1060,16 @@ export default {
 		bottom: 72px;
 		left: 80px;
 	}
-	.home-slides {
-		&__background {
-			max-width: 277px;
-			max-height: 370px;
-		}
-		&__img {
-			max-width: 368px;
-			max-height: 340px;
-		}
-	}
+	// .home-slides {
+	// 	&__background {
+	// 		max-width: 277px;
+	// 		max-height: 370px;
+	// 	}
+	// 	&__img {
+	// 		max-width: 368px;
+	// 		max-height: 340px;
+	// 	}
+	// }
 	.background-text {
 		height: 227px;
 	}
@@ -1088,6 +1088,14 @@ export default {
 				height: 32px;
 			}
 		}
+		&__background {
+			width: 237px;
+			height: 315px;
+			border-radius: 15px;
+		}
+		&__img  {
+			width: 302px;
+		}
 	}
 	.home-slides-info {
 		left: 55%;
@@ -1104,6 +1112,16 @@ export default {
 	}
 	.background-text {
 		height: 194px;
+	}
+	.home-link {
+		width: 117px;
+		height: 117px;
+		bottom: 47px;
+		left: 74px;
+		&__svg {
+			width: 117px;
+			height: 117px;
+		}
 	}
 }
 
@@ -1180,14 +1198,17 @@ export default {
 			font-size: 35px;
 			line-height: 35px;
 		}
+		&__wrapper {
+			gap: 63px;
+		}
 		&__background {
-			width: 186px;
-			height: 250px;
+			width: 228px;
+			height: 303px;
 			border-radius: 15px;
 		}
 		&__img {
-			width: 270px;
-			height: 250px;
+			width: 302px;
+			height: 280px;
 		}
 		&__pagination {
 			font-size: 16px;

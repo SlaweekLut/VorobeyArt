@@ -94,23 +94,25 @@
 			<div class="content about-text">
 				<div class="content__wrapper">
 					<div class="about-text__col">
-						<p class="about-text__title">«Как для себя»</p>
+						<p class="about-text__title">{{ $t('about.title') }}</p>
 						<p class="about-text__text">
-							Даже если вы не разбираетесь в создании дизайна, написании продающих текстов или коде, поможем разобраться и разложить задачу на этапы.
+							{{ $t('about.text') }}
 							<br>
 							<br>
-							Наша цель — выслушать, максимально понять желания клиента, вникнуть в суть и дать варианты готовых решений. 
+							{{ $t('about.text2') }}
+							
 							<br>
 							<br>
 							<br>
-							<span>//</span> Каждая деталь имеет значение
+							
+							<span>//</span> {{ $t('about.text3') }}
 						</p>
 					</div>
 					<div class="about-text__grid">
-						<AboutNumbers :curtains="curtains" number="120" title="Довольных клиентов" class="about-text__number" />
-						<AboutNumbers :curtains="curtains" number="8" title="Экспертов в команде" class="about-text__number" />
-						<AboutNumbers :curtains="curtains" number="257" title="Завершенных проектов" class="about-text__number" />
-						<AboutNumbers :curtains="curtains" number="25" title="Общий опыт команды (лет)" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="120" :title="$t('about.number1')" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="8" :title="$t('about.number2')" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="257" :title="$t('about.number3')" class="about-text__number" />
+						<AboutNumbers :curtains="curtains" number="25" :title="$t('about.number4')" class="about-text__number" />
 					</div>
 				</div>
 			</div>
@@ -207,26 +209,26 @@ export default {
 			clientId: '',
 		};
 	},
-	async mounted() {
-		await this.updateLikes();
-	},
+	// async mounted() {
+	// 	await this.updateLikes();
+	// },
 
 	methods: {
-		async updateLikes() {
-			this.sending = true;
-			try {
-				const { data } = await axios.post('/like-handler.php', {
-					id: '',
-					toggle: false,
-				});
-				this.likesCount = data.likesCount;
-				this.cards[0].subtitle = `2 + 2 = ${this.likesCount || '0'}`;
-			} catch (error) {
-				console.log('не удалось обновить количество лайков', error);
-			} finally {
-				this.sending = false;
-			}
-		},
+		// async updateLikes() {
+		// 	this.sending = true;
+		// 	try {
+		// 		const { data } = await axios.post('/like-handler.php', {
+		// 			id: '',
+		// 			toggle: false,
+		// 		});
+		// 		this.likesCount = data.likesCount;
+		// 		this.cards[0].subtitle = `2 + 2 = ${this.likesCount || '0'}`;
+		// 	} catch (error) {
+		// 		console.log('не удалось обновить количество лайков', error);
+		// 	} finally {
+		// 		this.sending = false;
+		// 	}
+		// },
 		open(number) {
 			if (number === this.$data.close) this.$data.close = '00';
 			else this.$data.close = number;
@@ -398,7 +400,7 @@ body {
 		bottom: 0;
 		width: 110vw;
 		left: 50%;
-		bottom: -40%;
+		bottom: -10%;
 		height: auto;
 		transform: translate(-50%, 0) rotate(-15deg);
 		svg {

@@ -66,25 +66,25 @@ export default {
 			}
 		};
 	},
-	watch: {
-		curtains() {
-			console.log('%c%s', 'background: lightgreen; color: #222; padding: 2px 6px; border-radius: 20px;', 'Curtains:', this.curtains);
-		},
-		'$route.name': {
-			handler: function (name) {
-				this.currentPageName = name;
-				console.log('%c%s', 'background: lightblue; color: #222; padding: 2px 6px; border-radius: 20px;', 'Current Page:', name);
+	// watch: {
+	// 	curtains() {
+	// 		console.log('%c%s', 'background: lightgreen; color: #222; padding: 2px 6px; border-radius: 20px;', 'Curtains:', this.curtains);
+	// 	},
+	// 	// '$route.name': {
+	// 	// 	handler: function (name) {
+	// 	// 		this.currentPageName = name;
+	// 	// 		console.log('%c%s', 'background: lightblue; color: #222; padding: 2px 6px; border-radius: 20px;', 'Current Page:', name);
 
-				if ( name === 'works' || name === 'about' || name === 'policy' || name === 'services') {
-					document.body.classList.add('lines');
-				} else {
-					document.body.classList.remove('lines');
-				}
-			},
-			deep: true,
-			// immediate: true,
-		},
-	},
+	// 	// 		if ( name === 'works' || name === 'about' || name === 'policy' || name === 'services') {
+	// 	// 			document.body.classList.add('lines');
+	// 	// 		} else {
+	// 	// 			document.body.classList.remove('lines');
+	// 	// 		}
+	// 	// 	},
+	// 	// 	deep: true,
+	// 	// 	// immediate: true,
+	// 	// },
+	// },
 	async mounted() {
 		let password = localStorage.getItem('VorobeyArtPassword')
 		if(password === this.pass) this.isDeveloper = true

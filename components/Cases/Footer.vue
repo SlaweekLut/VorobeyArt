@@ -5,7 +5,7 @@
 			</div>
 			<div class="footer-contacts__col">
 				<p class="footer-contacts__title">
-					Подробнее
+					{{ $t('footer.more') }}
 				</p>
 				<div class="footer-contacts__info">
 					<NuxtLink to="https://disk.yandex.ru/i/ffr_32LgvsLmYg" target="_blank" class="home-link">
@@ -53,7 +53,7 @@
 							<path d="M1 1L24.9981 1" stroke="white" stroke-width="2" stroke-linecap="round"/>
 						</svg>
 					</NuxtLink>
-					<p class="footer-contacts__tagline">Создаём дизайн <br> для сильных брендов</p>
+					<p class="footer-contacts__tagline" v-html="$t('footer.tagline')"></p>
 					<!-- <a href="https://disk.yandex.ru/i/ffr_32LgvsLmYg" target="_blank" rel="noopener noreferrer" class="footer-contacts__link">Презентация</a> -->
 				</div>
 			</div>
@@ -75,7 +75,7 @@
 			</div>
 			<div class="footer-contacts__col">
 				<p class="footer-contacts__title">
-					Контакты
+					{{ $t('footer.contacts') }}
 				</p>
 				<div class="footer-contacts__info footer-contacts__info--contacts">
 					<div class="footer-contacts__contacts-row">
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 		<div class="footer__wrapper">
-			<NuxtLink :to="`/${settings.next}`" class="footer" v-if="case">
+			<NuxtLink :to="`${settings.next}`" class="footer" v-if="case">
 				<picture>
 					<source
 						media="(max-width: 768px)"
