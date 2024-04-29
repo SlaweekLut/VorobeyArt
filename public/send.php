@@ -19,7 +19,7 @@ $dataAbout = $_POST['about'];
 $dataPhone = $_POST['phone'];
 $dataCompany = $_POST['company'];
 $dataWhere = $_POST['where'];
-$dataFiles = $_FILES['myfile'];
+// $dataFiles = $_FILES['myfile']; я не уверен что так будет работать
 
 // настройки SMTP
 $mail->Mailer = 'smtp';
@@ -45,7 +45,10 @@ $mail->setFrom($yourEmail, $dataEmail);
 
 // кому - получатель письма
 $mail->addAddress($yourEmail, 'Имя Получателя');  // кому
-$mail->addAttachment($dataFiles['tmp_name'][0], $dataFiles['name'][0]);
+// $mail->addAttachment($dataFiles['tmp_name'][0], $dataFiles['name'][0]); 
+
+// я для того чтобы добавить файлы использую глобальную переменную $_FILES (https://www.php.net/manual/ru/reserved.variables.files.php)
+$mail->addAttachment($_FILES['myfile']['tmp_name'], $_FILES['myfile']['name']);
 $mail->Subject = 'Vorobey Art: Обратная связь!';  // тема письма
 
 $mail->msgHTML("

@@ -121,7 +121,7 @@
 							</svg>
 						</button>
 					</div>
-					<form @submit.prevent="onSubmit" enctype="multipart/form-data" class="contacts-modal__form">
+					<form @submit.prevent="onSubmit" enctype="multipart/form-data" class="contacts-modal__form" ref="contactsForm">
 						<p class="contacts-modal__title">{{ $t('contacts.modal') }}</p>
 						<div class="contacts-modal__col">
 							<p class="contacts-modal__text">Заполните поля, и мы ответим Вам в ближайшее время</p>
@@ -225,44 +225,67 @@ export default {
 	methods: {
 		onSubmit(e) {
 			const button = document.querySelector('.contacts-form__submit');
-			const formData = new FormData()
-			formData.append('name', this.inputs.name);
-			formData.append('company', this.inputs.company);
-			formData.append('email', this.inputs.email);
-			formData.append('about', this.inputs.about);
-			formData.append('phone', this.inputs.phone);
-			formData.append('where', this.inputs.where);
-			formData.append('myfile', this.inputs.files);
-			let data = this;
+			const formData = new FormData(this.$refs.contactsForm); // так лаконичнее же будет
+      button.innerText = 'Отправляется...';
+      button.classList.add('is-sending');
+			// formData.append('name', this.inputs.name);
+			// formData.append('company', this.inputs.company);
+			// formData.append('email', this.inputs.email);
+			// formData.append('about', this.inputs.about);
+			// formData.append('phone', this.inputs.phone);
+			// formData.append('where', this.inputs.where);
+			// formData.append('myfile', this.inputs.files);
+
+      // чтобы не плодить лишние переменные и сбивать самого себя с толку, можно просто использовать стрелочные функции
+			// let data = this;
 			axios
 				.post('/send.php', formData, {
 					headers: {
 						'Content-Type': 'multipart/mixed',
 					},
 				})
-				.then(function (e) {
-					button.innerText = 'Отправляется...';
-					button.classList.add('is-sending');
-					console.log(data.inputs.files)
-					setTimeout(() => {
-						button.innerText = 'Отправлено';
-						button.classList.remove('is-sending');
-						data.showModal = false;
-						data.disabled = true;
-						data.inputs = {
-							name: '',
-							email: '',
-							about: '',
-							phone: '',
-							company: '',
-							where: '',
-							checked: false,
-							files: [],
-						};
-					}, 2000);
+				.then((e) => {
+          // в данный момент письмо уже отправлено, когда сработает then, асинхронная функция уже завершена
+					// button.innerText = 'Отправляется...';
+					// button.classList.add('is-sending');
+					console.log(this.inputs.files)
+
+          //  а для чего вообще использовать таймаут и уже после отправки заставлять пользователя ждать ещё целых 2 секунды?
+					// setTimeout(() => {
+					// 	button.innerText = 'Отправлено';
+					// 	button.classList.remove('is-sending');
+					// 	data.showModal = false;
+					// 	data.disabled = true;
+					// 	this.inputs = {
+					// 		name: '',
+					// 		email: '',
+					// 		about: '',
+					// 		phone: '',
+					// 		company: '',
+					// 		where: '',
+					// 		checked: false,
+					// 		files: [],
+					// 	};
+					// }, 2000);
+
+          button.innerText = 'Отправлено';
+          button.classList.remove('is-sending');
+          this.showModal = false;
+          this.disabled = true;
+          this.$refs.contactsForm.reset()
+          this.inputs = {
+            name: '',
+            email: '',
+            about: '',
+            phone: '',
+            company: '',
+            where: '',
+            checked: false,
+            files: [],
+          };
 				})
-				.catch(function () {
-					data.inputs = {
+				.catch(() => {
+					this.inputs = {
 						name: '',
 						email: '',
 						about: '',
@@ -272,7 +295,7 @@ export default {
 						files: [],
 						checked: false,
 					};
-					data.disabled = true;
+					this.disabled = true;
 					button.classList.add('is-error');
 					button.innerText = 'Попробуйте позже';
 				});
