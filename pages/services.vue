@@ -131,12 +131,11 @@
 							<Step :title="$t('services.steps.title24')" step="04" icon="services-copyright-04" :text="$t('services.steps.text21')"/>
 						</div>
 						<div class="services-more__row">
-							<Step :title="$t('services.steps.title25')" step="05" icon="services-copyright-05" :text="$t('services.steps.text22')"/>
-							<Step :title="$t('services.steps.title26')" step="06" icon="services-copyright-06" :text="$t('services.steps.text23')"/>
+							<Step :title="$t('services.steps.title25')" step="05" icon="services-copyright-06" :text="$t('services.steps.text22')"/>
+							<Step :title="$t('services.steps.title26')" step="06" icon="services-copyright-05" :text="$t('services.steps.text23')"/>
 						</div>
 						<div class="services-more__row">
 							<Step :title="$t('services.steps.title27')" step="07" icon="services-copyright-07" :text="$t('services.steps.text24')"/>
-							<Step :title="$t('services.steps.title28')" step="08" icon="services-copyright-08" :text="$t('services.steps.text25')"/>
 						</div>
 					</div>
 				</Accordion>
@@ -659,6 +658,11 @@ body {
 			filter: grayscale(0);
 		}
 	}
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 0;
+		height: 0;
+	}
 }
 
 @media (max-width: 1440px) {
@@ -717,7 +721,7 @@ body {
 	}
 	.services-text {
 		margin: 0 auto;
-		padding: 90px 80px 60px;
+		padding: 70px 80px 60px;
 		&__title {
 			font-size: 35px;
 		}
@@ -730,11 +734,6 @@ body {
 	.services-groups__wrapper {
 		display: flex;
 		width: 100%;
-	}
-	.services-group {
-		&__title {
-			font-size: 20px;
-		}
 	}
 	.services {
 		&__decor {
@@ -775,6 +774,11 @@ body {
 	}
 }
 @media (max-width: 768px) {
+	.services-group {
+		&__title {
+			font-size: 20px;
+		}
+	}
 	.services {
 		&__decor {
 			&--1 {
@@ -782,6 +786,9 @@ body {
 				right: -117px;
 			}
 		}
+	}
+	.services-group-list {
+		margin-top: 25px;
 	}
 	.services-groups {
 		padding: 0px 80px;
@@ -851,9 +858,9 @@ body {
 		}
 	}
 	.services-lists {
+		padding-left: 18px;
+		padding-right: 18px;
 		.content__wrapper {
-			padding-left: 18px;
-			padding-right: 18px;
 			max-width: 100%;
 		}
 	}

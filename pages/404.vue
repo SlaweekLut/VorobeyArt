@@ -93,7 +93,7 @@ body
 @media (max-width: 768px)
 	.error
 		&__img
-			left: 50%
+			left: 40%
 			top: 500px
 			width: calc(100% + 85px)
 			transform: translate(-50%, 0)
@@ -116,7 +116,7 @@ body
 @media (max-width: 425px)
 	.error
 		&__img
-			left: 50%
+			left: 40%
 			top: 330px
 			width: calc(100% + 85px)
 			transform: translate(-50%, 0)

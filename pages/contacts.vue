@@ -121,7 +121,7 @@
 							</svg>
 						</button>
 					</div>
-					<form @submit.prevent="onSubmit" class="contacts-modal__form">
+					<form @submit.prevent="onSubmit" enctype="multipart/form-data" class="contacts-modal__form">
 						<p class="contacts-modal__title">{{ $t('contacts.modal') }}</p>
 						<div class="contacts-modal__col">
 							<p class="contacts-modal__text">Заполните поля, и мы ответим Вам в ближайшее время</p>
@@ -152,11 +152,11 @@
 							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder5') }}</p>
 							<textarea class="contacts-modal-input__input" v-model="inputs.about"></textarea>
 						</label>
-						<label class="contacts-modal-input contacts-modal-input--file" :class="{ 'contacts-modal-input--error': inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 || inputs.files.filter(e => e.size > 25 * 1024 * 1024).length > 0 }">
+						<label class="contacts-modal-input contacts-modal-input--file" :class="{ 'contacts-modal-input--error': inputs.files.length > 0 ? inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 || inputs.files?.filter(e => e.size > 25 * 1024 * 1024).length > 0 : false }">
 							<p class="contacts-modal-input__title">{{ $t('contacts.input6') }}</p>
 							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder6') }}</p>
 							<div class="contacts-modal-input__wrapper">
-								<input type="file" multiple @input="onFiles" class="contacts-modal-input__input">
+								<input name="myfile" type="file" @input="onFiles" class="contacts-modal-input__input">
 								<p class="contacts-modal-input__files">{{ $t('contacts.files') }}</p>
 								<template v-for="(file, i) in inputs.files" :key="i">
 									<p class="contacts-modal-input__file">
@@ -173,11 +173,11 @@
 							<button
 								class="contacts-form__submit"
 								type="submit"
-								:disabled="inputs.name === '' || inputs.phone === '' || disabled || inputs?.files?.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024"
+								:disabled="inputs.name === '' || inputs.phone === '' || disabled || inputs.files.length > 0 ? inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 : false"
 							>
 								{{ $t('contacts.send') }}
 							</button>
-							<p class="contacts-modal__text contacts-modal__text--small contacts-modal__text--gray">{{ $t('contacts.text1') }}</p>
+							<p class="contacts-modal__text contacts-modal__text--small contacts-modal__text--gray" v-html="$t('contacts.text1')"></p>
 						</div>
 					</form>
 				</div>
@@ -225,27 +225,29 @@ export default {
 	methods: {
 		onSubmit(e) {
 			const button = document.querySelector('.contacts-form__submit');
-			const params = new URLSearchParams();
-			params.append('name', this.inputs.name);
-			params.append('company', this.inputs.company);
-			params.append('email', this.inputs.email);
-			params.append('about', this.inputs.about);
-			params.append('phone', this.inputs.phone);
-			params.append('where', this.inputs.where);
-			params.append('files', this.inputs.files);
+			const formData = new FormData()
+			formData.append('name', this.inputs.name);
+			formData.append('company', this.inputs.company);
+			formData.append('email', this.inputs.email);
+			formData.append('about', this.inputs.about);
+			formData.append('phone', this.inputs.phone);
+			formData.append('where', this.inputs.where);
+			formData.append('myfile', this.inputs.files);
 			let data = this;
 			axios
-				.post('/send.php', params, {
+				.post('/send.php', formData, {
 					headers: {
-						'content-type': 'application/x-www-form-urlencoded',
+						'Content-Type': 'multipart/mixed',
 					},
 				})
 				.then(function (e) {
 					button.innerText = 'Отправляется...';
 					button.classList.add('is-sending');
+					console.log(data.inputs.files)
 					setTimeout(() => {
 						button.innerText = 'Отправлено';
 						button.classList.remove('is-sending');
+						data.showModal = false;
 						data.disabled = true;
 						data.inputs = {
 							name: '',
@@ -255,6 +257,7 @@ export default {
 							company: '',
 							where: '',
 							checked: false,
+							files: [],
 						};
 					}, 2000);
 				})
@@ -266,6 +269,7 @@ export default {
 						phone: '',
 						company: '',
 						where: '',
+						files: [],
 						checked: false,
 					};
 					data.disabled = true;

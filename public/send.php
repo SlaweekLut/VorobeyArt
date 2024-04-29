@@ -11,7 +11,7 @@ $mail->CharSet = 'UTF-8';
 
 
 $yourEmail = 'team@vorobeyart.ru';
-$password = 'Ff267S_Zs555';
+$password = 'psmrygtnlzozivjr';
 
 $dataName = $_POST['name'];
 $dataEmail = $_POST['email'];
@@ -19,6 +19,7 @@ $dataAbout = $_POST['about'];
 $dataPhone = $_POST['phone'];
 $dataCompany = $_POST['company'];
 $dataWhere = $_POST['where'];
+$dataFiles = $_FILES['myfile'];
 
 // настройки SMTP
 $mail->Mailer = 'smtp';
@@ -28,15 +29,23 @@ $mail->SMTPAuth = true;
 $mail->Username = $yourEmail; // ваш email - тот же что и в поле From:
 $mail->Password = $password; // ваш пароль;
 
-
 // формируем письмо
+
+// if (!empty($dataFiles['name'][0])) {
+// 	for ($i = 0; $i < count($dataFiles['tmp_name']); $i++) {
+// 		echo ($dataFiles['name'][$i]);
+// 		echo ($dataFiles['tmp_name'][$i]);
+// 		if ($dataFiles['error'][$i] === 0) 
+// 				$mail->addAttachment($dataFiles['tmp_name'][$i], $dataFiles['name'][$i]);
+// 	}
+// }
 
 // от кого: это поле должно быть равно вашему email иначе будет ошибка
 $mail->setFrom($yourEmail, $dataEmail);
 
 // кому - получатель письма
 $mail->addAddress($yourEmail, 'Имя Получателя');  // кому
-
+$mail->addAttachment($dataFiles['tmp_name'][0], $dataFiles['name'][0]);
 $mail->Subject = 'Vorobey Art: Обратная связь!';  // тема письма
 
 $mail->msgHTML("
@@ -52,11 +61,9 @@ $mail->msgHTML("
 	</html>
 	");
 
-
 if ($mail->send()) { // отправляем письмо
     echo 'Письмо отправлено!';
 } else {
     echo 'Ошибка: ' . $mail->ErrorInfo;
 }
-
 ?>

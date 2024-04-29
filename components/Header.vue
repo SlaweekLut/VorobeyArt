@@ -710,8 +710,8 @@ export default {
 		font-size: 20px;
 	}
 	&__img {
-		width: 39px;
-		height: 42px;
+		width: 40px;
+		height: 40px;
 	}
 	&--open {
 		position: fixed;
@@ -762,6 +762,7 @@ export default {
 	}
 	.header-menu {
 		right: 41px;
+		padding: 0;
 	}
 	.header {
 		min-height: 102px;
@@ -781,6 +782,9 @@ export default {
 			margin-left: 0;
 			padding-left: 26px;
 		}
+	}
+	.header-logo {
+		gap: 40px;
 	}
 }
 @media (max-width: 768px) {
@@ -966,7 +970,7 @@ export default {
 	}
 }
 
-@media (max-width: 425px) {
+@media (max-width: 507px) {
 	.header-glass {
 		min-height: 74px;
 		height: 74px;
@@ -1011,8 +1015,8 @@ export default {
 	.header-logo {
 		gap: 18px;
 		&__img {
-			width: 27px;
-			height: 30px;
+			width: 28px;
+			height: 28px;
 		}
 		&__text {
 			font-size: 14px;

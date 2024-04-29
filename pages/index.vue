@@ -576,7 +576,7 @@ export default {
 			svg:last-child {
 				overflow: hidden;
 				* {
-					animation: animationSlideUp 1s ease both 2.7s;
+					animation: animationSlideUp 1s ease both 0.9s;
 				}
 			}
 		}
@@ -1186,7 +1186,7 @@ export default {
 	}
 }
 
-@media (max-width: 425px) {
+@media (max-width: 507px) {
 	.home-slides-info {
 		max-width: 320px;
 		&__text {

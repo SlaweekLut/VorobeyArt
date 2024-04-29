@@ -552,6 +552,11 @@ body {
 			filter: grayscale(0);
 		}
 	}
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 0;
+		height: 0;
+	}
 }
 
 @media (max-width: 1200px) {
