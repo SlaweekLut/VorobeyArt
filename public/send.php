@@ -48,7 +48,7 @@ $mail->addAddress($yourEmail, 'Имя Получателя');  // кому
 // $mail->addAttachment($dataFiles['tmp_name'][0], $dataFiles['name'][0]); 
 
 // я для того чтобы добавить файлы использую глобальную переменную $_FILES (https://www.php.net/manual/ru/reserved.variables.files.php)
-$mail->addAttachment($_FILES['myfile']['tmp_name'], $_FILES['myfile']['name']);
+$mail->addAttachment($_FILES['myfiles']['tmp_name'], $_FILES['myfiles']['name']);
 $mail->Subject = 'Vorobey Art: Обратная связь!';  // тема письма
 
 $mail->msgHTML("

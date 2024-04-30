@@ -130,33 +130,33 @@
 						<div class="contacts-modal__row">
 							<label class="contacts-modal-input">
 								<p class="contacts-modal-input__title">{{ $t('contacts.input1') }}<span>*</span></p>
-								<input type="text" class="contacts-modal-input__input" v-model="inputs.name" :placeholder="$t('contacts.placeholder1')" required>
+								<input type="text" name="name" class="contacts-modal-input__input" v-model="inputs.name" :placeholder="$t('contacts.placeholder1')" required>
 							</label>
 							<label class="contacts-modal-input">
 								<p class="contacts-modal-input__title">{{ $t('contacts.input2') }}<span>*</span></p>
-								<input type="text" class="contacts-modal-input__input" v-model="inputs.company" :placeholder="$t('contacts.placeholder2')" required>
+								<input type="text" name="company" class="contacts-modal-input__input" v-model="inputs.company" :placeholder="$t('contacts.placeholder2')" required>
 							</label>
 						</div>
 						<div class="contacts-modal__row">
 							<label class="contacts-modal-input">
 								<p class="contacts-modal-input__title">{{ $t('contacts.input3') }}<span>*</span></p>
-								<input type="text" class="contacts-modal-input__input" v-model="inputs.phone" :placeholder="$t('contacts.placeholder3')" required>
+								<input type="text" name="phone" class="contacts-modal-input__input" v-model="inputs.phone" :placeholder="$t('contacts.placeholder3')" required>
 							</label>
 							<label class="contacts-modal-input">
 								<p class="contacts-modal-input__title">{{ $t('contacts.input4') }}</p>
-								<input type="text" class="contacts-modal-input__input" v-model="inputs.email" :placeholder="$t('contacts.placeholder4')">
+								<input type="text" name="email" class="contacts-modal-input__input" v-model="inputs.email" :placeholder="$t('contacts.placeholder4')">
 							</label>
 						</div>
 						<label class="contacts-modal-input contacts-modal-input--textarea">
 							<p class="contacts-modal-input__title">{{ $t('contacts.input5') }}</p>
 							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder5') }}</p>
-							<textarea class="contacts-modal-input__input" v-model="inputs.about"></textarea>
+							<textarea name="about" class="contacts-modal-input__input" v-model="inputs.about"></textarea>
 						</label>
 						<label class="contacts-modal-input contacts-modal-input--file" :class="{ 'contacts-modal-input--error': inputs.files.length > 0 ? inputs.files.reduce((a, b) => a + b.size, 0) > 100 * 1024 * 1024 || inputs.files?.filter(e => e.size > 25 * 1024 * 1024).length > 0 : false }">
 							<p class="contacts-modal-input__title">{{ $t('contacts.input6') }}</p>
 							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder6') }}</p>
 							<div class="contacts-modal-input__wrapper">
-								<input name="myfile" type="file" @input="onFiles" class="contacts-modal-input__input">
+								<input name="myfiles" multiple type="file" @input="onFiles" class="contacts-modal-input__input">
 								<p class="contacts-modal-input__files">{{ $t('contacts.files') }}</p>
 								<template v-for="(file, i) in inputs.files" :key="i">
 									<p class="contacts-modal-input__file">
@@ -167,7 +167,7 @@
 						</label>
 						<label class="contacts-modal-input">
 							<p class="contacts-modal-input__title">{{ $t('contacts.input7') }}</p>
-							<input type="text" class="contacts-modal-input__input" v-model="inputs.where" :placeholder="$t('contacts.placeholder7')">
+							<input type="text" name="where" class="contacts-modal-input__input" v-model="inputs.where" :placeholder="$t('contacts.placeholder7')">
 						</label>
 						<div class="contacts-modal__row">
 							<button
