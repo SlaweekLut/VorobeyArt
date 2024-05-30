@@ -156,7 +156,7 @@
 							<p class="contacts-modal-input__title">{{ $t('contacts.input6') }}</p>
 							<p class="contacts-modal-input__text">{{ $t('contacts.placeholder6') }}</p>
 							<div class="contacts-modal-input__wrapper">
-								<input name="myfiles" multiple type="file" @input="onFiles" class="contacts-modal-input__input">
+								<input name="myfiles[]" multiple type="file" @input="onFiles" class="contacts-modal-input__input">
 								<p class="contacts-modal-input__files">{{ $t('contacts.files') }}</p>
 								<template v-for="(file, i) in inputs.files" :key="i">
 									<p class="contacts-modal-input__file">

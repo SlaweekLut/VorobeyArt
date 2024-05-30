@@ -615,7 +615,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: __nuxt_page_meta$s == null ? void 0 : __nuxt_page_meta$s.redirect,
-    component: () => import("./_nuxt/contacts-B-J0aajz.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/contacts-4VJtrsm3.js").then((m) => m.default || m)
   },
   {
     name: "energotek",
